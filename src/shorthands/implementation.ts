@@ -1,15 +1,15 @@
 import * as pd from 'exupery-core-data'
 
-import * as unresolved from "../generated/interface/schemas/exupery_implementation/poormans_parser"
+import * as unresolved from "../generated/interface/schemas/implementation/unresolved"
 
-import * as unresolved_interface from "../generated/interface/schemas/exupery_interface/poormans_parser"
+import * as unresolved_interface from "../generated/interface/schemas/interface/unresolved"
 
 import {
     Raw_Or_Normal_Dictionary,
     wrap_dictionary,
     wrap_list,
     wrap_state_group,
-} from "exupery-core-data/dist/shorthands"
+} from 'exupery-core-data/dist/shorthands/unconstrained'
 
 export namespace vi {
 

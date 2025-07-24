@@ -1,6 +1,6 @@
 import * as _pt from 'exupery-core-types'
 
-import * as _i_core from "../../core/poormans_parser"
+import * as _i_core from "../../core/unresolved"
 
 // **** TYPES
 

@@ -1,9 +1,9 @@
 import * as pa from 'exupery-core-alg'
 import * as pt from 'exupery-core-types'
 
-import * as s_in from "../../generated/interface/schemas/exupery_implementation/resolved"
-import * as s_in_interface from "../../generated/interface/schemas/exupery_interface/resolved"
-import * as s_out from "pareto-fountain-pen/dist/generated/interface/schemas/block/unresolved"
+import * as s_in from "../../generated/interface/schemas/implementation/resolved"
+import * as s_in_interface from "../../generated/interface/schemas/interface/resolved"
+import * as s_out from "pareto-fountain-pen/dist/generated/interface/schemas/block/unconstrained"
 
 import { $$ as x } from "../typescript/operations/create_identifier"
 

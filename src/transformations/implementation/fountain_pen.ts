@@ -1,7 +1,7 @@
 
 
-import * as s_in from "../../generated/interface/schemas/exupery_implementation/resolved"
-import * as s_out from "pareto-fountain-pen/dist/generated/interface/schemas/lines/unresolved"
+import * as s_in from "../../generated/interface/schemas/implementation/resolved"
+import * as s_out from "pareto-fountain-pen/dist/generated/interface/schemas/lines/unconstrained"
 
 import * as _interface from "../interface/typescript"
 

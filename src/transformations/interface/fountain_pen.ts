@@ -1,5 +1,5 @@
 
-import * as s_in from "../../generated/interface/schemas/exupery_interface/resolved"
+import * as s_in from "../../generated/interface/schemas/interface/resolved"
 
 
 import * as t_fountain_pen_block_to_semi_lines from "pareto-fountain-pen/dist/transformations/block/semi_lines"
