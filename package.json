@@ -1,6 +1,6 @@
 {
   "name": "exupery",
-  "version": "0.0.1",
+  "version": "0.0.2",
   "description": "A library for the Exupery programming Language",
   "main": "./dist/index.js",
   "types": "dist/index.d.ts",
