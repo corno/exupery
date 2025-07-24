@@ -9,7 +9,7 @@ import {
     wrap_dictionary,
     wrap_list,
     wrap_state_group,
-} from 'exupery-core-data/dist/shorthands/unconstrained'
+} from 'exupery-core-data/dist/shorthands/unresolved'
 
 export namespace vi {
 

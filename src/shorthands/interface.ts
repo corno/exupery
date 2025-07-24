@@ -8,7 +8,7 @@ import {
     Raw_Or_Normal_Dictionary,
     to_raw_array,
     wrap_state_group,
-} from 'exupery-core-data/dist/shorthands/unconstrained'
+} from 'exupery-core-data/dist/shorthands/unresolved'
 
 export namespace import_ {
 
