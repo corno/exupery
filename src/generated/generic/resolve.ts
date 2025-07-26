@@ -2,7 +2,7 @@ import * as pa from 'exupery-core-alg'
 import * as pt from 'exupery-core-types'
 import * as pd from 'exupery-core-data'
 
-import * as unresolved$ from "../interface/core/poormans_parser"
+import * as unresolved$ from "../interface/core/unresolved"
 import * as resolved$ from "../interface/core/resolved"
 
 export type Location_to_String<Source> = ($: Source) => string
