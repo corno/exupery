@@ -5,11 +5,11 @@ import * as s_in from "../../generated/interface/schemas/implementation/resolved
 import * as s_in_interface from "../../generated/interface/schemas/interface/resolved"
 import * as s_out from "pareto-fountain-pen/dist/generated/interface/schemas/block/unconstrained"
 
-import { $$ as x } from "../typescript/operations/create_identifier"
+import { $$ as x } from "../typescript_light/operations/create_identifier"
 
-import * as _interface from "../interface/typescript"
+import * as _interface from "../interface/typescript_temp"
 
-import { Type as Type_to_Line_Part } from "../typescript/fountain_pen"
+import { Type as Type_to_Line_Part } from "../typescript_light/fountain_pen_block"
 
 import { impure, pure } from "pareto-standard-operations"
 

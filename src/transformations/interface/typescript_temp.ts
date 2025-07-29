@@ -2,18 +2,18 @@ import * as pa from 'exupery-core-alg'
 import * as pt from 'exupery-core-types'
 
 import * as s_in from "../../generated/interface/schemas/interface/resolved"
-import * as s_out from "pareto-fountain-pen/dist/generated/interface/schemas/block/unconstrained"
+import * as s_out from "../../generated/interface/schemas/typescript_temp/unconstrained"
 
 import * as s_ts from "../../generated/interface/schemas/typescript_light/unconstrained"
 
 import * as sh2 from "../../shorthands/typescript_light"
 
-import { String_Literal, Type as Type_to_Line_Part } from "../typescript/fountain_pen"
+import { String_Literal, Type as Type_to_Line_Part } from "../typescript_light/fountain_pen_block"
 
 import {
     b, l, block,
 } from "pareto-fountain-pen/dist/shorthands/block"
-import { $$ as x } from "../typescript/operations/create_identifier"
+import { $$ as x } from "../typescript_light/operations/create_identifier"
 import { impure } from "pareto-standard-operations"
 import { pure } from "pareto-standard-operations"
 
