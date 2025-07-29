@@ -3,7 +3,7 @@ import * as pt from 'exupery-core-types'
 
 import * as s_in from "../../generated/interface/schemas/implementation/resolved"
 import * as s_in_interface from "../../generated/interface/schemas/interface/resolved"
-import * as s_out from "pareto-fountain-pen/dist/generated/interface/schemas/block/unconstrained"
+import * as s_out from "../../generated/interface/schemas/typescript_temp/unconstrained"
 
 import { $$ as x } from "../typescript_light/operations/create_identifier"
 
@@ -28,6 +28,91 @@ const op = {
     'create valid file name': impure.text['create valid file name'],
     'create identifier': x
 }
+
+export const Module_Set = (
+    $: s_in.Module_Set,
+    $p: {
+        'phase': 'development' | 'production'
+    }
+): s_out.Directory => {
+    return $.map(($, key) => pa.cc($, ($) => {
+        switch ($[0]) {
+            case 'module': return pa.ss($, ($): s_out.Directory.D => {
+                const type_imports = $['type imports']
+                const valid_file_name = ($: string): string => {
+                    return op['create valid file name']($, { 'replace spaces with underscores': true })
+                }
+                const x: s_out.Block = block([
+                    b.simple_line("import * as _pa from 'exupery-core-alg'"),
+                    $p.phase === 'development' ? b.simple_line("import * as _pd from 'exupery-core-dev'") : b.nothing(),
+
+                    b.simple_line(""),
+                    b.sub_decorated(op['dictionary to list, sorted by code point']($['type imports']).map(($) => b.sub([
+                        b.nested_line([
+                            l.snippet("import * as "),
+                            l.snippet(op['create identifier']([" i ", $.key])),
+                            l.snippet(" from "),
+                            String_Literal(
+                                pa.cc($.value.type, ($): string => {
+                                    switch ($[0]) {
+                                        case 'external': return pa.ss($, ($) => valid_file_name($))
+                                        case 'ancestor': return pa.ss($, ($) => `${op['repeat text']("../", { 'count': $['number of steps'] })}${valid_file_name($.dependency)}`)
+                                        case 'sibling': return pa.ss($, ($) => `./${valid_file_name($)}`)
+                                        default: return pa.au($[0])
+                                    }
+                                })
+                                + op['join list of texts'](
+                                    $.value.tail.map(($) => `/${valid_file_name($)}`),
+                                ),
+                                {
+                                    'delimiter': "quote"
+                                }
+                            ),
+                        ])
+                    ]))),
+
+                    b.simple_line(""),
+                    b.sub_decorated(op['dictionary to list, sorted by code point']($['variable imports']).map(($) => b.sub([
+                        b.nested_line([
+                            l.snippet("import * as "),
+                            l.snippet(op['create identifier']([" i var ", $.key])),
+                            l.snippet(" from "),
+                            String_Literal(
+                                pa.cc($.value.type, ($): string => {
+                                    switch ($[0]) {
+                                        case 'external': return pa.ss($, ($) => valid_file_name($))
+                                        case 'ancestor': return pa.ss($, ($) => `${op['repeat text']("../", { 'count': $['number of steps'] })}${valid_file_name($.dependency)}`)
+                                        case 'sibling': return pa.ss($, ($) => `./${valid_file_name($)}`)
+                                        default: return pa.au($[0])
+                                    }
+                                })
+                                + op['join list of texts'](
+                                    $.value.tail.map(($) => `/${valid_file_name($)}`),
+                                ),
+                                {
+                                    'delimiter': "quote"
+                                }
+                            ),
+                        ])
+                    ]))),
+
+                    b.simple_line(""),
+                    Variables(
+                        $.variables,
+                        {
+                            'type imports': type_imports,
+                            'export': true,
+                        }
+                    ),
+                ])
+                return ['file', x]
+            })
+            case 'set': return pa.ss($, ($) => ['directory', Module_Set($, $p)])
+            default: return pa.au($[0])
+        }
+    }))
+}
+
 
 export function line_dictionary(
     $: pt.Dictionary<s_out.Line_Part>,
@@ -458,90 +543,6 @@ export const Variables = (
         ])
 
     ])))
-}
-
-export const Module_Set = (
-    $: s_in.Module_Set,
-    $p: {
-        'phase': 'development' | 'production'
-    }
-): s_out.Directory => {
-    return $.map(($, key) => pa.cc($, ($) => {
-        switch ($[0]) {
-            case 'module': return pa.ss($, ($): s_out.Directory.D => {
-                const type_imports = $['type imports']
-                const valid_file_name = ($: string): string => {
-                    return op['create valid file name']($, { 'replace spaces with underscores': true })
-                }
-                const x: s_out.Block = block([
-                    b.simple_line("import * as _pa from 'exupery-core-alg'"),
-                    $p.phase === 'development' ? b.simple_line("import * as _pd from 'exupery-core-dev'") : b.nothing(),
-
-                    b.simple_line(""),
-                    b.sub_decorated(op['dictionary to list, sorted by code point']($['type imports']).map(($) => b.sub([
-                        b.nested_line([
-                            l.snippet("import * as "),
-                            l.snippet(op['create identifier']([" i ", $.key])),
-                            l.snippet(" from "),
-                            String_Literal(
-                                pa.cc($.value.type, ($): string => {
-                                    switch ($[0]) {
-                                        case 'external': return pa.ss($, ($) => valid_file_name($))
-                                        case 'ancestor': return pa.ss($, ($) => `${op['repeat text']("../", { 'count': $['number of steps'] })}${valid_file_name($.dependency)}`)
-                                        case 'sibling': return pa.ss($, ($) => `./${valid_file_name($)}`)
-                                        default: return pa.au($[0])
-                                    }
-                                })
-                                + op['join list of texts'](
-                                    $.value.tail.map(($) => `/${valid_file_name($)}`),
-                                ),
-                                {
-                                    'delimiter': "quote"
-                                }
-                            ),
-                        ])
-                    ]))),
-
-                    b.simple_line(""),
-                    b.sub_decorated(op['dictionary to list, sorted by code point']($['variable imports']).map(($) => b.sub([
-                        b.nested_line([
-                            l.snippet("import * as "),
-                            l.snippet(op['create identifier']([" i var ", $.key])),
-                            l.snippet(" from "),
-                            String_Literal(
-                                pa.cc($.value.type, ($): string => {
-                                    switch ($[0]) {
-                                        case 'external': return pa.ss($, ($) => valid_file_name($))
-                                        case 'ancestor': return pa.ss($, ($) => `${op['repeat text']("../", { 'count': $['number of steps'] })}${valid_file_name($.dependency)}`)
-                                        case 'sibling': return pa.ss($, ($) => `./${valid_file_name($)}`)
-                                        default: return pa.au($[0])
-                                    }
-                                })
-                                + op['join list of texts'](
-                                    $.value.tail.map(($) => `/${valid_file_name($)}`),
-                                ),
-                                {
-                                    'delimiter': "quote"
-                                }
-                            ),
-                        ])
-                    ]))),
-
-                    b.simple_line(""),
-                    Variables(
-                        $.variables,
-                        {
-                            'type imports': type_imports,
-                            'export': true,
-                        }
-                    ),
-                ])
-                return ['file', x]
-            })
-            case 'set': return pa.ss($, ($) => ['directory', Module_Set($, $p)])
-            default: return pa.au($[0])
-        }
-    }))
 }
 
 export const Literal = (
