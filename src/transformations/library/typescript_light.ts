@@ -4,10 +4,10 @@ import * as pt from 'exupery-core-types'
 import * as s_in_inf from "../../generated/interface/schemas/interface/resolved"
 import * as s_in_imp from "../../generated/interface/schemas/implementation/resolved"
 
-import * as s_out from "../../generated/interface/schemas/typescript_temp/unconstrained"
+import * as s_out from "../../generated/interface/schemas/typescript_light/unconstrained"
 
-import * as t_interface_to_typescript_temp from "../interface/typescript_temp"
-import * as t_implementation_to_typescript_temp from "../implementation/typescript_temp"
+import * as t_interface_to_typescript_temp from "../interface/typescript_light"
+import * as t_implementation_to_typescript_temp from "../implementation/typescript_light"
 
 //shorthands
 import * as sh from "pareto-fountain-pen/dist/shorthands/block"

@@ -3,11 +3,11 @@ import * as pt from 'exupery-core-types'
 
 import * as s_in from "../../generated/interface/schemas/implementation/resolved"
 import * as s_in_interface from "../../generated/interface/schemas/interface/resolved"
-import * as s_out from "../../generated/interface/schemas/typescript_temp/unconstrained"
+import * as s_out from "../../generated/interface/schemas/typescript_light/unconstrained"
 
 import { $$ as x } from "../typescript_light/operations/create_identifier"
 
-import * as _interface from "../interface/typescript_temp"
+import * as _interface from "../interface/typescript_light"
 
 import { Type as Type_to_Line_Part } from "../typescript_light/fountain_pen_block"
 

@@ -2,7 +2,7 @@ import * as pa from 'exupery-core-alg'
 import * as pt from 'exupery-core-types'
 
 import * as s_in from "../../generated/interface/schemas/interface/resolved"
-import * as s_out from "../../generated/interface/schemas/typescript_temp/unconstrained"
+import * as s_out from "../../generated/interface/schemas/typescript_light/unconstrained"
 
 import * as s_ts from "../../generated/interface/schemas/typescript_light/unconstrained"
 

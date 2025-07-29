@@ -20,6 +20,11 @@ import {
     b, l
 } from "pareto-fountain-pen/dist/shorthands/block"
 
+
+export const Block = ($: s_in.Block): s_out.Block => {
+    return $ //FIXME: this is a temporary solution
+}
+
 export const Identifier = (
     $: string //FIX should have been a schema type
 ): s_out.Line_Part => {
