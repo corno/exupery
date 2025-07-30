@@ -309,12 +309,17 @@ export namespace i {
         source: unresolved.Selection<pd.Source_Location>,
         if_set: unresolved.Initialization<pd.Source_Location>,
         if_not_set: unresolved.Initialization<pd.Source_Location>,
+        resulting_type?: null | unresolved_interface.Type<pd.Source_Location>,
     ): unresolved.Initialization<pd.Source_Location> => {
+        const rt: unresolved.Initialization.SG.transformation._type.SG.tagged_union.SG._switch.resulting_node<pd.Source_Location> = (resulting_type === null || resulting_type === undefined) ? pd.not_set() : pd.set(resulting_type)
+
         return wrap_state_group(['transformation', {
             'source': source,
             'type': wrap_state_group(['optional', wrap_state_group(['transform', {
                 'if set': if_set,
                 'if not set': if_not_set,
+                'resulting node': rt,
+
             }])])
         }])
     }

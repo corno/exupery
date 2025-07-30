@@ -50,6 +50,7 @@ export type _T_Initialization = _i_core._T_State_Group<null,
                 | readonly ['transform', {
                     readonly 'if not set': _T_Initialization
                     readonly 'if set': _T_Initialization
+                    readonly 'resulting node': _pt.Optional_Value<_i_imports_interface._T_Type>
                 }]
             >]
             | readonly ['tagged union', _i_core._T_State_Group<null, 
@@ -391,10 +392,19 @@ export namespace _T_Initialization {
                                 export namespace if_set {
                                 }
                                 export type if_set = _T_Initialization
+                                
+                                export namespace resulting_node {
+                                    
+                                    export namespace O {
+                                    }
+                                    export type O = _i_imports_interface._T_Type
+                                }
+                                export type resulting_node = _pt.Optional_Value<_i_imports_interface._T_Type>
                             }
                             export type transform = {
                                 readonly 'if not set': _T_Initialization
                                 readonly 'if set': _T_Initialization
+                                readonly 'resulting node': _pt.Optional_Value<_i_imports_interface._T_Type>
                             }
                         }
                         export type SG = 
@@ -402,6 +412,7 @@ export namespace _T_Initialization {
                             | readonly ['transform', {
                                 readonly 'if not set': _T_Initialization
                                 readonly 'if set': _T_Initialization
+                                readonly 'resulting node': _pt.Optional_Value<_i_imports_interface._T_Type>
                             }]
                     }
                     export type optional = _i_core._T_State_Group<null, 
@@ -409,6 +420,7 @@ export namespace _T_Initialization {
                         | readonly ['transform', {
                             readonly 'if not set': _T_Initialization
                             readonly 'if set': _T_Initialization
+                            readonly 'resulting node': _pt.Optional_Value<_i_imports_interface._T_Type>
                         }]
                     >
                     
@@ -549,6 +561,7 @@ export namespace _T_Initialization {
                         | readonly ['transform', {
                             readonly 'if not set': _T_Initialization
                             readonly 'if set': _T_Initialization
+                            readonly 'resulting node': _pt.Optional_Value<_i_imports_interface._T_Type>
                         }]
                     >]
                     | readonly ['tagged union', _i_core._T_State_Group<null, 
@@ -591,6 +604,7 @@ export namespace _T_Initialization {
                     | readonly ['transform', {
                         readonly 'if not set': _T_Initialization
                         readonly 'if set': _T_Initialization
+                        readonly 'resulting node': _pt.Optional_Value<_i_imports_interface._T_Type>
                     }]
                 >]
                 | readonly ['tagged union', _i_core._T_State_Group<null, 
@@ -636,6 +650,7 @@ export namespace _T_Initialization {
                     | readonly ['transform', {
                         readonly 'if not set': _T_Initialization
                         readonly 'if set': _T_Initialization
+                        readonly 'resulting node': _pt.Optional_Value<_i_imports_interface._T_Type>
                     }]
                 >]
                 | readonly ['tagged union', _i_core._T_State_Group<null, 
@@ -700,6 +715,7 @@ export namespace _T_Initialization {
                     | readonly ['transform', {
                         readonly 'if not set': _T_Initialization
                         readonly 'if set': _T_Initialization
+                        readonly 'resulting node': _pt.Optional_Value<_i_imports_interface._T_Type>
                     }]
                 >]
                 | readonly ['tagged union', _i_core._T_State_Group<null, 
@@ -1347,10 +1363,19 @@ export namespace Initialization {
                                 export namespace if_set {
                                 }
                                 export type if_set = _T_Initialization
+                                
+                                export namespace resulting_node {
+                                    
+                                    export namespace O {
+                                    }
+                                    export type O = _i_imports_interface._T_Type
+                                }
+                                export type resulting_node = _pt.Optional_Value<_i_imports_interface._T_Type>
                             }
                             export type transform = {
                                 readonly 'if not set': _T_Initialization
                                 readonly 'if set': _T_Initialization
+                                readonly 'resulting node': _pt.Optional_Value<_i_imports_interface._T_Type>
                             }
                         }
                         export type SG = 
@@ -1358,6 +1383,7 @@ export namespace Initialization {
                             | readonly ['transform', {
                                 readonly 'if not set': _T_Initialization
                                 readonly 'if set': _T_Initialization
+                                readonly 'resulting node': _pt.Optional_Value<_i_imports_interface._T_Type>
                             }]
                     }
                     export type optional = _i_core._T_State_Group<null, 
@@ -1365,6 +1391,7 @@ export namespace Initialization {
                         | readonly ['transform', {
                             readonly 'if not set': _T_Initialization
                             readonly 'if set': _T_Initialization
+                            readonly 'resulting node': _pt.Optional_Value<_i_imports_interface._T_Type>
                         }]
                     >
                     
@@ -1505,6 +1532,7 @@ export namespace Initialization {
                         | readonly ['transform', {
                             readonly 'if not set': _T_Initialization
                             readonly 'if set': _T_Initialization
+                            readonly 'resulting node': _pt.Optional_Value<_i_imports_interface._T_Type>
                         }]
                     >]
                     | readonly ['tagged union', _i_core._T_State_Group<null, 
@@ -1547,6 +1575,7 @@ export namespace Initialization {
                     | readonly ['transform', {
                         readonly 'if not set': _T_Initialization
                         readonly 'if set': _T_Initialization
+                        readonly 'resulting node': _pt.Optional_Value<_i_imports_interface._T_Type>
                     }]
                 >]
                 | readonly ['tagged union', _i_core._T_State_Group<null, 
@@ -1592,6 +1621,7 @@ export namespace Initialization {
                     | readonly ['transform', {
                         readonly 'if not set': _T_Initialization
                         readonly 'if set': _T_Initialization
+                        readonly 'resulting node': _pt.Optional_Value<_i_imports_interface._T_Type>
                     }]
                 >]
                 | readonly ['tagged union', _i_core._T_State_Group<null, 
@@ -1656,6 +1686,7 @@ export namespace Initialization {
                     | readonly ['transform', {
                         readonly 'if not set': _T_Initialization
                         readonly 'if set': _T_Initialization
+                        readonly 'resulting node': _pt.Optional_Value<_i_imports_interface._T_Type>
                     }]
                 >]
                 | readonly ['tagged union', _i_core._T_State_Group<null, 

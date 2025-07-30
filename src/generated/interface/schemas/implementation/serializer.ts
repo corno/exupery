@@ -1,44 +1,44 @@
 import * as _pt from 'exupery-core-types'
 
 import * as _i_in from "./resolved"
-import * as _i_out from "./unresolved"
+import * as _i_out from "../../core/astn_target"
 
 // **** TYPES
 
 export type _T_Initialization = (
     $$_: _i_in._T_Initialization,
     $$_p: null,
-) => _i_out._T_Initialization<null>
+) => _i_out._T_Value
 
 export type _T_Literal = (
     $$_: _i_in._T_Literal,
     $$_p: null,
-) => _i_out._T_Literal<null>
+) => _i_out._T_Value
 
 export type _T_Module = (
     $$_: _i_in._T_Module,
     $$_p: null,
-) => _i_out._T_Module<null>
+) => _i_out._T_Value
 
 export type _T_Module_Set = (
     $$_: _i_in._T_Module_Set,
     $$_p: null,
-) => _i_out._T_Module_Set<null>
+) => _i_out._T_Value
 
 export type _T_Selection = (
     $$_: _i_in._T_Selection,
     $$_p: null,
-) => _i_out._T_Selection<null>
+) => _i_out._T_Value
 
 export type _T_Type_Parameters = (
     $$_: _i_in._T_Type_Parameters,
     $$_p: null,
-) => _i_out._T_Type_Parameters<null>
+) => _i_out._T_Value
 
 export type _T_Variables = (
     $$_: _i_in._T_Variables,
     $$_p: null,
-) => _i_out._T_Variables<null>
+) => _i_out._T_Value
 
 // **** FRIENDLY NAMES FOR THE GLOBAL TYPES
 
@@ -68,9 +68,8 @@ export namespace _T_Initialization {
     }
     
     export namespace RESULT {
-        export type annotation = null
     }
-    export type RESULT = _i_out._T_Initialization<null>
+    export type RESULT = _i_out._T_Value
 }
 
 export namespace _T_Literal {
@@ -83,9 +82,8 @@ export namespace _T_Literal {
     }
     
     export namespace RESULT {
-        export type annotation = null
     }
-    export type RESULT = _i_out._T_Literal<null>
+    export type RESULT = _i_out._T_Value
 }
 
 export namespace _T_Module {
@@ -98,9 +96,8 @@ export namespace _T_Module {
     }
     
     export namespace RESULT {
-        export type annotation = null
     }
-    export type RESULT = _i_out._T_Module<null>
+    export type RESULT = _i_out._T_Value
 }
 
 export namespace _T_Module_Set {
@@ -113,9 +110,8 @@ export namespace _T_Module_Set {
     }
     
     export namespace RESULT {
-        export type annotation = null
     }
-    export type RESULT = _i_out._T_Module_Set<null>
+    export type RESULT = _i_out._T_Value
 }
 
 export namespace _T_Selection {
@@ -128,9 +124,8 @@ export namespace _T_Selection {
     }
     
     export namespace RESULT {
-        export type annotation = null
     }
-    export type RESULT = _i_out._T_Selection<null>
+    export type RESULT = _i_out._T_Value
 }
 
 export namespace _T_Type_Parameters {
@@ -143,9 +138,8 @@ export namespace _T_Type_Parameters {
     }
     
     export namespace RESULT {
-        export type annotation = null
     }
-    export type RESULT = _i_out._T_Type_Parameters<null>
+    export type RESULT = _i_out._T_Value
 }
 
 export namespace _T_Variables {
@@ -158,9 +152,8 @@ export namespace _T_Variables {
     }
     
     export namespace RESULT {
-        export type annotation = null
     }
-    export type RESULT = _i_out._T_Variables<null>
+    export type RESULT = _i_out._T_Value
 }
 
 // *** ALIASES FOR NESTED TYPES
@@ -175,9 +168,8 @@ export namespace Initialization {
     }
     
     export namespace RESULT {
-        export type annotation = null
     }
-    export type RESULT = _i_out._T_Initialization<null>
+    export type RESULT = _i_out._T_Value
 }
 
 export namespace Literal {
@@ -190,9 +182,8 @@ export namespace Literal {
     }
     
     export namespace RESULT {
-        export type annotation = null
     }
-    export type RESULT = _i_out._T_Literal<null>
+    export type RESULT = _i_out._T_Value
 }
 
 export namespace Module {
@@ -205,9 +196,8 @@ export namespace Module {
     }
     
     export namespace RESULT {
-        export type annotation = null
     }
-    export type RESULT = _i_out._T_Module<null>
+    export type RESULT = _i_out._T_Value
 }
 
 export namespace Module_Set {
@@ -220,9 +210,8 @@ export namespace Module_Set {
     }
     
     export namespace RESULT {
-        export type annotation = null
     }
-    export type RESULT = _i_out._T_Module_Set<null>
+    export type RESULT = _i_out._T_Value
 }
 
 export namespace Selection {
@@ -235,9 +224,8 @@ export namespace Selection {
     }
     
     export namespace RESULT {
-        export type annotation = null
     }
-    export type RESULT = _i_out._T_Selection<null>
+    export type RESULT = _i_out._T_Value
 }
 
 export namespace Type_Parameters {
@@ -250,9 +238,8 @@ export namespace Type_Parameters {
     }
     
     export namespace RESULT {
-        export type annotation = null
     }
-    export type RESULT = _i_out._T_Type_Parameters<null>
+    export type RESULT = _i_out._T_Value
 }
 
 export namespace Variables {
@@ -265,7 +252,6 @@ export namespace Variables {
     }
     
     export namespace RESULT {
-        export type annotation = null
     }
-    export type RESULT = _i_out._T_Variables<null>
+    export type RESULT = _i_out._T_Value
 }

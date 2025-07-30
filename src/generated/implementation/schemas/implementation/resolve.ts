@@ -302,9 +302,22 @@ export const r_Initialization: _i_signatures._T_Initialization<_i_generic._T_Loc
                                                         }),
                                                     }
                                                 ))
+                                                const p_resulting_node: _i_out._T_Initialization.SG.transformation._type.SG.optional.SG.transform.resulting_node = _pa.cc($['resulting node'], ($) => $.map(($) => _pa.block(() => {
+                                                    return _i_r_interface.r_Type(
+                                                        $,
+                                                        {
+                                                            'location 2 string': l2s,
+                                                            'parameters': ({
+                                                                'lookups': null,
+                                                                'values': null,
+                                                            }),
+                                                        }
+                                                    )
+                                                })))
                                                 return ({
                                                     'if not set': p_if_not_set,
                                                     'if set': p_if_set,
+                                                    'resulting node': p_resulting_node,
                                                 })
                                             })
                                         })])

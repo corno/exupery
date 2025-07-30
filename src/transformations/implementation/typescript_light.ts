@@ -406,7 +406,26 @@ export const Initialization = (
                                         l.snippet(".transform("),
                                         l.indent([
                                             b.nested_line([
-                                                l.snippet("($) => "),
+                                                l.snippet("($)"),
+                                                $['resulting node'].transform(
+                                                    ($) => l.sub([
+                                                        l.snippet(": "),
+                                                        Type(
+                                                            _interface.Type_to_Type(
+                                                                $,
+                                                                {
+                                                                    'global type parameters': pa.not_set(),
+                                                                    'temp imports': pa.set($p['temp imports']),
+                                                                },
+                                                            ),
+                                                            {
+                                                                'replace empty type literals by null': true
+                                                            }
+                                                        ),
+                                                    ]),
+                                                    () => l.nothing()
+                                                ),
+                                                l.snippet(" => "),
                                                 Initialization($['if set'], $p),
                                                 l.snippet(","),
                                             ]),
