@@ -8,7 +8,7 @@ import * as s_ts from "../../generated/interface/schemas/typescript_light/uncons
 
 import * as sh2 from "../../shorthands/typescript_light"
 
-import { String_Literal, Type as Type_to_Line_Part } from "../typescript_light/fountain_pen_block"
+import { String_Literal, Type } from "../typescript_light/fountain_pen_block"
 
 import {
     b, l, block,
@@ -125,7 +125,7 @@ export const Module_Set = ($: s_in.Module_Set): s_out.Directory => {
                                 'type parameters': $.value.parameters,
                                 'global type parameters': x_module_parameters,
                                 'callback': () => {
-                                    return Type_to_Line_Part(
+                                    return Type(
                                         Type_to_Type(
                                             $.value.type,
                                             {
@@ -297,7 +297,7 @@ export const Type_to_Aliases = (
                     'type parameters': $p['type parameters'],
                     'global type parameters': $p['global type parameters'],
                     'callback': () => {
-                        return Type_to_Line_Part(
+                        return Type(
                             Type_to_Type(
                                 $,
                                 {

@@ -1,6 +1,6 @@
 import * as _pt from 'exupery-core-types'
 
-import * as _i_generic from "../../generic/resolve"
+import * as _i_resolve from "../../core/resolve"
 import * as _i_resolved from "./resolved"
 import * as _i_unresolved from "./unresolved"
 
@@ -9,7 +9,7 @@ import * as _i_unresolved from "./unresolved"
 export type _T_Initialization<G_Source> = (
     $$_: _i_unresolved._T_Initialization<G_Source>,
     $$_p: {
-        readonly 'location 2 string': _i_generic._T_Location_2_String<G_Source>
+        readonly 'location 2 string': _i_resolve._T_Location_2_String<G_Source>
         readonly 'parameters': {
             readonly 'lookups': null
             readonly 'values': null
@@ -20,7 +20,7 @@ export type _T_Initialization<G_Source> = (
 export type _T_Literal<G_Source> = (
     $$_: _i_unresolved._T_Literal<G_Source>,
     $$_p: {
-        readonly 'location 2 string': _i_generic._T_Location_2_String<G_Source>
+        readonly 'location 2 string': _i_resolve._T_Location_2_String<G_Source>
         readonly 'parameters': {
             readonly 'lookups': null
             readonly 'values': null
@@ -31,7 +31,7 @@ export type _T_Literal<G_Source> = (
 export type _T_Module<G_Source> = (
     $$_: _i_unresolved._T_Module<G_Source>,
     $$_p: {
-        readonly 'location 2 string': _i_generic._T_Location_2_String<G_Source>
+        readonly 'location 2 string': _i_resolve._T_Location_2_String<G_Source>
         readonly 'parameters': {
             readonly 'lookups': null
             readonly 'values': null
@@ -42,7 +42,7 @@ export type _T_Module<G_Source> = (
 export type _T_Module_Set<G_Source> = (
     $$_: _i_unresolved._T_Module_Set<G_Source>,
     $$_p: {
-        readonly 'location 2 string': _i_generic._T_Location_2_String<G_Source>
+        readonly 'location 2 string': _i_resolve._T_Location_2_String<G_Source>
         readonly 'parameters': {
             readonly 'lookups': null
             readonly 'values': null
@@ -53,7 +53,7 @@ export type _T_Module_Set<G_Source> = (
 export type _T_Selection<G_Source> = (
     $$_: _i_unresolved._T_Selection<G_Source>,
     $$_p: {
-        readonly 'location 2 string': _i_generic._T_Location_2_String<G_Source>
+        readonly 'location 2 string': _i_resolve._T_Location_2_String<G_Source>
         readonly 'parameters': {
             readonly 'lookups': null
             readonly 'values': null
@@ -64,7 +64,7 @@ export type _T_Selection<G_Source> = (
 export type _T_Type_Parameters<G_Source> = (
     $$_: _i_unresolved._T_Type_Parameters<G_Source>,
     $$_p: {
-        readonly 'location 2 string': _i_generic._T_Location_2_String<G_Source>
+        readonly 'location 2 string': _i_resolve._T_Location_2_String<G_Source>
         readonly 'parameters': {
             readonly 'lookups': null
             readonly 'values': null
@@ -75,7 +75,7 @@ export type _T_Type_Parameters<G_Source> = (
 export type _T_Variables<G_Source> = (
     $$_: _i_unresolved._T_Variables<G_Source>,
     $$_p: {
-        readonly 'location 2 string': _i_generic._T_Location_2_String<G_Source>
+        readonly 'location 2 string': _i_resolve._T_Location_2_String<G_Source>
         readonly 'parameters': {
             readonly 'lookups': null
             readonly 'values': null
@@ -113,7 +113,7 @@ export namespace _T_Initialization {
         export namespace location_2_string {
             export type Source<G_Source> = G_Source
         }
-        export type location_2_string<G_Source> = _i_generic._T_Location_2_String<G_Source>
+        export type location_2_string<G_Source> = _i_resolve._T_Location_2_String<G_Source>
         
         export namespace parameters {
             
@@ -148,7 +148,7 @@ export namespace _T_Literal {
         export namespace location_2_string {
             export type Source<G_Source> = G_Source
         }
-        export type location_2_string<G_Source> = _i_generic._T_Location_2_String<G_Source>
+        export type location_2_string<G_Source> = _i_resolve._T_Location_2_String<G_Source>
         
         export namespace parameters {
             
@@ -183,7 +183,7 @@ export namespace _T_Module {
         export namespace location_2_string {
             export type Source<G_Source> = G_Source
         }
-        export type location_2_string<G_Source> = _i_generic._T_Location_2_String<G_Source>
+        export type location_2_string<G_Source> = _i_resolve._T_Location_2_String<G_Source>
         
         export namespace parameters {
             
@@ -218,7 +218,7 @@ export namespace _T_Module_Set {
         export namespace location_2_string {
             export type Source<G_Source> = G_Source
         }
-        export type location_2_string<G_Source> = _i_generic._T_Location_2_String<G_Source>
+        export type location_2_string<G_Source> = _i_resolve._T_Location_2_String<G_Source>
         
         export namespace parameters {
             
@@ -253,7 +253,7 @@ export namespace _T_Selection {
         export namespace location_2_string {
             export type Source<G_Source> = G_Source
         }
-        export type location_2_string<G_Source> = _i_generic._T_Location_2_String<G_Source>
+        export type location_2_string<G_Source> = _i_resolve._T_Location_2_String<G_Source>
         
         export namespace parameters {
             
@@ -288,7 +288,7 @@ export namespace _T_Type_Parameters {
         export namespace location_2_string {
             export type Source<G_Source> = G_Source
         }
-        export type location_2_string<G_Source> = _i_generic._T_Location_2_String<G_Source>
+        export type location_2_string<G_Source> = _i_resolve._T_Location_2_String<G_Source>
         
         export namespace parameters {
             
@@ -323,7 +323,7 @@ export namespace _T_Variables {
         export namespace location_2_string {
             export type Source<G_Source> = G_Source
         }
-        export type location_2_string<G_Source> = _i_generic._T_Location_2_String<G_Source>
+        export type location_2_string<G_Source> = _i_resolve._T_Location_2_String<G_Source>
         
         export namespace parameters {
             
@@ -360,7 +360,7 @@ export namespace Initialization {
         export namespace location_2_string {
             export type Source<G_Source> = G_Source
         }
-        export type location_2_string<G_Source> = _i_generic._T_Location_2_String<G_Source>
+        export type location_2_string<G_Source> = _i_resolve._T_Location_2_String<G_Source>
         
         export namespace parameters {
             
@@ -395,7 +395,7 @@ export namespace Literal {
         export namespace location_2_string {
             export type Source<G_Source> = G_Source
         }
-        export type location_2_string<G_Source> = _i_generic._T_Location_2_String<G_Source>
+        export type location_2_string<G_Source> = _i_resolve._T_Location_2_String<G_Source>
         
         export namespace parameters {
             
@@ -430,7 +430,7 @@ export namespace Module {
         export namespace location_2_string {
             export type Source<G_Source> = G_Source
         }
-        export type location_2_string<G_Source> = _i_generic._T_Location_2_String<G_Source>
+        export type location_2_string<G_Source> = _i_resolve._T_Location_2_String<G_Source>
         
         export namespace parameters {
             
@@ -465,7 +465,7 @@ export namespace Module_Set {
         export namespace location_2_string {
             export type Source<G_Source> = G_Source
         }
-        export type location_2_string<G_Source> = _i_generic._T_Location_2_String<G_Source>
+        export type location_2_string<G_Source> = _i_resolve._T_Location_2_String<G_Source>
         
         export namespace parameters {
             
@@ -500,7 +500,7 @@ export namespace Selection {
         export namespace location_2_string {
             export type Source<G_Source> = G_Source
         }
-        export type location_2_string<G_Source> = _i_generic._T_Location_2_String<G_Source>
+        export type location_2_string<G_Source> = _i_resolve._T_Location_2_String<G_Source>
         
         export namespace parameters {
             
@@ -535,7 +535,7 @@ export namespace Type_Parameters {
         export namespace location_2_string {
             export type Source<G_Source> = G_Source
         }
-        export type location_2_string<G_Source> = _i_generic._T_Location_2_String<G_Source>
+        export type location_2_string<G_Source> = _i_resolve._T_Location_2_String<G_Source>
         
         export namespace parameters {
             
@@ -570,7 +570,7 @@ export namespace Variables {
         export namespace location_2_string {
             export type Source<G_Source> = G_Source
         }
-        export type location_2_string<G_Source> = _i_generic._T_Location_2_String<G_Source>
+        export type location_2_string<G_Source> = _i_resolve._T_Location_2_String<G_Source>
         
         export namespace parameters {
             
