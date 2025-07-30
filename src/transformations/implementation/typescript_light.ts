@@ -9,7 +9,7 @@ import { $$ as x } from "../typescript_light/operations/create_identifier"
 
 import * as _interface from "../interface/typescript_light"
 
-import { Type as Type_to_Line_Part } from "../typescript_light/fountain_pen_block"
+import { Type } from "../typescript_light/fountain_pen_block"
 
 import { impure, pure } from "pareto-standard-operations"
 
@@ -266,7 +266,7 @@ export const Initialization = (
                         $.type.transform(
                             ($) => l.sub([
                                 l.snippet(": "),
-                                Type_to_Line_Part(
+                                Type(
                                     _interface.Type_to_Type(
                                         $,
                                         {
@@ -431,7 +431,7 @@ export const Initialization = (
                                         $['resulting node'].transform(
                                             ($) => l.sub([
                                                 l.snippet(": "),
-                                                Type_to_Line_Part(
+                                                Type(
                                                     _interface.Type_to_Type(
                                                         $,
                                                         {
@@ -521,7 +521,7 @@ export const Variables = (
             $.value.type.transform(
                 ($) => l.sub([
                     l.snippet(": "),
-                    Type_to_Line_Part(
+                    Type(
                         _interface.Type_to_Type(
                             $,
                             {
