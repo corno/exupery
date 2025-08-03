@@ -302,7 +302,7 @@ export const r_Initialization: _i_signatures._T_Initialization<_i_generic._T_Loc
                                                         }),
                                                     }
                                                 ))
-                                                const p_resulting_node: _i_out._T_Initialization.SG.transformation._type.SG.optional.SG.transform.resulting_node = _pa.cc($['resulting node'], ($) => $.map(($) => _pa.block(() => {
+                                                const p_temp_resulting_node: _i_out._T_Initialization.SG.transformation._type.SG.optional.SG.transform.temp_resulting_node = _pa.cc($['temp resulting node'], ($) => $.map(($) => _pa.block(() => {
                                                     return _i_r_interface.r_Type(
                                                         $,
                                                         {
@@ -317,7 +317,7 @@ export const r_Initialization: _i_signatures._T_Initialization<_i_generic._T_Loc
                                                 return ({
                                                     'if not set': p_if_not_set,
                                                     'if set': p_if_set,
-                                                    'resulting node': p_resulting_node,
+                                                    'temp resulting node': p_temp_resulting_node,
                                                 })
                                             })
                                         })])
@@ -330,7 +330,7 @@ export const r_Initialization: _i_signatures._T_Initialization<_i_generic._T_Loc
                                     switch ($[0]) {
                                         case 'switch': return _pa.ss($, ($) => ['switch', _pa.block(() => {
                                             return _pa.block(() => {
-                                                const p_resulting_node: _i_out._T_Initialization.SG.transformation._type.SG.tagged_union.SG._switch.resulting_node = _pa.cc($['resulting node'], ($) => $.map(($) => _pa.block(() => {
+                                                const p_temp_resulting_node: _i_out._T_Initialization.SG.transformation._type.SG.tagged_union.SG._switch.temp_resulting_node = _pa.cc($['temp resulting node'], ($) => $.map(($) => _pa.block(() => {
                                                     return _i_r_interface.r_Type(
                                                         $,
                                                         {
@@ -413,7 +413,7 @@ export const r_Initialization: _i_signatures._T_Initialization<_i_generic._T_Loc
                                                     }
                                                 }))
                                                 return ({
-                                                    'resulting node': p_resulting_node,
+                                                    'temp resulting node': p_temp_resulting_node,
                                                     'type': p_type,
                                                 })
                                             })
@@ -500,9 +500,22 @@ export const r_Literal: _i_signatures._T_Literal<_i_generic._T_Location_Info> = 
                         }
                     ))
                     const p_temp_has_parameters: _i_out._T_Literal.SG._function.temp_has_parameters = _pa.cc($['temp has parameters'], ($) => $)
+                    const p_temp_resulting_node: _i_out._T_Literal.SG._function.temp_resulting_node = _pa.cc($['temp resulting node'], ($) => $.map(($) => _pa.block(() => {
+                        return _i_r_interface.r_Type(
+                            $,
+                            {
+                                'location 2 string': l2s,
+                                'parameters': ({
+                                    'lookups': null,
+                                    'values': null,
+                                }),
+                            }
+                        )
+                    })))
                     return ({
                         'initialization': p_initialization,
                         'temp has parameters': p_temp_has_parameters,
+                        'temp resulting node': p_temp_resulting_node,
                     })
                 })
             })])

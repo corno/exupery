@@ -407,7 +407,7 @@ export const Initialization = (
                                         l.indent([
                                             b.nested_line([
                                                 l.snippet("($)"),
-                                                $['resulting node'].transform(
+                                                $['temp resulting node'].transform(
                                                     ($) => l.sub([
                                                         l.snippet(": "),
                                                         Type(
@@ -447,7 +447,7 @@ export const Initialization = (
                                         l.snippet("_pa.cc("),
                                         Selection(p_source, $p),
                                         l.snippet(", ($)"),
-                                        $['resulting node'].transform(
+                                        $['temp resulting node'].transform(
                                             ($) => l.sub([
                                                 l.snippet(": "),
                                                 Type(
@@ -596,7 +596,26 @@ export const Literal = (
                 case 'function': return pa.ss($, ($) => l.sub([
                     l.snippet("($"),
                     $['temp has parameters'] ? l.snippet(", $p") : l.nothing(),
-                    l.snippet(") => "),
+                    l.snippet(")"),
+                    $['temp resulting node'].transform(
+                        ($) => l.sub([
+                            l.snippet(": "),
+                            Type(
+                                _interface.Type_to_Type(
+                                    $,
+                                    {
+                                        'global type parameters': pa.not_set(),
+                                        'temp imports': pa.set($p['temp imports']),
+                                    },
+                                ),
+                                {
+                                    'replace empty type literals by null': true
+                                }
+                            ),
+                        ]),
+                        () => l.nothing()
+                    ),
+                    l.snippet(" => "),
                     Initialization($.initialization, $p),
                 ]))
                 case 'group': return pa.ss($, ($) => line_dictionary(

@@ -184,7 +184,7 @@ export namespace i {
     export const call = (
         source: unresolved.Selection<pd.Source_Location>,
         context: unresolved.Initialization<pd.Source_Location>,
-        arguments_?: Raw_Or_Normal_Dictionary<unresolved.Initialization.SG.transformation._type.SG._function.SG.call._arguments.O.D<pd.Source_Location>>
+        arguments_?: Raw_Or_Normal_Dictionary<unresolved.Initialization.SG.transformation._type.SG._function.SG.call._arguments.O.D<pd.Source_Location>>,
     ): unresolved.Initialization<pd.Source_Location> => {
         const args: unresolved.Initialization.SG.transformation._type.SG._function.SG.call._arguments<pd.Source_Location> = arguments_ === undefined ? pd.not_set() : pd.set(wrap_dictionary(arguments_))
         return wrap_state_group(['transformation', {
@@ -258,12 +258,16 @@ export namespace i {
 
     export const function_ = (
         has_parameters: boolean,
-        expression: unresolved.Initialization<pd.Source_Location>
+        expression: unresolved.Initialization<pd.Source_Location>,
+        resulting_type?: null | unresolved_interface.Type<pd.Source_Location>,
     ): unresolved.Initialization<pd.Source_Location> => {
+        const rt: unresolved.Initialization.SG.transformation._type.SG.tagged_union.SG._switch.temp_resulting_node<pd.Source_Location> = (resulting_type === null || resulting_type === undefined) ? pd.not_set() : pd.set(resulting_type)
+
         return wrap_state_group(['literal', {
             'value': wrap_state_group(['function', {
                 'temp has parameters': has_parameters,
-                'initialization': expression
+                'initialization': expression,
+                'temp resulting node': rt,
             }])
         }])
     }
@@ -311,14 +315,14 @@ export namespace i {
         if_not_set: unresolved.Initialization<pd.Source_Location>,
         resulting_type?: null | unresolved_interface.Type<pd.Source_Location>,
     ): unresolved.Initialization<pd.Source_Location> => {
-        const rt: unresolved.Initialization.SG.transformation._type.SG.tagged_union.SG._switch.resulting_node<pd.Source_Location> = (resulting_type === null || resulting_type === undefined) ? pd.not_set() : pd.set(resulting_type)
+        const rt: unresolved.Initialization.SG.transformation._type.SG.tagged_union.SG._switch.temp_resulting_node<pd.Source_Location> = (resulting_type === null || resulting_type === undefined) ? pd.not_set() : pd.set(resulting_type)
 
         return wrap_state_group(['transformation', {
             'source': source,
             'type': wrap_state_group(['optional', wrap_state_group(['transform', {
                 'if set': if_set,
                 'if not set': if_not_set,
-                'resulting node': rt,
+                'temp resulting node': rt,
 
             }])])
         }])
@@ -382,11 +386,11 @@ export namespace i {
         cases: Raw_Or_Normal_Dictionary<unresolved.Initialization.SG.transformation._type.SG.tagged_union.SG._switch._type.SG.full.cases.D<pd.Source_Location>>,
         resulting_type?: null | unresolved_interface.Type<pd.Source_Location>,
     ): unresolved.Initialization<pd.Source_Location> => {
-        const rt: unresolved.Initialization.SG.transformation._type.SG.tagged_union.SG._switch.resulting_node<pd.Source_Location> = (resulting_type === null || resulting_type === undefined) ? pd.not_set() : pd.set(resulting_type)
+        const rt: unresolved.Initialization.SG.transformation._type.SG.tagged_union.SG._switch.temp_resulting_node<pd.Source_Location> = (resulting_type === null || resulting_type === undefined) ? pd.not_set() : pd.set(resulting_type)
         return wrap_state_group(['transformation', {
             'source': source,
             'type': wrap_state_group(['tagged union', wrap_state_group<unresolved.Initialization.SG.transformation._type.SG.tagged_union.SG<pd.Source_Location>>(['switch', {
-                'resulting node': rt,
+                'temp resulting node': rt,
                 'type': wrap_state_group(['full', {
                     'cases': wrap_dictionary(cases),
                 }])
@@ -399,11 +403,11 @@ export namespace i {
         default_: unresolved.Initialization<pd.Source_Location>,
         resulting_type?: null | unresolved_interface.Type<pd.Source_Location>,
     ): unresolved.Initialization<pd.Source_Location> => {
-        const rt: unresolved.Initialization.SG.transformation._type.SG.tagged_union.SG._switch.resulting_node<pd.Source_Location> = (resulting_type === null || resulting_type === undefined) ? pd.not_set() : pd.set(resulting_type)
+        const rt: unresolved.Initialization.SG.transformation._type.SG.tagged_union.SG._switch.temp_resulting_node<pd.Source_Location> = (resulting_type === null || resulting_type === undefined) ? pd.not_set() : pd.set(resulting_type)
         return wrap_state_group(['transformation', {
             'source': source,
             'type': wrap_state_group(['tagged union', wrap_state_group<unresolved.Initialization.SG.transformation._type.SG.tagged_union.SG<pd.Source_Location>>(['switch', {
-                'resulting node': rt,
+                'temp resulting node': rt,
                 'type': wrap_state_group(['partial', {
                     'cases': wrap_dictionary(cases),
                     'default': default_
