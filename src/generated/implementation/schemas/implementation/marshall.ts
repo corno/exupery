@@ -337,7 +337,7 @@ export const Literal: _i_signatures._T_s_Literal = ($, $p) => ['state', _pa.cc($
                     }
                 )),
                 'temp has parameters': _pa.cc($['temp has parameters'], ($) => ['text', ({
-                    'delimiter': ['quote', null],
+                    'delimiter': ['backtick', null],
                     'value': $p['value serializers']['boolean'](
                         $,
                         null

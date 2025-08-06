@@ -282,7 +282,7 @@ export const Statements: _i_signatures._T_s_Statements = ($, $p) => ['list', $.m
                     }
                 )),
                 'export': _pa.cc($['export'], ($) => ['text', ({
-                    'delimiter': ['quote', null],
+                    'delimiter': ['backtick', null],
                     'value': $p['value serializers']['boolean'](
                         $,
                         null
@@ -298,7 +298,7 @@ export const Statements: _i_signatures._T_s_Statements = ($, $p) => ['list', $.m
             'state': "type alias declaration",
             'value': ['verbose group', _pa.dictionary_literal({
                 'export': _pa.cc($['export'], ($) => ['text', ({
-                    'delimiter': ['quote', null],
+                    'delimiter': ['backtick', null],
                     'value': $p['value serializers']['boolean'](
                         $,
                         null
@@ -324,14 +324,14 @@ export const Statements: _i_signatures._T_s_Statements = ($, $p) => ['list', $.m
             'state': "variable",
             'value': ['verbose group', _pa.dictionary_literal({
                 'const': _pa.cc($['const'], ($) => ['text', ({
-                    'delimiter': ['quote', null],
+                    'delimiter': ['backtick', null],
                     'value': $p['value serializers']['boolean'](
                         $,
                         null
                     ),
                 })]),
                 'export': _pa.cc($['export'], ($) => ['text', ({
-                    'delimiter': ['quote', null],
+                    'delimiter': ['backtick', null],
                     'value': $p['value serializers']['boolean'](
                         $,
                         null
@@ -450,7 +450,7 @@ export const Type: _i_signatures._T_s_Type = ($, $p) => ['state', _pa.cc($, ($):
                     }
                 ))]),
                 'readonly': _pa.cc($['readonly'], ($) => ['text', ({
-                    'delimiter': ['quote', null],
+                    'delimiter': ['backtick', null],
                     'value': $p['value serializers']['boolean'](
                         $,
                         null
@@ -463,7 +463,7 @@ export const Type: _i_signatures._T_s_Type = ($, $p) => ['state', _pa.cc($, ($):
             'value': ['verbose group', _pa.dictionary_literal({
                 'properties': _pa.cc($['properties'], ($) => ['dictionary', $.map(($) => ['verbose group', _pa.dictionary_literal({
                     'readonly': _pa.cc($['readonly'], ($) => ['text', ({
-                        'delimiter': ['quote', null],
+                        'delimiter': ['backtick', null],
                         'value': $p['value serializers']['boolean'](
                             $,
                             null

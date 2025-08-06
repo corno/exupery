@@ -263,7 +263,7 @@ export const Type: _i_signatures._T_s_Type = ($, $p) => ['state', _pa.cc($, ($):
                         'state': "integer",
                         'value': ['verbose group', _pa.dictionary_literal({
                             'signed': _pa.cc($['signed'], ($) => ['text', ({
-                                'delimiter': ['quote', null],
+                                'delimiter': ['backtick', null],
                                 'value': $p['value serializers']['boolean'](
                                     $,
                                     null
