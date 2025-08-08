@@ -1,6 +1,6 @@
 import * as pd from 'exupery-core-data'
 
-import * as _out from "../generated/interface/schemas/typescript_light/unconstrained"
+import * as _out from "../generated/interface/schemas/typescript_light/data_types/unconstrained"
 
 import {
     Raw_Or_Normal_Dictionary,

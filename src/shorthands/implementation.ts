@@ -1,8 +1,8 @@
 import * as pd from 'exupery-core-data'
 
-import * as unresolved from "../generated/interface/schemas/implementation/unresolved"
+import * as unresolved from "../generated/interface/schemas/implementation/data_types/unresolved"
 
-import * as unresolved_interface from "../generated/interface/schemas/interface/unresolved"
+import * as unresolved_interface from "../generated/interface/schemas/interface/data_types/unresolved"
 
 import {
     Raw_Or_Normal_Dictionary,

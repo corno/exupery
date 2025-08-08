@@ -375,21 +375,21 @@ export const Literal: _i_signatures._T_s_Literal = ($, $p) => ['state', _pa.cc($
                         'state': "floting point",
                         'value': ['text', ({
                             'delimiter': ['backtick', null],
-                            'value': "FIXME NUMBER",
+                            'value': _pd.implement_me(),
                         })],
                     }))
                     case 'integer': return _pa.ss($, ($) => ({
                         'state': "integer",
                         'value': ['text', ({
                             'delimiter': ['backtick', null],
-                            'value': "FIXME NUMBER",
+                            'value': _pd.implement_me(),
                         })],
                     }))
                     case 'signed integer': return _pa.ss($, ($) => ({
                         'state': "signed integer",
                         'value': ['text', ({
                             'delimiter': ['backtick', null],
-                            'value': "FIXME NUMBER",
+                            'value': _pd.implement_me(),
                         })],
                     }))
                     default: return _pa.au($[0])
@@ -480,7 +480,7 @@ export const Module: _i_signatures._T_s_Module = ($, $p) => ['verbose group', _p
                         })]),
                         'number of steps': _pa.cc($['number of steps'], ($) => ['text', ({
                             'delimiter': ['backtick', null],
-                            'value': "FIXME NUMBER",
+                            'value': _pd.implement_me(),
                         })]),
                     })],
                 }))

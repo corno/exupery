@@ -1,7 +1,7 @@
 import * as _pt from 'exupery-core-types'
 
-import * as _i_in from "./resolved"
-import * as _i_out from "./unresolved"
+import * as _i_in from "./data_types/resolved"
+import * as _i_out from "./data_types/unresolved"
 
 // **** TYPES
 

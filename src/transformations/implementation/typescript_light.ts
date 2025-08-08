@@ -1,9 +1,9 @@
 import * as pa from 'exupery-core-alg'
 import * as pt from 'exupery-core-types'
 
-import * as s_in from "../../generated/interface/schemas/implementation/resolved"
-import * as s_in_interface from "../../generated/interface/schemas/interface/resolved"
-import * as s_out from "../../generated/interface/schemas/typescript_light/unconstrained"
+import * as s_in from "../../generated/interface/schemas/implementation/data_types/resolved"
+import * as s_in_interface from "../../generated/interface/schemas/interface/data_types/resolved"
+import * as s_out from "../../generated/interface/schemas/typescript_light/data_types/unconstrained"
 
 import { $$ as x } from "../typescript_light/operations/create_identifier"
 

@@ -1,12 +1,12 @@
 import * as _pt from 'exupery-core-types'
 
-import * as _i_core from "../../core/unresolved"
+import * as _i_core from "../../../core/resolved"
 
 // **** TYPES
 
-export type _T_Imports<G_Source> = _i_core._T_Dictionary<G_Source, {
-    readonly 'tail': _i_core._T_List<G_Source, string>
-    readonly 'type': _i_core._T_State_Group<G_Source, 
+export type _T_Imports = _i_core._T_Dictionary<null, {
+    readonly 'tail': _i_core._T_List<null, string>
+    readonly 'type': _i_core._T_State_Group<null, 
         | readonly ['ancestor', {
             readonly 'dependency': string
             readonly 'number of steps': number
@@ -14,93 +14,93 @@ export type _T_Imports<G_Source> = _i_core._T_Dictionary<G_Source, {
         | readonly ['external', string]
         | readonly ['sibling', string]
     >
-    readonly 'type arguments': _T_Type_Arguments<G_Source>
+    readonly 'type arguments': _T_Type_Arguments
 }>
 
-export type _T_Module<G_Source> = {
-    readonly 'imports': _T_Imports<G_Source>
-    readonly 'type parameters': _T_Type_Parameters<G_Source>
-    readonly 'types': _i_core._T_Dictionary<G_Source, {
-        readonly 'parameters': _T_Type_Parameters<G_Source>
-        readonly 'type': _T_Type<G_Source>
+export type _T_Module = {
+    readonly 'imports': _T_Imports
+    readonly 'type parameters': _T_Type_Parameters
+    readonly 'types': _i_core._T_Dictionary<null, {
+        readonly 'parameters': _T_Type_Parameters
+        readonly 'type': _T_Type
     }>
 }
 
-export type _T_Module_Set<G_Source> = _i_core._T_Dictionary<G_Source, _i_core._T_State_Group<G_Source, 
-    | readonly ['module', _T_Module<G_Source>]
-    | readonly ['set', _T_Module_Set<G_Source>]
+export type _T_Module_Set = _i_core._T_Dictionary<null, _i_core._T_State_Group<null, 
+    | readonly ['module', _T_Module]
+    | readonly ['set', _T_Module_Set]
 >>
 
-export type _T_Type<G_Source> = _i_core._T_State_Group<G_Source, 
-    | readonly ['array', _T_Type<G_Source>]
+export type _T_Type = _i_core._T_State_Group<null, 
+    | readonly ['array', _T_Type]
     | readonly ['boolean', null]
     | readonly ['component', {
-        readonly 'location': _i_core._T_State_Group<G_Source, 
+        readonly 'location': _i_core._T_State_Group<null, 
             | readonly ['import', {
                 readonly 'import': string
                 readonly 'type': string
             }]
             | readonly ['sibling', string]
         >
-        readonly 'sub selection': _i_core._T_List<G_Source, _i_core._T_State_Group<G_Source, 
+        readonly 'sub selection': _i_core._T_List<null, _i_core._T_State_Group<null, 
             | readonly ['dictionary', null]
             | readonly ['group', string]
             | readonly ['list', null]
             | readonly ['optional', null]
             | readonly ['state group', string]
         >>
-        readonly 'type arguments': _T_Type_Arguments<G_Source>
+        readonly 'type arguments': _T_Type_Arguments
     }]
-    | readonly ['computed', _T_Type<G_Source>]
-    | readonly ['dictionary', _T_Type<G_Source>]
+    | readonly ['computed', _T_Type]
+    | readonly ['dictionary', _T_Type]
     | readonly ['function', {
-        readonly 'context': _T_Type<G_Source>
-        readonly 'parameters': _i_core._T_Dictionary<G_Source, _T_Type<G_Source>>
-        readonly 'return': _T_Type<G_Source>
-        readonly 'type parameters': _T_Type_Parameters<G_Source>
+        readonly 'context': _T_Type
+        readonly 'parameters': _i_core._T_Dictionary<null, _T_Type>
+        readonly 'return': _T_Type
+        readonly 'type parameters': _T_Type_Parameters
     }]
-    | readonly ['group', _i_core._T_Dictionary<G_Source, _T_Type<G_Source>>]
-    | readonly ['key value pair', _T_Type<G_Source>]
+    | readonly ['group', _i_core._T_Dictionary<null, _T_Type>]
+    | readonly ['key value pair', _T_Type]
     | readonly ['null', null]
-    | readonly ['number', _i_core._T_State_Group<G_Source, 
+    | readonly ['number', _i_core._T_State_Group<null, 
         | readonly ['float', null]
         | readonly ['integer', {
             readonly 'signed': boolean
         }]
     >]
-    | readonly ['optional', _T_Type<G_Source>]
-    | readonly ['parameter', _T_Type_Parameter_Selection<G_Source>]
+    | readonly ['optional', _T_Type]
+    | readonly ['parameter', _T_Type_Parameter_Selection]
     | readonly ['string', null]
-    | readonly ['tagged union', _i_core._T_Dictionary<G_Source, _T_Type<G_Source>>]
+    | readonly ['tagged union', _i_core._T_Dictionary<null, _T_Type>]
 >
 
-export type _T_Type_Arguments<G_Source> = _i_core._T_Dictionary<G_Source, _T_Type<G_Source>>
+export type _T_Type_Arguments = _i_core._T_Dictionary<null, _T_Type>
 
-export type _T_Type_Parameter_Selection<G_Source> = {
-    readonly 'location': _i_core._T_State_Group<G_Source, 
+export type _T_Type_Parameter_Selection = {
+    readonly 'location': _i_core._T_State_Group<null, 
         | readonly ['module', null]
         | readonly ['type', null]
     >
     readonly 'parameter': string
 }
 
-export type _T_Type_Parameters<G_Source> = _i_core._T_Dictionary<G_Source, null>
+export type _T_Type_Parameters = _i_core._T_Dictionary<null, null>
 
 // **** FRIENDLY NAMES FOR THE GLOBAL TYPES
 
-export type Imports<G_Source> = _T_Imports<G_Source>
+export type Imports = _T_Imports
 
-export type Module<G_Source> = _T_Module<G_Source>
+export type Module = _T_Module
 
-export type Module_Set<G_Source> = _T_Module_Set<G_Source>
+export type Module_Set = _T_Module_Set
 
-export type Type<G_Source> = _T_Type<G_Source>
+export type Type = _T_Type
 
-export type Type_Arguments<G_Source> = _T_Type_Arguments<G_Source>
+export type Type_Arguments = _T_Type_Arguments
 
-export type Type_Parameter_Selection<G_Source> = _T_Type_Parameter_Selection<G_Source>
+export type Type_Parameter_Selection = _T_Type_Parameter_Selection
 
-export type Type_Parameters<G_Source> = _T_Type_Parameters<G_Source>
+export type Type_Parameters = _T_Type_Parameters
 
 // **** ALIASES FOR NESTED TYPE WITH PREFIXED ROOT NAMES
 
@@ -109,26 +109,26 @@ export namespace _T_Imports {
     export namespace D {
         
         export namespace tail {
-            export type L<G_Source> = string
+            export type L = string
         }
-        export type tail<G_Source> = _i_core._T_List<G_Source, string>
+        export type tail = _i_core._T_List<null, string>
         
         export namespace _type {
             
             export namespace SG {
                 
                 export namespace ancestor {
-                    export type dependency<G_Source> = string
-                    export type number_of_steps<G_Source> = number
+                    export type dependency = string
+                    export type number_of_steps = number
                 }
-                export type ancestor<G_Source> = {
+                export type ancestor = {
                     readonly 'dependency': string
                     readonly 'number of steps': number
                 }
-                export type external<G_Source> = string
-                export type sibling<G_Source> = string
+                export type external = string
+                export type sibling = string
             }
-            export type SG<G_Source> = 
+            export type SG = 
                 | readonly ['ancestor', {
                     readonly 'dependency': string
                     readonly 'number of steps': number
@@ -136,7 +136,7 @@ export namespace _T_Imports {
                 | readonly ['external', string]
                 | readonly ['sibling', string]
         }
-        export type _type<G_Source> = _i_core._T_State_Group<G_Source, 
+        export type _type = _i_core._T_State_Group<null, 
             | readonly ['ancestor', {
                 readonly 'dependency': string
                 readonly 'number of steps': number
@@ -147,11 +147,11 @@ export namespace _T_Imports {
         
         export namespace type_arguments {
         }
-        export type type_arguments<G_Source> = _T_Type_Arguments<G_Source>
+        export type type_arguments = _T_Type_Arguments
     }
-    export type D<G_Source> = {
-        readonly 'tail': _i_core._T_List<G_Source, string>
-        readonly 'type': _i_core._T_State_Group<G_Source, 
+    export type D = {
+        readonly 'tail': _i_core._T_List<null, string>
+        readonly 'type': _i_core._T_State_Group<null, 
             | readonly ['ancestor', {
                 readonly 'dependency': string
                 readonly 'number of steps': number
@@ -159,7 +159,7 @@ export namespace _T_Imports {
             | readonly ['external', string]
             | readonly ['sibling', string]
         >
-        readonly 'type arguments': _T_Type_Arguments<G_Source>
+        readonly 'type arguments': _T_Type_Arguments
     }
 }
 
@@ -167,11 +167,11 @@ export namespace _T_Module {
     
     export namespace imports {
     }
-    export type imports<G_Source> = _T_Imports<G_Source>
+    export type imports = _T_Imports
     
     export namespace type_parameters {
     }
-    export type type_parameters<G_Source> = _T_Type_Parameters<G_Source>
+    export type type_parameters = _T_Type_Parameters
     
     export namespace types {
         
@@ -179,20 +179,20 @@ export namespace _T_Module {
             
             export namespace parameters {
             }
-            export type parameters<G_Source> = _T_Type_Parameters<G_Source>
+            export type parameters = _T_Type_Parameters
             
             export namespace _type {
             }
-            export type _type<G_Source> = _T_Type<G_Source>
+            export type _type = _T_Type
         }
-        export type D<G_Source> = {
-            readonly 'parameters': _T_Type_Parameters<G_Source>
-            readonly 'type': _T_Type<G_Source>
+        export type D = {
+            readonly 'parameters': _T_Type_Parameters
+            readonly 'type': _T_Type
         }
     }
-    export type types<G_Source> = _i_core._T_Dictionary<G_Source, {
-        readonly 'parameters': _T_Type_Parameters<G_Source>
-        readonly 'type': _T_Type<G_Source>
+    export type types = _i_core._T_Dictionary<null, {
+        readonly 'parameters': _T_Type_Parameters
+        readonly 'type': _T_Type
     }>
 }
 
@@ -204,19 +204,19 @@ export namespace _T_Module_Set {
             
             export namespace _module {
             }
-            export type _module<G_Source> = _T_Module<G_Source>
+            export type _module = _T_Module
             
             export namespace _set {
             }
-            export type _set<G_Source> = _T_Module_Set<G_Source>
+            export type _set = _T_Module_Set
         }
-        export type SG<G_Source> = 
-            | readonly ['module', _T_Module<G_Source>]
-            | readonly ['set', _T_Module_Set<G_Source>]
+        export type SG = 
+            | readonly ['module', _T_Module]
+            | readonly ['set', _T_Module_Set]
     }
-    export type D<G_Source> = _i_core._T_State_Group<G_Source, 
-        | readonly ['module', _T_Module<G_Source>]
-        | readonly ['set', _T_Module_Set<G_Source>]
+    export type D = _i_core._T_State_Group<null, 
+        | readonly ['module', _T_Module]
+        | readonly ['set', _T_Module_Set]
     >
 }
 
@@ -226,8 +226,8 @@ export namespace _T_Type {
         
         export namespace array {
         }
-        export type array<G_Source> = _T_Type<G_Source>
-        export type _boolean<G_Source> = null
+        export type array = _T_Type
+        export type _boolean = null
         
         export namespace component {
             
@@ -236,23 +236,23 @@ export namespace _T_Type {
                 export namespace SG {
                     
                     export namespace _import {
-                        export type _import<G_Source> = string
-                        export type _type<G_Source> = string
+                        export type _import = string
+                        export type _type = string
                     }
-                    export type _import<G_Source> = {
+                    export type _import = {
                         readonly 'import': string
                         readonly 'type': string
                     }
-                    export type sibling<G_Source> = string
+                    export type sibling = string
                 }
-                export type SG<G_Source> = 
+                export type SG = 
                     | readonly ['import', {
                         readonly 'import': string
                         readonly 'type': string
                     }]
                     | readonly ['sibling', string]
             }
-            export type location<G_Source> = _i_core._T_State_Group<G_Source, 
+            export type location = _i_core._T_State_Group<null, 
                 | readonly ['import', {
                     readonly 'import': string
                     readonly 'type': string
@@ -265,20 +265,20 @@ export namespace _T_Type {
                 export namespace L {
                     
                     export namespace SG {
-                        export type dictionary<G_Source> = null
-                        export type group<G_Source> = string
-                        export type list<G_Source> = null
-                        export type optional<G_Source> = null
-                        export type state_group<G_Source> = string
+                        export type dictionary = null
+                        export type group = string
+                        export type list = null
+                        export type optional = null
+                        export type state_group = string
                     }
-                    export type SG<G_Source> = 
+                    export type SG = 
                         | readonly ['dictionary', null]
                         | readonly ['group', string]
                         | readonly ['list', null]
                         | readonly ['optional', null]
                         | readonly ['state group', string]
                 }
-                export type L<G_Source> = _i_core._T_State_Group<G_Source, 
+                export type L = _i_core._T_State_Group<null, 
                     | readonly ['dictionary', null]
                     | readonly ['group', string]
                     | readonly ['list', null]
@@ -286,7 +286,7 @@ export namespace _T_Type {
                     | readonly ['state group', string]
                 >
             }
-            export type sub_selection<G_Source> = _i_core._T_List<G_Source, _i_core._T_State_Group<G_Source, 
+            export type sub_selection = _i_core._T_List<null, _i_core._T_State_Group<null, 
                 | readonly ['dictionary', null]
                 | readonly ['group', string]
                 | readonly ['list', null]
@@ -296,95 +296,95 @@ export namespace _T_Type {
             
             export namespace type_arguments {
             }
-            export type type_arguments<G_Source> = _T_Type_Arguments<G_Source>
+            export type type_arguments = _T_Type_Arguments
         }
-        export type component<G_Source> = {
-            readonly 'location': _i_core._T_State_Group<G_Source, 
+        export type component = {
+            readonly 'location': _i_core._T_State_Group<null, 
                 | readonly ['import', {
                     readonly 'import': string
                     readonly 'type': string
                 }]
                 | readonly ['sibling', string]
             >
-            readonly 'sub selection': _i_core._T_List<G_Source, _i_core._T_State_Group<G_Source, 
+            readonly 'sub selection': _i_core._T_List<null, _i_core._T_State_Group<null, 
                 | readonly ['dictionary', null]
                 | readonly ['group', string]
                 | readonly ['list', null]
                 | readonly ['optional', null]
                 | readonly ['state group', string]
             >>
-            readonly 'type arguments': _T_Type_Arguments<G_Source>
+            readonly 'type arguments': _T_Type_Arguments
         }
         
         export namespace computed {
         }
-        export type computed<G_Source> = _T_Type<G_Source>
+        export type computed = _T_Type
         
         export namespace dictionary {
         }
-        export type dictionary<G_Source> = _T_Type<G_Source>
+        export type dictionary = _T_Type
         
         export namespace _function {
             
             export namespace context {
             }
-            export type context<G_Source> = _T_Type<G_Source>
+            export type context = _T_Type
             
             export namespace parameters {
                 
                 export namespace D {
                 }
-                export type D<G_Source> = _T_Type<G_Source>
+                export type D = _T_Type
             }
-            export type parameters<G_Source> = _i_core._T_Dictionary<G_Source, _T_Type<G_Source>>
+            export type parameters = _i_core._T_Dictionary<null, _T_Type>
             
             export namespace _return {
             }
-            export type _return<G_Source> = _T_Type<G_Source>
+            export type _return = _T_Type
             
             export namespace type_parameters {
             }
-            export type type_parameters<G_Source> = _T_Type_Parameters<G_Source>
+            export type type_parameters = _T_Type_Parameters
         }
-        export type _function<G_Source> = {
-            readonly 'context': _T_Type<G_Source>
-            readonly 'parameters': _i_core._T_Dictionary<G_Source, _T_Type<G_Source>>
-            readonly 'return': _T_Type<G_Source>
-            readonly 'type parameters': _T_Type_Parameters<G_Source>
+        export type _function = {
+            readonly 'context': _T_Type
+            readonly 'parameters': _i_core._T_Dictionary<null, _T_Type>
+            readonly 'return': _T_Type
+            readonly 'type parameters': _T_Type_Parameters
         }
         
         export namespace group {
             
             export namespace D {
             }
-            export type D<G_Source> = _T_Type<G_Source>
+            export type D = _T_Type
         }
-        export type group<G_Source> = _i_core._T_Dictionary<G_Source, _T_Type<G_Source>>
+        export type group = _i_core._T_Dictionary<null, _T_Type>
         
         export namespace key_value_pair {
         }
-        export type key_value_pair<G_Source> = _T_Type<G_Source>
-        export type _null<G_Source> = null
+        export type key_value_pair = _T_Type
+        export type _null = null
         
         export namespace _number {
             
             export namespace SG {
-                export type float<G_Source> = null
+                export type float = null
                 
                 export namespace integer {
-                    export type signed<G_Source> = boolean
+                    export type signed = boolean
                 }
-                export type integer<G_Source> = {
+                export type integer = {
                     readonly 'signed': boolean
                 }
             }
-            export type SG<G_Source> = 
+            export type SG = 
                 | readonly ['float', null]
                 | readonly ['integer', {
                     readonly 'signed': boolean
                 }]
         }
-        export type _number<G_Source> = _i_core._T_State_Group<G_Source, 
+        export type _number = _i_core._T_State_Group<null, 
             | readonly ['float', null]
             | readonly ['integer', {
                 readonly 'signed': boolean
@@ -393,69 +393,69 @@ export namespace _T_Type {
         
         export namespace optional {
         }
-        export type optional<G_Source> = _T_Type<G_Source>
+        export type optional = _T_Type
         
         export namespace parameter {
         }
-        export type parameter<G_Source> = _T_Type_Parameter_Selection<G_Source>
-        export type _string<G_Source> = null
+        export type parameter = _T_Type_Parameter_Selection
+        export type _string = null
         
         export namespace tagged_union {
             
             export namespace D {
             }
-            export type D<G_Source> = _T_Type<G_Source>
+            export type D = _T_Type
         }
-        export type tagged_union<G_Source> = _i_core._T_Dictionary<G_Source, _T_Type<G_Source>>
+        export type tagged_union = _i_core._T_Dictionary<null, _T_Type>
     }
-    export type SG<G_Source> = 
-        | readonly ['array', _T_Type<G_Source>]
+    export type SG = 
+        | readonly ['array', _T_Type]
         | readonly ['boolean', null]
         | readonly ['component', {
-            readonly 'location': _i_core._T_State_Group<G_Source, 
+            readonly 'location': _i_core._T_State_Group<null, 
                 | readonly ['import', {
                     readonly 'import': string
                     readonly 'type': string
                 }]
                 | readonly ['sibling', string]
             >
-            readonly 'sub selection': _i_core._T_List<G_Source, _i_core._T_State_Group<G_Source, 
+            readonly 'sub selection': _i_core._T_List<null, _i_core._T_State_Group<null, 
                 | readonly ['dictionary', null]
                 | readonly ['group', string]
                 | readonly ['list', null]
                 | readonly ['optional', null]
                 | readonly ['state group', string]
             >>
-            readonly 'type arguments': _T_Type_Arguments<G_Source>
+            readonly 'type arguments': _T_Type_Arguments
         }]
-        | readonly ['computed', _T_Type<G_Source>]
-        | readonly ['dictionary', _T_Type<G_Source>]
+        | readonly ['computed', _T_Type]
+        | readonly ['dictionary', _T_Type]
         | readonly ['function', {
-            readonly 'context': _T_Type<G_Source>
-            readonly 'parameters': _i_core._T_Dictionary<G_Source, _T_Type<G_Source>>
-            readonly 'return': _T_Type<G_Source>
-            readonly 'type parameters': _T_Type_Parameters<G_Source>
+            readonly 'context': _T_Type
+            readonly 'parameters': _i_core._T_Dictionary<null, _T_Type>
+            readonly 'return': _T_Type
+            readonly 'type parameters': _T_Type_Parameters
         }]
-        | readonly ['group', _i_core._T_Dictionary<G_Source, _T_Type<G_Source>>]
-        | readonly ['key value pair', _T_Type<G_Source>]
+        | readonly ['group', _i_core._T_Dictionary<null, _T_Type>]
+        | readonly ['key value pair', _T_Type]
         | readonly ['null', null]
-        | readonly ['number', _i_core._T_State_Group<G_Source, 
+        | readonly ['number', _i_core._T_State_Group<null, 
             | readonly ['float', null]
             | readonly ['integer', {
                 readonly 'signed': boolean
             }]
         >]
-        | readonly ['optional', _T_Type<G_Source>]
-        | readonly ['parameter', _T_Type_Parameter_Selection<G_Source>]
+        | readonly ['optional', _T_Type]
+        | readonly ['parameter', _T_Type_Parameter_Selection]
         | readonly ['string', null]
-        | readonly ['tagged union', _i_core._T_Dictionary<G_Source, _T_Type<G_Source>>]
+        | readonly ['tagged union', _i_core._T_Dictionary<null, _T_Type>]
 }
 
 export namespace _T_Type_Arguments {
     
     export namespace D {
     }
-    export type D<G_Source> = _T_Type<G_Source>
+    export type D = _T_Type
 }
 
 export namespace _T_Type_Parameter_Selection {
@@ -463,22 +463,22 @@ export namespace _T_Type_Parameter_Selection {
     export namespace location {
         
         export namespace SG {
-            export type _module<G_Source> = null
-            export type _type<G_Source> = null
+            export type _module = null
+            export type _type = null
         }
-        export type SG<G_Source> = 
+        export type SG = 
             | readonly ['module', null]
             | readonly ['type', null]
     }
-    export type location<G_Source> = _i_core._T_State_Group<G_Source, 
+    export type location = _i_core._T_State_Group<null, 
         | readonly ['module', null]
         | readonly ['type', null]
     >
-    export type parameter<G_Source> = string
+    export type parameter = string
 }
 
 export namespace _T_Type_Parameters {
-    export type D<G_Source> = null
+    export type D = null
 }
 
 // *** ALIASES FOR NESTED TYPES
@@ -488,26 +488,26 @@ export namespace Imports {
     export namespace D {
         
         export namespace tail {
-            export type L<G_Source> = string
+            export type L = string
         }
-        export type tail<G_Source> = _i_core._T_List<G_Source, string>
+        export type tail = _i_core._T_List<null, string>
         
         export namespace _type {
             
             export namespace SG {
                 
                 export namespace ancestor {
-                    export type dependency<G_Source> = string
-                    export type number_of_steps<G_Source> = number
+                    export type dependency = string
+                    export type number_of_steps = number
                 }
-                export type ancestor<G_Source> = {
+                export type ancestor = {
                     readonly 'dependency': string
                     readonly 'number of steps': number
                 }
-                export type external<G_Source> = string
-                export type sibling<G_Source> = string
+                export type external = string
+                export type sibling = string
             }
-            export type SG<G_Source> = 
+            export type SG = 
                 | readonly ['ancestor', {
                     readonly 'dependency': string
                     readonly 'number of steps': number
@@ -515,7 +515,7 @@ export namespace Imports {
                 | readonly ['external', string]
                 | readonly ['sibling', string]
         }
-        export type _type<G_Source> = _i_core._T_State_Group<G_Source, 
+        export type _type = _i_core._T_State_Group<null, 
             | readonly ['ancestor', {
                 readonly 'dependency': string
                 readonly 'number of steps': number
@@ -526,11 +526,11 @@ export namespace Imports {
         
         export namespace type_arguments {
         }
-        export type type_arguments<G_Source> = _T_Type_Arguments<G_Source>
+        export type type_arguments = _T_Type_Arguments
     }
-    export type D<G_Source> = {
-        readonly 'tail': _i_core._T_List<G_Source, string>
-        readonly 'type': _i_core._T_State_Group<G_Source, 
+    export type D = {
+        readonly 'tail': _i_core._T_List<null, string>
+        readonly 'type': _i_core._T_State_Group<null, 
             | readonly ['ancestor', {
                 readonly 'dependency': string
                 readonly 'number of steps': number
@@ -538,7 +538,7 @@ export namespace Imports {
             | readonly ['external', string]
             | readonly ['sibling', string]
         >
-        readonly 'type arguments': _T_Type_Arguments<G_Source>
+        readonly 'type arguments': _T_Type_Arguments
     }
 }
 
@@ -546,11 +546,11 @@ export namespace Module {
     
     export namespace imports {
     }
-    export type imports<G_Source> = _T_Imports<G_Source>
+    export type imports = _T_Imports
     
     export namespace type_parameters {
     }
-    export type type_parameters<G_Source> = _T_Type_Parameters<G_Source>
+    export type type_parameters = _T_Type_Parameters
     
     export namespace types {
         
@@ -558,20 +558,20 @@ export namespace Module {
             
             export namespace parameters {
             }
-            export type parameters<G_Source> = _T_Type_Parameters<G_Source>
+            export type parameters = _T_Type_Parameters
             
             export namespace _type {
             }
-            export type _type<G_Source> = _T_Type<G_Source>
+            export type _type = _T_Type
         }
-        export type D<G_Source> = {
-            readonly 'parameters': _T_Type_Parameters<G_Source>
-            readonly 'type': _T_Type<G_Source>
+        export type D = {
+            readonly 'parameters': _T_Type_Parameters
+            readonly 'type': _T_Type
         }
     }
-    export type types<G_Source> = _i_core._T_Dictionary<G_Source, {
-        readonly 'parameters': _T_Type_Parameters<G_Source>
-        readonly 'type': _T_Type<G_Source>
+    export type types = _i_core._T_Dictionary<null, {
+        readonly 'parameters': _T_Type_Parameters
+        readonly 'type': _T_Type
     }>
 }
 
@@ -583,19 +583,19 @@ export namespace Module_Set {
             
             export namespace _module {
             }
-            export type _module<G_Source> = _T_Module<G_Source>
+            export type _module = _T_Module
             
             export namespace _set {
             }
-            export type _set<G_Source> = _T_Module_Set<G_Source>
+            export type _set = _T_Module_Set
         }
-        export type SG<G_Source> = 
-            | readonly ['module', _T_Module<G_Source>]
-            | readonly ['set', _T_Module_Set<G_Source>]
+        export type SG = 
+            | readonly ['module', _T_Module]
+            | readonly ['set', _T_Module_Set]
     }
-    export type D<G_Source> = _i_core._T_State_Group<G_Source, 
-        | readonly ['module', _T_Module<G_Source>]
-        | readonly ['set', _T_Module_Set<G_Source>]
+    export type D = _i_core._T_State_Group<null, 
+        | readonly ['module', _T_Module]
+        | readonly ['set', _T_Module_Set]
     >
 }
 
@@ -605,8 +605,8 @@ export namespace Type {
         
         export namespace array {
         }
-        export type array<G_Source> = _T_Type<G_Source>
-        export type _boolean<G_Source> = null
+        export type array = _T_Type
+        export type _boolean = null
         
         export namespace component {
             
@@ -615,23 +615,23 @@ export namespace Type {
                 export namespace SG {
                     
                     export namespace _import {
-                        export type _import<G_Source> = string
-                        export type _type<G_Source> = string
+                        export type _import = string
+                        export type _type = string
                     }
-                    export type _import<G_Source> = {
+                    export type _import = {
                         readonly 'import': string
                         readonly 'type': string
                     }
-                    export type sibling<G_Source> = string
+                    export type sibling = string
                 }
-                export type SG<G_Source> = 
+                export type SG = 
                     | readonly ['import', {
                         readonly 'import': string
                         readonly 'type': string
                     }]
                     | readonly ['sibling', string]
             }
-            export type location<G_Source> = _i_core._T_State_Group<G_Source, 
+            export type location = _i_core._T_State_Group<null, 
                 | readonly ['import', {
                     readonly 'import': string
                     readonly 'type': string
@@ -644,20 +644,20 @@ export namespace Type {
                 export namespace L {
                     
                     export namespace SG {
-                        export type dictionary<G_Source> = null
-                        export type group<G_Source> = string
-                        export type list<G_Source> = null
-                        export type optional<G_Source> = null
-                        export type state_group<G_Source> = string
+                        export type dictionary = null
+                        export type group = string
+                        export type list = null
+                        export type optional = null
+                        export type state_group = string
                     }
-                    export type SG<G_Source> = 
+                    export type SG = 
                         | readonly ['dictionary', null]
                         | readonly ['group', string]
                         | readonly ['list', null]
                         | readonly ['optional', null]
                         | readonly ['state group', string]
                 }
-                export type L<G_Source> = _i_core._T_State_Group<G_Source, 
+                export type L = _i_core._T_State_Group<null, 
                     | readonly ['dictionary', null]
                     | readonly ['group', string]
                     | readonly ['list', null]
@@ -665,7 +665,7 @@ export namespace Type {
                     | readonly ['state group', string]
                 >
             }
-            export type sub_selection<G_Source> = _i_core._T_List<G_Source, _i_core._T_State_Group<G_Source, 
+            export type sub_selection = _i_core._T_List<null, _i_core._T_State_Group<null, 
                 | readonly ['dictionary', null]
                 | readonly ['group', string]
                 | readonly ['list', null]
@@ -675,95 +675,95 @@ export namespace Type {
             
             export namespace type_arguments {
             }
-            export type type_arguments<G_Source> = _T_Type_Arguments<G_Source>
+            export type type_arguments = _T_Type_Arguments
         }
-        export type component<G_Source> = {
-            readonly 'location': _i_core._T_State_Group<G_Source, 
+        export type component = {
+            readonly 'location': _i_core._T_State_Group<null, 
                 | readonly ['import', {
                     readonly 'import': string
                     readonly 'type': string
                 }]
                 | readonly ['sibling', string]
             >
-            readonly 'sub selection': _i_core._T_List<G_Source, _i_core._T_State_Group<G_Source, 
+            readonly 'sub selection': _i_core._T_List<null, _i_core._T_State_Group<null, 
                 | readonly ['dictionary', null]
                 | readonly ['group', string]
                 | readonly ['list', null]
                 | readonly ['optional', null]
                 | readonly ['state group', string]
             >>
-            readonly 'type arguments': _T_Type_Arguments<G_Source>
+            readonly 'type arguments': _T_Type_Arguments
         }
         
         export namespace computed {
         }
-        export type computed<G_Source> = _T_Type<G_Source>
+        export type computed = _T_Type
         
         export namespace dictionary {
         }
-        export type dictionary<G_Source> = _T_Type<G_Source>
+        export type dictionary = _T_Type
         
         export namespace _function {
             
             export namespace context {
             }
-            export type context<G_Source> = _T_Type<G_Source>
+            export type context = _T_Type
             
             export namespace parameters {
                 
                 export namespace D {
                 }
-                export type D<G_Source> = _T_Type<G_Source>
+                export type D = _T_Type
             }
-            export type parameters<G_Source> = _i_core._T_Dictionary<G_Source, _T_Type<G_Source>>
+            export type parameters = _i_core._T_Dictionary<null, _T_Type>
             
             export namespace _return {
             }
-            export type _return<G_Source> = _T_Type<G_Source>
+            export type _return = _T_Type
             
             export namespace type_parameters {
             }
-            export type type_parameters<G_Source> = _T_Type_Parameters<G_Source>
+            export type type_parameters = _T_Type_Parameters
         }
-        export type _function<G_Source> = {
-            readonly 'context': _T_Type<G_Source>
-            readonly 'parameters': _i_core._T_Dictionary<G_Source, _T_Type<G_Source>>
-            readonly 'return': _T_Type<G_Source>
-            readonly 'type parameters': _T_Type_Parameters<G_Source>
+        export type _function = {
+            readonly 'context': _T_Type
+            readonly 'parameters': _i_core._T_Dictionary<null, _T_Type>
+            readonly 'return': _T_Type
+            readonly 'type parameters': _T_Type_Parameters
         }
         
         export namespace group {
             
             export namespace D {
             }
-            export type D<G_Source> = _T_Type<G_Source>
+            export type D = _T_Type
         }
-        export type group<G_Source> = _i_core._T_Dictionary<G_Source, _T_Type<G_Source>>
+        export type group = _i_core._T_Dictionary<null, _T_Type>
         
         export namespace key_value_pair {
         }
-        export type key_value_pair<G_Source> = _T_Type<G_Source>
-        export type _null<G_Source> = null
+        export type key_value_pair = _T_Type
+        export type _null = null
         
         export namespace _number {
             
             export namespace SG {
-                export type float<G_Source> = null
+                export type float = null
                 
                 export namespace integer {
-                    export type signed<G_Source> = boolean
+                    export type signed = boolean
                 }
-                export type integer<G_Source> = {
+                export type integer = {
                     readonly 'signed': boolean
                 }
             }
-            export type SG<G_Source> = 
+            export type SG = 
                 | readonly ['float', null]
                 | readonly ['integer', {
                     readonly 'signed': boolean
                 }]
         }
-        export type _number<G_Source> = _i_core._T_State_Group<G_Source, 
+        export type _number = _i_core._T_State_Group<null, 
             | readonly ['float', null]
             | readonly ['integer', {
                 readonly 'signed': boolean
@@ -772,69 +772,69 @@ export namespace Type {
         
         export namespace optional {
         }
-        export type optional<G_Source> = _T_Type<G_Source>
+        export type optional = _T_Type
         
         export namespace parameter {
         }
-        export type parameter<G_Source> = _T_Type_Parameter_Selection<G_Source>
-        export type _string<G_Source> = null
+        export type parameter = _T_Type_Parameter_Selection
+        export type _string = null
         
         export namespace tagged_union {
             
             export namespace D {
             }
-            export type D<G_Source> = _T_Type<G_Source>
+            export type D = _T_Type
         }
-        export type tagged_union<G_Source> = _i_core._T_Dictionary<G_Source, _T_Type<G_Source>>
+        export type tagged_union = _i_core._T_Dictionary<null, _T_Type>
     }
-    export type SG<G_Source> = 
-        | readonly ['array', _T_Type<G_Source>]
+    export type SG = 
+        | readonly ['array', _T_Type]
         | readonly ['boolean', null]
         | readonly ['component', {
-            readonly 'location': _i_core._T_State_Group<G_Source, 
+            readonly 'location': _i_core._T_State_Group<null, 
                 | readonly ['import', {
                     readonly 'import': string
                     readonly 'type': string
                 }]
                 | readonly ['sibling', string]
             >
-            readonly 'sub selection': _i_core._T_List<G_Source, _i_core._T_State_Group<G_Source, 
+            readonly 'sub selection': _i_core._T_List<null, _i_core._T_State_Group<null, 
                 | readonly ['dictionary', null]
                 | readonly ['group', string]
                 | readonly ['list', null]
                 | readonly ['optional', null]
                 | readonly ['state group', string]
             >>
-            readonly 'type arguments': _T_Type_Arguments<G_Source>
+            readonly 'type arguments': _T_Type_Arguments
         }]
-        | readonly ['computed', _T_Type<G_Source>]
-        | readonly ['dictionary', _T_Type<G_Source>]
+        | readonly ['computed', _T_Type]
+        | readonly ['dictionary', _T_Type]
         | readonly ['function', {
-            readonly 'context': _T_Type<G_Source>
-            readonly 'parameters': _i_core._T_Dictionary<G_Source, _T_Type<G_Source>>
-            readonly 'return': _T_Type<G_Source>
-            readonly 'type parameters': _T_Type_Parameters<G_Source>
+            readonly 'context': _T_Type
+            readonly 'parameters': _i_core._T_Dictionary<null, _T_Type>
+            readonly 'return': _T_Type
+            readonly 'type parameters': _T_Type_Parameters
         }]
-        | readonly ['group', _i_core._T_Dictionary<G_Source, _T_Type<G_Source>>]
-        | readonly ['key value pair', _T_Type<G_Source>]
+        | readonly ['group', _i_core._T_Dictionary<null, _T_Type>]
+        | readonly ['key value pair', _T_Type]
         | readonly ['null', null]
-        | readonly ['number', _i_core._T_State_Group<G_Source, 
+        | readonly ['number', _i_core._T_State_Group<null, 
             | readonly ['float', null]
             | readonly ['integer', {
                 readonly 'signed': boolean
             }]
         >]
-        | readonly ['optional', _T_Type<G_Source>]
-        | readonly ['parameter', _T_Type_Parameter_Selection<G_Source>]
+        | readonly ['optional', _T_Type]
+        | readonly ['parameter', _T_Type_Parameter_Selection]
         | readonly ['string', null]
-        | readonly ['tagged union', _i_core._T_Dictionary<G_Source, _T_Type<G_Source>>]
+        | readonly ['tagged union', _i_core._T_Dictionary<null, _T_Type>]
 }
 
 export namespace Type_Arguments {
     
     export namespace D {
     }
-    export type D<G_Source> = _T_Type<G_Source>
+    export type D = _T_Type
 }
 
 export namespace Type_Parameter_Selection {
@@ -842,20 +842,20 @@ export namespace Type_Parameter_Selection {
     export namespace location {
         
         export namespace SG {
-            export type _module<G_Source> = null
-            export type _type<G_Source> = null
+            export type _module = null
+            export type _type = null
         }
-        export type SG<G_Source> = 
+        export type SG = 
             | readonly ['module', null]
             | readonly ['type', null]
     }
-    export type location<G_Source> = _i_core._T_State_Group<G_Source, 
+    export type location = _i_core._T_State_Group<null, 
         | readonly ['module', null]
         | readonly ['type', null]
     >
-    export type parameter<G_Source> = string
+    export type parameter = string
 }
 
 export namespace Type_Parameters {
-    export type D<G_Source> = null
+    export type D = null
 }
