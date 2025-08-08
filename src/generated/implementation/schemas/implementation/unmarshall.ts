@@ -7,7 +7,7 @@ import * as _i_r_interface from "../interface/unmarshall"
 import * as _i_signatures from "../../../interface/schemas/implementation/unmarshall"
 
 
-export const Initialization: _i_signatures._T_Initialization = ($) => _i_generic.process_state_group(
+export const Initialization: _i_signatures._T_Initialization = ($, $p) => _i_generic.process_state_group(
     $,
     {
         'states': _pa.dictionary_literal({
@@ -23,7 +23,9 @@ export const Initialization: _i_signatures._T_Initialization = ($) => _i_generic
                                 }
                             ), ($) => Initialization(
                                 $,
-                                null
+                                {
+                                    'value deserializers': $p['value deserializers'],
+                                }
                             )),
                             'temp ordered variables': _pa.cc(_i_generic.get_entry(
                                 $,
@@ -44,7 +46,9 @@ export const Initialization: _i_signatures._T_Initialization = ($) => _i_generic
                                                     }
                                                 ), ($) => Initialization(
                                                     $,
-                                                    null
+                                                    {
+                                                        'value deserializers': $p['value deserializers'],
+                                                    }
                                                 )),
                                                 'name': _pa.cc(_i_generic.get_entry(
                                                     $,
@@ -65,7 +69,9 @@ export const Initialization: _i_signatures._T_Initialization = ($) => _i_generic
                                                     {
                                                         'value': ($) => _i_r_interface.Type(
                                                             $,
-                                                            null
+                                                            {
+                                                                'value deserializers': $p['value deserializers'],
+                                                            }
                                                         ),
                                                     }
                                                 )),
@@ -81,7 +87,9 @@ export const Initialization: _i_signatures._T_Initialization = ($) => _i_generic
                                 }
                             ), ($) => Variables(
                                 $,
-                                null
+                                {
+                                    'value deserializers': $p['value deserializers'],
+                                }
                             )),
                         }),
                     }
@@ -100,7 +108,9 @@ export const Initialization: _i_signatures._T_Initialization = ($) => _i_generic
                                 }
                             ), ($) => Initialization(
                                 $,
-                                null
+                                {
+                                    'value deserializers': $p['value deserializers'],
+                                }
                             )),
                             'new context': _pa.cc(_i_generic.get_entry(
                                 $,
@@ -109,7 +119,9 @@ export const Initialization: _i_signatures._T_Initialization = ($) => _i_generic
                                 }
                             ), ($) => Selection(
                                 $,
-                                null
+                                {
+                                    'value deserializers': $p['value deserializers'],
+                                }
                             )),
                         }),
                     }
@@ -128,7 +140,9 @@ export const Initialization: _i_signatures._T_Initialization = ($) => _i_generic
                                 }
                             ), ($) => Literal(
                                 $,
-                                null
+                                {
+                                    'value deserializers': $p['value deserializers'],
+                                }
                             )),
                         }),
                     }
@@ -138,7 +152,9 @@ export const Initialization: _i_signatures._T_Initialization = ($) => _i_generic
             'selection': ($): _i_out._T_Initialization<null> => _i_generic.wrap_unresolved_state_group(
                 ['selection', Selection(
                     $,
-                    null
+                    {
+                        'value deserializers': $p['value deserializers'],
+                    }
                 )],
                 null
             ),
@@ -154,7 +170,9 @@ export const Initialization: _i_signatures._T_Initialization = ($) => _i_generic
                                 }
                             ), ($) => Selection(
                                 $,
-                                null
+                                {
+                                    'value deserializers': $p['value deserializers'],
+                                }
                             )),
                             'type': _pa.cc(_i_generic.get_entry(
                                 $,
@@ -173,7 +191,9 @@ export const Initialization: _i_signatures._T_Initialization = ($) => _i_generic
                                                         'map': ($): _i_out._T_Initialization.SG.transformation._type.SG.array<null> => _i_generic.wrap_unresolved_state_group(
                                                             ['map', Initialization(
                                                                 $,
-                                                                null
+                                                                {
+                                                                    'value deserializers': $p['value deserializers'],
+                                                                }
                                                             )],
                                                             null
                                                         ),
@@ -206,7 +226,9 @@ export const Initialization: _i_signatures._T_Initialization = ($) => _i_generic
                                                                             }
                                                                         ), ($) => Initialization(
                                                                             $,
-                                                                            null
+                                                                            {
+                                                                                'value deserializers': $p['value deserializers'],
+                                                                            }
                                                                         )),
                                                                         'if true': _pa.cc(_i_generic.get_entry(
                                                                             $,
@@ -215,7 +237,9 @@ export const Initialization: _i_signatures._T_Initialization = ($) => _i_generic
                                                                             }
                                                                         ), ($) => Initialization(
                                                                             $,
-                                                                            null
+                                                                            {
+                                                                                'value deserializers': $p['value deserializers'],
+                                                                            }
                                                                         )),
                                                                     }),
                                                                 }
@@ -235,7 +259,9 @@ export const Initialization: _i_signatures._T_Initialization = ($) => _i_generic
                                                         'map': ($): _i_out._T_Initialization.SG.transformation._type.SG.dictionary<null> => _i_generic.wrap_unresolved_state_group(
                                                             ['map', Initialization(
                                                                 $,
-                                                                null
+                                                                {
+                                                                    'value deserializers': $p['value deserializers'],
+                                                                }
                                                             )],
                                                             null
                                                         ),
@@ -267,7 +293,9 @@ export const Initialization: _i_signatures._T_Initialization = ($) => _i_generic
                                                                                     {
                                                                                         'value': ($) => Initialization(
                                                                                             $,
-                                                                                            null
+                                                                                            {
+                                                                                                'value deserializers': $p['value deserializers'],
+                                                                                            }
                                                                                         ),
                                                                                     }
                                                                                 ),
@@ -280,7 +308,9 @@ export const Initialization: _i_signatures._T_Initialization = ($) => _i_generic
                                                                             }
                                                                         ), ($) => Initialization(
                                                                             $,
-                                                                            null
+                                                                            {
+                                                                                'value deserializers': $p['value deserializers'],
+                                                                            }
                                                                         )),
                                                                     }),
                                                                 }
@@ -300,7 +330,9 @@ export const Initialization: _i_signatures._T_Initialization = ($) => _i_generic
                                                         'map': ($): _i_out._T_Initialization.SG.transformation._type.SG.optional<null> => _i_generic.wrap_unresolved_state_group(
                                                             ['map', Initialization(
                                                                 $,
-                                                                null
+                                                                {
+                                                                    'value deserializers': $p['value deserializers'],
+                                                                }
                                                             )],
                                                             null
                                                         ),
@@ -316,7 +348,9 @@ export const Initialization: _i_signatures._T_Initialization = ($) => _i_generic
                                                                             }
                                                                         ), ($) => Initialization(
                                                                             $,
-                                                                            null
+                                                                            {
+                                                                                'value deserializers': $p['value deserializers'],
+                                                                            }
                                                                         )),
                                                                         'if set': _pa.cc(_i_generic.get_entry(
                                                                             $,
@@ -325,7 +359,9 @@ export const Initialization: _i_signatures._T_Initialization = ($) => _i_generic
                                                                             }
                                                                         ), ($) => Initialization(
                                                                             $,
-                                                                            null
+                                                                            {
+                                                                                'value deserializers': $p['value deserializers'],
+                                                                            }
                                                                         )),
                                                                         'temp resulting node': _pa.cc(_i_generic.get_entry(
                                                                             $,
@@ -337,7 +373,9 @@ export const Initialization: _i_signatures._T_Initialization = ($) => _i_generic
                                                                             {
                                                                                 'value': ($) => _i_r_interface.Type(
                                                                                     $,
-                                                                                    null
+                                                                                    {
+                                                                                        'value deserializers': $p['value deserializers'],
+                                                                                    }
                                                                                 ),
                                                                             }
                                                                         )),
@@ -371,7 +409,9 @@ export const Initialization: _i_signatures._T_Initialization = ($) => _i_generic
                                                                             {
                                                                                 'value': ($) => _i_r_interface.Type(
                                                                                     $,
-                                                                                    null
+                                                                                    {
+                                                                                        'value deserializers': $p['value deserializers'],
+                                                                                    }
                                                                                 ),
                                                                             }
                                                                         )),
@@ -399,7 +439,9 @@ export const Initialization: _i_signatures._T_Initialization = ($) => _i_generic
                                                                                                         {
                                                                                                             'value': ($) => Initialization(
                                                                                                                 $,
-                                                                                                                null
+                                                                                                                {
+                                                                                                                    'value deserializers': $p['value deserializers'],
+                                                                                                                }
                                                                                                             ),
                                                                                                         }
                                                                                                     )),
@@ -423,7 +465,9 @@ export const Initialization: _i_signatures._T_Initialization = ($) => _i_generic
                                                                                                         {
                                                                                                             'value': ($) => Initialization(
                                                                                                                 $,
-                                                                                                                null
+                                                                                                                {
+                                                                                                                    'value deserializers': $p['value deserializers'],
+                                                                                                                }
                                                                                                             ),
                                                                                                         }
                                                                                                     )),
@@ -434,7 +478,9 @@ export const Initialization: _i_signatures._T_Initialization = ($) => _i_generic
                                                                                                         }
                                                                                                     ), ($) => Initialization(
                                                                                                         $,
-                                                                                                        null
+                                                                                                        {
+                                                                                                            'value deserializers': $p['value deserializers'],
+                                                                                                        }
                                                                                                     )),
                                                                                                 }),
                                                                                             }
@@ -465,7 +511,7 @@ export const Initialization: _i_signatures._T_Initialization = ($) => _i_generic
         }),
     }
 )
-export const Literal: _i_signatures._T_Literal = ($) => _i_generic.process_state_group(
+export const Literal: _i_signatures._T_Literal = ($, $p) => _i_generic.process_state_group(
     $,
     {
         'states': _pa.dictionary_literal({
@@ -475,7 +521,9 @@ export const Literal: _i_signatures._T_Literal = ($) => _i_generic.process_state
                     {
                         'value': ($) => Initialization(
                             $,
-                            null
+                            {
+                                'value deserializers': $p['value deserializers'],
+                            }
                         ),
                     }
                 )],
@@ -511,7 +559,9 @@ export const Literal: _i_signatures._T_Literal = ($) => _i_generic.process_state
                     {
                         'value': ($) => Initialization(
                             $,
-                            null
+                            {
+                                'value deserializers': $p['value deserializers'],
+                            }
                         ),
                     }
                 )],
@@ -529,7 +579,9 @@ export const Literal: _i_signatures._T_Literal = ($) => _i_generic.process_state
                                 }
                             ), ($) => Initialization(
                                 $,
-                                null
+                                {
+                                    'value deserializers': $p['value deserializers'],
+                                }
                             )),
                             'temp has parameters': _pa.cc(_i_generic.get_entry(
                                 $,
@@ -538,7 +590,9 @@ export const Literal: _i_signatures._T_Literal = ($) => _i_generic.process_state
                                 }
                             ), ($) => _i_generic.process_boolean(
                                 $,
-                                null
+                                {
+                                    'deserializer': $p['value deserializers']['boolean'],
+                                }
                             )),
                             'temp resulting node': _pa.cc(_i_generic.get_entry(
                                 $,
@@ -550,7 +604,9 @@ export const Literal: _i_signatures._T_Literal = ($) => _i_generic.process_state
                                 {
                                     'value': ($) => _i_r_interface.Type(
                                         $,
-                                        null
+                                        {
+                                            'value deserializers': $p['value deserializers'],
+                                        }
                                     ),
                                 }
                             )),
@@ -565,7 +621,9 @@ export const Literal: _i_signatures._T_Literal = ($) => _i_generic.process_state
                     {
                         'value': ($) => Initialization(
                             $,
-                            null
+                            {
+                                'value deserializers': $p['value deserializers'],
+                            }
                         ),
                     }
                 )],
@@ -586,21 +644,27 @@ export const Literal: _i_signatures._T_Literal = ($) => _i_generic.process_state
                             'floting point': ($): _i_out._T_Literal.SG._number<null> => _i_generic.wrap_unresolved_state_group(
                                 ['floting point', _i_generic.process_number(
                                     $,
-                                    null
+                                    {
+                                        'deserializer': $p['value deserializers']['default number'],
+                                    }
                                 )],
                                 null
                             ),
                             'integer': ($): _i_out._T_Literal.SG._number<null> => _i_generic.wrap_unresolved_state_group(
                                 ['integer', _i_generic.process_number(
                                     $,
-                                    null
+                                    {
+                                        'deserializer': $p['value deserializers']['default number'],
+                                    }
                                 )],
                                 null
                             ),
                             'signed integer': ($): _i_out._T_Literal.SG._number<null> => _i_generic.wrap_unresolved_state_group(
                                 ['signed integer', _i_generic.process_number(
                                     $,
-                                    null
+                                    {
+                                        'deserializer': $p['value deserializers']['default number'],
+                                    }
                                 )],
                                 null
                             ),
@@ -624,7 +688,9 @@ export const Literal: _i_signatures._T_Literal = ($) => _i_generic.process_state
                             'set': ($): _i_out._T_Literal.SG.optional<null> => _i_generic.wrap_unresolved_state_group(
                                 ['set', Initialization(
                                     $,
-                                    null
+                                    {
+                                        'value deserializers': $p['value deserializers'],
+                                    }
                                 )],
                                 null
                             ),
@@ -699,7 +765,9 @@ export const Literal: _i_signatures._T_Literal = ($) => _i_generic.process_state
                                 }
                             ), ($) => Initialization(
                                 $,
-                                null
+                                {
+                                    'value deserializers': $p['value deserializers'],
+                                }
                             )),
                         }),
                     }
@@ -709,7 +777,7 @@ export const Literal: _i_signatures._T_Literal = ($) => _i_generic.process_state
         }),
     }
 )
-export const Module: _i_signatures._T_Module = ($) => _i_generic.process_group(
+export const Module: _i_signatures._T_Module = ($, $p) => _i_generic.process_group(
     $,
     {
         'properties': ($) => ({
@@ -720,7 +788,9 @@ export const Module: _i_signatures._T_Module = ($) => _i_generic.process_group(
                 }
             ), ($) => _i_r_interface.Imports(
                 $,
-                null
+                {
+                    'value deserializers': $p['value deserializers'],
+                }
             )),
             'variable imports': _pa.cc(_i_generic.get_entry(
                 $,
@@ -778,7 +848,9 @@ export const Module: _i_signatures._T_Module = ($) => _i_generic.process_group(
                                                                 }
                                                             ), ($) => _i_generic.process_number(
                                                                 $,
-                                                                null
+                                                                {
+                                                                    'deserializer': $p['value deserializers']['default number'],
+                                                                }
                                                             )),
                                                         }),
                                                     }
@@ -814,12 +886,14 @@ export const Module: _i_signatures._T_Module = ($) => _i_generic.process_group(
                 }
             ), ($) => Variables(
                 $,
-                null
+                {
+                    'value deserializers': $p['value deserializers'],
+                }
             )),
         }),
     }
 )
-export const Module_Set: _i_signatures._T_Module_Set = ($) => _i_generic.process_unresolved_dictionary(
+export const Module_Set: _i_signatures._T_Module_Set = ($, $p) => _i_generic.process_unresolved_dictionary(
     $,
     {
         'value': ($) => _i_generic.process_state_group(
@@ -829,14 +903,18 @@ export const Module_Set: _i_signatures._T_Module_Set = ($) => _i_generic.process
                     'module': ($): _i_out._T_Module_Set.D<null> => _i_generic.wrap_unresolved_state_group(
                         ['module', Module(
                             $,
-                            null
+                            {
+                                'value deserializers': $p['value deserializers'],
+                            }
                         )],
                         null
                     ),
                     'set': ($): _i_out._T_Module_Set.D<null> => _i_generic.wrap_unresolved_state_group(
                         ['set', Module_Set(
                             $,
-                            null
+                            {
+                                'value deserializers': $p['value deserializers'],
+                            }
                         )],
                         null
                     ),
@@ -845,7 +923,7 @@ export const Module_Set: _i_signatures._T_Module_Set = ($) => _i_generic.process
         ),
     }
 )
-export const Selection: _i_signatures._T_Selection = ($) => _i_generic.process_group(
+export const Selection: _i_signatures._T_Selection = ($, $p) => _i_generic.process_group(
     $,
     {
         'properties': ($) => ({
@@ -890,7 +968,9 @@ export const Selection: _i_signatures._T_Selection = ($) => _i_generic.process_g
                                                     {
                                                         'value': ($) => Initialization(
                                                             $,
-                                                            null
+                                                            {
+                                                                'value deserializers': $p['value deserializers'],
+                                                            }
                                                         ),
                                                     }
                                                 ),
@@ -903,7 +983,9 @@ export const Selection: _i_signatures._T_Selection = ($) => _i_generic.process_g
                                             }
                                         ), ($) => Selection(
                                             $,
-                                            null
+                                            {
+                                                'value deserializers': $p['value deserializers'],
+                                            }
                                         )),
                                         'source': _pa.cc(_i_generic.get_entry(
                                             $,
@@ -912,7 +994,9 @@ export const Selection: _i_signatures._T_Selection = ($) => _i_generic.process_g
                                             }
                                         ), ($) => Selection(
                                             $,
-                                            null
+                                            {
+                                                'value deserializers': $p['value deserializers'],
+                                            }
                                         )),
                                     }),
                                 }
@@ -980,7 +1064,9 @@ export const Selection: _i_signatures._T_Selection = ($) => _i_generic.process_g
                                             }
                                         ), ($) => Selection(
                                             $,
-                                            null
+                                            {
+                                                'value deserializers': $p['value deserializers'],
+                                            }
                                         )),
                                         'if set': _pa.cc(_i_generic.get_entry(
                                             $,
@@ -989,7 +1075,9 @@ export const Selection: _i_signatures._T_Selection = ($) => _i_generic.process_g
                                             }
                                         ), ($) => Selection(
                                             $,
-                                            null
+                                            {
+                                                'value deserializers': $p['value deserializers'],
+                                            }
                                         )),
                                         'source': _pa.cc(_i_generic.get_entry(
                                             $,
@@ -998,7 +1086,9 @@ export const Selection: _i_signatures._T_Selection = ($) => _i_generic.process_g
                                             }
                                         ), ($) => Selection(
                                             $,
-                                            null
+                                            {
+                                                'value deserializers': $p['value deserializers'],
+                                            }
                                         )),
                                     }),
                                 }
@@ -1032,7 +1122,7 @@ export const Selection: _i_signatures._T_Selection = ($) => _i_generic.process_g
         }),
     }
 )
-export const Type_Parameters: _i_signatures._T_Type_Parameters = ($) => _i_generic.process_unresolved_dictionary(
+export const Type_Parameters: _i_signatures._T_Type_Parameters = ($, $p) => _i_generic.process_unresolved_dictionary(
     $,
     {
         'value': ($) => _i_generic.process_nothing(
@@ -1041,7 +1131,7 @@ export const Type_Parameters: _i_signatures._T_Type_Parameters = ($) => _i_gener
         ),
     }
 )
-export const Variables: _i_signatures._T_Variables = ($) => _i_generic.process_unresolved_dictionary(
+export const Variables: _i_signatures._T_Variables = ($, $p) => _i_generic.process_unresolved_dictionary(
     $,
     {
         'value': ($) => _i_generic.process_group(
@@ -1055,7 +1145,9 @@ export const Variables: _i_signatures._T_Variables = ($) => _i_generic.process_u
                         }
                     ), ($) => Initialization(
                         $,
-                        null
+                        {
+                            'value deserializers': $p['value deserializers'],
+                        }
                     )),
                     'type': _pa.cc(_i_generic.get_entry(
                         $,
@@ -1067,7 +1159,9 @@ export const Variables: _i_signatures._T_Variables = ($) => _i_generic.process_u
                         {
                             'value': ($) => _i_r_interface.Type(
                                 $,
-                                null
+                                {
+                                    'value deserializers': $p['value deserializers'],
+                                }
                             ),
                         }
                     )),

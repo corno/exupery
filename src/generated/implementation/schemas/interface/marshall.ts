@@ -5,7 +5,7 @@ import * as _i_out from "../../../interface/core/astn_target"
 import * as _i_signatures from "../../../interface/schemas/interface/marshall"
 
 
-export const Imports: _i_signatures._T_s_Imports = ($, $p) => ['dictionary', $.map(($) => ['verbose group', _pa.dictionary_literal({
+export const Imports: _i_signatures._T_Imports = ($, $p) => ['dictionary', $.map(($) => ['verbose group', _pa.dictionary_literal({
     'tail': _pa.cc($['tail'], ($) => ['list', $.map(($) => ['text', ({
         'delimiter': ['quote', null],
         'value': $,
@@ -49,7 +49,7 @@ export const Imports: _i_signatures._T_s_Imports = ($, $p) => ['dictionary', $.m
         }
     )),
 })])]
-export const Module: _i_signatures._T_s_Module = ($, $p) => ['verbose group', _pa.dictionary_literal({
+export const Module: _i_signatures._T_Module = ($, $p) => ['verbose group', _pa.dictionary_literal({
     'imports': _pa.cc($['imports'], ($) => Imports(
         $,
         {
@@ -77,7 +77,7 @@ export const Module: _i_signatures._T_s_Module = ($, $p) => ['verbose group', _p
         )),
     })])]),
 })]
-export const Module_Set: _i_signatures._T_s_Module_Set = ($, $p) => ['dictionary', $.map(($) => ['state', _pa.cc($, ($): _i_out._T_Value.SG.state => {
+export const Module_Set: _i_signatures._T_Module_Set = ($, $p) => ['dictionary', $.map(($) => ['state', _pa.cc($, ($): _i_out._T_Value.SG.state => {
     switch ($[0]) {
         case 'module': return _pa.ss($, ($) => ({
             'state': "module",
@@ -100,7 +100,7 @@ export const Module_Set: _i_signatures._T_s_Module_Set = ($, $p) => ['dictionary
         default: return _pa.au($[0])
     }
 })])]
-export const Type: _i_signatures._T_s_Type = ($, $p) => ['state', _pa.cc($, ($): _i_out._T_Value.SG.state => {
+export const Type: _i_signatures._T_Type = ($, $p) => ['state', _pa.cc($, ($): _i_out._T_Value.SG.state => {
     switch ($[0]) {
         case 'array': return _pa.ss($, ($) => ({
             'state': "array",
@@ -309,13 +309,13 @@ export const Type: _i_signatures._T_s_Type = ($, $p) => ['state', _pa.cc($, ($):
         default: return _pa.au($[0])
     }
 })]
-export const Type_Arguments: _i_signatures._T_s_Type_Arguments = ($, $p) => ['dictionary', $.map(($) => Type(
+export const Type_Arguments: _i_signatures._T_Type_Arguments = ($, $p) => ['dictionary', $.map(($) => Type(
     $,
     {
         'value serializers': $p['value serializers'],
     }
 ))]
-export const Type_Parameter_Selection: _i_signatures._T_s_Type_Parameter_Selection = ($, $p) => ['verbose group', _pa.dictionary_literal({
+export const Type_Parameter_Selection: _i_signatures._T_Type_Parameter_Selection = ($, $p) => ['verbose group', _pa.dictionary_literal({
     'location': _pa.cc($['location'], ($) => ['state', _pa.cc($, ($): _i_out._T_Value.SG.state => {
         switch ($[0]) {
             case 'module': return _pa.ss($, ($) => ({
@@ -334,4 +334,4 @@ export const Type_Parameter_Selection: _i_signatures._T_s_Type_Parameter_Selecti
         'value': $,
     })]),
 })]
-export const Type_Parameters: _i_signatures._T_s_Type_Parameters = ($, $p) => ['dictionary', $.map(($) => ['nothing', null])]
+export const Type_Parameters: _i_signatures._T_Type_Parameters = ($, $p) => ['dictionary', $.map(($) => ['nothing', null])]

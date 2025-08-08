@@ -6,16 +6,18 @@ import * as _i_out from "../../../interface/schemas/typescript_light/data_types/
 import * as _i_signatures from "../../../interface/schemas/typescript_light/unmarshall"
 
 
-export const Block: _i_signatures._T_Block = ($) => _i_generic.process_unconstrained_list(
+export const Block: _i_signatures._T_Block = ($, $p) => _i_generic.process_unconstrained_list(
     $,
     {
         'value': ($) => Block_Part(
             $,
-            null
+            {
+                'value deserializers': $p['value deserializers'],
+            }
         ),
     }
 )
-export const Block_Part: _i_signatures._T_Block_Part = ($) => _i_generic.process_state_group(
+export const Block_Part: _i_signatures._T_Block_Part = ($, $p) => _i_generic.process_state_group(
     $,
     {
         'states': _pa.dictionary_literal({
@@ -29,7 +31,9 @@ export const Block_Part: _i_signatures._T_Block_Part = ($) => _i_generic.process
             'nested line': ($): _i_out._T_Block_Part => _i_generic.wrap_unconstrained_state_group(
                 ['nested line', Line(
                     $,
-                    null
+                    {
+                        'value deserializers': $p['value deserializers'],
+                    }
                 )],
                 null
             ),
@@ -43,14 +47,16 @@ export const Block_Part: _i_signatures._T_Block_Part = ($) => _i_generic.process
             'sub block': ($): _i_out._T_Block_Part => _i_generic.wrap_unconstrained_state_group(
                 ['sub block', Block(
                     $,
-                    null
+                    {
+                        'value deserializers': $p['value deserializers'],
+                    }
                 )],
                 null
             ),
         }),
     }
 )
-export const Directory: _i_signatures._T_Directory = ($) => _i_generic.process_unconstrained_dictionary(
+export const Directory: _i_signatures._T_Directory = ($, $p) => _i_generic.process_unconstrained_dictionary(
     $,
     {
         'value': ($) => _i_generic.process_state_group(
@@ -60,14 +66,18 @@ export const Directory: _i_signatures._T_Directory = ($) => _i_generic.process_u
                     'directory': ($): _i_out._T_Directory.D => _i_generic.wrap_unconstrained_state_group(
                         ['directory', Directory(
                             $,
-                            null
+                            {
+                                'value deserializers': $p['value deserializers'],
+                            }
                         )],
                         null
                     ),
                     'file': ($): _i_out._T_Directory.D => _i_generic.wrap_unconstrained_state_group(
                         ['file', Block(
                             $,
-                            null
+                            {
+                                'value deserializers': $p['value deserializers'],
+                            }
                         )],
                         null
                     ),
@@ -76,7 +86,7 @@ export const Directory: _i_signatures._T_Directory = ($) => _i_generic.process_u
         ),
     }
 )
-export const Expression: _i_signatures._T_Expression = ($) => _i_generic.process_state_group(
+export const Expression: _i_signatures._T_Expression = ($, $p) => _i_generic.process_state_group(
     $,
     {
         'states': _pa.dictionary_literal({
@@ -86,7 +96,9 @@ export const Expression: _i_signatures._T_Expression = ($) => _i_generic.process
                     {
                         'value': ($) => Expression(
                             $,
-                            null
+                            {
+                                'value deserializers': $p['value deserializers'],
+                            }
                         ),
                     }
                 )],
@@ -128,7 +140,9 @@ export const Expression: _i_signatures._T_Expression = ($) => _i_generic.process
                                                     {
                                                         'value': ($) => Type(
                                                             $,
-                                                            null
+                                                            {
+                                                                'value deserializers': $p['value deserializers'],
+                                                            }
                                                         ),
                                                     }
                                                 )),
@@ -147,7 +161,9 @@ export const Expression: _i_signatures._T_Expression = ($) => _i_generic.process
                                 {
                                     'value': ($) => Type(
                                         $,
-                                        null
+                                        {
+                                            'value deserializers': $p['value deserializers'],
+                                        }
                                     ),
                                 }
                             )),
@@ -163,14 +179,18 @@ export const Expression: _i_signatures._T_Expression = ($) => _i_generic.process
                                         'block': ($): _i_out._T_Expression.SG.arrow_function._type => _i_generic.wrap_unconstrained_state_group(
                                             ['block', Statements(
                                                 $,
-                                                null
+                                                {
+                                                    'value deserializers': $p['value deserializers'],
+                                                }
                                             )],
                                             null
                                         ),
                                         'expression': ($): _i_out._T_Expression.SG.arrow_function._type => _i_generic.wrap_unconstrained_state_group(
                                             ['expression', Expression(
                                                 $,
-                                                null
+                                                {
+                                                    'value deserializers': $p['value deserializers'],
+                                                }
                                             )],
                                             null
                                         ),
@@ -197,7 +217,9 @@ export const Expression: _i_signatures._T_Expression = ($) => _i_generic.process
                                 {
                                     'value': ($) => Expression(
                                         $,
-                                        null
+                                        {
+                                            'value deserializers': $p['value deserializers'],
+                                        }
                                     ),
                                 }
                             )),
@@ -208,7 +230,9 @@ export const Expression: _i_signatures._T_Expression = ($) => _i_generic.process
                                 }
                             ), ($) => Expression(
                                 $,
-                                null
+                                {
+                                    'value deserializers': $p['value deserializers'],
+                                }
                             )),
                         }),
                     }
@@ -232,7 +256,9 @@ export const Expression: _i_signatures._T_Expression = ($) => _i_generic.process
             'number literal': ($): _i_out._T_Expression => _i_generic.wrap_unconstrained_state_group(
                 ['number literal', _i_generic.process_number(
                     $,
-                    null
+                    {
+                        'deserializer': $p['value deserializers']['default number'],
+                    }
                 )],
                 null
             ),
@@ -251,7 +277,9 @@ export const Expression: _i_signatures._T_Expression = ($) => _i_generic.process
                                 {
                                     'value': ($) => Expression(
                                         $,
-                                        null
+                                        {
+                                            'value deserializers': $p['value deserializers'],
+                                        }
                                     ),
                                 }
                             )),
@@ -263,7 +291,9 @@ export const Expression: _i_signatures._T_Expression = ($) => _i_generic.process
             'string literal': ($): _i_out._T_Expression => _i_generic.wrap_unconstrained_state_group(
                 ['string literal', String_Literal(
                     $,
-                    null
+                    {
+                        'value deserializers': $p['value deserializers'],
+                    }
                 )],
                 null
             ),
@@ -277,23 +307,27 @@ export const Expression: _i_signatures._T_Expression = ($) => _i_generic.process
         }),
     }
 )
-export const Line: _i_signatures._T_Line = ($) => _i_generic.process_unconstrained_list(
+export const Line: _i_signatures._T_Line = ($, $p) => _i_generic.process_unconstrained_list(
     $,
     {
         'value': ($) => Line_Part(
             $,
-            null
+            {
+                'value deserializers': $p['value deserializers'],
+            }
         ),
     }
 )
-export const Line_Part: _i_signatures._T_Line_Part = ($) => _i_generic.process_state_group(
+export const Line_Part: _i_signatures._T_Line_Part = ($, $p) => _i_generic.process_state_group(
     $,
     {
         'states': _pa.dictionary_literal({
             'indent': ($): _i_out._T_Line_Part => _i_generic.wrap_unconstrained_state_group(
                 ['indent', Block(
                     $,
-                    null
+                    {
+                        'value deserializers': $p['value deserializers'],
+                    }
                 )],
                 null
             ),
@@ -314,14 +348,16 @@ export const Line_Part: _i_signatures._T_Line_Part = ($) => _i_generic.process_s
             'sub line': ($): _i_out._T_Line_Part => _i_generic.wrap_unconstrained_state_group(
                 ['sub line', Line(
                     $,
-                    null
+                    {
+                        'value deserializers': $p['value deserializers'],
+                    }
                 )],
                 null
             ),
         }),
     }
 )
-export const Lines: _i_signatures._T_Lines = ($) => _i_generic.process_unconstrained_list(
+export const Lines: _i_signatures._T_Lines = ($, $p) => _i_generic.process_unconstrained_list(
     $,
     {
         'value': ($) => _i_generic.process_group(
@@ -335,7 +371,9 @@ export const Lines: _i_signatures._T_Lines = ($) => _i_generic.process_unconstra
                         }
                     ), ($) => _i_generic.process_number(
                         $,
-                        null
+                        {
+                            'deserializer': $p['value deserializers']['default number'],
+                        }
                     )),
                     'text': _pa.cc(_i_generic.get_entry(
                         $,
@@ -351,7 +389,7 @@ export const Lines: _i_signatures._T_Lines = ($) => _i_generic.process_unconstra
         ),
     }
 )
-export const Statements: _i_signatures._T_Statements = ($) => _i_generic.process_unconstrained_list(
+export const Statements: _i_signatures._T_Statements = ($, $p) => _i_generic.process_unconstrained_list(
     $,
     {
         'value': ($) => _i_generic.process_state_group(
@@ -432,7 +470,9 @@ export const Statements: _i_signatures._T_Statements = ($) => _i_generic.process
                                         }
                                     ), ($) => Statements(
                                         $,
-                                        null
+                                        {
+                                            'value deserializers': $p['value deserializers'],
+                                        }
                                     )),
                                     'export': _pa.cc(_i_generic.get_entry(
                                         $,
@@ -441,7 +481,9 @@ export const Statements: _i_signatures._T_Statements = ($) => _i_generic.process
                                         }
                                     ), ($) => _i_generic.process_boolean(
                                         $,
-                                        null
+                                        {
+                                            'deserializer': $p['value deserializers']['boolean'],
+                                        }
                                     )),
                                     'name': _pa.cc(_i_generic.get_entry(
                                         $,
@@ -469,7 +511,9 @@ export const Statements: _i_signatures._T_Statements = ($) => _i_generic.process
                                         }
                                     ), ($) => _i_generic.process_boolean(
                                         $,
-                                        null
+                                        {
+                                            'deserializer': $p['value deserializers']['boolean'],
+                                        }
                                     )),
                                     'name': _pa.cc(_i_generic.get_entry(
                                         $,
@@ -501,7 +545,9 @@ export const Statements: _i_signatures._T_Statements = ($) => _i_generic.process
                                         }
                                     ), ($) => Type(
                                         $,
-                                        null
+                                        {
+                                            'value deserializers': $p['value deserializers'],
+                                        }
                                     )),
                                 }),
                             }
@@ -520,7 +566,9 @@ export const Statements: _i_signatures._T_Statements = ($) => _i_generic.process
                                         }
                                     ), ($) => _i_generic.process_boolean(
                                         $,
-                                        null
+                                        {
+                                            'deserializer': $p['value deserializers']['boolean'],
+                                        }
                                     )),
                                     'export': _pa.cc(_i_generic.get_entry(
                                         $,
@@ -529,7 +577,9 @@ export const Statements: _i_signatures._T_Statements = ($) => _i_generic.process
                                         }
                                     ), ($) => _i_generic.process_boolean(
                                         $,
-                                        null
+                                        {
+                                            'deserializer': $p['value deserializers']['boolean'],
+                                        }
                                     )),
                                     'expression': _pa.cc(_i_generic.get_entry(
                                         $,
@@ -541,7 +591,9 @@ export const Statements: _i_signatures._T_Statements = ($) => _i_generic.process
                                         {
                                             'value': ($) => Expression(
                                                 $,
-                                                null
+                                                {
+                                                    'value deserializers': $p['value deserializers'],
+                                                }
                                             ),
                                         }
                                     )),
@@ -564,7 +616,9 @@ export const Statements: _i_signatures._T_Statements = ($) => _i_generic.process
                                         {
                                             'value': ($) => Type(
                                                 $,
-                                                null
+                                                {
+                                                    'value deserializers': $p['value deserializers'],
+                                                }
                                             ),
                                         }
                                     )),
@@ -578,7 +632,7 @@ export const Statements: _i_signatures._T_Statements = ($) => _i_generic.process
         ),
     }
 )
-export const String_Literal: _i_signatures._T_String_Literal = ($) => _i_generic.process_group(
+export const String_Literal: _i_signatures._T_String_Literal = ($, $p) => _i_generic.process_group(
     $,
     {
         'properties': ($) => ({
@@ -620,7 +674,7 @@ export const String_Literal: _i_signatures._T_String_Literal = ($) => _i_generic
         }),
     }
 )
-export const Type: _i_signatures._T_Type = ($) => _i_generic.process_state_group(
+export const Type: _i_signatures._T_Type = ($, $p) => _i_generic.process_state_group(
     $,
     {
         'states': _pa.dictionary_literal({
@@ -667,7 +721,9 @@ export const Type: _i_signatures._T_Type = ($) => _i_generic.process_state_group
                                                     {
                                                         'value': ($) => Type(
                                                             $,
-                                                            null
+                                                            {
+                                                                'value deserializers': $p['value deserializers'],
+                                                            }
                                                         ),
                                                     }
                                                 )),
@@ -683,7 +739,9 @@ export const Type: _i_signatures._T_Type = ($) => _i_generic.process_state_group
                                 }
                             ), ($) => Type(
                                 $,
-                                null
+                                {
+                                    'value deserializers': $p['value deserializers'],
+                                }
                             )),
                             'type parameters': _pa.cc(_i_generic.get_entry(
                                 $,
@@ -707,7 +765,9 @@ export const Type: _i_signatures._T_Type = ($) => _i_generic.process_state_group
             'literal type': ($): _i_out._T_Type => _i_generic.wrap_unconstrained_state_group(
                 ['literal type', String_Literal(
                     $,
-                    null
+                    {
+                        'value deserializers': $p['value deserializers'],
+                    }
                 )],
                 null
             ),
@@ -747,7 +807,9 @@ export const Type: _i_signatures._T_Type = ($) => _i_generic.process_state_group
                                 {
                                     'value': ($) => Type(
                                         $,
-                                        null
+                                        {
+                                            'value deserializers': $p['value deserializers'],
+                                        }
                                     ),
                                 }
                             )),
@@ -758,7 +820,9 @@ export const Type: _i_signatures._T_Type = ($) => _i_generic.process_state_group
                                 }
                             ), ($) => _i_generic.process_boolean(
                                 $,
-                                null
+                                {
+                                    'deserializer': $p['value deserializers']['boolean'],
+                                }
                             )),
                         }),
                     }
@@ -789,7 +853,9 @@ export const Type: _i_signatures._T_Type = ($) => _i_generic.process_state_group
                                                     }
                                                 ), ($) => _i_generic.process_boolean(
                                                     $,
-                                                    null
+                                                    {
+                                                        'deserializer': $p['value deserializers']['boolean'],
+                                                    }
                                                 )),
                                                 'type': _pa.cc(_i_generic.get_entry(
                                                     $,
@@ -798,7 +864,9 @@ export const Type: _i_signatures._T_Type = ($) => _i_generic.process_state_group
                                                     }
                                                 ), ($) => Type(
                                                     $,
-                                                    null
+                                                    {
+                                                        'value deserializers': $p['value deserializers'],
+                                                    }
                                                 )),
                                             }),
                                         }
@@ -848,7 +916,9 @@ export const Type: _i_signatures._T_Type = ($) => _i_generic.process_state_group
                                 {
                                     'value': ($) => Type(
                                         $,
-                                        null
+                                        {
+                                            'value deserializers': $p['value deserializers'],
+                                        }
                                     ),
                                 }
                             )),
@@ -863,7 +933,9 @@ export const Type: _i_signatures._T_Type = ($) => _i_generic.process_state_group
                     {
                         'value': ($) => Type(
                             $,
-                            null
+                            {
+                                'value deserializers': $p['value deserializers'],
+                            }
                         ),
                     }
                 )],

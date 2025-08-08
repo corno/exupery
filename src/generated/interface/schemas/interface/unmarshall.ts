@@ -2,42 +2,57 @@ import * as _pt from 'exupery-core-types'
 
 import * as _i_in from "../../core/astn_source"
 import * as _i_out from "./data_types/unresolved"
+import * as _i_vd from "./value_deserializers"
 
 // **** TYPES
 
 export type _T_Imports = (
     $$_: _i_in._T_Value,
-    $$_p: null,
+    $$_p: {
+        readonly 'value deserializers': _i_vd._T_Value_Deserializers
+    },
 ) => _i_out._T_Imports<null>
 
 export type _T_Module = (
     $$_: _i_in._T_Value,
-    $$_p: null,
+    $$_p: {
+        readonly 'value deserializers': _i_vd._T_Value_Deserializers
+    },
 ) => _i_out._T_Module<null>
 
 export type _T_Module_Set = (
     $$_: _i_in._T_Value,
-    $$_p: null,
+    $$_p: {
+        readonly 'value deserializers': _i_vd._T_Value_Deserializers
+    },
 ) => _i_out._T_Module_Set<null>
 
 export type _T_Type = (
     $$_: _i_in._T_Value,
-    $$_p: null,
+    $$_p: {
+        readonly 'value deserializers': _i_vd._T_Value_Deserializers
+    },
 ) => _i_out._T_Type<null>
 
 export type _T_Type_Arguments = (
     $$_: _i_in._T_Value,
-    $$_p: null,
+    $$_p: {
+        readonly 'value deserializers': _i_vd._T_Value_Deserializers
+    },
 ) => _i_out._T_Type_Arguments<null>
 
 export type _T_Type_Parameter_Selection = (
     $$_: _i_in._T_Value,
-    $$_p: null,
+    $$_p: {
+        readonly 'value deserializers': _i_vd._T_Value_Deserializers
+    },
 ) => _i_out._T_Type_Parameter_Selection<null>
 
 export type _T_Type_Parameters = (
     $$_: _i_in._T_Value,
-    $$_p: null,
+    $$_p: {
+        readonly 'value deserializers': _i_vd._T_Value_Deserializers
+    },
 ) => _i_out._T_Type_Parameters<null>
 
 // **** FRIENDLY NAMES FOR THE GLOBAL TYPES
@@ -65,6 +80,10 @@ export namespace _T_Imports {
     export type CONTEXT = _i_in._T_Value
     
     export namespace PARAMS {
+        
+        export namespace value_deserializers {
+        }
+        export type value_deserializers = _i_vd._T_Value_Deserializers
     }
     
     export namespace RESULT {
@@ -80,6 +99,10 @@ export namespace _T_Module {
     export type CONTEXT = _i_in._T_Value
     
     export namespace PARAMS {
+        
+        export namespace value_deserializers {
+        }
+        export type value_deserializers = _i_vd._T_Value_Deserializers
     }
     
     export namespace RESULT {
@@ -95,6 +118,10 @@ export namespace _T_Module_Set {
     export type CONTEXT = _i_in._T_Value
     
     export namespace PARAMS {
+        
+        export namespace value_deserializers {
+        }
+        export type value_deserializers = _i_vd._T_Value_Deserializers
     }
     
     export namespace RESULT {
@@ -110,6 +137,10 @@ export namespace _T_Type {
     export type CONTEXT = _i_in._T_Value
     
     export namespace PARAMS {
+        
+        export namespace value_deserializers {
+        }
+        export type value_deserializers = _i_vd._T_Value_Deserializers
     }
     
     export namespace RESULT {
@@ -125,6 +156,10 @@ export namespace _T_Type_Arguments {
     export type CONTEXT = _i_in._T_Value
     
     export namespace PARAMS {
+        
+        export namespace value_deserializers {
+        }
+        export type value_deserializers = _i_vd._T_Value_Deserializers
     }
     
     export namespace RESULT {
@@ -140,6 +175,10 @@ export namespace _T_Type_Parameter_Selection {
     export type CONTEXT = _i_in._T_Value
     
     export namespace PARAMS {
+        
+        export namespace value_deserializers {
+        }
+        export type value_deserializers = _i_vd._T_Value_Deserializers
     }
     
     export namespace RESULT {
@@ -155,6 +194,10 @@ export namespace _T_Type_Parameters {
     export type CONTEXT = _i_in._T_Value
     
     export namespace PARAMS {
+        
+        export namespace value_deserializers {
+        }
+        export type value_deserializers = _i_vd._T_Value_Deserializers
     }
     
     export namespace RESULT {
@@ -172,6 +215,10 @@ export namespace Imports {
     export type CONTEXT = _i_in._T_Value
     
     export namespace PARAMS {
+        
+        export namespace value_deserializers {
+        }
+        export type value_deserializers = _i_vd._T_Value_Deserializers
     }
     
     export namespace RESULT {
@@ -187,6 +234,10 @@ export namespace Module {
     export type CONTEXT = _i_in._T_Value
     
     export namespace PARAMS {
+        
+        export namespace value_deserializers {
+        }
+        export type value_deserializers = _i_vd._T_Value_Deserializers
     }
     
     export namespace RESULT {
@@ -202,6 +253,10 @@ export namespace Module_Set {
     export type CONTEXT = _i_in._T_Value
     
     export namespace PARAMS {
+        
+        export namespace value_deserializers {
+        }
+        export type value_deserializers = _i_vd._T_Value_Deserializers
     }
     
     export namespace RESULT {
@@ -217,6 +272,10 @@ export namespace Type {
     export type CONTEXT = _i_in._T_Value
     
     export namespace PARAMS {
+        
+        export namespace value_deserializers {
+        }
+        export type value_deserializers = _i_vd._T_Value_Deserializers
     }
     
     export namespace RESULT {
@@ -232,6 +291,10 @@ export namespace Type_Arguments {
     export type CONTEXT = _i_in._T_Value
     
     export namespace PARAMS {
+        
+        export namespace value_deserializers {
+        }
+        export type value_deserializers = _i_vd._T_Value_Deserializers
     }
     
     export namespace RESULT {
@@ -247,6 +310,10 @@ export namespace Type_Parameter_Selection {
     export type CONTEXT = _i_in._T_Value
     
     export namespace PARAMS {
+        
+        export namespace value_deserializers {
+        }
+        export type value_deserializers = _i_vd._T_Value_Deserializers
     }
     
     export namespace RESULT {
@@ -262,6 +329,10 @@ export namespace Type_Parameters {
     export type CONTEXT = _i_in._T_Value
     
     export namespace PARAMS {
+        
+        export namespace value_deserializers {
+        }
+        export type value_deserializers = _i_vd._T_Value_Deserializers
     }
     
     export namespace RESULT {

@@ -5,13 +5,13 @@ import * as _i_out from "../../../interface/core/astn_target"
 import * as _i_signatures from "../../../interface/schemas/typescript_light/marshall"
 
 
-export const Block: _i_signatures._T_s_Block = ($, $p) => ['list', $.map(($) => Block_Part(
+export const Block: _i_signatures._T_Block = ($, $p) => ['list', $.map(($) => Block_Part(
     $,
     {
         'value serializers': $p['value serializers'],
     }
 ))]
-export const Block_Part: _i_signatures._T_s_Block_Part = ($, $p) => ['state', _pa.cc($, ($): _i_out._T_Value.SG.state => {
+export const Block_Part: _i_signatures._T_Block_Part = ($, $p) => ['state', _pa.cc($, ($): _i_out._T_Value.SG.state => {
     switch ($[0]) {
         case 'line': return _pa.ss($, ($) => ({
             'state': "line",
@@ -45,7 +45,7 @@ export const Block_Part: _i_signatures._T_s_Block_Part = ($, $p) => ['state', _p
         default: return _pa.au($[0])
     }
 })]
-export const Directory: _i_signatures._T_s_Directory = ($, $p) => ['dictionary', $.map(($) => ['state', _pa.cc($, ($): _i_out._T_Value.SG.state => {
+export const Directory: _i_signatures._T_Directory = ($, $p) => ['dictionary', $.map(($) => ['state', _pa.cc($, ($): _i_out._T_Value.SG.state => {
     switch ($[0]) {
         case 'directory': return _pa.ss($, ($) => ({
             'state': "directory",
@@ -68,7 +68,7 @@ export const Directory: _i_signatures._T_s_Directory = ($, $p) => ['dictionary',
         default: return _pa.au($[0])
     }
 })])]
-export const Expression: _i_signatures._T_s_Expression = ($, $p) => ['state', _pa.cc($, ($): _i_out._T_Value.SG.state => {
+export const Expression: _i_signatures._T_Expression = ($, $p) => ['state', _pa.cc($, ($): _i_out._T_Value.SG.state => {
     switch ($[0]) {
         case 'array literal': return _pa.ss($, ($) => ({
             'state': "array literal",
@@ -190,13 +190,13 @@ export const Expression: _i_signatures._T_s_Expression = ($, $p) => ['state', _p
         default: return _pa.au($[0])
     }
 })]
-export const Line: _i_signatures._T_s_Line = ($, $p) => ['list', $.map(($) => Line_Part(
+export const Line: _i_signatures._T_Line = ($, $p) => ['list', $.map(($) => Line_Part(
     $,
     {
         'value serializers': $p['value serializers'],
     }
 ))]
-export const Line_Part: _i_signatures._T_s_Line_Part = ($, $p) => ['state', _pa.cc($, ($): _i_out._T_Value.SG.state => {
+export const Line_Part: _i_signatures._T_Line_Part = ($, $p) => ['state', _pa.cc($, ($): _i_out._T_Value.SG.state => {
     switch ($[0]) {
         case 'indent': return _pa.ss($, ($) => ({
             'state': "indent",
@@ -230,7 +230,7 @@ export const Line_Part: _i_signatures._T_s_Line_Part = ($, $p) => ['state', _pa.
         default: return _pa.au($[0])
     }
 })]
-export const Lines: _i_signatures._T_s_Lines = ($, $p) => ['list', $.map(($) => ['verbose group', _pa.dictionary_literal({
+export const Lines: _i_signatures._T_Lines = ($, $p) => ['list', $.map(($) => ['verbose group', _pa.dictionary_literal({
     'indentation': _pa.cc($['indentation'], ($) => ['text', ({
         'delimiter': ['backtick', null],
         'value': _pd.implement_me(),
@@ -240,7 +240,7 @@ export const Lines: _i_signatures._T_s_Lines = ($, $p) => ['list', $.map(($) => 
         'value': $,
     })]),
 })])]
-export const Statements: _i_signatures._T_s_Statements = ($, $p) => ['list', $.map(($) => ['state', _pa.cc($, ($): _i_out._T_Value.SG.state => {
+export const Statements: _i_signatures._T_Statements = ($, $p) => ['list', $.map(($) => ['state', _pa.cc($, ($): _i_out._T_Value.SG.state => {
     switch ($[0]) {
         case 'import': return _pa.ss($, ($) => ({
             'state': "import",
@@ -364,7 +364,7 @@ export const Statements: _i_signatures._T_s_Statements = ($, $p) => ['list', $.m
         default: return _pa.au($[0])
     }
 })])]
-export const String_Literal: _i_signatures._T_s_String_Literal = ($, $p) => ['verbose group', _pa.dictionary_literal({
+export const String_Literal: _i_signatures._T_String_Literal = ($, $p) => ['verbose group', _pa.dictionary_literal({
     'delimiter': _pa.cc($['delimiter'], ($) => ['state', _pa.cc($, ($): _i_out._T_Value.SG.state => {
         switch ($[0]) {
             case 'apostrophe': return _pa.ss($, ($) => ({
@@ -383,7 +383,7 @@ export const String_Literal: _i_signatures._T_s_String_Literal = ($, $p) => ['ve
         'value': $,
     })]),
 })]
-export const Type: _i_signatures._T_s_Type = ($, $p) => ['state', _pa.cc($, ($): _i_out._T_Value.SG.state => {
+export const Type: _i_signatures._T_Type = ($, $p) => ['state', _pa.cc($, ($): _i_out._T_Value.SG.state => {
     switch ($[0]) {
         case 'boolean': return _pa.ss($, ($) => ({
             'state': "boolean",
