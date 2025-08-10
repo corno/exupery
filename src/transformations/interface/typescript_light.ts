@@ -159,7 +159,7 @@ export const Module_Set = ($: s_in.Module_Set): s_out.Directory => {
                                         line_dictionary(
                                             op['flatten dictionary'](
                                                 pa.dictionary_literal({
-                                                    "G": x_module_parameters.map(($, key) => l.snippet(op['create identifier'](["G ", key]))),
+                                                    "M": x_module_parameters.map(($, key) => l.snippet(op['create identifier'](["M ", key]))),
                                                     "T": $.value.parameters.map(($, key) => l.snippet(op['create identifier'](["T ", key]))),
                                                 }),
                                                 {
@@ -542,7 +542,7 @@ export const Type_to_Type = (
                 //type arguments
                 op['dictionary to list, sorted by code point']<s_ts.Type>(op['flatten dictionary'](
                     pa.dictionary_literal<pt.Dictionary<s_ts.Type>>({
-                        "G": pa.cc($.location, ($): pt.Dictionary<s_ts.Type> => {
+                        "M": pa.cc($.location, ($): pt.Dictionary<s_ts.Type> => {
                             switch ($[0]) {
                                 case 'import': return pa.ss($, ($) => $p['temp imports'].transform(($) => $, () => pa.panic("DSFSDFSD")).__get_entry($.import).transform(($) => $, () => {
                                     let keys = ""
@@ -560,7 +560,7 @@ export const Type_to_Type = (
                                     }
                                 )))
                                 case 'sibling': return pa.ss($, ($): pt.Dictionary<s_ts.Type> => $p['global type parameters'].transform(($) => $, () => pa.panic("DSFSDFSD")).map(($, key): s_ts.Type => sh2.t.type_reference(
-                                    `G ${key}`,
+                                    `M ${key}`,
                                     [],
                                     [],
                                 )))
