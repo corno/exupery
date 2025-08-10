@@ -123,13 +123,14 @@ export const Module_Set = ($: s_in.Module_Set): s_out.Directory => {
                             {
                                 'name': Identifier(pa.array_literal([" T ", $.key])),
                                 'type parameters': $.value.parameters,
-                                'global type parameters': x_module_parameters,
+                                'module parameters': x_module_parameters,
+                                'function type parameters': pa.not_set(),
                                 'callback': () => {
                                     return Type(
                                         Type_to_Type(
                                             $.value.type,
                                             {
-                                                'global type parameters': pa.set(x_module_parameters),
+                                                'module parameters': pa.set(x_module_parameters),
                                                 'temp imports': pa.set(x_imports),
                                             },
                                         ),
@@ -151,7 +152,8 @@ export const Module_Set = ($: s_in.Module_Set): s_out.Directory => {
                             {
                                 'name': $.key,
                                 'type parameters': $.value.parameters,
-                                'global type parameters': x_module_parameters,
+                                'module parameters': x_module_parameters,
+                                'function type parameters': pa.not_set(),
                                 'callback': () => {
                                     return l.sub([
                                         l.snippet(op['create identifier']([" T ", $.key])),
@@ -185,7 +187,8 @@ export const Module_Set = ($: s_in.Module_Set): s_out.Directory => {
                             {
                                 'key': ` T ${$.key}`,
                                 'type parameters': $.value.parameters,
-                                'global type parameters': x_module_parameters,
+                                'module parameters': x_module_parameters,
+                                'function type parameters': pa.not_set(),
                                 'temp imports': x_imports,
                             }
                         ),
@@ -199,7 +202,8 @@ export const Module_Set = ($: s_in.Module_Set): s_out.Directory => {
                             {
                                 'key': $.key,
                                 'type parameters': $.value.parameters,
-                                'global type parameters': x_module_parameters,
+                                'module parameters': x_module_parameters,
+                                'function type parameters': pa.not_set(),
                                 'temp imports': x_imports,
                             }
                         ),
@@ -246,7 +250,8 @@ export const Type_to_Aliases = (
     $p: {
         'key': string,
         'type parameters': s_in.Type_Parameters,
-        'global type parameters': s_in.Type_Parameters,
+        'function type parameters': pt.Optional_Value<s_in.Type_Parameters>,
+        'module parameters': s_in.Type_Parameters,
         'temp imports': s_in.Module['imports'],
     }
 ): s_out.Block_Part => {
@@ -276,7 +281,8 @@ export const Type_to_Aliases = (
         $p: {
             'key': string,
             'type parameters': s_in.Type_Parameters,
-            'global type parameters': s_in.Type_Parameters,
+            'module parameters': s_in.Type_Parameters,
+            'function type parameters': pt.Optional_Value<s_in.Type_Parameters>,
             'temp imports': s_in.Module['imports'],
         }
     ): s_out.Block_Part => {
@@ -286,7 +292,8 @@ export const Type_to_Aliases = (
                 {
                     'key': $p.key,
                     'type parameters': $p['type parameters'],
-                    'global type parameters': $p['global type parameters'],
+                    'module parameters': $p['module parameters'],
+                    'function type parameters': $p['function type parameters'],
                     'temp imports': $p['temp imports'],
                 }
             ),
@@ -295,13 +302,14 @@ export const Type_to_Aliases = (
                 {
                     'name': $p.key,
                     'type parameters': $p['type parameters'],
-                    'global type parameters': $p['global type parameters'],
+                    'module parameters': $p['module parameters'],
+                    'function type parameters': $p['function type parameters'],
                     'callback': () => {
                         return Type(
                             Type_to_Type(
                                 $,
                                 {
-                                    'global type parameters': pa.set($p['global type parameters']),
+                                    'module parameters': pa.set($p['module parameters']),
                                     'temp imports': pa.set($p['temp imports']),
                                 },
                             ),
@@ -325,10 +333,11 @@ export const Type_to_Aliases = (
                             return Type_to_Aliases_2(
                                 $.value,
                                 {
-                                    'global type parameters': $p['global type parameters'],
+                                    'module parameters': $p['module parameters'],
+                                    'type parameters': $p['type parameters'],
+                                    'function type parameters': $p['function type parameters'],
                                     'key': $.key,
                                     'temp imports': $p['temp imports'],
-                                    'type parameters': $p['type parameters'],
                                 }
                             )
                         })),
@@ -341,10 +350,11 @@ export const Type_to_Aliases = (
                     'callback': () => Type_to_Aliases_2(
                         $,
                         {
-                            'global type parameters': $p['global type parameters'],
+                            'module parameters': $p['module parameters'],
+                            'type parameters': $p['type parameters'],
+                            'function type parameters': $p['function type parameters'],
                             'key': "C",
                             'temp imports': $p['temp imports'],
-                            'type parameters': $p['type parameters'],
                         }
                     )
                 }
@@ -355,10 +365,11 @@ export const Type_to_Aliases = (
                     'callback': () => Type_to_Aliases_2(
                         $,
                         {
-                            'global type parameters': $p['global type parameters'],
+                            'module parameters': $p['module parameters'],
+                            'type parameters': $p['type parameters'],
+                            'function type parameters': $p['function type parameters'],
                             'key': "D",
                             'temp imports': $p['temp imports'],
-                            'type parameters': $p['type parameters'],
                         }
                     )
                 }
@@ -370,32 +381,38 @@ export const Type_to_Aliases = (
                         Type_to_Aliases_2(
                             $.context,
                             {
-                                'global type parameters': $p['global type parameters'],
+                                'module parameters': $p['module parameters'],
+                                'type parameters': $p['type parameters'],
+                                'function type parameters': pa.set($['type parameters']),
                                 'key': "CONTEXT",
                                 'temp imports': $p['temp imports'],
-                                'type parameters': $p['type parameters'],
                             }
                         ),
                         Namespace("PARAMS", {
-                            "callback": () => b.sub_decorated(op['dictionary to list, sorted by code point']($.parameters).map(($) => {
-                                return Type_to_Aliases_2(
-                                    $.value,
-                                    {
-                                        'global type parameters': $p['global type parameters'],
-                                        'key': $.key,
-                                        'temp imports': $p['temp imports'],
-                                        'type parameters': $p['type parameters'],
-                                    }
-                                )
-                            })),
+                            "callback": () => {
+                                const ftp = $['type parameters']
+                                return b.sub_decorated(op['dictionary to list, sorted by code point']($.parameters).map(($) => {
+                                    return Type_to_Aliases_2(
+                                        $.value,
+                                        {
+                                            'module parameters': $p['module parameters'],
+                                            'type parameters': $p['type parameters'],
+                                            'function type parameters': pa.set(ftp),
+                                            'key': $.key,
+                                            'temp imports': $p['temp imports'],
+                                        }
+                                    )
+                                }))
+                            },
                         }),
                         Type_to_Aliases_2(
                             $.return,
                             {
-                                'global type parameters': $p['global type parameters'],
+                                'module parameters': $p['module parameters'],
+                                'type parameters': $p['type parameters'],
+                                'function type parameters': pa.set($['type parameters']),
                                 'key': "RESULT",
                                 'temp imports': $p['temp imports'],
-                                'type parameters': $p['type parameters'],
                             }
                         ),
                     ])
@@ -409,10 +426,11 @@ export const Type_to_Aliases = (
                             return Type_to_Aliases_2(
                                 $.value,
                                 {
-                                    'global type parameters': $p['global type parameters'],
+                                    'module parameters': $p['module parameters'],
+                                    'type parameters': $p['type parameters'],
+                                    'function type parameters': $p['function type parameters'],
                                     'key': $.key,
                                     'temp imports': $p['temp imports'],
-                                    'type parameters': $p['type parameters'],
                                 }
                             )
                         })),
@@ -425,10 +443,11 @@ export const Type_to_Aliases = (
                     'callback': () => Type_to_Aliases_2(
                         $,
                         {
-                            'global type parameters': $p['global type parameters'],
+                            'module parameters': $p['module parameters'],
+                            'type parameters': $p['type parameters'],
+                            'function type parameters': $p['function type parameters'],
                             'key': "L",
                             'temp imports': $p['temp imports'],
-                            'type parameters': $p['type parameters'],
                         }
                     )
                 }
@@ -439,10 +458,11 @@ export const Type_to_Aliases = (
                     'callback': () => Type_to_Aliases_2(
                         $,
                         {
-                            'global type parameters': $p['global type parameters'],
+                            'module parameters': $p['module parameters'],
+                            'type parameters': $p['type parameters'],
+                            'function type parameters': $p['function type parameters'],
                             'key': "K",
                             'temp imports': $p['temp imports'],
-                            'type parameters': $p['type parameters'],
                         }
                     )
                 }
@@ -455,10 +475,11 @@ export const Type_to_Aliases = (
                     'callback': () => Type_to_Aliases_2(
                         $,
                         {
-                            'global type parameters': $p['global type parameters'],
+                            'module parameters': $p['module parameters'],
+                            'type parameters': $p['type parameters'],
+                            'function type parameters': $p['function type parameters'],
                             'key': "O",
                             'temp imports': $p['temp imports'],
-                            'type parameters': $p['type parameters'],
                         }
                     )
                 }
@@ -472,10 +493,11 @@ export const Type_to_Aliases = (
                             return Type_to_Aliases_2(
                                 $.value,
                                 {
-                                    'global type parameters': $p['global type parameters'],
+                                    'module parameters': $p['module parameters'],
+                                    'type parameters': $p['type parameters'],
+                                    'function type parameters': $p['function type parameters'],
                                     'key': $.key,
                                     'temp imports': $p['temp imports'],
-                                    'type parameters': $p['type parameters'],
                                 }
                             )
                         })),
@@ -497,7 +519,7 @@ export const Identifier = (
 export const Type_to_Type = (
     $: s_in.Type,
     $p: {
-        'global type parameters': pt.Optional_Value<pt.Dictionary<null>>,
+        'module parameters': pt.Optional_Value<pt.Dictionary<null>>,
         'temp imports': pt.Optional_Value<s_in.Module['imports']>,
     }
 ): s_ts.Type => {
@@ -555,11 +577,11 @@ export const Type_to_Type = (
                                 })['type arguments'].map(($): s_ts.Type => Type_to_Type(
                                     $,
                                     {
-                                        'global type parameters': $p['global type parameters'],
+                                        'module parameters': $p['module parameters'],
                                         'temp imports': $p['temp imports'],
                                     }
                                 )))
-                                case 'sibling': return pa.ss($, ($): pt.Dictionary<s_ts.Type> => $p['global type parameters'].transform(($) => $, () => pa.panic("DSFSDFSD")).map(($, key): s_ts.Type => sh2.t.type_reference(
+                                case 'sibling': return pa.ss($, ($): pt.Dictionary<s_ts.Type> => $p['module parameters'].transform(($) => $, () => pa.panic("DSFSDFSD")).map(($, key): s_ts.Type => sh2.t.type_reference(
                                     `M ${key}`,
                                     [],
                                     [],
@@ -570,7 +592,7 @@ export const Type_to_Type = (
                         "T": $['type arguments'].map(($): s_ts.Type => Type_to_Type(
                             $,
                             {
-                                'global type parameters': $p['global type parameters'],
+                                'module parameters': $p['module parameters'],
                                 'temp imports': $p['temp imports'],
                             }
                         ))
@@ -587,7 +609,7 @@ export const Type_to_Type = (
                     Type_to_Type(
                         $,
                         {
-                            'global type parameters': $p['global type parameters'],
+                            'module parameters': $p['module parameters'],
                             'temp imports': $p['temp imports'],
                         }
                     )
@@ -600,7 +622,7 @@ export const Type_to_Type = (
                     Type_to_Type(
                         $,
                         {
-                            'global type parameters': $p['global type parameters'],
+                            'module parameters': $p['module parameters'],
                             'temp imports': $p['temp imports'],
                         }
                     )
@@ -614,7 +636,7 @@ export const Type_to_Type = (
                         Type_to_Type(
                             $.context,
                             {
-                                'global type parameters': $p['global type parameters'],
+                                'module parameters': $p['module parameters'],
                                 'temp imports': $p['temp imports'],
                             },
                         ),
@@ -627,7 +649,7 @@ export const Type_to_Type = (
                                 'type': Type_to_Type(
                                     $,
                                     {
-                                        'global type parameters': $p['global type parameters'],
+                                        'module parameters': $p['module parameters'],
                                         'temp imports': $p['temp imports'],
                                     },
                                 )
@@ -638,7 +660,7 @@ export const Type_to_Type = (
                 Type_to_Type(
                     $.return,
                     {
-                        'global type parameters': $p['global type parameters'],
+                        'module parameters': $p['module parameters'],
                         'temp imports': $p['temp imports'],
                     },
                 )
@@ -648,7 +670,7 @@ export const Type_to_Type = (
                 'type': Type_to_Type(
                     $,
                     {
-                        'global type parameters': $p['global type parameters'],
+                        'module parameters': $p['module parameters'],
                         'temp imports': $p['temp imports'],
                     }
                 )
@@ -661,7 +683,7 @@ export const Type_to_Type = (
                     Type_to_Type(
                         $,
                         {
-                            'global type parameters': $p['global type parameters'],
+                            'module parameters': $p['module parameters'],
                             'temp imports': $p['temp imports'],
                         }
                     )
@@ -674,7 +696,7 @@ export const Type_to_Type = (
                     Type_to_Type(
                         $,
                         {
-                            'global type parameters': $p['global type parameters'],
+                            'module parameters': $p['module parameters'],
                             'temp imports': $p['temp imports'],
                         }
                     )
@@ -689,7 +711,7 @@ export const Type_to_Type = (
                     Type_to_Type(
                         $,
                         {
-                            'global type parameters': $p['global type parameters'],
+                            'module parameters': $p['module parameters'],
                             'temp imports': $p['temp imports'],
                         }
                     )
@@ -715,7 +737,7 @@ export const Type_to_Type = (
                     Type_to_Type(
                         $.value,
                         {
-                            'global type parameters': $p['global type parameters'],
+                            'module parameters': $p['module parameters'],
                             'temp imports': $p['temp imports'],
                         }
                     )
@@ -733,7 +755,8 @@ export const Type_Declaration = (
     $p: {
         'name': string,
         'type parameters': s_in.Type_Parameters,
-        'global type parameters': s_in.Type_Parameters,
+        'module parameters': s_in.Type_Parameters,
+        'function type parameters': pt.Optional_Value<s_in.Type_Parameters>,
         'callback': () => s_out.Line_Part
     }
 ): s_out.Block_Part => {
@@ -744,8 +767,12 @@ export const Type_Declaration = (
             line_dictionary(
                 op['flatten dictionary'](
                     pa.dictionary_literal({
-                        "M": $p['global type parameters'],
+                        "M": $p['module parameters'],
                         "T": $p['type parameters'],
+                        "F": $p['function type parameters'].transform(
+                            ($) => $,
+                            () => pa.dictionary_literal({})
+                        ),
                     }),
                     {
                         //'escape': "$",
