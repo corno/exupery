@@ -270,7 +270,7 @@ export const Initialization = (
                                     _interface.Type_to_Type(
                                         $,
                                         {
-                                            'global type parameters': pa.not_set(),
+                                            'module parameters': pa.not_set(),
                                             'temp imports': pa.set($p['temp imports']),
                                         },
                                     ),
@@ -414,7 +414,7 @@ export const Initialization = (
                                                             _interface.Type_to_Type(
                                                                 $,
                                                                 {
-                                                                    'global type parameters': pa.not_set(),
+                                                                    'module parameters': pa.not_set(),
                                                                     'temp imports': pa.set($p['temp imports']),
                                                                 },
                                                             ),
@@ -454,7 +454,7 @@ export const Initialization = (
                                                     _interface.Type_to_Type(
                                                         $,
                                                         {
-                                                            'global type parameters': pa.not_set(),
+                                                            'module parameters': pa.not_set(),
                                                             'temp imports': pa.set($p['temp imports']),
                                                         },
                                                     ),
@@ -544,7 +544,7 @@ export const Variables = (
                         _interface.Type_to_Type(
                             $,
                             {
-                                'global type parameters': pa.not_set(),
+                                'module parameters': pa.not_set(),
                                 'temp imports': pa.set($p['type imports']),
                             },
                         ),
@@ -604,7 +604,7 @@ export const Literal = (
                                 _interface.Type_to_Type(
                                     $,
                                     {
-                                        'global type parameters': pa.not_set(),
+                                        'module parameters': pa.not_set(),
                                         'temp imports': pa.set($p['temp imports']),
                                     },
                                 ),
