@@ -78,6 +78,7 @@ export type _T_Type_Arguments<G_Source> = _i_core._T_Dictionary<G_Source, _T_Typ
 
 export type _T_Type_Parameter_Selection<G_Source> = {
     readonly 'location': _i_core._T_State_Group<G_Source, 
+        | readonly ['function', null]
         | readonly ['module', null]
         | readonly ['type', null]
     >
@@ -463,14 +464,17 @@ export namespace _T_Type_Parameter_Selection {
     export namespace location {
         
         export namespace SG {
+            export type _function<G_Source> = null
             export type _module<G_Source> = null
             export type _type<G_Source> = null
         }
         export type SG<G_Source> = 
+            | readonly ['function', null]
             | readonly ['module', null]
             | readonly ['type', null]
     }
     export type location<G_Source> = _i_core._T_State_Group<G_Source, 
+        | readonly ['function', null]
         | readonly ['module', null]
         | readonly ['type', null]
     >
@@ -842,14 +846,17 @@ export namespace Type_Parameter_Selection {
     export namespace location {
         
         export namespace SG {
+            export type _function<G_Source> = null
             export type _module<G_Source> = null
             export type _type<G_Source> = null
         }
         export type SG<G_Source> = 
+            | readonly ['function', null]
             | readonly ['module', null]
             | readonly ['type', null]
     }
     export type location<G_Source> = _i_core._T_State_Group<G_Source, 
+        | readonly ['function', null]
         | readonly ['module', null]
         | readonly ['type', null]
     >

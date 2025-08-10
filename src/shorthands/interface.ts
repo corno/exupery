@@ -85,7 +85,7 @@ export namespace t {
         return wrap_state_group(['computed', type])
     }
 
-    export const module_parameter = (
+    export const parameter_module = (
         parameter: string,
     ): _out.Type<pd.Source_Location> => {
         return wrap_state_group(['parameter', {
@@ -93,11 +93,19 @@ export namespace t {
             'parameter': parameter,
         }])
     }
-    export const type_parameter = (
+    export const parameter_type = (
         parameter: string,
     ): _out.Type<pd.Source_Location> => {
         return wrap_state_group(['parameter', {
             'location': wrap_state_group(['type', null]),
+            'parameter': parameter,
+        }])
+    }
+    export const parameter_function = (
+        parameter: string,
+    ): _out.Type<pd.Source_Location> => {
+        return wrap_state_group(['parameter', {
+            'location': wrap_state_group(['function', null]),
             'parameter': parameter,
         }])
     }

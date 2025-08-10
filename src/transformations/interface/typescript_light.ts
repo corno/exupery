@@ -607,7 +607,7 @@ export const Type_to_Type = (
                 ]
             ))
             case 'function': return pa.ss($, ($) => sh2.t.function_(
-                op['dictionary to list, sorted by code point']($['type parameters']).map(($) => $.key).__get_raw_copy(),
+                op['dictionary to list, sorted by code point']($['type parameters']).map(($) => `F ${$.key}`).__get_raw_copy(),
                 [
                     sh2.parameter(
                         "$",
@@ -698,8 +698,9 @@ export const Type_to_Type = (
             case 'parameter': return pa.ss($, ($) => sh2.t.type_reference(
                 pa.cc($.location, ($): string => {
                     switch ($[0]) {
-                        case 'module': return pa.ss($, ($) => "G")
+                        case 'module': return pa.ss($, ($) => "M")
                         case 'type': return pa.ss($, ($) => "T")
+                        case 'function': return pa.ss($, ($) => "F")
                         default: return pa.au($[0])
                     }
                 })
@@ -743,7 +744,7 @@ export const Type_Declaration = (
             line_dictionary(
                 op['flatten dictionary'](
                     pa.dictionary_literal({
-                        "G": $p['global type parameters'],
+                        "M": $p['global type parameters'],
                         "T": $p['type parameters'],
                     }),
                     {

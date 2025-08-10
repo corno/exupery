@@ -21,7 +21,10 @@ export const Imports: _i_signatures._T_Imports = ($, $p) => ['dictionary', $.map
                     })]),
                     'number of steps': _pa.cc($['number of steps'], ($) => ['text', ({
                         'delimiter': ['backtick', null],
-                        'value': _pd.implement_me(),
+                        'value': $p['value serializers']['default number'](
+                            $,
+                            null
+                        ),
                     })]),
                 })],
             }))
@@ -318,6 +321,10 @@ export const Type_Arguments: _i_signatures._T_Type_Arguments = ($, $p) => ['dict
 export const Type_Parameter_Selection: _i_signatures._T_Type_Parameter_Selection = ($, $p) => ['verbose group', _pa.dictionary_literal({
     'location': _pa.cc($['location'], ($) => ['state', _pa.cc($, ($): _i_out._T_Value.SG.state => {
         switch ($[0]) {
+            case 'function': return _pa.ss($, ($) => ({
+                'state': "function",
+                'value': ['nothing', null],
+            }))
             case 'module': return _pa.ss($, ($) => ({
                 'state': "module",
                 'value': ['nothing', null],

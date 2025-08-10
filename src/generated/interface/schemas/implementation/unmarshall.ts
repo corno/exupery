@@ -11,49 +11,49 @@ export type _T_Initialization = (
     $$_p: {
         readonly 'value deserializers': _i_vd._T_Value_Deserializers
     },
-) => _i_out._T_Initialization<null>
+) => _i_out._T_Initialization<_i_in._T_Range>
 
 export type _T_Literal = (
     $$_: _i_in._T_Value,
     $$_p: {
         readonly 'value deserializers': _i_vd._T_Value_Deserializers
     },
-) => _i_out._T_Literal<null>
+) => _i_out._T_Literal<_i_in._T_Range>
 
 export type _T_Module = (
     $$_: _i_in._T_Value,
     $$_p: {
         readonly 'value deserializers': _i_vd._T_Value_Deserializers
     },
-) => _i_out._T_Module<null>
+) => _i_out._T_Module<_i_in._T_Range>
 
 export type _T_Module_Set = (
     $$_: _i_in._T_Value,
     $$_p: {
         readonly 'value deserializers': _i_vd._T_Value_Deserializers
     },
-) => _i_out._T_Module_Set<null>
+) => _i_out._T_Module_Set<_i_in._T_Range>
 
 export type _T_Selection = (
     $$_: _i_in._T_Value,
     $$_p: {
         readonly 'value deserializers': _i_vd._T_Value_Deserializers
     },
-) => _i_out._T_Selection<null>
+) => _i_out._T_Selection<_i_in._T_Range>
 
 export type _T_Type_Parameters = (
     $$_: _i_in._T_Value,
     $$_p: {
         readonly 'value deserializers': _i_vd._T_Value_Deserializers
     },
-) => _i_out._T_Type_Parameters<null>
+) => _i_out._T_Type_Parameters<_i_in._T_Range>
 
 export type _T_Variables = (
     $$_: _i_in._T_Value,
     $$_p: {
         readonly 'value deserializers': _i_vd._T_Value_Deserializers
     },
-) => _i_out._T_Variables<null>
+) => _i_out._T_Variables<_i_in._T_Range>
 
 // **** FRIENDLY NAMES FOR THE GLOBAL TYPES
 
@@ -87,9 +87,12 @@ export namespace _T_Initialization {
     }
     
     export namespace RESULT {
-        export type annotation = null
+        
+        export namespace annotation {
+        }
+        export type annotation = _i_in._T_Range
     }
-    export type RESULT = _i_out._T_Initialization<null>
+    export type RESULT = _i_out._T_Initialization<_i_in._T_Range>
 }
 
 export namespace _T_Literal {
@@ -106,9 +109,12 @@ export namespace _T_Literal {
     }
     
     export namespace RESULT {
-        export type annotation = null
+        
+        export namespace annotation {
+        }
+        export type annotation = _i_in._T_Range
     }
-    export type RESULT = _i_out._T_Literal<null>
+    export type RESULT = _i_out._T_Literal<_i_in._T_Range>
 }
 
 export namespace _T_Module {
@@ -125,9 +131,12 @@ export namespace _T_Module {
     }
     
     export namespace RESULT {
-        export type annotation = null
+        
+        export namespace annotation {
+        }
+        export type annotation = _i_in._T_Range
     }
-    export type RESULT = _i_out._T_Module<null>
+    export type RESULT = _i_out._T_Module<_i_in._T_Range>
 }
 
 export namespace _T_Module_Set {
@@ -144,9 +153,12 @@ export namespace _T_Module_Set {
     }
     
     export namespace RESULT {
-        export type annotation = null
+        
+        export namespace annotation {
+        }
+        export type annotation = _i_in._T_Range
     }
-    export type RESULT = _i_out._T_Module_Set<null>
+    export type RESULT = _i_out._T_Module_Set<_i_in._T_Range>
 }
 
 export namespace _T_Selection {
@@ -163,9 +175,12 @@ export namespace _T_Selection {
     }
     
     export namespace RESULT {
-        export type annotation = null
+        
+        export namespace annotation {
+        }
+        export type annotation = _i_in._T_Range
     }
-    export type RESULT = _i_out._T_Selection<null>
+    export type RESULT = _i_out._T_Selection<_i_in._T_Range>
 }
 
 export namespace _T_Type_Parameters {
@@ -182,9 +197,12 @@ export namespace _T_Type_Parameters {
     }
     
     export namespace RESULT {
-        export type annotation = null
+        
+        export namespace annotation {
+        }
+        export type annotation = _i_in._T_Range
     }
-    export type RESULT = _i_out._T_Type_Parameters<null>
+    export type RESULT = _i_out._T_Type_Parameters<_i_in._T_Range>
 }
 
 export namespace _T_Variables {
@@ -201,9 +219,12 @@ export namespace _T_Variables {
     }
     
     export namespace RESULT {
-        export type annotation = null
+        
+        export namespace annotation {
+        }
+        export type annotation = _i_in._T_Range
     }
-    export type RESULT = _i_out._T_Variables<null>
+    export type RESULT = _i_out._T_Variables<_i_in._T_Range>
 }
 
 // *** ALIASES FOR NESTED TYPES
@@ -222,9 +243,12 @@ export namespace Initialization {
     }
     
     export namespace RESULT {
-        export type annotation = null
+        
+        export namespace annotation {
+        }
+        export type annotation = _i_in._T_Range
     }
-    export type RESULT = _i_out._T_Initialization<null>
+    export type RESULT = _i_out._T_Initialization<_i_in._T_Range>
 }
 
 export namespace Literal {
@@ -241,9 +265,12 @@ export namespace Literal {
     }
     
     export namespace RESULT {
-        export type annotation = null
+        
+        export namespace annotation {
+        }
+        export type annotation = _i_in._T_Range
     }
-    export type RESULT = _i_out._T_Literal<null>
+    export type RESULT = _i_out._T_Literal<_i_in._T_Range>
 }
 
 export namespace Module {
@@ -260,9 +287,12 @@ export namespace Module {
     }
     
     export namespace RESULT {
-        export type annotation = null
+        
+        export namespace annotation {
+        }
+        export type annotation = _i_in._T_Range
     }
-    export type RESULT = _i_out._T_Module<null>
+    export type RESULT = _i_out._T_Module<_i_in._T_Range>
 }
 
 export namespace Module_Set {
@@ -279,9 +309,12 @@ export namespace Module_Set {
     }
     
     export namespace RESULT {
-        export type annotation = null
+        
+        export namespace annotation {
+        }
+        export type annotation = _i_in._T_Range
     }
-    export type RESULT = _i_out._T_Module_Set<null>
+    export type RESULT = _i_out._T_Module_Set<_i_in._T_Range>
 }
 
 export namespace Selection {
@@ -298,9 +331,12 @@ export namespace Selection {
     }
     
     export namespace RESULT {
-        export type annotation = null
+        
+        export namespace annotation {
+        }
+        export type annotation = _i_in._T_Range
     }
-    export type RESULT = _i_out._T_Selection<null>
+    export type RESULT = _i_out._T_Selection<_i_in._T_Range>
 }
 
 export namespace Type_Parameters {
@@ -317,9 +353,12 @@ export namespace Type_Parameters {
     }
     
     export namespace RESULT {
-        export type annotation = null
+        
+        export namespace annotation {
+        }
+        export type annotation = _i_in._T_Range
     }
-    export type RESULT = _i_out._T_Type_Parameters<null>
+    export type RESULT = _i_out._T_Type_Parameters<_i_in._T_Range>
 }
 
 export namespace Variables {
@@ -336,7 +375,10 @@ export namespace Variables {
     }
     
     export namespace RESULT {
-        export type annotation = null
+        
+        export namespace annotation {
+        }
+        export type annotation = _i_in._T_Range
     }
-    export type RESULT = _i_out._T_Variables<null>
+    export type RESULT = _i_out._T_Variables<_i_in._T_Range>
 }

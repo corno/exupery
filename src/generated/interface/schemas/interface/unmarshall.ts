@@ -11,49 +11,49 @@ export type _T_Imports = (
     $$_p: {
         readonly 'value deserializers': _i_vd._T_Value_Deserializers
     },
-) => _i_out._T_Imports<null>
+) => _i_out._T_Imports<_i_in._T_Range>
 
 export type _T_Module = (
     $$_: _i_in._T_Value,
     $$_p: {
         readonly 'value deserializers': _i_vd._T_Value_Deserializers
     },
-) => _i_out._T_Module<null>
+) => _i_out._T_Module<_i_in._T_Range>
 
 export type _T_Module_Set = (
     $$_: _i_in._T_Value,
     $$_p: {
         readonly 'value deserializers': _i_vd._T_Value_Deserializers
     },
-) => _i_out._T_Module_Set<null>
+) => _i_out._T_Module_Set<_i_in._T_Range>
 
 export type _T_Type = (
     $$_: _i_in._T_Value,
     $$_p: {
         readonly 'value deserializers': _i_vd._T_Value_Deserializers
     },
-) => _i_out._T_Type<null>
+) => _i_out._T_Type<_i_in._T_Range>
 
 export type _T_Type_Arguments = (
     $$_: _i_in._T_Value,
     $$_p: {
         readonly 'value deserializers': _i_vd._T_Value_Deserializers
     },
-) => _i_out._T_Type_Arguments<null>
+) => _i_out._T_Type_Arguments<_i_in._T_Range>
 
 export type _T_Type_Parameter_Selection = (
     $$_: _i_in._T_Value,
     $$_p: {
         readonly 'value deserializers': _i_vd._T_Value_Deserializers
     },
-) => _i_out._T_Type_Parameter_Selection<null>
+) => _i_out._T_Type_Parameter_Selection<_i_in._T_Range>
 
 export type _T_Type_Parameters = (
     $$_: _i_in._T_Value,
     $$_p: {
         readonly 'value deserializers': _i_vd._T_Value_Deserializers
     },
-) => _i_out._T_Type_Parameters<null>
+) => _i_out._T_Type_Parameters<_i_in._T_Range>
 
 // **** FRIENDLY NAMES FOR THE GLOBAL TYPES
 
@@ -87,9 +87,12 @@ export namespace _T_Imports {
     }
     
     export namespace RESULT {
-        export type annotation = null
+        
+        export namespace annotation {
+        }
+        export type annotation = _i_in._T_Range
     }
-    export type RESULT = _i_out._T_Imports<null>
+    export type RESULT = _i_out._T_Imports<_i_in._T_Range>
 }
 
 export namespace _T_Module {
@@ -106,9 +109,12 @@ export namespace _T_Module {
     }
     
     export namespace RESULT {
-        export type annotation = null
+        
+        export namespace annotation {
+        }
+        export type annotation = _i_in._T_Range
     }
-    export type RESULT = _i_out._T_Module<null>
+    export type RESULT = _i_out._T_Module<_i_in._T_Range>
 }
 
 export namespace _T_Module_Set {
@@ -125,9 +131,12 @@ export namespace _T_Module_Set {
     }
     
     export namespace RESULT {
-        export type annotation = null
+        
+        export namespace annotation {
+        }
+        export type annotation = _i_in._T_Range
     }
-    export type RESULT = _i_out._T_Module_Set<null>
+    export type RESULT = _i_out._T_Module_Set<_i_in._T_Range>
 }
 
 export namespace _T_Type {
@@ -144,9 +153,12 @@ export namespace _T_Type {
     }
     
     export namespace RESULT {
-        export type annotation = null
+        
+        export namespace annotation {
+        }
+        export type annotation = _i_in._T_Range
     }
-    export type RESULT = _i_out._T_Type<null>
+    export type RESULT = _i_out._T_Type<_i_in._T_Range>
 }
 
 export namespace _T_Type_Arguments {
@@ -163,9 +175,12 @@ export namespace _T_Type_Arguments {
     }
     
     export namespace RESULT {
-        export type annotation = null
+        
+        export namespace annotation {
+        }
+        export type annotation = _i_in._T_Range
     }
-    export type RESULT = _i_out._T_Type_Arguments<null>
+    export type RESULT = _i_out._T_Type_Arguments<_i_in._T_Range>
 }
 
 export namespace _T_Type_Parameter_Selection {
@@ -182,9 +197,12 @@ export namespace _T_Type_Parameter_Selection {
     }
     
     export namespace RESULT {
-        export type annotation = null
+        
+        export namespace annotation {
+        }
+        export type annotation = _i_in._T_Range
     }
-    export type RESULT = _i_out._T_Type_Parameter_Selection<null>
+    export type RESULT = _i_out._T_Type_Parameter_Selection<_i_in._T_Range>
 }
 
 export namespace _T_Type_Parameters {
@@ -201,9 +219,12 @@ export namespace _T_Type_Parameters {
     }
     
     export namespace RESULT {
-        export type annotation = null
+        
+        export namespace annotation {
+        }
+        export type annotation = _i_in._T_Range
     }
-    export type RESULT = _i_out._T_Type_Parameters<null>
+    export type RESULT = _i_out._T_Type_Parameters<_i_in._T_Range>
 }
 
 // *** ALIASES FOR NESTED TYPES
@@ -222,9 +243,12 @@ export namespace Imports {
     }
     
     export namespace RESULT {
-        export type annotation = null
+        
+        export namespace annotation {
+        }
+        export type annotation = _i_in._T_Range
     }
-    export type RESULT = _i_out._T_Imports<null>
+    export type RESULT = _i_out._T_Imports<_i_in._T_Range>
 }
 
 export namespace Module {
@@ -241,9 +265,12 @@ export namespace Module {
     }
     
     export namespace RESULT {
-        export type annotation = null
+        
+        export namespace annotation {
+        }
+        export type annotation = _i_in._T_Range
     }
-    export type RESULT = _i_out._T_Module<null>
+    export type RESULT = _i_out._T_Module<_i_in._T_Range>
 }
 
 export namespace Module_Set {
@@ -260,9 +287,12 @@ export namespace Module_Set {
     }
     
     export namespace RESULT {
-        export type annotation = null
+        
+        export namespace annotation {
+        }
+        export type annotation = _i_in._T_Range
     }
-    export type RESULT = _i_out._T_Module_Set<null>
+    export type RESULT = _i_out._T_Module_Set<_i_in._T_Range>
 }
 
 export namespace Type {
@@ -279,9 +309,12 @@ export namespace Type {
     }
     
     export namespace RESULT {
-        export type annotation = null
+        
+        export namespace annotation {
+        }
+        export type annotation = _i_in._T_Range
     }
-    export type RESULT = _i_out._T_Type<null>
+    export type RESULT = _i_out._T_Type<_i_in._T_Range>
 }
 
 export namespace Type_Arguments {
@@ -298,9 +331,12 @@ export namespace Type_Arguments {
     }
     
     export namespace RESULT {
-        export type annotation = null
+        
+        export namespace annotation {
+        }
+        export type annotation = _i_in._T_Range
     }
-    export type RESULT = _i_out._T_Type_Arguments<null>
+    export type RESULT = _i_out._T_Type_Arguments<_i_in._T_Range>
 }
 
 export namespace Type_Parameter_Selection {
@@ -317,9 +353,12 @@ export namespace Type_Parameter_Selection {
     }
     
     export namespace RESULT {
-        export type annotation = null
+        
+        export namespace annotation {
+        }
+        export type annotation = _i_in._T_Range
     }
-    export type RESULT = _i_out._T_Type_Parameter_Selection<null>
+    export type RESULT = _i_out._T_Type_Parameter_Selection<_i_in._T_Range>
 }
 
 export namespace Type_Parameters {
@@ -336,7 +375,10 @@ export namespace Type_Parameters {
     }
     
     export namespace RESULT {
-        export type annotation = null
+        
+        export namespace annotation {
+        }
+        export type annotation = _i_in._T_Range
     }
-    export type RESULT = _i_out._T_Type_Parameters<null>
+    export type RESULT = _i_out._T_Type_Parameters<_i_in._T_Range>
 }

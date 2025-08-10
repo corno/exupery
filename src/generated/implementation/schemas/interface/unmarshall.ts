@@ -2,6 +2,7 @@ import * as _pa from 'exupery-core-alg'
 import * as _pd from 'exupery-core-dev'
 
 import * as _i_generic from "../../generic/unmarshall"
+import * as _i_in from "../../../interface/core/astn_source"
 import * as _i_out from "../../../interface/schemas/interface/data_types/unresolved"
 import * as _i_signatures from "../../../interface/schemas/interface/unmarshall"
 
@@ -36,7 +37,7 @@ export const Imports: _i_signatures._T_Imports = ($, $p) => _i_generic.process_u
                         $,
                         {
                             'states': _pa.dictionary_literal({
-                                'ancestor': ($): _i_out._T_Imports.D._type<null> => _i_generic.wrap_unresolved_state_group(
+                                'ancestor': ($): _i_out._T_Imports.D._type<_i_in._T_Range> => _i_generic.wrap_unresolved_state_group(
                                     ['ancestor', _i_generic.process_group(
                                         $,
                                         {
@@ -66,14 +67,14 @@ export const Imports: _i_signatures._T_Imports = ($, $p) => _i_generic.process_u
                                     )],
                                     null
                                 ),
-                                'external': ($): _i_out._T_Imports.D._type<null> => _i_generic.wrap_unresolved_state_group(
+                                'external': ($): _i_out._T_Imports.D._type<_i_in._T_Range> => _i_generic.wrap_unresolved_state_group(
                                     ['external', _i_generic.process_text(
                                         $,
                                         null
                                     )],
                                     null
                                 ),
-                                'sibling': ($): _i_out._T_Imports.D._type<null> => _i_generic.wrap_unresolved_state_group(
+                                'sibling': ($): _i_out._T_Imports.D._type<_i_in._T_Range> => _i_generic.wrap_unresolved_state_group(
                                     ['sibling', _i_generic.process_text(
                                         $,
                                         null
@@ -174,7 +175,7 @@ export const Module_Set: _i_signatures._T_Module_Set = ($, $p) => _i_generic.pro
             $,
             {
                 'states': _pa.dictionary_literal({
-                    'module': ($): _i_out._T_Module_Set.D<null> => _i_generic.wrap_unresolved_state_group(
+                    'module': ($): _i_out._T_Module_Set.D<_i_in._T_Range> => _i_generic.wrap_unresolved_state_group(
                         ['module', Module(
                             $,
                             {
@@ -183,7 +184,7 @@ export const Module_Set: _i_signatures._T_Module_Set = ($, $p) => _i_generic.pro
                         )],
                         null
                     ),
-                    'set': ($): _i_out._T_Module_Set.D<null> => _i_generic.wrap_unresolved_state_group(
+                    'set': ($): _i_out._T_Module_Set.D<_i_in._T_Range> => _i_generic.wrap_unresolved_state_group(
                         ['set', Module_Set(
                             $,
                             {
@@ -201,7 +202,7 @@ export const Type: _i_signatures._T_Type = ($, $p) => _i_generic.process_state_g
     $,
     {
         'states': _pa.dictionary_literal({
-            'array': ($): _i_out._T_Type<null> => _i_generic.wrap_unresolved_state_group(
+            'array': ($): _i_out._T_Type<_i_in._T_Range> => _i_generic.wrap_unresolved_state_group(
                 ['array', Type(
                     $,
                     {
@@ -210,14 +211,14 @@ export const Type: _i_signatures._T_Type = ($, $p) => _i_generic.process_state_g
                 )],
                 null
             ),
-            'boolean': ($): _i_out._T_Type<null> => _i_generic.wrap_unresolved_state_group(
+            'boolean': ($): _i_out._T_Type<_i_in._T_Range> => _i_generic.wrap_unresolved_state_group(
                 ['boolean', _i_generic.process_nothing(
                     $,
                     null
                 )],
                 null
             ),
-            'component': ($): _i_out._T_Type<null> => _i_generic.wrap_unresolved_state_group(
+            'component': ($): _i_out._T_Type<_i_in._T_Range> => _i_generic.wrap_unresolved_state_group(
                 ['component', _i_generic.process_group(
                     $,
                     {
@@ -231,7 +232,7 @@ export const Type: _i_signatures._T_Type = ($, $p) => _i_generic.process_state_g
                                 $,
                                 {
                                     'states': _pa.dictionary_literal({
-                                        'import': ($): _i_out._T_Type.SG.component.location<null> => _i_generic.wrap_unresolved_state_group(
+                                        'import': ($): _i_out._T_Type.SG.component.location<_i_in._T_Range> => _i_generic.wrap_unresolved_state_group(
                                             ['import', _i_generic.process_group(
                                                 $,
                                                 {
@@ -259,7 +260,7 @@ export const Type: _i_signatures._T_Type = ($, $p) => _i_generic.process_state_g
                                             )],
                                             null
                                         ),
-                                        'sibling': ($): _i_out._T_Type.SG.component.location<null> => _i_generic.wrap_unresolved_state_group(
+                                        'sibling': ($): _i_out._T_Type.SG.component.location<_i_in._T_Range> => _i_generic.wrap_unresolved_state_group(
                                             ['sibling', _i_generic.process_text(
                                                 $,
                                                 null
@@ -281,35 +282,35 @@ export const Type: _i_signatures._T_Type = ($, $p) => _i_generic.process_state_g
                                         $,
                                         {
                                             'states': _pa.dictionary_literal({
-                                                'dictionary': ($): _i_out._T_Type.SG.component.sub_selection.L<null> => _i_generic.wrap_unresolved_state_group(
+                                                'dictionary': ($): _i_out._T_Type.SG.component.sub_selection.L<_i_in._T_Range> => _i_generic.wrap_unresolved_state_group(
                                                     ['dictionary', _i_generic.process_nothing(
                                                         $,
                                                         null
                                                     )],
                                                     null
                                                 ),
-                                                'group': ($): _i_out._T_Type.SG.component.sub_selection.L<null> => _i_generic.wrap_unresolved_state_group(
+                                                'group': ($): _i_out._T_Type.SG.component.sub_selection.L<_i_in._T_Range> => _i_generic.wrap_unresolved_state_group(
                                                     ['group', _i_generic.process_text(
                                                         $,
                                                         null
                                                     )],
                                                     null
                                                 ),
-                                                'list': ($): _i_out._T_Type.SG.component.sub_selection.L<null> => _i_generic.wrap_unresolved_state_group(
+                                                'list': ($): _i_out._T_Type.SG.component.sub_selection.L<_i_in._T_Range> => _i_generic.wrap_unresolved_state_group(
                                                     ['list', _i_generic.process_nothing(
                                                         $,
                                                         null
                                                     )],
                                                     null
                                                 ),
-                                                'optional': ($): _i_out._T_Type.SG.component.sub_selection.L<null> => _i_generic.wrap_unresolved_state_group(
+                                                'optional': ($): _i_out._T_Type.SG.component.sub_selection.L<_i_in._T_Range> => _i_generic.wrap_unresolved_state_group(
                                                     ['optional', _i_generic.process_nothing(
                                                         $,
                                                         null
                                                     )],
                                                     null
                                                 ),
-                                                'state group': ($): _i_out._T_Type.SG.component.sub_selection.L<null> => _i_generic.wrap_unresolved_state_group(
+                                                'state group': ($): _i_out._T_Type.SG.component.sub_selection.L<_i_in._T_Range> => _i_generic.wrap_unresolved_state_group(
                                                     ['state group', _i_generic.process_text(
                                                         $,
                                                         null
@@ -337,7 +338,7 @@ export const Type: _i_signatures._T_Type = ($, $p) => _i_generic.process_state_g
                 )],
                 null
             ),
-            'computed': ($): _i_out._T_Type<null> => _i_generic.wrap_unresolved_state_group(
+            'computed': ($): _i_out._T_Type<_i_in._T_Range> => _i_generic.wrap_unresolved_state_group(
                 ['computed', Type(
                     $,
                     {
@@ -346,7 +347,7 @@ export const Type: _i_signatures._T_Type = ($, $p) => _i_generic.process_state_g
                 )],
                 null
             ),
-            'dictionary': ($): _i_out._T_Type<null> => _i_generic.wrap_unresolved_state_group(
+            'dictionary': ($): _i_out._T_Type<_i_in._T_Range> => _i_generic.wrap_unresolved_state_group(
                 ['dictionary', Type(
                     $,
                     {
@@ -355,7 +356,7 @@ export const Type: _i_signatures._T_Type = ($, $p) => _i_generic.process_state_g
                 )],
                 null
             ),
-            'function': ($): _i_out._T_Type<null> => _i_generic.wrap_unresolved_state_group(
+            'function': ($): _i_out._T_Type<_i_in._T_Range> => _i_generic.wrap_unresolved_state_group(
                 ['function', _i_generic.process_group(
                     $,
                     {
@@ -414,7 +415,7 @@ export const Type: _i_signatures._T_Type = ($, $p) => _i_generic.process_state_g
                 )],
                 null
             ),
-            'group': ($): _i_out._T_Type<null> => _i_generic.wrap_unresolved_state_group(
+            'group': ($): _i_out._T_Type<_i_in._T_Range> => _i_generic.wrap_unresolved_state_group(
                 ['group', _i_generic.process_unresolved_dictionary(
                     $,
                     {
@@ -428,7 +429,7 @@ export const Type: _i_signatures._T_Type = ($, $p) => _i_generic.process_state_g
                 )],
                 null
             ),
-            'key value pair': ($): _i_out._T_Type<null> => _i_generic.wrap_unresolved_state_group(
+            'key value pair': ($): _i_out._T_Type<_i_in._T_Range> => _i_generic.wrap_unresolved_state_group(
                 ['key value pair', Type(
                     $,
                     {
@@ -437,26 +438,26 @@ export const Type: _i_signatures._T_Type = ($, $p) => _i_generic.process_state_g
                 )],
                 null
             ),
-            'null': ($): _i_out._T_Type<null> => _i_generic.wrap_unresolved_state_group(
+            'null': ($): _i_out._T_Type<_i_in._T_Range> => _i_generic.wrap_unresolved_state_group(
                 ['null', _i_generic.process_nothing(
                     $,
                     null
                 )],
                 null
             ),
-            'number': ($): _i_out._T_Type<null> => _i_generic.wrap_unresolved_state_group(
+            'number': ($): _i_out._T_Type<_i_in._T_Range> => _i_generic.wrap_unresolved_state_group(
                 ['number', _i_generic.process_state_group(
                     $,
                     {
                         'states': _pa.dictionary_literal({
-                            'float': ($): _i_out._T_Type.SG._number<null> => _i_generic.wrap_unresolved_state_group(
+                            'float': ($): _i_out._T_Type.SG._number<_i_in._T_Range> => _i_generic.wrap_unresolved_state_group(
                                 ['float', _i_generic.process_nothing(
                                     $,
                                     null
                                 )],
                                 null
                             ),
-                            'integer': ($): _i_out._T_Type.SG._number<null> => _i_generic.wrap_unresolved_state_group(
+                            'integer': ($): _i_out._T_Type.SG._number<_i_in._T_Range> => _i_generic.wrap_unresolved_state_group(
                                 ['integer', _i_generic.process_group(
                                     $,
                                     {
@@ -482,7 +483,7 @@ export const Type: _i_signatures._T_Type = ($, $p) => _i_generic.process_state_g
                 )],
                 null
             ),
-            'optional': ($): _i_out._T_Type<null> => _i_generic.wrap_unresolved_state_group(
+            'optional': ($): _i_out._T_Type<_i_in._T_Range> => _i_generic.wrap_unresolved_state_group(
                 ['optional', Type(
                     $,
                     {
@@ -491,7 +492,7 @@ export const Type: _i_signatures._T_Type = ($, $p) => _i_generic.process_state_g
                 )],
                 null
             ),
-            'parameter': ($): _i_out._T_Type<null> => _i_generic.wrap_unresolved_state_group(
+            'parameter': ($): _i_out._T_Type<_i_in._T_Range> => _i_generic.wrap_unresolved_state_group(
                 ['parameter', Type_Parameter_Selection(
                     $,
                     {
@@ -500,14 +501,14 @@ export const Type: _i_signatures._T_Type = ($, $p) => _i_generic.process_state_g
                 )],
                 null
             ),
-            'string': ($): _i_out._T_Type<null> => _i_generic.wrap_unresolved_state_group(
+            'string': ($): _i_out._T_Type<_i_in._T_Range> => _i_generic.wrap_unresolved_state_group(
                 ['string', _i_generic.process_nothing(
                     $,
                     null
                 )],
                 null
             ),
-            'tagged union': ($): _i_out._T_Type<null> => _i_generic.wrap_unresolved_state_group(
+            'tagged union': ($): _i_out._T_Type<_i_in._T_Range> => _i_generic.wrap_unresolved_state_group(
                 ['tagged union', _i_generic.process_unresolved_dictionary(
                     $,
                     {
@@ -548,14 +549,21 @@ export const Type_Parameter_Selection: _i_signatures._T_Type_Parameter_Selection
                 $,
                 {
                     'states': _pa.dictionary_literal({
-                        'module': ($): _i_out._T_Type_Parameter_Selection.location<null> => _i_generic.wrap_unresolved_state_group(
+                        'function': ($): _i_out._T_Type_Parameter_Selection.location<_i_in._T_Range> => _i_generic.wrap_unresolved_state_group(
+                            ['function', _i_generic.process_nothing(
+                                $,
+                                null
+                            )],
+                            null
+                        ),
+                        'module': ($): _i_out._T_Type_Parameter_Selection.location<_i_in._T_Range> => _i_generic.wrap_unresolved_state_group(
                             ['module', _i_generic.process_nothing(
                                 $,
                                 null
                             )],
                             null
                         ),
-                        'type': ($): _i_out._T_Type_Parameter_Selection.location<null> => _i_generic.wrap_unresolved_state_group(
+                        'type': ($): _i_out._T_Type_Parameter_Selection.location<_i_in._T_Range> => _i_generic.wrap_unresolved_state_group(
                             ['type', _i_generic.process_nothing(
                                 $,
                                 null

@@ -468,6 +468,9 @@ export const r_Type_Parameter_Selection: _i_signatures._T_Type_Parameter_Selecti
     return _pa.block(() => {
         const p_location: _i_out._T_Type_Parameter_Selection.location = _pa.cc($['location'], ($) => _pa.cc($['state group'], ($): _i_out._T_Type_Parameter_Selection.location => {
             switch ($[0]) {
+                case 'function': return _pa.ss($, ($) => ['function', _pa.block(() => {
+                    return null
+                })])
                 case 'module': return _pa.ss($, ($) => ['module', _pa.block(() => {
                     return null
                 })])
