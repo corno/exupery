@@ -42,7 +42,6 @@ export type _T_Reference_To_Normal_Dictionary_Entry<M_Source, T_Dictionary_Entry
 export type _T_Reference_To_Stacked_Dictionary_Entry<M_Source, T_Dictionary_Entry> = {
     readonly 'key': string
     readonly 'location': M_Source
-    readonly 'up steps': number
 }
 
 export type _T_State_Group<M_Source, T_SG> = {
@@ -143,7 +142,6 @@ export namespace _T_Reference_To_Normal_Dictionary_Entry {
 export namespace _T_Reference_To_Stacked_Dictionary_Entry {
     export type key<M_Source, T_Dictionary_Entry> = string
     export type location<M_Source, T_Dictionary_Entry> = M_Source
-    export type up_steps<M_Source, T_Dictionary_Entry> = number
 }
 
 export namespace _T_State_Group {
@@ -226,7 +224,6 @@ export namespace Reference_To_Normal_Dictionary_Entry {
 export namespace Reference_To_Stacked_Dictionary_Entry {
     export type key<M_Source, T_Dictionary_Entry> = string
     export type location<M_Source, T_Dictionary_Entry> = M_Source
-    export type up_steps<M_Source, T_Dictionary_Entry> = number
 }
 
 export namespace State_Group {

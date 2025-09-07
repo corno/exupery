@@ -7,7 +7,7 @@ import * as _i_r_interface from "../interface/resolve"
 import * as _i_signatures from "../../../interface/schemas/implementation/data_types/resolve"
 
 
-export const r_Initialization: _i_signatures._T_Initialization<_i_generic._T_Location_Info> = ($, $p) => _pa.block(() => {
+export const r_Initialization: _i_signatures._T_Initialization = ($, $p) => _pa.block(() => {
     const l2s = $p['location 2 string']
     const params = $p['parameters']
     return _pa.cc($['state group'], ($): _i_out._T_Initialization => {
@@ -435,7 +435,7 @@ export const r_Initialization: _i_signatures._T_Initialization<_i_generic._T_Loc
         }
     })
 })
-export const r_Literal: _i_signatures._T_Literal<_i_generic._T_Location_Info> = ($, $p) => _pa.block(() => {
+export const r_Literal: _i_signatures._T_Literal = ($, $p) => _pa.block(() => {
     const l2s = $p['location 2 string']
     const params = $p['parameters']
     return _pa.cc($['state group'], ($): _i_out._T_Literal => {
@@ -625,7 +625,7 @@ export const r_Literal: _i_signatures._T_Literal<_i_generic._T_Location_Info> = 
         }
     })
 })
-export const r_Module: _i_signatures._T_Module<_i_generic._T_Location_Info> = ($, $p) => _pa.block(() => {
+export const r_Module: _i_signatures._T_Module = ($, $p) => _pa.block(() => {
     const l2s = $p['location 2 string']
     const params = $p['parameters']
     return _pa.block(() => {
@@ -694,7 +694,7 @@ export const r_Module: _i_signatures._T_Module<_i_generic._T_Location_Info> = ($
         })
     })
 })
-export const r_Module_Set: _i_signatures._T_Module_Set<_i_generic._T_Location_Info> = ($, $p) => _pa.block(() => {
+export const r_Module_Set: _i_signatures._T_Module_Set = ($, $p) => _pa.block(() => {
     const l2s = $p['location 2 string']
     const params = $p['parameters']
     return _pa.block(() => {
@@ -737,7 +737,7 @@ export const r_Module_Set: _i_signatures._T_Module_Set<_i_generic._T_Location_In
         )
     })
 })
-export const r_Selection: _i_signatures._T_Selection<_i_generic._T_Location_Info> = ($, $p) => _pa.block(() => {
+export const r_Selection: _i_signatures._T_Selection = ($, $p) => _pa.block(() => {
     const l2s = $p['location 2 string']
     const params = $p['parameters']
     return _pa.block(() => {
@@ -871,7 +871,7 @@ export const r_Selection: _i_signatures._T_Selection<_i_generic._T_Location_Info
         })
     })
 })
-export const r_Type_Parameters: _i_signatures._T_Type_Parameters<_i_generic._T_Location_Info> = ($, $p) => _pa.block(() => {
+export const r_Type_Parameters: _i_signatures._T_Type_Parameters = ($, $p) => _pa.block(() => {
     const l2s = $p['location 2 string']
     const params = $p['parameters']
     return _pa.block(() => {
@@ -886,7 +886,7 @@ export const r_Type_Parameters: _i_signatures._T_Type_Parameters<_i_generic._T_L
         )
     })
 })
-export const r_Variables: _i_signatures._T_Variables<_i_generic._T_Location_Info> = ($, $p) => _pa.block(() => {
+export const r_Variables: _i_signatures._T_Variables = ($, $p) => _pa.block(() => {
     const l2s = $p['location 2 string']
     const params = $p['parameters']
     return _pa.block(() => {

@@ -6,7 +6,7 @@ import * as t from "../../interface/core/astn_source"
 import * as unconstrained from "../../interface/core/unconstrained"
 import * as unresolved from "../../interface/core/unresolved"
 
-export const process_state_group = <X>(
+export const process_unconstrained_state_group = <X>(
     $: t._T_Value,
     $p: {
         'states': _et.Dictionary<($: t._T_Value) => X>,
@@ -27,6 +27,32 @@ export const process_state_group = <X>(
             default: return _ea.panic(`Unexpected type for state group: ${$[0]}`)
         }
     })
+}
+
+export const process_unresolved_state_group = <X>(
+    $: t._T_Value,
+    $p: {
+        'states': _et.Dictionary<($: t._T_Value) => X>,
+    }
+
+): unresolved.State_Group<t._T_Range, X> => {
+    return {
+        'location': $.range,
+        'state group': _ea.cc($.type, ($) => {
+            switch ($[0]) {
+                case 'tagged value': return _ea.ss($, ($) => {
+                    const data = $.value
+                    return $p.states.__get_entry(
+                        $.state.value
+                    ).transform(
+                        ($) => $(data),
+                        () => _ed.implement_me()
+                    )
+                })
+                default: return _ea.panic(`Unexpected type for state group: ${$[0]}`)
+            }
+        })
+    }
 }
 
 export const process_group = <X>(
@@ -88,17 +114,17 @@ export const process_unresolved_dictionary = <X>(
                                 'end': $["}"].range.end,
                             },
                             'dictionary': _ea.pure.dictionary["build, overwrite clashing keys"](($i) => {
-                            $.entries.__for_each(($) => {
-                                const key_location = $.key.range
-                                $i['add entry']($.key.value, $.value.transform(
-                                    ($) => ({
-                                        'location': key_location,
-                                        'entry': $p.value($.value),
-                                    }),
-                                    () => _ed.implement_me() //what to do if the property has no value?
-                                ))
+                                $.entries.__for_each(($) => {
+                                    const key_location = $.key.range
+                                    $i['add entry']($.key.value, $.value.transform(
+                                        ($) => ({
+                                            'location': key_location,
+                                            'entry': $p.value($.value),
+                                        }),
+                                        () => _ed.implement_me() //what to do if the property has no value?
+                                    ))
+                                })
                             })
-                        })
                         }
                     })
                     default: return _ea.panic(`Unexpected type for dictionary: ${$[0]}`)
@@ -186,9 +212,26 @@ export const process_unresolved_list = <X>(
     $p: {
         'value': ($: t._T_Value) => X
     }
-
 ): unresolved.List<t._T_Range, X> => {
-    return _ed.implement_me()
+    return {
+        'location': $.range,
+        'list': _ea.cc($.type, ($) => {
+            switch ($[0]) {
+                case 'ordered collection': return _ea.ss($, ($) => _ea.cc($, ($) => {
+                    switch ($[0]) {
+                        case 'list': return _ea.ss($, ($) => {
+                            return $["elements"].map(($) => ({
+                                'location': $.value.range,
+                                'element': $p.value($.value)
+                            }))
+                        })
+                        default: return _ea.panic(`Unexpected type for list: ${$[0]}`)
+                    }
+                }))
+                default: return _ea.panic(`Unexpected type for list: ${$[0]}`)
+            }
+        })
+    }
 }
 
 export const process_unconstrained_list = <X>(
@@ -208,7 +251,14 @@ export const process_optional = <X>(
     }
 
 ): _et.Optional_Value<X> => {
-    return _ed.implement_me()
+    return _ea.cc($.type, ($) => {
+        switch ($[0]) {
+            case 'not set': return _ea.ss($, ($) => _ea.not_set())
+            case 'set optional value': return _ea.ss($, ($) => _ea.set($p.value($.value)))
+            default: return _ea.panic(`Unexpected type for nothing: ${$[0]}`)
+
+        }
+    })
 }
 
 export const process_nothing = (
@@ -224,37 +274,45 @@ export const process_nothing = (
     })
 }
 
-export const wrap_unconstrained_state_group = <X>(
-    $: X,
-    $p: null,
-): unconstrained.State_Group<null, X> => {
-    return $
-}
-
-export const wrap_unresolved_state_group = <X>(
-    $: X,
-    $p: null,
-): unresolved.State_Group<t._T_Range, X> => {
-    return _ed.implement_me()
-}
-
 export const process_selected_reference = <X>(
-    $: any,
+    $: t._T_Value,
     $p: null
 ): unresolved.Reference_To_Normal_Dictionary_Entry<t._T_Range, X> => {
-    return _ed.implement_me()
+    return {
+        'key': _ea.cc($.type, ($) => {
+            switch ($[0]) {
+                case 'string': return _ea.ss($, ($) => $.value)
+                default: return _ea.panic(`Unexpected type for selected reference key: ${$[0]}`)
+            }
+        }),
+        'location': $.range,
+    }
 }
 
 export const process_stack_reference = <X>(
-    $: any,
+    $: t._T_Value,
     $p: null
 ): unresolved.Reference_To_Stacked_Dictionary_Entry<t._T_Range, X> => {
-    return _ed.implement_me()
+    return {
+        'key': _ea.cc($.type, ($) => {
+            switch ($[0]) {
+                case 'string': return _ea.ss($, ($) => $.value)
+                default: return _ea.panic(`Unexpected type for selected reference key: ${$[0]}`)
+            }
+        }),
+        'location': $.range,
+    }
 }
 
 export const process_derived_reference = (
-    $: any,
+    $: t._T_Value,
     $p: null
 ): null => {
-    return _ed.implement_me()
+    return _ea.cc($.type, ($) => {
+        switch ($[0]) {
+            case 'not set': return _ea.ss($, ($) => null)
+            default: return _ea.panic(`Unexpected type for derived reference: ${$[0]}`)
+
+        }
+    })
 }
