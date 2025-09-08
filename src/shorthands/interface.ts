@@ -18,9 +18,9 @@ export namespace import_ {
         args: Raw_Or_Normal_Dictionary<_out.Type<pd.Source_Location>>
     ): _out.Imports.D<pd.Source_Location> => {
         return {
-            'type': wrap_state_group(['external', key]),
-            'tail': wrap_list(tail),
-            'type arguments': wrap_dictionary(args),
+            'type': wrap_state_group(1, ['external', key]),
+            'tail': wrap_list(1, tail),
+            'type arguments': wrap_dictionary(1, args),
         }
     }
 
@@ -30,9 +30,9 @@ export namespace import_ {
         args: Raw_Or_Normal_Dictionary<_out.Type<pd.Source_Location>>
     ): _out.Imports.D<pd.Source_Location> => {
         return {
-            'type': wrap_state_group(['sibling', key]),
-            'tail': wrap_list(tail),
-            'type arguments': wrap_dictionary(args),
+            'type': wrap_state_group(1, ['sibling', key]),
+            'tail': wrap_list(1, tail),
+            'type arguments': wrap_dictionary(1, args),
         }
     }
     export const ancestor = (
@@ -42,70 +42,70 @@ export namespace import_ {
         args: Raw_Or_Normal_Dictionary<_out.Type<pd.Source_Location>>,
     ): _out.Imports.D<pd.Source_Location> => {
         return {
-            'type': wrap_state_group(['ancestor', {
+            'type': wrap_state_group(1, ['ancestor', {
                 'number of steps': number_of_steps,
                 'dependency': key,
             }]),
-            'tail': wrap_list(tail),
-            'type arguments': wrap_dictionary(args),
+            'tail': wrap_list(1, tail),
+            'type arguments': wrap_dictionary(1, args),
         }
     }
 }
 
 export namespace sub {
     export const dictionary = (): _out.Type.SG.component.sub_selection.L<pd.Source_Location> => {
-        return wrap_state_group(['dictionary', null])
+        return wrap_state_group(1, ['dictionary', null])
     }
 
     export const list = (): _out.Type.SG.component.sub_selection.L<pd.Source_Location> => {
-        return wrap_state_group(['list', null])
+        return wrap_state_group(1, ['list', null])
     }
     export const state_group = (name: string): _out.Type.SG.component.sub_selection.L<pd.Source_Location> => {
-        return wrap_state_group(['state group', name])
+        return wrap_state_group(1, ['state group', name])
     }
     export const group = (
         name: string,
     ): _out.Type.SG.component.sub_selection.L<pd.Source_Location> => {
-        return wrap_state_group(['group', name])
+        return wrap_state_group(1, ['group', name])
     }
     export const optional = (): _out.Type.SG.component.sub_selection.L<pd.Source_Location> => {
-        return wrap_state_group(['optional', null])
+        return wrap_state_group(1, ['optional', null])
     }
 }
 
 export namespace t {
 
     export const boolean = (): _out.Type<pd.Source_Location> => {
-        return wrap_state_group(['boolean', null])
+        return wrap_state_group(1, ['boolean', null])
     }
 
     export const computed_value = (
         type: _out.Type<pd.Source_Location>
     ): _out.Type<pd.Source_Location> => {
-        return wrap_state_group(['computed', type])
+        return wrap_state_group(1, ['computed', type])
     }
 
     export const parameter_module = (
         parameter: string,
     ): _out.Type<pd.Source_Location> => {
-        return wrap_state_group(['parameter', {
-            'location': wrap_state_group(['module', null]),
+        return wrap_state_group(1, ['parameter', {
+            'location': wrap_state_group(1, ['module', null]),
             'parameter': parameter,
         }])
     }
     export const parameter_type = (
         parameter: string,
     ): _out.Type<pd.Source_Location> => {
-        return wrap_state_group(['parameter', {
-            'location': wrap_state_group(['type', null]),
+        return wrap_state_group(1, ['parameter', {
+            'location': wrap_state_group(1, ['type', null]),
             'parameter': parameter,
         }])
     }
     export const parameter_function = (
         parameter: string,
     ): _out.Type<pd.Source_Location> => {
-        return wrap_state_group(['parameter', {
-            'location': wrap_state_group(['function', null]),
+        return wrap_state_group(1, ['parameter', {
+            'location': wrap_state_group(1, ['function', null]),
             'parameter': parameter,
         }])
     }
@@ -114,10 +114,10 @@ export namespace t {
         args: Raw_Or_Normal_Dictionary<_out.Type<pd.Source_Location>>,
         sub_selection: _out.Type.SG.component.sub_selection.L<pd.Source_Location>[],
     ): _out.Type<pd.Source_Location> => {
-        return wrap_state_group(['component', {
-            'location': wrap_state_group(['sibling', sibling]),
-            'type arguments': wrap_dictionary(args),
-            'sub selection': wrap_list(sub_selection)
+        return wrap_state_group(1, ['component', {
+            'location': wrap_state_group(1, ['sibling', sibling]),
+            'type arguments': wrap_dictionary(1, args),
+            'sub selection': wrap_list(1, sub_selection)
         }])
     }
     export const component_imported = (
@@ -126,13 +126,13 @@ export namespace t {
         args: Raw_Or_Normal_Dictionary<_out.Type<pd.Source_Location>>,
         sub_selection: _out.Type.SG.component.sub_selection.L<pd.Source_Location>[],
     ): _out.Type<pd.Source_Location> => {
-        return wrap_state_group(['component', {
-            'location': wrap_state_group(['import', {
+        return wrap_state_group(1, ['component', {
+            'location': wrap_state_group(1, ['import', {
                 'import': imp,
                 'type': type,
             }]),
-            'type arguments': wrap_dictionary(args),
-            'sub selection': wrap_list(sub_selection)
+            'type arguments': wrap_dictionary(1, args),
+            'sub selection': wrap_list(1, sub_selection)
 
         }])
     }
@@ -140,13 +140,13 @@ export namespace t {
     export const dictionary = (
         type: _out.Type<pd.Source_Location>
     ): _out.Type<pd.Source_Location> => {
-        return wrap_state_group(['dictionary', type])
+        return wrap_state_group(1, ['dictionary', type])
     }
 
     export const key_value_pair = (
         type: _out.Type<pd.Source_Location>
     ): _out.Type<pd.Source_Location> => {
-        return wrap_state_group(['key value pair', type])
+        return wrap_state_group(1, ['key value pair', type])
     }
     export const function_ = (
         type_parameters: Raw_Or_Normal_Dictionary<null>,
@@ -154,45 +154,45 @@ export namespace t {
         parameters: Raw_Or_Normal_Dictionary<_out.Type<pd.Source_Location>>,
         return_: _out.Type<pd.Source_Location>
     ): _out.Type<pd.Source_Location> => {
-        return wrap_state_group(['function', {
-            'type parameters': wrap_dictionary(type_parameters),
+        return wrap_state_group(1, ['function', {
+            'type parameters': wrap_dictionary(1, type_parameters),
             'context': context,
-            'parameters': wrap_dictionary(parameters),
+            'parameters': wrap_dictionary(1, parameters),
             'return': return_,
         }])
     }
     export const group = (
         properties: Raw_Or_Normal_Dictionary<_out.Type<pd.Source_Location>>
     ): _out.Type<pd.Source_Location> => {
-        return wrap_state_group(['group', wrap_dictionary(properties)])
+        return wrap_state_group(1, ['group', wrap_dictionary(1, properties)])
     }
     export const array = (
         type: _out.Type<pd.Source_Location>
     ): _out.Type<pd.Source_Location> => {
-        return wrap_state_group(['array', type])
+        return wrap_state_group(1, ['array', type])
     }
     export const null_ = (): _out.Type<pd.Source_Location> => {
-        return wrap_state_group(['null', null])
+        return wrap_state_group(1, ['null', null])
     }
     export const float = (): _out.Type<pd.Source_Location> => {
-        return wrap_state_group(['number', wrap_state_group(['float', null])])
+        return wrap_state_group(1, ['number', wrap_state_group(1, ['float', null])])
     }
     export const integer = ($?: 'signed' | 'unsigned'): _out.Type<pd.Source_Location> => {
-        return wrap_state_group(['number', wrap_state_group(['integer', { 'signed': $ === 'signed' }])])
+        return wrap_state_group(1, ['number', wrap_state_group(1, ['integer', { 'signed': $ === 'signed' }])])
     }
     export const optional = (
         type: _out.Type<pd.Source_Location>
     ): _out.Type<pd.Source_Location> => {
-        return wrap_state_group(['optional', type])
+        return wrap_state_group(1, ['optional', type])
     }
     export const tagged_union = (
         states: Raw_Or_Normal_Dictionary<_out.Type<pd.Source_Location>>
     ): _out.Type<pd.Source_Location> => {
-        return wrap_state_group(['tagged union', wrap_dictionary(states)])
+        return wrap_state_group(1, ['tagged union', wrap_dictionary(1, states)])
     }
 
     export const string = (): _out.Type<pd.Source_Location> => {
-        return wrap_state_group(['string', null])
+        return wrap_state_group(1, ['string', null])
     }
 
 }
@@ -201,7 +201,7 @@ export namespace m {
     export const set = (
         entries: Raw_Or_Normal_Dictionary<_out.Module_Set.D<pd.Source_Location>>
     ): _out.Module_Set.D<pd.Source_Location> => {
-        return wrap_state_group(['set', wrap_dictionary(entries)])
+        return wrap_state_group(1, ['set', wrap_dictionary(1, entries)])
     }
 
     export const module = (
@@ -209,10 +209,10 @@ export namespace m {
         type_parameters: Raw_Or_Normal_Dictionary<null>,
         types: Raw_Or_Normal_Dictionary<_out.Module.types.D<pd.Source_Location>>,
     ): _out.Module_Set.D<pd.Source_Location> => {
-        return wrap_state_group(['module', {
-            'imports': wrap_dictionary(imports),
-            'type parameters': wrap_dictionary(type_parameters),
-            'types': wrap_dictionary(types),
+        return wrap_state_group(1, ['module', {
+            'imports': wrap_dictionary(1, imports),
+            'type parameters': wrap_dictionary(1, type_parameters),
+            'types': wrap_dictionary(1, types),
         }])
     }
 
@@ -223,7 +223,7 @@ export const type = (
     type: _out.Type<pd.Source_Location>
 ): _out.Module.types.D<pd.Source_Location> => {
     return {
-        'parameters': wrap_dictionary(parameters),
+        'parameters': wrap_dictionary(1, parameters),
         'type': type,
     }
 }
