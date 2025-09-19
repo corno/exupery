@@ -9,7 +9,7 @@ import {
     wrap_dictionary,
     wrap_list,
     wrap_state_group,
-} from 'exupery-core-data/dist/shorthands/unresolved'
+} from 'exupery-core-data/dist/shorthands/unresolved_data'
 
 export namespace vi {
 
@@ -18,8 +18,8 @@ export namespace vi {
         tail: string[],
     ): unresolved.Module.variable_imports.D<_edata.Source_Location> => {
         return {
-            'type': wrap_state_group(1, ['external', key]),
-            'tail': wrap_list(1, tail),
+            'type': wrap_state_group(['external', key]),
+            'tail': wrap_list(tail),
         }
     }
 
@@ -28,8 +28,8 @@ export namespace vi {
         tail: string[],
     ): unresolved.Module.variable_imports.D<_edata.Source_Location> => {
         return {
-            'type': wrap_state_group(1, ['sibling', key]),
-            'tail': wrap_list(1, tail),
+            'type': wrap_state_group(['sibling', key]),
+            'tail': wrap_list(tail),
         }
     }
     export const ancestor = (
@@ -38,11 +38,11 @@ export namespace vi {
         tail: string[],
     ): unresolved.Module.variable_imports.D<_edata.Source_Location> => {
         return {
-            'type': wrap_state_group(1, ['ancestor', {
+            'type': wrap_state_group(['ancestor', {
                 'number of steps': number_of_steps,
                 'dependency': key,
             }]),
-            'tail': wrap_list(1, tail),
+            'tail': wrap_list(tail),
         }
     }
 }
@@ -56,12 +56,12 @@ export namespace s {
         tail: unresolved.Selection.tail.L<string>[]
     ): unresolved.Selection<_edata.Source_Location> => {
         return {
-            'start': wrap_state_group(1, ['transform optional value', {
+            'start': wrap_state_group(['transform optional value', {
                 'source': source,
                 'if set': if_set,
                 'if not set': if_not_set,
             }]),
-            'tail': wrap_list(1, tail),
+            'tail': wrap_list(tail),
         }
     }
 
@@ -71,30 +71,30 @@ export namespace s {
         arguments_: Raw_Or_Normal_Dictionary<unresolved.Initialization.SG.transformation._type.SG._function.SG.call._arguments.O.D<_edata.Source_Location>>,
         tail: unresolved.Selection.tail.L<string>[]
     ): unresolved.Selection<_edata.Source_Location> => {
-        const args: unresolved.Initialization.SG.transformation._type.SG._function.SG.call._arguments<_edata.Source_Location> = arguments_ === undefined ? _edata.not_set() : _edata.set(wrap_dictionary(1, arguments_))
+        const args: unresolved.Initialization.SG.transformation._type.SG._function.SG.call._arguments<_edata.Source_Location> = arguments_ === undefined ? _edata.not_set() : _edata.set(wrap_dictionary(arguments_))
         return {
-            'start': wrap_state_group(1, ['call', {
+            'start': wrap_state_group(['call', {
                 'source': source,
                 'context': context,
                 'arguments': args,
             }]),
-            'tail': wrap_list(1, tail),
+            'tail': wrap_list(tail),
         }
     }
 
     export const abort = (
     ): unresolved.Selection<_edata.Source_Location> => {
         return {
-            'start': wrap_state_group(1, ['abort', null]),
-            'tail': wrap_list(1, []),
+            'start': wrap_state_group(['abort', null]),
+            'tail': wrap_list([]),
         }
     }
 
     export const implement_me = (
     ): unresolved.Selection<_edata.Source_Location> => {
         return {
-            'start': wrap_state_group(1, ['implement me', null]),
-            'tail': wrap_list(1, []),
+            'start': wrap_state_group(['implement me', null]),
+            'tail': wrap_list([]),
         }
     }
 
@@ -103,8 +103,8 @@ export namespace s {
 
     ): unresolved.Selection<_edata.Source_Location> => {
         return {
-            'start': wrap_state_group(1, ['context', null]),
-            'tail': wrap_list(1, tail),
+            'start': wrap_state_group(['context', null]),
+            'tail': wrap_list(tail),
         }
     }
     export const from_variable = (
@@ -113,8 +113,8 @@ export namespace s {
 
     ): unresolved.Selection<_edata.Source_Location> => {
         return {
-            'start': wrap_state_group(1, ['variable', name]),
-            'tail': wrap_list(1, tail),
+            'start': wrap_state_group(['variable', name]),
+            'tail': wrap_list(tail),
         }
     }
     export const from_parameter = (
@@ -123,8 +123,8 @@ export namespace s {
 
     ): unresolved.Selection<_edata.Source_Location> => {
         return {
-            'start': wrap_state_group(1, ['parameter', name]),
-            'tail': wrap_list(1, tail),
+            'start': wrap_state_group(['parameter', name]),
+            'tail': wrap_list(tail),
         }
     }
     export const from_variable_import = (
@@ -134,11 +134,11 @@ export namespace s {
 
     ): unresolved.Selection<_edata.Source_Location> => {
         return {
-            'start': wrap_state_group(1, ['imported variable', {
+            'start': wrap_state_group(['imported variable', {
                 'import': imp,
                 'variable': variable,
             }]),
-            'tail': wrap_list(1, tail),
+            'tail': wrap_list(tail),
         }
     }
     export const from_argument = (
@@ -147,8 +147,8 @@ export namespace s {
 
     ): unresolved.Selection<_edata.Source_Location> => {
         return {
-            'start': wrap_state_group(1, ['argument', name]),
-            'tail': wrap_list(1, tail),
+            'start': wrap_state_group(['argument', name]),
+            'tail': wrap_list(tail),
         }
     }
 }
@@ -159,25 +159,25 @@ export namespace i {
         argument: string,
         tail: unresolved.Selection.tail.L<string>[]
     ): unresolved.Initialization<_edata.Source_Location> => {
-        return wrap_state_group(1, ['selection', {
-            'start': wrap_state_group(1, ['argument', argument]),
-            'tail': wrap_list(1, tail),
+        return wrap_state_group(['selection', {
+            'start': wrap_state_group(['argument', argument]),
+            'tail': wrap_list(tail),
         }])
     }
 
     export const array_literal = (
         elements: unresolved.Initialization<_edata.Source_Location>[]
     ): unresolved.Initialization<_edata.Source_Location> => {
-        return wrap_state_group(1, ['literal', { 'value': wrap_state_group(1, ['array', wrap_list(1, elements)]) }])
+        return wrap_state_group(['literal', { 'value': wrap_state_group(['array', wrap_list(elements)]) }])
     }
 
     export const array_map = (
         source: unresolved.Selection<_edata.Source_Location>,
         expression: unresolved.Initialization<_edata.Source_Location>
     ): unresolved.Initialization<_edata.Source_Location> => {
-        return wrap_state_group(1, ['transformation', {
+        return wrap_state_group(['transformation', {
             'source': source,
-            'type': wrap_state_group(1, ['array', wrap_state_group(1, ['map', expression])])
+            'type': wrap_state_group(['array', wrap_state_group(['map', expression])])
         }])
     }
 
@@ -186,10 +186,10 @@ export namespace i {
         context: unresolved.Initialization<_edata.Source_Location>,
         arguments_?: Raw_Or_Normal_Dictionary<unresolved.Initialization.SG.transformation._type.SG._function.SG.call._arguments.O.D<_edata.Source_Location>>,
     ): unresolved.Initialization<_edata.Source_Location> => {
-        const args: unresolved.Initialization.SG.transformation._type.SG._function.SG.call._arguments<_edata.Source_Location> = arguments_ === undefined ? _edata.not_set() : _edata.set(wrap_dictionary(1, arguments_))
-        return wrap_state_group(1, ['transformation', {
+        const args: unresolved.Initialization.SG.transformation._type.SG._function.SG.call._arguments<_edata.Source_Location> = arguments_ === undefined ? _edata.not_set() : _edata.set(wrap_dictionary(arguments_))
+        return wrap_state_group(['transformation', {
             'source': source,
-            'type': wrap_state_group(1, ['function', wrap_state_group(1, ['call', {
+            'type': wrap_state_group(['function', wrap_state_group(['call', {
                 'context': context,
                 'arguments': args,
             }])])
@@ -200,8 +200,8 @@ export namespace i {
         name: string,
         value: unresolved.Initialization<_edata.Source_Location>
     ): unresolved.Initialization<_edata.Source_Location> => {
-        return wrap_state_group(1, ['literal', {
-            'value': wrap_state_group(1, ['tagged union', {
+        return wrap_state_group(['literal', {
+            'value': wrap_state_group(['tagged union', {
                 'case': name,
                 'value': value,
             }])
@@ -212,7 +212,7 @@ export namespace i {
         new_context: unresolved.Selection<_edata.Source_Location>,
         expression: unresolved.Initialization<_edata.Source_Location>
     ): unresolved.Initialization<_edata.Source_Location> => {
-        return wrap_state_group(1, ['change context', {
+        return wrap_state_group(['change context', {
             'new context': new_context,
             'initialization': expression
         }])
@@ -223,9 +223,9 @@ export namespace i {
         variables: Raw_Or_Normal_Dictionary<unresolved.Variables.D<_edata.Source_Location>>,
         expression: unresolved.Initialization<_edata.Source_Location>
     ): unresolved.Initialization<_edata.Source_Location> => {
-        return wrap_state_group(1, ['block', {
-            'temp ordered variables': wrap_list(1, ordered_variables),
-            'variables': wrap_dictionary(1, variables),
+        return wrap_state_group(['block', {
+            'temp ordered variables': wrap_list(ordered_variables),
+            'variables': wrap_dictionary(variables),
             'initialization': expression
         }])
     }
@@ -233,27 +233,27 @@ export namespace i {
     export const dictionary_literal = (
         entries: Raw_Or_Normal_Dictionary<unresolved.Initialization<_edata.Source_Location>>
     ): unresolved.Initialization<_edata.Source_Location> => {
-        return wrap_state_group(1, ['literal', { 'value': wrap_state_group(1, ['dictionary', wrap_dictionary(1, entries)]) }])
+        return wrap_state_group(['literal', { 'value': wrap_state_group(['dictionary', wrap_dictionary(entries)]) }])
     }
 
     export const dictionary_map = (
         source: unresolved.Selection<_edata.Source_Location>,
         expression: unresolved.Initialization<_edata.Source_Location>
     ): unresolved.Initialization<_edata.Source_Location> => {
-        return wrap_state_group(1, ['transformation', {
+        return wrap_state_group(['transformation', {
             'source': source,
-            'type': wrap_state_group(1, ['dictionary', wrap_state_group(1, ['map', expression])])
+            'type': wrap_state_group(['dictionary', wrap_state_group(['map', expression])])
         }])
     }
 
     export const false_ = (): unresolved.Initialization<_edata.Source_Location> => {
-        return wrap_state_group(1, ['literal', { 'value': wrap_state_group(1, ['boolean', wrap_state_group(1, ['false', null])]) }])
+        return wrap_state_group(['literal', { 'value': wrap_state_group(['boolean', wrap_state_group(['false', null])]) }])
     }
 
     export const floting_point = (
         value: number
     ): unresolved.Initialization<_edata.Source_Location> => {
-        return wrap_state_group(1, ['literal', { 'value': wrap_state_group<unresolved.Literal.SG<_edata.Source_Location>>(1, ['number', wrap_state_group<unresolved.Literal.SG._number.SG<_edata.Source_Location>>(1, ['floting point', value])]) }])
+        return wrap_state_group(['literal', { 'value': wrap_state_group<unresolved.Literal.SG<_edata.Source_Location>>(['number', wrap_state_group<unresolved.Literal.SG._number.SG<_edata.Source_Location>>(['floting point', value])]) }])
     }
 
     export const function_ = (
@@ -263,8 +263,8 @@ export namespace i {
     ): unresolved.Initialization<_edata.Source_Location> => {
         const rt: unresolved.Initialization.SG.transformation._type.SG.tagged_union.SG._switch.temp_resulting_node<_edata.Source_Location> = (resulting_type === null || resulting_type === undefined) ? _edata.not_set() : _edata.set(resulting_type)
 
-        return wrap_state_group(1, ['literal', {
-            'value': wrap_state_group(1, ['function', {
+        return wrap_state_group(['literal', {
+            'value': wrap_state_group(['function', {
                 'temp has parameters': has_parameters,
                 'initialization': expression,
                 'temp resulting node': rt,
@@ -275,37 +275,37 @@ export namespace i {
     export const group = (
         properties: Raw_Or_Normal_Dictionary<unresolved.Initialization<_edata.Source_Location>>
     ): unresolved.Initialization<_edata.Source_Location> => {
-        return wrap_state_group(1, ['literal', { 'value': wrap_state_group(1, ['group', wrap_dictionary(1, properties)]) }])
+        return wrap_state_group(['literal', { 'value': wrap_state_group(['group', wrap_dictionary(properties)]) }])
     }
 
     export const implement_me = (): unresolved.Initialization<_edata.Source_Location> => {
-        return wrap_state_group(1, ['selection', {
-            'start': wrap_state_group(1, ['implement me', null]),
-            'tail': wrap_list(1, [])
+        return wrap_state_group(['selection', {
+            'start': wrap_state_group(['implement me', null]),
+            'tail': wrap_list([])
         }])
     }
 
     export const integer = (
         value: number
     ): unresolved.Initialization<_edata.Source_Location> => {
-        return wrap_state_group(1, ['literal', { 'value': wrap_state_group<unresolved.Literal.SG<_edata.Source_Location>>(1, ['number', wrap_state_group<unresolved.Literal.SG._number.SG<_edata.Source_Location>>(1, ['integer', value])]) }])
+        return wrap_state_group(['literal', { 'value': wrap_state_group<unresolved.Literal.SG<_edata.Source_Location>>(['number', wrap_state_group<unresolved.Literal.SG._number.SG<_edata.Source_Location>>(['integer', value])]) }])
     }
 
     export const not_set = (): unresolved.Initialization<_edata.Source_Location> => {
-        return wrap_state_group(1, ['literal', { 'value': wrap_state_group(1, ['optional', wrap_state_group(1, ['not set', null])]) }])
+        return wrap_state_group(['literal', { 'value': wrap_state_group(['optional', wrap_state_group(['not set', null])]) }])
     }
 
     export const null_ = (): unresolved.Initialization<_edata.Source_Location> => {
-        return wrap_state_group(1, ['literal', { 'value': wrap_state_group(1, ['null', null]) }])
+        return wrap_state_group(['literal', { 'value': wrap_state_group(['null', null]) }])
     }
 
     export const optional_map = (
         source: unresolved.Selection<_edata.Source_Location>,
         expression: unresolved.Initialization<_edata.Source_Location>
     ): unresolved.Initialization<_edata.Source_Location> => {
-        return wrap_state_group(1, ['transformation', {
+        return wrap_state_group(['transformation', {
             'source': source,
-            'type': wrap_state_group(1, ['optional', wrap_state_group(1, ['map', expression])])
+            'type': wrap_state_group(['optional', wrap_state_group(['map', expression])])
         }])
     }
 
@@ -317,9 +317,9 @@ export namespace i {
     ): unresolved.Initialization<_edata.Source_Location> => {
         const rt: unresolved.Initialization.SG.transformation._type.SG.tagged_union.SG._switch.temp_resulting_node<_edata.Source_Location> = (resulting_type === null || resulting_type === undefined) ? _edata.not_set() : _edata.set(resulting_type)
 
-        return wrap_state_group(1, ['transformation', {
+        return wrap_state_group(['transformation', {
             'source': source,
-            'type': wrap_state_group(1, ['optional', wrap_state_group(1, ['transform', {
+            'type': wrap_state_group(['optional', wrap_state_group(['transform', {
                 'if set': if_set,
                 'if not set': if_not_set,
                 'temp resulting node': rt,
@@ -331,15 +331,15 @@ export namespace i {
     export const select = (
         selection: unresolved.Selection<_edata.Source_Location>
     ): unresolved.Initialization<_edata.Source_Location> => {
-        return wrap_state_group(1, ['selection', selection])
+        return wrap_state_group(['selection', selection])
     }
 
     export const select_from_context = (
         tail: unresolved.Selection.tail.L<string>[]
     ): unresolved.Initialization<_edata.Source_Location> => {
-        return wrap_state_group(1, ['selection', {
-            'start': wrap_state_group(1, ['context', null]),
-            'tail': wrap_list(1, tail),
+        return wrap_state_group(['selection', {
+            'start': wrap_state_group(['context', null]),
+            'tail': wrap_list(tail),
         }])
     }
 
@@ -347,9 +347,9 @@ export namespace i {
         variable: string,
         tail: unresolved.Selection.tail.L<string>[]
     ): unresolved.Initialization<_edata.Source_Location> => {
-        return wrap_state_group(1, ['selection', {
-            'start': wrap_state_group(1, ['variable', variable]),
-            'tail': wrap_list(1, tail),
+        return wrap_state_group(['selection', {
+            'start': wrap_state_group(['variable', variable]),
+            'tail': wrap_list(tail),
         }])
     }
 
@@ -357,25 +357,25 @@ export namespace i {
         variable: string,
         tail: unresolved.Selection.tail.L<string>[]
     ): unresolved.Initialization<_edata.Source_Location> => {
-        return wrap_state_group(1, ['selection', {
-            'start': wrap_state_group(1, ['parameter', variable]),
-            'tail': wrap_list(1, tail),
+        return wrap_state_group(['selection', {
+            'start': wrap_state_group(['parameter', variable]),
+            'tail': wrap_list(tail),
         }])
     }
 
     export const set = (
         value: unresolved.Initialization<_edata.Source_Location>
     ): unresolved.Initialization<_edata.Source_Location> => {
-        return wrap_state_group(1, ['literal', { 'value': wrap_state_group(1, ['optional', wrap_state_group(1, ['set', value])]) }])
+        return wrap_state_group(['literal', { 'value': wrap_state_group(['optional', wrap_state_group(['set', value])]) }])
     }
 
     export const string = (
         value: string,
         delimiter: 'quote' | 'backtick'
     ): unresolved.Initialization<_edata.Source_Location> => {
-        return wrap_state_group(1, ['literal', {
-            'value': wrap_state_group(1, ['string', {
-                'delimiter': delimiter === 'quote' ? wrap_state_group(1, ['quote', null]) : wrap_state_group(1, ['backtick', null]),
+        return wrap_state_group(['literal', {
+            'value': wrap_state_group(['string', {
+                'delimiter': delimiter === 'quote' ? wrap_state_group(['quote', null]) : wrap_state_group(['backtick', null]),
                 'value': value,
             }])
         }])
@@ -387,12 +387,12 @@ export namespace i {
         resulting_type?: null | unresolved_interface.Type<_edata.Source_Location>,
     ): unresolved.Initialization<_edata.Source_Location> => {
         const rt: unresolved.Initialization.SG.transformation._type.SG.tagged_union.SG._switch.temp_resulting_node<_edata.Source_Location> = (resulting_type === null || resulting_type === undefined) ? _edata.not_set() : _edata.set(resulting_type)
-        return wrap_state_group(1, ['transformation', {
+        return wrap_state_group(['transformation', {
             'source': source,
-            'type': wrap_state_group(1, ['tagged union', wrap_state_group<unresolved.Initialization.SG.transformation._type.SG.tagged_union.SG<_edata.Source_Location>>(1, ['switch', {
+            'type': wrap_state_group(['tagged union', wrap_state_group<unresolved.Initialization.SG.transformation._type.SG.tagged_union.SG<_edata.Source_Location>>(['switch', {
                 'temp resulting node': rt,
-                'type': wrap_state_group(1, ['full', {
-                    'cases': wrap_dictionary(1, cases),
+                'type': wrap_state_group(['full', {
+                    'cases': wrap_dictionary(cases),
                 }])
             }])])
         }])
@@ -404,12 +404,12 @@ export namespace i {
         resulting_type?: null | unresolved_interface.Type<_edata.Source_Location>,
     ): unresolved.Initialization<_edata.Source_Location> => {
         const rt: unresolved.Initialization.SG.transformation._type.SG.tagged_union.SG._switch.temp_resulting_node<_edata.Source_Location> = (resulting_type === null || resulting_type === undefined) ? _edata.not_set() : _edata.set(resulting_type)
-        return wrap_state_group(1, ['transformation', {
+        return wrap_state_group(['transformation', {
             'source': source,
-            'type': wrap_state_group(1, ['tagged union', wrap_state_group<unresolved.Initialization.SG.transformation._type.SG.tagged_union.SG<_edata.Source_Location>>(1, ['switch', {
+            'type': wrap_state_group(['tagged union', wrap_state_group<unresolved.Initialization.SG.transformation._type.SG.tagged_union.SG<_edata.Source_Location>>(['switch', {
                 'temp resulting node': rt,
-                'type': wrap_state_group(1, ['partial', {
-                    'cases': wrap_dictionary(1, cases),
+                'type': wrap_state_group(['partial', {
+                    'cases': wrap_dictionary(cases),
                     'default': default_
                 }])
             }])])
@@ -420,8 +420,8 @@ export namespace i {
         state: string,
         value: unresolved.Initialization<_edata.Source_Location>
     ): unresolved.Initialization<_edata.Source_Location> => {
-        return wrap_state_group(1, ['literal', {
-            'value': wrap_state_group(1, ['tagged union', {
+        return wrap_state_group(['literal', {
+            'value': wrap_state_group(['tagged union', {
                 'case': state,
                 'value': value,
             }])
@@ -429,16 +429,16 @@ export namespace i {
     }
 
     export const true_ = (): unresolved.Initialization<_edata.Source_Location> => {
-        return wrap_state_group(1, ['literal', { 'value': wrap_state_group(1, ['boolean', wrap_state_group(1, ['true', null])]) }])
+        return wrap_state_group(['literal', { 'value': wrap_state_group(['boolean', wrap_state_group(['true', null])]) }])
     }
 
     export const variable_selection = (
         variable: string,
         tail: unresolved.Selection.tail.L<string>[]
     ): unresolved.Initialization<_edata.Source_Location> => {
-        return wrap_state_group(1, ['selection', {
-            'start': wrap_state_group(1, ['variable', variable]),
-            'tail': wrap_list(1, tail),
+        return wrap_state_group(['selection', {
+            'start': wrap_state_group(['variable', variable]),
+            'tail': wrap_list(tail),
         }])
     }
 }
@@ -448,7 +448,7 @@ export namespace m {
     export const set = (
         entries: Raw_Or_Normal_Dictionary<unresolved.Module_Set.D<_edata.Source_Location>>
     ): unresolved.Module_Set.D<_edata.Source_Location> => {
-        return wrap_state_group(1, ['set', wrap_dictionary(1, entries)])
+        return wrap_state_group(['set', wrap_dictionary(entries)])
     }
 
     export const module = (
@@ -456,10 +456,10 @@ export namespace m {
         variable_imports: Raw_Or_Normal_Dictionary<unresolved.Module.variable_imports.D<_edata.Source_Location>>,
         variables: Raw_Or_Normal_Dictionary<unresolved.Variables.D<_edata.Source_Location>>,
     ): unresolved.Module_Set.D<_edata.Source_Location> => {
-        return wrap_state_group(1, ['module', {
-            'type imports': wrap_dictionary(1, type_imports),
-            'variable imports': wrap_dictionary(1, variable_imports),
-            'variables': wrap_dictionary(1, variables),
+        return wrap_state_group(['module', {
+            'type imports': wrap_dictionary(type_imports),
+            'variable imports': wrap_dictionary(variable_imports),
+            'variables': wrap_dictionary(variables),
         }])
     }
 
