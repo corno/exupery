@@ -24,8 +24,8 @@ export const Temp_Library = (
     }
 ): s_out.Directory => {
     return pa.dictionary_literal<s_out.Directory.D>({
-        "interface": sh.d.directory(t_interface_to_typescript_temp.Module_Set($.interface)),
-        "implementation": sh.d.directory(t_implementation_to_typescript_temp.Module_Set(
+        "interface": sh.n.directory(t_interface_to_typescript_temp.Module_Set($.interface)),
+        "implementation": sh.n.directory(t_implementation_to_typescript_temp.Module_Set(
             $.implementation,
             {
                 'phase': $p.phase,
