@@ -1,7 +1,7 @@
 import * as _pt from 'exupery-core-types'
 
 import * as _i_core from "../../../core/resolved"
-import * as _i_imports_interface from "../../interface/data_types/resolved"
+import * as _i_imports_interface from "../../interface/data_types/source"
 
 // **** TYPES
 

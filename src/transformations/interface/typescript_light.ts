@@ -1,10 +1,10 @@
 import * as pa from 'exupery-core-alg'
 import * as pt from 'exupery-core-types'
 
-import * as s_in from "../../generated/interface/schemas/interface/data_types/resolved"
-import * as s_out from "../../generated/interface/schemas/typescript_light/data_types/unconstrained"
+import * as s_in from "../../generated/interface/schemas/interface/data_types/source"
+import * as s_out from "../../generated/interface/schemas/typescript_light/data_types/target"
 
-import * as s_ts from "../../generated/interface/schemas/typescript_light/data_types/unconstrained"
+import * as s_out_ts from "../../generated/interface/schemas/typescript_light/data_types/target"
 
 import * as sh2 from "../../shorthands/typescript_light"
 
@@ -522,9 +522,9 @@ export const Type_to_Type = (
         'module parameters': pt.Optional_Value<pt.Dictionary<null>>,
         'temp imports': pt.Optional_Value<s_in.Module['imports']>,
     }
-): s_ts.Type => {
+): s_out_ts.Type => {
 
-    return pa.cc($, ($): s_ts.Type => {
+    return pa.cc($, ($): s_out_ts.Type => {
         switch ($[0]) {
             case 'boolean': return pa.ss($, ($) => sh2.t.boolean())
             case 'component': return pa.ss($, ($) => sh2.t.type_reference(
@@ -562,9 +562,9 @@ export const Type_to_Type = (
                     })))
                 ])).__get_raw_copy(),
                 //type arguments
-                op['dictionary to list, sorted by code point']<s_ts.Type>(op['flatten dictionary'](
-                    pa.dictionary_literal<pt.Dictionary<s_ts.Type>>({
-                        "M": pa.cc($.location, ($): pt.Dictionary<s_ts.Type> => {
+                op['dictionary to list, sorted by code point']<s_out_ts.Type>(op['flatten dictionary'](
+                    pa.dictionary_literal<pt.Dictionary<s_out_ts.Type>>({
+                        "M": pa.cc($.location, ($): pt.Dictionary<s_out_ts.Type> => {
                             switch ($[0]) {
                                 case 'import': return pa.ss($, ($) => $p['temp imports'].transform(($) => $, () => pa.panic("DSFSDFSD")).__get_entry($.import).transform(($) => $, () => {
                                     let keys = ""
@@ -574,14 +574,14 @@ export const Type_to_Type = (
                                         })
                                     })
                                     return pa.panic(`no such import: ${$.import} @ ${keys}`)
-                                })['type arguments'].map(($): s_ts.Type => Type_to_Type(
+                                })['type arguments'].map(($): s_out_ts.Type => Type_to_Type(
                                     $,
                                     {
                                         'module parameters': $p['module parameters'],
                                         'temp imports': $p['temp imports'],
                                     }
                                 )))
-                                case 'sibling': return pa.ss($, ($): pt.Dictionary<s_ts.Type> => $p['module parameters'].transform(($) => $, () => pa.panic("DSFSDFSD")).map(($, key): s_ts.Type => sh2.t.type_reference(
+                                case 'sibling': return pa.ss($, ($): pt.Dictionary<s_out_ts.Type> => $p['module parameters'].transform(($) => $, () => pa.panic("DSFSDFSD")).map(($, key): s_out_ts.Type => sh2.t.type_reference(
                                     `M ${key}`,
                                     [],
                                     [],
@@ -589,7 +589,7 @@ export const Type_to_Type = (
                                 default: return pa.au($[0])
                             }
                         }),
-                        "T": $['type arguments'].map(($): s_ts.Type => Type_to_Type(
+                        "T": $['type arguments'].map(($): s_out_ts.Type => Type_to_Type(
                             $,
                             {
                                 'module parameters': $p['module parameters'],
@@ -600,7 +600,7 @@ export const Type_to_Type = (
                     {
                         'separator': " "
                     }
-                )).map(($): s_ts.Type => $.value).__get_raw_copy()
+                )).map(($): s_out_ts.Type => $.value).__get_raw_copy()
             ))
             case 'computed': return pa.ss($, ($) => sh2.t.type_reference(
                 " pt",

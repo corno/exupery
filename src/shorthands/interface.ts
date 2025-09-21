@@ -1,6 +1,6 @@
 import * as pd from 'exupery-core-data'
 
-import * as _out from "../generated/interface/schemas/interface/data_types/unresolved"
+import * as _out from "../generated/interface/schemas/interface/data_types/target"
 
 import {
     wrap_dictionary,
