@@ -1,4 +1,4 @@
-import * as pd from 'exupery-core-data'
+import * as _edata from 'exupery-core-data'
 
 import * as _out from "../generated/interface/schemas/typescript_light/data_types/target"
 
@@ -15,8 +15,8 @@ export const parameter = (
     return {
         'name': name,
         'type': type === null
-            ? pd.not_set()
-            : pd.set(type),
+            ? _edata.not_set()
+            : _edata.set(type),
     }
 }
 
@@ -30,8 +30,8 @@ export namespace t {
         return_: _out.Type,
     ): _out.Type => {
         return ['function', {
-            'type parameters': pd.a(type_parameters),
-            'parameters': pd.a(parameters),
+            'type parameters': _edata.a(type_parameters),
+            'parameters': _edata.a(parameters),
             'return': return_,
         }]
     }
@@ -53,7 +53,7 @@ export namespace t {
     export const tuple = (read_only: 'readonly' | '', elements: _out.Type[]): _out.Type => {
         return ['tuple', {
             'readonly': read_only === 'readonly',
-            'elements': pd.a(elements)
+            'elements': _edata.a(elements)
         }]
     }
     export const type_literal = (properties: Raw_Or_Normal_Dictionary<_out.Type.SG.type_literal.properties.D>): _out.Type => {
@@ -68,12 +68,12 @@ export namespace t {
     ): _out.Type => {
         return ['type reference', {
             'start': start,
-            'tail': pd.a(tail),
-            'type arguments': pd.a(type_arguments),
+            'tail': _edata.a(tail),
+            'type arguments': _edata.a(type_arguments),
         }]
     }
     export const union = (cases: _out.Type[]): _out.Type => {
-        return ['union', pd.a(cases)]
+        return ['union', _edata.a(cases)]
     }
     export const void_ = (): _out.Type => {
         return ['void', null]
@@ -102,7 +102,7 @@ export namespace e {
         }]
     }
     export const array_literal = (elements: _out.Expression[]): _out.Expression => {
-        return ['array literal', pd.a(elements)]
+        return ['array literal', _edata.a(elements)]
     }
     // export const arrow_function = (
     //     parameters: unresolved.Expression.SG.arrow_function.parameters.L[],

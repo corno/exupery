@@ -45,7 +45,7 @@ export function line_dictionary(
         let is_first = true
         return l.sub([
             prefix,
-            l.sub_decorated(op['dictionary to list, sorted by code point']($).map(($): s_out.Line_Part => {
+            l.sub(op['dictionary to list, sorted by code point']($).map(($): s_out.Line_Part => {
                 const out = l.sub([
                     is_first ?
                         l.nothing()
@@ -78,7 +78,7 @@ export const Module_Set = ($: s_in.Module_Set): s_out.Directory => {
                     b.simple_line("import * as _pt from 'exupery-core-types'"),
 
                     b.simple_line(""),
-                    b.sub_decorated(op['dictionary to list, sorted by code point']($.imports).map(($) => b.sub([
+                    b.sub(op['dictionary to list, sorted by code point']($.imports).map(($) => b.sub([
                         b.nested_line([
                             l.snippet("import * as "),
                             l.snippet(op['create identifier']([" i ", $.key])),
@@ -116,7 +116,7 @@ export const Module_Set = ($: s_in.Module_Set): s_out.Directory => {
                      */
                     b.simple_line(""),
                     b.simple_line("// **** TYPES"),
-                    b.sub_decorated(op['dictionary to list, sorted by code point']($.types).map(($) => b.sub([
+                    b.sub(op['dictionary to list, sorted by code point']($.types).map(($) => b.sub([
                         b.simple_line(""),
                         Type_Declaration(
                             null,
@@ -145,7 +145,7 @@ export const Module_Set = ($: s_in.Module_Set): s_out.Directory => {
 
                     b.simple_line(""),
                     b.simple_line("// **** FRIENDLY NAMES FOR THE GLOBAL TYPES"),
-                    b.sub_decorated(op['dictionary to list, sorted by code point']($.types).map(($) => b.sub([
+                    b.sub(op['dictionary to list, sorted by code point']($.types).map(($) => b.sub([
                         b.simple_line(""),
                         Type_Declaration(
                             null,
@@ -181,7 +181,7 @@ export const Module_Set = ($: s_in.Module_Set): s_out.Directory => {
 
                     b.simple_line(""),
                     b.simple_line("// **** ALIASES FOR NESTED TYPE WITH PREFIXED ROOT NAMES"),
-                    b.sub_decorated(op['dictionary to list, sorted by code point']($.types).map(($) => b.sub([
+                    b.sub(op['dictionary to list, sorted by code point']($.types).map(($) => b.sub([
                         Type_to_Aliases(
                             $.value.type,
                             {
@@ -196,7 +196,7 @@ export const Module_Set = ($: s_in.Module_Set): s_out.Directory => {
 
                     b.simple_line(""),
                     b.simple_line("// *** ALIASES FOR NESTED TYPES"),
-                    b.sub_decorated(op['dictionary to list, sorted by code point']($.types).map(($) => b.sub([
+                    b.sub(op['dictionary to list, sorted by code point']($.types).map(($) => b.sub([
                         Type_to_Aliases(
                             $.value.type,
                             {
@@ -329,7 +329,7 @@ export const Type_to_Aliases = (
                 $p.key,
                 {
                     'callback': () => b.sub([
-                        b.sub_decorated(op['dictionary to list, sorted by code point']($['type arguments']).map(($) => {
+                        b.sub(op['dictionary to list, sorted by code point']($['type arguments']).map(($) => {
                             return Type_to_Aliases_2(
                                 $.value,
                                 {
@@ -391,7 +391,7 @@ export const Type_to_Aliases = (
                         Namespace("PARAMS", {
                             "callback": () => {
                                 const ftp = $['type parameters']
-                                return b.sub_decorated(op['dictionary to list, sorted by code point']($.parameters).map(($) => {
+                                return b.sub(op['dictionary to list, sorted by code point']($.parameters).map(($) => {
                                     return Type_to_Aliases_2(
                                         $.value,
                                         {
@@ -422,7 +422,7 @@ export const Type_to_Aliases = (
                 $p.key,
                 {
                     'callback': () => b.sub([
-                        b.sub_decorated(op['dictionary to list, sorted by code point']($).map(($) => {
+                        b.sub(op['dictionary to list, sorted by code point']($).map(($) => {
                             return Type_to_Aliases_2(
                                 $.value,
                                 {
@@ -489,7 +489,7 @@ export const Type_to_Aliases = (
                 $p.key,
                 {
                     'callback': () => b.sub([
-                        b.sub_decorated(op['dictionary to list, sorted by code point']($).map(($) => {
+                        b.sub(op['dictionary to list, sorted by code point']($).map(($) => {
                             return Type_to_Aliases_2(
                                 $.value,
                                 {

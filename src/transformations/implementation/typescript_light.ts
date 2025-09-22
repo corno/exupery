@@ -47,7 +47,7 @@ export const Module_Set = (
                     $p.phase === 'development' ? b.simple_line("import * as _pd from 'exupery-core-dev'") : b.nothing(),
 
                     b.simple_line(""),
-                    b.sub_decorated(op['dictionary to list, sorted by code point']($['type imports']).map(($) => b.sub([
+                    b.sub(op['dictionary to list, sorted by code point']($['type imports']).map(($) => b.sub([
                         b.nested_line([
                             l.snippet("import * as "),
                             l.snippet(op['create identifier']([" i ", $.key])),
@@ -72,7 +72,7 @@ export const Module_Set = (
                     ]))),
 
                     b.simple_line(""),
-                    b.sub_decorated(op['dictionary to list, sorted by code point']($['variable imports']).map(($) => b.sub([
+                    b.sub(op['dictionary to list, sorted by code point']($['variable imports']).map(($) => b.sub([
                         b.nested_line([
                             l.snippet("import * as "),
                             l.snippet(op['create identifier']([" i var ", $.key])),
@@ -131,7 +131,7 @@ export function line_dictionary(
         let is_first = true
         const x: s_out.Line_Part = l.sub([
             prefix,
-            l.sub_decorated(op['dictionary to list, sorted by code point']($).map(($): s_out.Line_Part => {
+            l.sub(op['dictionary to list, sorted by code point']($).map(($): s_out.Line_Part => {
 
                 const out = l.sub([
                     is_first ?
@@ -205,7 +205,7 @@ export const Selection = (
                                     : l.sub([
                                         l.snippet("{"),
                                         l.indent([
-                                            b.sub_decorated(op['dictionary to list, sorted by code point']($).map(($) => b.sub([
+                                            b.sub(op['dictionary to list, sorted by code point']($).map(($) => b.sub([
                                                 b.nested_line([
                                                     String_Literal($.key, { 'delimiter': "apostrophe" }),
                                                     l.snippet(": "),
@@ -239,7 +239,7 @@ export const Selection = (
                 default: return pa.au($[0])
             }
         }),
-        l.sub_decorated($.tail.map(($) => l.sub([
+        l.sub($.tail.map(($) => l.sub([
             l.snippet("["),
             String_Literal($, { 'delimiter': "apostrophe" }),
             l.snippet("]"),
@@ -260,7 +260,7 @@ export const Initialization = (
                 l.snippet("() => {"),
                 l.indent([
                     //temp variables
-                    b.sub_decorated($['temp ordered variables'].map(($) => b.nested_line([
+                    b.sub($['temp ordered variables'].map(($) => b.nested_line([
                         l.snippet("const "),
                         l.snippet(op['create identifier']([$.name])),
                         $.type.transform(
@@ -372,7 +372,7 @@ export const Initialization = (
                                                         : l.sub([
                                                             l.snippet("{"),
                                                             l.indent([
-                                                                b.sub_decorated(op['dictionary to list, sorted by code point']($).map(($) => b.sub([
+                                                                b.sub(op['dictionary to list, sorted by code point']($).map(($) => b.sub([
                                                                     b.nested_line([
                                                                         String_Literal($.key, { 'delimiter': "apostrophe" }),
                                                                         l.snippet(": "),
@@ -473,7 +473,7 @@ export const Initialization = (
                                                         case 'full': return pa.ss($, ($) => l.sub([
                                                             l.snippet("switch ($[0]) {"),
                                                             l.indent([
-                                                                b.sub_decorated(op['dictionary to list, sorted by code point']($.cases).map(($) => b.sub([
+                                                                b.sub(op['dictionary to list, sorted by code point']($.cases).map(($) => b.sub([
                                                                     b.nested_line([
                                                                         l.snippet("case "),
                                                                         String_Literal($.key, { 'delimiter': "apostrophe" }),
@@ -489,7 +489,7 @@ export const Initialization = (
                                                         case 'partial': return pa.ss($, ($) => l.sub([
                                                             l.snippet("switch ($[0]) {"),
                                                             l.indent([
-                                                                b.sub_decorated(op['dictionary to list, sorted by code point']($.cases).map(($) => b.sub([
+                                                                b.sub(op['dictionary to list, sorted by code point']($.cases).map(($) => b.sub([
                                                                     b.nested_line([
                                                                         l.snippet("case "),
                                                                         String_Literal($.key, { 'delimiter': "apostrophe" }),
@@ -532,7 +532,7 @@ export const Variables = (
         'export': boolean
     }
 ): s_out.Block_Part => {
-    return b.sub_decorated(op['dictionary to list, sorted by code point']($).map(($) => b.sub([
+    return b.sub(op['dictionary to list, sorted by code point']($).map(($) => b.sub([
         b.nested_line([
             $p.export ? l.snippet("export ") : l.nothing(),
             l.snippet("const "),
@@ -583,7 +583,7 @@ export const Literal = (
                 case 'dictionary': return pa.ss($, ($) => l.sub([
                     l.snippet("_pa.dictionary_literal({"),
                     l.indent([
-                        b.sub_decorated(op['dictionary to list, sorted by code point']($).map(($) => b.nested_line([
+                        b.sub(op['dictionary to list, sorted by code point']($).map(($) => b.nested_line([
                             String_Literal($.key, { 'delimiter': "apostrophe" }),
                             l.snippet(": "),
                             Initialization($.value, $p),
@@ -636,7 +636,7 @@ export const Literal = (
                 case 'array': return pa.ss($, ($) => l.sub([
                     l.snippet("_pa.array_literal(["),
                     l.indent([
-                        b.sub_decorated($.map(($) => b.nested_line([
+                        b.sub($.map(($) => b.nested_line([
                             Initialization($, $p),
                             l.snippet(","),
                         ])

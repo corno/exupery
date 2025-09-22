@@ -45,7 +45,7 @@ export const Statements = (
     $p: {
         'replace empty type literals by null': boolean
     }
-): s_out.Block_Part => b.sub_decorated($.map(($) => b.nested_line([
+): s_out.Block_Part => b.sub($.map(($) => b.nested_line([
     pa.cc($, ($) => {
         switch ($[0]) {
             case 'import': return pa.ss($, ($) => l.sub([
@@ -54,7 +54,7 @@ export const Statements = (
                     switch ($[0]) {
                         case 'named': return pa.ss($, ($) => l.sub([
                             l.snippet("{ "),
-                            l.sub_decorated(op['dictionary to list, sorted by code point']($.specifiers).map(($) => l.sub([
+                            l.sub(op['dictionary to list, sorted by code point']($.specifiers).map(($) => l.sub([
                                 Identifier($.key),
                                 l.snippet(", ")
                             ]))),
@@ -86,7 +86,7 @@ export const Statements = (
                     ? l.nothing()
                     : l.sub([
                         l.snippet("<"),
-                        l.sub_decorated(op['enrich list elements with position information']($['parameters']).map(($) => l.sub([
+                        l.sub(op['enrich list elements with position information']($['parameters']).map(($) => l.sub([
                             Identifier($.value),
                             $['is last'] ? l.nothing() : l.snippet(", ")
                         ]))),
@@ -129,7 +129,7 @@ export const Expression = (
         case 'array literal': return pa.ss($, ($) => l.sub([
             l.snippet("["),
             l.indent([
-                b.sub_decorated(op['enrich list elements with position information']($).map(($) => b.nested_line([
+                b.sub(op['enrich list elements with position information']($).map(($) => b.nested_line([
                     Expression($.value, $p),
                     $['is last'] ? l.nothing() : l.snippet(", ")
                 ]))),
@@ -139,7 +139,7 @@ export const Expression = (
         case 'arrow function': return pa.ss($, ($) => l.sub([
             l.snippet("("),
             l.indent([
-                b.sub_decorated($.parameters.map(($) => b.nested_line([
+                b.sub($.parameters.map(($) => b.nested_line([
                     Identifier($.name),
                     $.type.transform(
                         ($) => l.sub([
@@ -178,7 +178,7 @@ export const Expression = (
             Expression($['function selection'], $p),
             l.snippet("("),
             l.indent([
-                b.sub_decorated(op['enrich list elements with position information']($['arguments']).map(($) => b.nested_line([
+                b.sub(op['enrich list elements with position information']($['arguments']).map(($) => b.nested_line([
                     Expression($.value, $p),
                     $['is last'] ? l.nothing() : l.snippet(", ")
                 ]))),
@@ -191,7 +191,7 @@ export const Expression = (
         case 'object literal': return pa.ss($, ($) => l.sub([
             l.snippet("{"),
             l.indent([
-                b.sub_decorated(op['dictionary to list, sorted by code point']($.properties).map(($) => b.nested_line([
+                b.sub(op['dictionary to list, sorted by code point']($.properties).map(($) => b.nested_line([
                     String_Literal($.key, { 'delimiter': "apostrophe" }),
                     l.snippet(": "),
                     Expression($.value, $p),
@@ -221,14 +221,14 @@ export const Type = (
             ? l.nothing()
             : l.sub([
                 l.snippet("<"),
-                l.sub_decorated(op['enrich list elements with position information']($['type parameters']).map(($) => l.sub([
+                l.sub(op['enrich list elements with position information']($['type parameters']).map(($) => l.sub([
                     Identifier($.value),
                     $['is last'] ? l.nothing() : l.snippet(", ")
                 ]))),
                 l.snippet(">"),
             ]),            l.snippet("("),
             l.indent([
-                b.sub_decorated($['parameters'].map(($) => b.nested_line([
+                b.sub($['parameters'].map(($) => b.nested_line([
                     Identifier($.name),
                     $.type.transform(
                         ($) => l.sub([
@@ -250,7 +250,7 @@ export const Type = (
         case 'tuple': return pa.ss($, ($) => l.sub([
             $.readonly ? l.snippet("readonly ") : l.nothing(),
             l.snippet("["),
-            l.sub_decorated(op['enrich list elements with position information']($['elements']).map(($) => l.sub([
+            l.sub(op['enrich list elements with position information']($['elements']).map(($) => l.sub([
                 Type($.value, $p),
                 $['is last']
                     ? l.nothing()
@@ -263,7 +263,7 @@ export const Type = (
             : l.sub([
                 l.snippet("{"),
                 l.indent([
-                    b.sub_decorated(op['dictionary to list, sorted by code point']($['properties']).map(($) => b.sub([
+                    b.sub(op['dictionary to list, sorted by code point']($['properties']).map(($) => b.sub([
                         b.nested_line([
                             $.value['readonly'] ? l.snippet("readonly ") : l.nothing(),
                             String_Literal($.key, { 'delimiter': "apostrophe" }),
@@ -277,7 +277,7 @@ export const Type = (
         )
         case 'type reference': return pa.ss($, ($) => l.sub([
             Identifier($['start']),
-            l.sub_decorated($['tail'].map(($) => l.sub([
+            l.sub($['tail'].map(($) => l.sub([
                 l.snippet("."),
                 Identifier($),
             ]))),
@@ -285,7 +285,7 @@ export const Type = (
                 ? l.nothing()
                 : l.sub([
                     l.snippet("<"),
-                    l.sub_decorated(op['enrich list elements with position information']($['type arguments']).map(($) => l.sub([
+                    l.sub(op['enrich list elements with position information']($['type arguments']).map(($) => l.sub([
                         Type($['value'], $p),
                         $['is last'] ? l.nothing() : l.snippet(", "),
                     ]))),
@@ -293,7 +293,7 @@ export const Type = (
                 ]),
         ]))
         case 'union': return pa.ss($, ($) => l.indent([
-            b.sub_decorated($.map(($) => b.nested_line([
+            b.sub($.map(($) => b.nested_line([
                 l.snippet("| "),
                 Type($, $p),
             ])))
