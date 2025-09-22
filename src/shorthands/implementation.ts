@@ -6,6 +6,7 @@ import * as unresolved_interface from "../generated/interface/schemas/interface/
 
 import {
     Raw_Or_Normal_Dictionary,
+    Raw_Or_Normal_Array,
     wrap_dictionary,
     wrap_list,
     wrap_state_group,
@@ -15,7 +16,7 @@ export namespace vi {
 
     export const external = (
         key: string,
-        tail: string[],
+        tail: Raw_Or_Normal_Array<string>,
     ): unresolved.Module.variable_imports.D<_edata.Source_Location> => {
         return {
             'type': wrap_state_group(['external', key]),
@@ -25,7 +26,7 @@ export namespace vi {
 
     export const sibling = (
         key: string,
-        tail: string[],
+        tail: Raw_Or_Normal_Array<string>,
     ): unresolved.Module.variable_imports.D<_edata.Source_Location> => {
         return {
             'type': wrap_state_group(['sibling', key]),
@@ -35,7 +36,7 @@ export namespace vi {
     export const ancestor = (
         number_of_steps: number,
         key: string,
-        tail: string[],
+        tail: Raw_Or_Normal_Array<string>,
     ): unresolved.Module.variable_imports.D<_edata.Source_Location> => {
         return {
             'type': wrap_state_group(['ancestor', {
@@ -53,7 +54,7 @@ export namespace s {
         source: unresolved.Selection<_edata.Source_Location>,
         if_set: unresolved.Selection<_edata.Source_Location>,
         if_not_set: unresolved.Selection<_edata.Source_Location>,
-        tail: unresolved.Selection.tail.L<string>[]
+        tail: Raw_Or_Normal_Array<unresolved.Selection.tail.L<_edata.Source_Location>>
     ): unresolved.Selection<_edata.Source_Location> => {
         return {
             'start': wrap_state_group(['transform optional value', {
@@ -69,7 +70,7 @@ export namespace s {
         source: unresolved.Selection<_edata.Source_Location>,
         context: unresolved.Selection<_edata.Source_Location>,
         arguments_: Raw_Or_Normal_Dictionary<unresolved.Initialization.SG.transformation._type.SG._function.SG.call._arguments.O.D<_edata.Source_Location>>,
-        tail: unresolved.Selection.tail.L<string>[]
+        tail: Raw_Or_Normal_Array<unresolved.Selection.tail.L<_edata.Source_Location>>
     ): unresolved.Selection<_edata.Source_Location> => {
         const args: unresolved.Initialization.SG.transformation._type.SG._function.SG.call._arguments<_edata.Source_Location> = arguments_ === undefined ? _edata.not_set() : _edata.set(wrap_dictionary(arguments_))
         return {
@@ -99,7 +100,7 @@ export namespace s {
     }
 
     export const from_context = (
-        tail: unresolved.Selection.tail.L<string>[]
+        tail: Raw_Or_Normal_Array<unresolved.Selection.tail.L<_edata.Source_Location>>
 
     ): unresolved.Selection<_edata.Source_Location> => {
         return {
@@ -109,7 +110,7 @@ export namespace s {
     }
     export const from_variable = (
         name: string,
-        tail: unresolved.Selection.tail.L<string>[]
+        tail: Raw_Or_Normal_Array<unresolved.Selection.tail.L<_edata.Source_Location>>
 
     ): unresolved.Selection<_edata.Source_Location> => {
         return {
@@ -119,7 +120,7 @@ export namespace s {
     }
     export const from_parameter = (
         name: string,
-        tail: unresolved.Selection.tail.L<string>[]
+        tail: Raw_Or_Normal_Array<unresolved.Selection.tail.L<_edata.Source_Location>>
 
     ): unresolved.Selection<_edata.Source_Location> => {
         return {
@@ -130,7 +131,7 @@ export namespace s {
     export const from_variable_import = (
         imp: string,
         variable: string,
-        tail: unresolved.Selection.tail.L<string>[]
+        tail: Raw_Or_Normal_Array<unresolved.Selection.tail.L<_edata.Source_Location>>
 
     ): unresolved.Selection<_edata.Source_Location> => {
         return {
@@ -143,7 +144,7 @@ export namespace s {
     }
     export const from_argument = (
         name: string,
-        tail: unresolved.Selection.tail.L<string>[]
+        tail: Raw_Or_Normal_Array<unresolved.Selection.tail.L<_edata.Source_Location>>
 
     ): unresolved.Selection<_edata.Source_Location> => {
         return {
@@ -157,7 +158,7 @@ export namespace i {
 
     export const argument_selection = (
         argument: string,
-        tail: unresolved.Selection.tail.L<string>[]
+        tail: Raw_Or_Normal_Array<unresolved.Selection.tail.L<_edata.Source_Location>>
     ): unresolved.Initialization<_edata.Source_Location> => {
         return wrap_state_group(['selection', {
             'start': wrap_state_group(['argument', argument]),
@@ -166,7 +167,7 @@ export namespace i {
     }
 
     export const array_literal = (
-        elements: unresolved.Initialization<_edata.Source_Location>[]
+        elements: Raw_Or_Normal_Array<unresolved.Initialization<_edata.Source_Location>>
     ): unresolved.Initialization<_edata.Source_Location> => {
         return wrap_state_group(['literal', { 'value': wrap_state_group(['array', wrap_list(elements)]) }])
     }
@@ -219,7 +220,7 @@ export namespace i {
     }
 
     export const block = (
-        ordered_variables: unresolved.Initialization.SG.block.temp_ordered_variables.L<_edata.Source_Location>[],
+        ordered_variables: Raw_Or_Normal_Array<unresolved.Initialization.SG.block.temp_ordered_variables.L<_edata.Source_Location>>,
         variables: Raw_Or_Normal_Dictionary<unresolved.Variables.D<_edata.Source_Location>>,
         expression: unresolved.Initialization<_edata.Source_Location>
     ): unresolved.Initialization<_edata.Source_Location> => {
@@ -335,7 +336,7 @@ export namespace i {
     }
 
     export const select_from_context = (
-        tail: unresolved.Selection.tail.L<string>[]
+        tail: Raw_Or_Normal_Array<unresolved.Selection.tail.L<_edata.Source_Location>>
     ): unresolved.Initialization<_edata.Source_Location> => {
         return wrap_state_group(['selection', {
             'start': wrap_state_group(['context', null]),
@@ -345,7 +346,7 @@ export namespace i {
 
     export const select_from_variable = (
         variable: string,
-        tail: unresolved.Selection.tail.L<string>[]
+        tail: Raw_Or_Normal_Array<unresolved.Selection.tail.L<_edata.Source_Location>>
     ): unresolved.Initialization<_edata.Source_Location> => {
         return wrap_state_group(['selection', {
             'start': wrap_state_group(['variable', variable]),
@@ -355,7 +356,7 @@ export namespace i {
 
     export const select_from_parameter = (
         variable: string,
-        tail: unresolved.Selection.tail.L<string>[]
+        tail: Raw_Or_Normal_Array<unresolved.Selection.tail.L<_edata.Source_Location>>
     ): unresolved.Initialization<_edata.Source_Location> => {
         return wrap_state_group(['selection', {
             'start': wrap_state_group(['parameter', variable]),
@@ -434,7 +435,7 @@ export namespace i {
 
     export const variable_selection = (
         variable: string,
-        tail: unresolved.Selection.tail.L<string>[]
+        tail: Raw_Or_Normal_Array<unresolved.Selection.tail.L<_edata.Source_Location>>
     ): unresolved.Initialization<_edata.Source_Location> => {
         return wrap_state_group(['selection', {
             'start': wrap_state_group(['variable', variable]),

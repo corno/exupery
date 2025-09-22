@@ -4,6 +4,8 @@ import * as _out from "../generated/interface/schemas/typescript_light/data_type
 
 import {
     Raw_Or_Normal_Dictionary,
+    Raw_Or_Normal_Array,
+    wrap_list,
     wrap_dictionary,
     wrap_state_group,
 } from 'exupery-core-data/dist/shorthands/unconstrained'
@@ -25,13 +27,13 @@ export namespace t {
         return ['boolean', null]
     }
     export const function_ = (
-        type_parameters: string[],
-        parameters: _out.Type.SG._function.parameters.L[],
+        type_parameters: Raw_Or_Normal_Array<string>,
+        parameters: Raw_Or_Normal_Array<_out.Type.SG._function.parameters.L>,
         return_: _out.Type,
     ): _out.Type => {
         return ['function', {
-            'type parameters': _edata.a(type_parameters),
-            'parameters': _edata.a(parameters),
+            'type parameters': wrap_list(type_parameters),
+            'parameters': wrap_list(parameters),
             'return': return_,
         }]
     }
@@ -50,10 +52,12 @@ export namespace t {
     export const string = (): _out.Type => {
         return ['string', null]
     }
-    export const tuple = (read_only: 'readonly' | '', elements: _out.Type[]): _out.Type => {
+    export const tuple = (
+        read_only: 'readonly' | '', 
+        elements: Raw_Or_Normal_Array<_out.Type>): _out.Type => {
         return ['tuple', {
             'readonly': read_only === 'readonly',
-            'elements': _edata.a(elements)
+            'elements': wrap_list(elements)
         }]
     }
     export const type_literal = (properties: Raw_Or_Normal_Dictionary<_out.Type.SG.type_literal.properties.D>): _out.Type => {
@@ -63,17 +67,17 @@ export namespace t {
     }
     export const type_reference = (
         start: string,
-        tail: string[],
-        type_arguments: _out.Type[],
+        tail: Raw_Or_Normal_Array<string>,
+        type_arguments: Raw_Or_Normal_Array<_out.Type>,
     ): _out.Type => {
         return ['type reference', {
             'start': start,
-            'tail': _edata.a(tail),
-            'type arguments': _edata.a(type_arguments),
+            'tail': wrap_list(tail),
+            'type arguments': wrap_list(type_arguments),
         }]
     }
-    export const union = (cases: _out.Type[]): _out.Type => {
-        return ['union', _edata.a(cases)]
+    export const union = (cases: Raw_Or_Normal_Array<_out.Type>): _out.Type => {
+        return ['union', wrap_list(cases)]
     }
     export const void_ = (): _out.Type => {
         return ['void', null]
@@ -101,8 +105,10 @@ export namespace e {
             'properties': wrap_dictionary(properties),
         }]
     }
-    export const array_literal = (elements: _out.Expression[]): _out.Expression => {
-        return ['array literal', _edata.a(elements)]
+    export const array_literal = (
+        elements: Raw_Or_Normal_Array<_out.Expression>
+    ): _out.Expression => {
+        return ['array literal', wrap_list(elements)]
     }
     // export const arrow_function = (
     //     parameters: unresolved.Expression.SG.arrow_function.parameters.L[],
