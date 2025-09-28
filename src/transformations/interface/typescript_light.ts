@@ -13,20 +13,16 @@ import { String_Literal, Type } from "../typescript_light/fountain_pen_block"
 import {
     b, l, block,
 } from "pareto-fountain-pen/dist/shorthands/block"
-import { $$ as x } from "../typescript_light/operations/create_identifier"
-import { impure } from "pareto-standard-operations"
-import { pure } from "pareto-standard-operations"
 
-const op = {
-    // 'join lists': impure.list['join texts'],
-    'dictionary to list, sorted by code point': impure.dictionary['to list, sorted by code point'],
-    'create valid file name': impure.text['create valid file name'],
-    'repeat text': impure.text.repeat,
-    'join list of texts': pure.text['join list of texts'],
-    'flatten list': pure.list.flatten,
-    'flatten dictionary': pure.dictionary.flatten,
-    'create identifier': x,
-}
+import { $$ as op_create_identifier } from "../../operations/create_identifier"
+import { $$ as op_serialize_with_quote_delimiter } from "pareto-standard-operations/dist/impure/text/serialize_with_quote_delimiter"
+import { $$ as op_serialize_with_apostrophe_delimiter } from "pareto-standard-operations/dist/impure/text/serialize_with_apostrophe_delimiter"
+import { $$ as op_dictionary_to_list } from "pareto-standard-operations/dist/impure/dictionary/to_list_sorted_by_code_point"
+import { $$ as op_flatten_list } from "pareto-standard-operations/dist/pure/list/flatten"
+import { $$ as op_flatten_dictionary } from "pareto-standard-operations/dist/pure/dictionary/flatten"
+import { $$ as op_repeat } from "pareto-standard-operations/dist/impure/text/repeat"
+import { $$ as op_join_list_of_texts } from "pareto-standard-operations/dist/pure/text/join_list_of_texts"
+import { $$ as op_create_valid_file_name } from "pareto-standard-operations/dist/impure/text/create_valid_file_name"
 
 export function line_dictionary(
     $: pt.Dictionary<s_out.Line_Part>,
@@ -45,7 +41,7 @@ export function line_dictionary(
         let is_first = true
         return l.sub([
             prefix,
-            l.sub(op['dictionary to list, sorted by code point']($).map(($): s_out.Line_Part => {
+            l.sub(op_dictionary_to_list($).map(($): s_out.Line_Part => {
                 const out = l.sub([
                     is_first ?
                         l.nothing()
@@ -72,27 +68,27 @@ export const Module_Set = ($: s_in.Module_Set): s_out.Directory => {
                 const x_module_parameters = $['type parameters']
 
                 const valid_file_name = ($: string): string => {
-                    return op['create valid file name']($, { 'replace spaces with underscores': true })
+                    return op_create_valid_file_name($, { 'replace spaces with underscores': true })
                 }
                 return ['file', block([
                     b.simple_line("import * as _pt from 'exupery-core-types'"),
 
                     b.simple_line(""),
-                    b.sub(op['dictionary to list, sorted by code point']($.imports).map(($) => b.sub([
+                    b.sub(op_dictionary_to_list($.imports).map(($) => b.sub([
                         b.nested_line([
                             l.snippet("import * as "),
-                            l.snippet(op['create identifier']([" i ", $.key])),
+                            l.snippet(op_create_identifier([" i ", $.key])),
                             l.snippet(" from "),
                             String_Literal(
                                 pa.cc($.value.type, ($): string => {
                                     switch ($[0]) {
                                         case 'external': return pa.ss($, ($) => valid_file_name($))
-                                        case 'ancestor': return pa.ss($, ($) => `${op['repeat text']("../", { 'count': $['number of steps'] })}${valid_file_name($.dependency)}`)
+                                        case 'ancestor': return pa.ss($, ($) => `${op_repeat("../", { 'count': $['number of steps'] })}${valid_file_name($.dependency)}`)
                                         case 'sibling': return pa.ss($, ($) => `./${valid_file_name($)}`)
                                         default: return pa.au($[0])
                                     }
                                 })
-                                + op['join list of texts'](
+                                + op_join_list_of_texts(
                                     $.value.tail.map(($) => `/${valid_file_name($)}`),
                                 ),
                                 {
@@ -116,7 +112,7 @@ export const Module_Set = ($: s_in.Module_Set): s_out.Directory => {
                      */
                     b.simple_line(""),
                     b.simple_line("// **** TYPES"),
-                    b.sub(op['dictionary to list, sorted by code point']($.types).map(($) => b.sub([
+                    b.sub(op_dictionary_to_list($.types).map(($) => b.sub([
                         b.simple_line(""),
                         Type_Declaration(
                             null,
@@ -145,7 +141,7 @@ export const Module_Set = ($: s_in.Module_Set): s_out.Directory => {
 
                     b.simple_line(""),
                     b.simple_line("// **** FRIENDLY NAMES FOR THE GLOBAL TYPES"),
-                    b.sub(op['dictionary to list, sorted by code point']($.types).map(($) => b.sub([
+                    b.sub(op_dictionary_to_list($.types).map(($) => b.sub([
                         b.simple_line(""),
                         Type_Declaration(
                             null,
@@ -156,13 +152,12 @@ export const Module_Set = ($: s_in.Module_Set): s_out.Directory => {
                                 'function type parameters': pa.not_set(),
                                 'callback': () => {
                                     return l.sub([
-                                        l.snippet(op['create identifier']([" T ", $.key])),
-
+                                        l.snippet(op_create_identifier([" T ", $.key])),
                                         line_dictionary(
-                                            op['flatten dictionary'](
+                                            op_flatten_dictionary(
                                                 pa.dictionary_literal({
-                                                    "M": x_module_parameters.map(($, key) => l.snippet(op['create identifier'](["M ", key]))),
-                                                    "T": $.value.parameters.map(($, key) => l.snippet(op['create identifier'](["T ", key]))),
+                                                    "M": x_module_parameters.map(($, key) => l.snippet(op_create_identifier(["M ", key]))),
+                                                    "T": $.value.parameters.map(($, key) => l.snippet(op_create_identifier(["T ", key]))),
                                                 }),
                                                 {
                                                     'separator': " "
@@ -181,7 +176,7 @@ export const Module_Set = ($: s_in.Module_Set): s_out.Directory => {
 
                     b.simple_line(""),
                     b.simple_line("// **** ALIASES FOR NESTED TYPE WITH PREFIXED ROOT NAMES"),
-                    b.sub(op['dictionary to list, sorted by code point']($.types).map(($) => b.sub([
+                    b.sub(op_dictionary_to_list($.types).map(($) => b.sub([
                         Type_to_Aliases(
                             $.value.type,
                             {
@@ -196,7 +191,7 @@ export const Module_Set = ($: s_in.Module_Set): s_out.Directory => {
 
                     b.simple_line(""),
                     b.simple_line("// *** ALIASES FOR NESTED TYPES"),
-                    b.sub(op['dictionary to list, sorted by code point']($.types).map(($) => b.sub([
+                    b.sub(op_dictionary_to_list($.types).map(($) => b.sub([
                         Type_to_Aliases(
                             $.value.type,
                             {
@@ -266,7 +261,7 @@ export const Type_to_Aliases = (
             b.simple_line(""),
             b.nested_line([
                 l.snippet("export namespace "),
-                l.snippet(op['create identifier']([key])),
+                l.snippet(op_create_identifier([key])),
                 l.snippet(" {"),
                 l.indent([
                     $p.callback()
@@ -329,7 +324,7 @@ export const Type_to_Aliases = (
                 $p.key,
                 {
                     'callback': () => b.sub([
-                        b.sub(op['dictionary to list, sorted by code point']($['type arguments']).map(($) => {
+                        b.sub(op_dictionary_to_list($['type arguments']).map(($) => {
                             return Type_to_Aliases_2(
                                 $.value,
                                 {
@@ -391,7 +386,7 @@ export const Type_to_Aliases = (
                         Namespace("PARAMS", {
                             "callback": () => {
                                 const ftp = $['type parameters']
-                                return b.sub(op['dictionary to list, sorted by code point']($.parameters).map(($) => {
+                                return b.sub(op_dictionary_to_list($.parameters).map(($) => {
                                     return Type_to_Aliases_2(
                                         $.value,
                                         {
@@ -422,7 +417,7 @@ export const Type_to_Aliases = (
                 $p.key,
                 {
                     'callback': () => b.sub([
-                        b.sub(op['dictionary to list, sorted by code point']($).map(($) => {
+                        b.sub(op_dictionary_to_list($).map(($) => {
                             return Type_to_Aliases_2(
                                 $.value,
                                 {
@@ -489,7 +484,7 @@ export const Type_to_Aliases = (
                 $p.key,
                 {
                     'callback': () => b.sub([
-                        b.sub(op['dictionary to list, sorted by code point']($).map(($) => {
+                        b.sub(op_dictionary_to_list($).map(($) => {
                             return Type_to_Aliases_2(
                                 $.value,
                                 {
@@ -513,7 +508,7 @@ export const Type_to_Aliases = (
 export const Identifier = (
     $: pt.Array<string>
 ): string => {
-    return op['join list of texts']($)
+    return op_join_list_of_texts($)
 }
 
 export const Type_to_Type = (
@@ -537,7 +532,7 @@ export const Type_to_Type = (
                     }
                 }),
                 //tail
-                op['flatten list']<string>(pa.array_literal([
+                op_flatten_list<string>(pa.array_literal([
                     pa.cc($.location, ($): pt.Array<string> => {
                         switch ($[0]) {
                             case 'import': return pa.ss($, ($) => pa.array_literal([
@@ -547,7 +542,7 @@ export const Type_to_Type = (
                             default: return pa.au($[0])
                         }
                     }),
-                    op['flatten list']<string>($['sub selection'].map(($): pt.Array<string> => pa.cc($, ($) => {
+                    op_flatten_list<string>($['sub selection'].map(($): pt.Array<string> => pa.cc($, ($) => {
                         switch ($[0]) {
                             case 'dictionary': return pa.ss($, ($) => pa.array_literal(["D"]))
                             case 'group': return pa.ss($, ($) => pa.array_literal([$]))
@@ -560,9 +555,9 @@ export const Type_to_Type = (
                             default: return pa.au($[0])
                         }
                     })))
-                ])).__get_raw_copy(),
+                ])),
                 //type arguments
-                op['dictionary to list, sorted by code point']<s_out_ts.Type>(op['flatten dictionary'](
+                op_dictionary_to_list<s_out_ts.Type>(op_flatten_dictionary(
                     pa.dictionary_literal<pt.Dictionary<s_out_ts.Type>>({
                         "M": pa.cc($.location, ($): pt.Dictionary<s_out_ts.Type> => {
                             switch ($[0]) {
@@ -600,7 +595,7 @@ export const Type_to_Type = (
                     {
                         'separator': " "
                     }
-                )).map(($): s_out_ts.Type => $.value).__get_raw_copy()
+                )).map(($): s_out_ts.Type => $.value)
             ))
             case 'computed': return pa.ss($, ($) => sh2.t.type_reference(
                 " pt",
@@ -629,7 +624,7 @@ export const Type_to_Type = (
                 ]
             ))
             case 'function': return pa.ss($, ($) => sh2.t.function_(
-                op['dictionary to list, sorted by code point']($['type parameters']).map(($) => `F ${$.key}`).__get_raw_copy(),
+                op_dictionary_to_list($['type parameters']).map(($) => `F ${$.key}`),
                 [
                     sh2.parameter(
                         "$",
@@ -732,7 +727,7 @@ export const Type_to_Type = (
                 []
             ))
             case 'tagged union': return pa.ss($, ($) => sh2.t.union(
-                op['dictionary to list, sorted by code point']($).map(($) => sh2.t.tuple('readonly', [
+                op_dictionary_to_list($).map(($) => sh2.t.tuple('readonly', [
                     sh2.t.literal_type($.key, 'apostrophe'),
                     Type_to_Type(
                         $.value,
@@ -741,7 +736,7 @@ export const Type_to_Type = (
                             'temp imports': $p['temp imports'],
                         }
                     )
-                ])).__get_raw_copy()
+                ]))
             ))
             case 'string': return pa.ss($, ($) => sh2.t.string())
 
@@ -763,9 +758,9 @@ export const Type_Declaration = (
     return b.nested_line([
         l.sub([
             l.snippet("export type "),
-            l.snippet(op['create identifier']([$p.name])),
+            l.snippet(op_create_identifier([$p.name])),
             line_dictionary(
-                op['flatten dictionary'](
+                op_flatten_dictionary(
                     pa.dictionary_literal({
                         "M": $p['module parameters'],
                         "T": $p['type parameters'],
@@ -778,7 +773,7 @@ export const Type_Declaration = (
                         //'escape': "$",
                         'separator': " "
                     }
-                ).map(($, key) => l.snippet(op['create identifier']([key]))),
+                ).map(($, key) => l.snippet(op_create_identifier([key]))),
                 l.nothing(),
                 l.snippet("<"),
                 l.snippet(">"),

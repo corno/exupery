@@ -3,18 +3,15 @@ import * as pa from 'exupery-core-alg'
 import * as s_out from "pareto-fountain-pen/dist/generated/interface/schemas/block/data_types/target"
 import * as s_in from "../../generated/interface/schemas/typescript_light/data_types/source"
 
-import { $$ as x } from "./operations/create_identifier"
-import { impure } from "pareto-standard-operations"
+import { $$ as op_create_identifier } from "../../operations/create_identifier"
+import { $$ as op_list_is_empty } from "pareto-standard-operations/dist/impure/list/is_empty"
+import { $$ as op_dictionary_is_empty } from "pareto-standard-operations/dist/impure/dictionary/is_empty"
+import { $$ as op_enrich_list_elements_with_position_information } from "pareto-standard-operations/dist/impure/list/enrich_with_position_information"
+import { $$ as op_dictionary_to_list } from "pareto-standard-operations/dist/impure/dictionary/to_list_sorted_by_code_point"
+import { $$ as op_serialize_with_apostrophe_delimiter } from "pareto-standard-operations/dist/impure/text/serialize_with_apostrophe_delimiter"
+import { $$ as op_serialize_with_quote_delimiter } from "pareto-standard-operations/dist/impure/text/serialize_with_quote_delimiter"
+import { $$ as op_serialize_approximate_number } from "exupery-standard-library/dist/approximate_number/serialize"
 
-const op = {
-    'list is empty': impure.list['is empty'],
-    'dictionary is empty': impure.dictionary['is empty'],
-    'enrich list elements with position information': impure.list['enrich with position information'],
-    'dictionary to list, sorted by code point': impure.dictionary['to list, sorted by code point'],
-    'serialize with apostrophe delimiter': impure.text['serialize with apostrophe delimiter'],
-    'serialize with quote delimiter': impure.text['serialize with quote delimiter'],
-    'create identifier': x,
-}
 
 import {
     b, l
@@ -28,7 +25,7 @@ export const Block = ($: s_in.Block): s_out.Block => {
 export const Identifier = (
     $: string //FIX should have been a schema type
 ): s_out.Line_Part => {
-    return l.snippet(op['create identifier']([$]))
+    return l.snippet(op_create_identifier([$]))
 }
 
 export const String_Literal = (
@@ -37,7 +34,7 @@ export const String_Literal = (
         'delimiter': "quote" | "apostrophe"
     }
 ): s_out.Line_Part => {
-    return l.snippet($p.delimiter === "quote" ? op['serialize with quote delimiter']($) : op['serialize with apostrophe delimiter']($))
+    return l.snippet($p.delimiter === "quote" ? op_serialize_with_quote_delimiter($) : op_serialize_with_apostrophe_delimiter($))
 }
 
 export const Statements = (
@@ -54,7 +51,7 @@ export const Statements = (
                     switch ($[0]) {
                         case 'named': return pa.ss($, ($) => l.sub([
                             l.snippet("{ "),
-                            l.sub(op['dictionary to list, sorted by code point']($.specifiers).map(($) => l.sub([
+                            l.sub(op_dictionary_to_list($.specifiers).map(($) => l.sub([
                                 Identifier($.key),
                                 l.snippet(", ")
                             ]))),
@@ -82,11 +79,11 @@ export const Statements = (
                 $.export ? l.snippet("export ") : l.nothing(),
                 l.snippet("type "),
                 Identifier($['name']),
-                op['list is empty']($['parameters'])
+                op_list_is_empty($['parameters'])
                     ? l.nothing()
                     : l.sub([
                         l.snippet("<"),
-                        l.sub(op['enrich list elements with position information']($['parameters']).map(($) => l.sub([
+                        l.sub(op_enrich_list_elements_with_position_information($['parameters']).map(($) => l.sub([
                             Identifier($.value),
                             $['is last'] ? l.nothing() : l.snippet(", ")
                         ]))),
@@ -129,7 +126,7 @@ export const Expression = (
         case 'array literal': return pa.ss($, ($) => l.sub([
             l.snippet("["),
             l.indent([
-                b.sub(op['enrich list elements with position information']($).map(($) => b.nested_line([
+                b.sub(op_enrich_list_elements_with_position_information($).map(($) => b.nested_line([
                     Expression($.value, $p),
                     $['is last'] ? l.nothing() : l.snippet(", ")
                 ]))),
@@ -178,7 +175,7 @@ export const Expression = (
             Expression($['function selection'], $p),
             l.snippet("("),
             l.indent([
-                b.sub(op['enrich list elements with position information']($['arguments']).map(($) => b.nested_line([
+                b.sub(op_enrich_list_elements_with_position_information($['arguments']).map(($) => b.nested_line([
                     Expression($.value, $p),
                     $['is last'] ? l.nothing() : l.snippet(", ")
                 ]))),
@@ -187,11 +184,11 @@ export const Expression = (
         ]))
         case 'false': return pa.ss($, ($) => l.snippet("false"))
         case 'null': return pa.ss($, ($) => l.snippet("null"))
-        case 'number literal': return pa.ss($, ($) => l.snippet(pa.impure['approximate number'].serialize($)))
+        case 'number literal': return pa.ss($, ($) => l.snippet(op_serialize_approximate_number($)))
         case 'object literal': return pa.ss($, ($) => l.sub([
             l.snippet("{"),
             l.indent([
-                b.sub(op['dictionary to list, sorted by code point']($.properties).map(($) => b.nested_line([
+                b.sub(op_dictionary_to_list($.properties).map(($) => b.nested_line([
                     String_Literal($.key, { 'delimiter': "apostrophe" }),
                     l.snippet(": "),
                     Expression($.value, $p),
@@ -201,7 +198,7 @@ export const Expression = (
             l.snippet("}"),
         ]))
         case 'string literal': return pa.ss($, ($) => l.sub([
-            l.snippet($['delimiter'][0] === "quote" ? op['serialize with quote delimiter']($['value']) : op['serialize with apostrophe delimiter']($['value']))
+            l.snippet($['delimiter'][0] === "quote" ? op_serialize_with_quote_delimiter($['value']) : op_serialize_with_apostrophe_delimiter($['value']))
         ]))
         case 'true': return pa.ss($, ($) => l.snippet("true"))
         default: return pa.au($[0])
@@ -217,11 +214,11 @@ export const Type = (
     switch ($[0]) {
         case 'boolean': return pa.ss($, ($) => l.snippet("boolean"))
         case 'function': return pa.ss($, ($) => l.sub([
-            op['list is empty']($['type parameters'])
+            op_list_is_empty($['type parameters'])
             ? l.nothing()
             : l.sub([
                 l.snippet("<"),
-                l.sub(op['enrich list elements with position information']($['type parameters']).map(($) => l.sub([
+                l.sub(op_enrich_list_elements_with_position_information($['type parameters']).map(($) => l.sub([
                     Identifier($.value),
                     $['is last'] ? l.nothing() : l.snippet(", ")
                 ]))),
@@ -250,7 +247,7 @@ export const Type = (
         case 'tuple': return pa.ss($, ($) => l.sub([
             $.readonly ? l.snippet("readonly ") : l.nothing(),
             l.snippet("["),
-            l.sub(op['enrich list elements with position information']($['elements']).map(($) => l.sub([
+            l.sub(op_enrich_list_elements_with_position_information($['elements']).map(($) => l.sub([
                 Type($.value, $p),
                 $['is last']
                     ? l.nothing()
@@ -258,12 +255,12 @@ export const Type = (
             ]))),
             l.snippet("]"),
         ]))
-        case 'type literal': return pa.ss($, ($) => $p['replace empty type literals by null'] && op['dictionary is empty']($['properties'])
+        case 'type literal': return pa.ss($, ($) => $p['replace empty type literals by null'] && op_dictionary_is_empty($['properties'])
             ? l.snippet("null")
             : l.sub([
                 l.snippet("{"),
                 l.indent([
-                    b.sub(op['dictionary to list, sorted by code point']($['properties']).map(($) => b.sub([
+                    b.sub(op_dictionary_to_list($['properties']).map(($) => b.sub([
                         b.nested_line([
                             $.value['readonly'] ? l.snippet("readonly ") : l.nothing(),
                             String_Literal($.key, { 'delimiter': "apostrophe" }),
@@ -281,11 +278,11 @@ export const Type = (
                 l.snippet("."),
                 Identifier($),
             ]))),
-            op['list is empty']($['type arguments'])
+            op_list_is_empty($['type arguments'])
                 ? l.nothing()
                 : l.sub([
                     l.snippet("<"),
-                    l.sub(op['enrich list elements with position information']($['type arguments']).map(($) => l.sub([
+                    l.sub(op_enrich_list_elements_with_position_information($['type arguments']).map(($) => l.sub([
                         Type($['value'], $p),
                         $['is last'] ? l.nothing() : l.snippet(", "),
                     ]))),

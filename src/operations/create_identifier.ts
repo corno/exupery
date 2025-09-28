@@ -1,17 +1,15 @@
-import * as pa from 'exupery-core-alg'
+import * as _ea from 'exupery-core-alg'
 
-import { pure } from "pareto-standard-operations"
-
-const op = {
-    'join list of texts': pure.text['join list of texts'],
-}
+import { $$ as op_to_character_list } from "exupery-standard-library/dist/text/to_character_list"
+import { $$ as op_join_list_of_texts } from "pareto-standard-operations/dist/pure/text/join_list_of_texts"
+import { $$ as op_integer_serialize } from "exupery-standard-library/dist/integer/serialize"
 
 export const $$ = ($: string[]): string => {
-    const the_string = op['join list of texts'](pa.array_literal($))
+    const the_string = op_join_list_of_texts(_ea.array_literal($))
     if (the_string === "") {
         return "_empty"
     }
-    const reserved_keywords = pa.dictionary_literal({
+    const reserved_keywords = _ea.dictionary_literal({
         //Reserved Words
         "arguments": null,
         "break": null,
@@ -85,14 +83,14 @@ export const $$ = ($: string[]): string => {
         () => true,
         () => false,
     )) {
-        return pa.pure.text.build(($i) => {
+        return _ea.build_text(($i) => {
             $i['add snippet']("_")
             $i['add snippet'](the_string)
         })
     }
 
-    return pa.pure.text.build(($i) => {
-        const characters = pa.impure.text['to character list'](the_string)
+    return _ea.build_text(($i) => {
+        const characters = op_to_character_list(the_string)
         const length = characters.__get_length()
 
         let position = 0
@@ -135,7 +133,7 @@ export const $$ = ($: string[]): string => {
                 $i['add character'](current_character)
                 consume_character()
             } else {
-                const consume_and_add = ($:string) => {
+                const consume_and_add = ($: string) => {
                     consume_character()
                     $i['add snippet']($)
                 }
@@ -173,7 +171,7 @@ export const $$ = ($: string[]): string => {
                     case 124: consume_and_add("$vb_"); break; // Vertical Bar (|)
                     case 125: consume_and_add("$cc_"); break; // Close Curly Brace (})
                     case 126: consume_and_add("$ti_"); break; // Tilde (~)
-                    default: pa.panic("unhandled character: \"", pa.impure.integer.serialize(current_character), "\"");
+                    default: _ea.panic("unhandled character: \"", op_integer_serialize(current_character), "\"");
                 }
             }
         }

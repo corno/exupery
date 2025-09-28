@@ -5,29 +5,29 @@ import * as s_in from "../../generated/interface/schemas/implementation/data_typ
 import * as s_in_interface from "../../generated/interface/schemas/interface/data_types/source"
 import * as s_out from "../../generated/interface/schemas/typescript_light/data_types/target"
 
-import { $$ as x } from "../typescript_light/operations/create_identifier"
+import { $$ as x } from "../../operations/create_identifier"
 
 import * as _interface from "../interface/typescript_light"
 
 import { Type } from "../typescript_light/fountain_pen_block"
 
-import { impure, pure } from "pareto-standard-operations"
-
 import {
     b, l, block
 } from "pareto-fountain-pen/dist/shorthands/block"
 
-const op = {
-    'join list of texts': pure.text['join list of texts'],
-    'dictionary to list, sorted by code point': impure.dictionary['to list, sorted by code point'],
-    'dictionary is empty': impure.dictionary['is empty'],
-    'serialize with apostrophe delimiter': impure.text['serialize with apostrophe delimiter'],
-    'serialize with quote delimiter': impure.text['serialize with quote delimiter'],
-    'serialize with grave delimiter': impure.text['serialize with grave delimiter'],
-    'repeat text': impure.text.repeat,
-    'create valid file name': impure.text['create valid file name'],
-    'create identifier': x
-}
+import { $$ as op_join_list_of_texts } from "pareto-standard-operations/dist/pure/text/join_list_of_texts"
+import { $$ as op_flatten_dictionary } from "pareto-standard-operations/dist/pure/dictionary/flatten"
+import { $$ as op_dictionary_to_list } from "pareto-standard-operations/dist/impure/dictionary/to_list_sorted_by_code_point"
+import { $$ as op_serialize_with_apostrophe_delimiter } from "pareto-standard-operations/dist/impure/text/serialize_with_apostrophe_delimiter"
+import { $$ as op_serialize_with_quote_delimiter } from "pareto-standard-operations/dist/impure/text/serialize_with_quote_delimiter"
+import { $$ as op_serialize_with_grave_delimiter } from "pareto-standard-operations/dist/impure/text/serialize_with_grave_delimiter"
+
+import { $$ as op_repeat } from "pareto-standard-operations/dist/impure/text/repeat"
+import { $$ as op_create_valid_file_name } from "pareto-standard-operations/dist/impure/text/create_valid_file_name"
+import { $$ as op_create_identifier } from "../../operations/create_identifier"
+import { $$ as op_dictionary_is_empty } from "pareto-standard-operations/dist/impure/dictionary/is_empty"
+import { $$ as op_approximate_number_serialize } from "exupery-standard-library/dist/approximate_number/serialize"
+import { $$ as op_integer_serialize } from "exupery-standard-library/dist/integer/serialize"
 
 export const Module_Set = (
     $: s_in.Module_Set,
@@ -40,28 +40,28 @@ export const Module_Set = (
             case 'module': return pa.ss($, ($): s_out.Directory.D => {
                 const type_imports = $['type imports']
                 const valid_file_name = ($: string): string => {
-                    return op['create valid file name']($, { 'replace spaces with underscores': true })
+                    return op_create_valid_file_name($, { 'replace spaces with underscores': true })
                 }
                 const x: s_out.Block = block([
                     b.simple_line("import * as _pa from 'exupery-core-alg'"),
                     $p.phase === 'development' ? b.simple_line("import * as _pd from 'exupery-core-dev'") : b.nothing(),
 
                     b.simple_line(""),
-                    b.sub(op['dictionary to list, sorted by code point']($['type imports']).map(($) => b.sub([
+                    b.sub(op_dictionary_to_list($['type imports']).map(($) => b.sub([
                         b.nested_line([
                             l.snippet("import * as "),
-                            l.snippet(op['create identifier']([" i ", $.key])),
+                            l.snippet(op_create_identifier([" i ", $.key])),
                             l.snippet(" from "),
                             String_Literal(
                                 pa.cc($.value.type, ($): string => {
                                     switch ($[0]) {
                                         case 'external': return pa.ss($, ($) => valid_file_name($))
-                                        case 'ancestor': return pa.ss($, ($) => `${op['repeat text']("../", { 'count': $['number of steps'] })}${valid_file_name($.dependency)}`)
+                                        case 'ancestor': return pa.ss($, ($) => `${op_repeat("../", { 'count': $['number of steps'] })}${valid_file_name($.dependency)}`)
                                         case 'sibling': return pa.ss($, ($) => `./${valid_file_name($)}`)
                                         default: return pa.au($[0])
                                     }
                                 })
-                                + op['join list of texts'](
+                                + op_join_list_of_texts(
                                     $.value.tail.map(($) => `/${valid_file_name($)}`),
                                 ),
                                 {
@@ -72,21 +72,21 @@ export const Module_Set = (
                     ]))),
 
                     b.simple_line(""),
-                    b.sub(op['dictionary to list, sorted by code point']($['variable imports']).map(($) => b.sub([
+                    b.sub(op_dictionary_to_list($['variable imports']).map(($) => b.sub([
                         b.nested_line([
                             l.snippet("import * as "),
-                            l.snippet(op['create identifier']([" i var ", $.key])),
+                            l.snippet(op_create_identifier([" i var ", $.key])),
                             l.snippet(" from "),
                             String_Literal(
                                 pa.cc($.value.type, ($): string => {
                                     switch ($[0]) {
                                         case 'external': return pa.ss($, ($) => valid_file_name($))
-                                        case 'ancestor': return pa.ss($, ($) => `${op['repeat text']("../", { 'count': $['number of steps'] })}${valid_file_name($.dependency)}`)
+                                        case 'ancestor': return pa.ss($, ($) => `${op_repeat("../", { 'count': $['number of steps'] })}${valid_file_name($.dependency)}`)
                                         case 'sibling': return pa.ss($, ($) => `./${valid_file_name($)}`)
                                         default: return pa.au($[0])
                                     }
                                 })
-                                + op['join list of texts'](
+                                + op_join_list_of_texts(
                                     $.value.tail.map(($) => `/${valid_file_name($)}`),
                                 ),
                                 {
@@ -131,7 +131,7 @@ export function line_dictionary(
         let is_first = true
         const x: s_out.Line_Part = l.sub([
             prefix,
-            l.sub(op['dictionary to list, sorted by code point']($).map(($): s_out.Line_Part => {
+            l.sub(op_dictionary_to_list($).map(($): s_out.Line_Part => {
 
                 const out = l.sub([
                     is_first ?
@@ -158,7 +158,7 @@ export const String_Literal = (
         'delimiter': "quote" | "apostrophe"
     }
 ): s_out.Line_Part => {
-    return l.snippet($p.delimiter === "quote" ? op['serialize with quote delimiter']($) : op['serialize with apostrophe delimiter']($))
+    return l.snippet($p.delimiter === "quote" ? op_serialize_with_quote_delimiter($) : op_serialize_with_apostrophe_delimiter($))
 }
 
 export const Selection = (
@@ -200,12 +200,12 @@ export const Selection = (
                         ]),
                         $.arguments.transform(
                             ($) => b.nested_line([
-                                op['dictionary is empty']($)
+                                op_dictionary_is_empty($)
                                     ? l.snippet("null")
                                     : l.sub([
                                         l.snippet("{"),
                                         l.indent([
-                                            b.sub(op['dictionary to list, sorted by code point']($).map(($) => b.sub([
+                                            b.sub(op_dictionary_to_list($).map(($) => b.sub([
                                                 b.nested_line([
                                                     String_Literal($.key, { 'delimiter': "apostrophe" }),
                                                     l.snippet(": "),
@@ -223,18 +223,18 @@ export const Selection = (
                     l.snippet(")"),
                 ]))
                 case 'implement me': return pa.ss($, ($) => l.snippet("_pd.implement_me()"))
-                case 'argument': return pa.ss($, ($) => l.snippet(op['create identifier'](["FOOO FIX ARGUMENT"])))
+                case 'argument': return pa.ss($, ($) => l.snippet(op_create_identifier(["FOOO FIX ARGUMENT"])))
                 case 'context': return pa.ss($, ($) => l.snippet("$"))
-                case 'variable': return pa.ss($, ($) => l.snippet(op['create identifier']([$])))
+                case 'variable': return pa.ss($, ($) => l.snippet(op_create_identifier([$])))
                 case 'parameter': return pa.ss($, ($) => l.sub([
                     l.snippet("$p["),
                     String_Literal($, { 'delimiter': "apostrophe" }),
                     l.snippet("]"),
                 ]))
                 case 'imported variable': return pa.ss($, ($) => l.sub([
-                    l.snippet(op['create identifier']([$.import])),
+                    l.snippet(op_create_identifier([$.import])),
                     l.snippet("."),
-                    l.snippet(op['create identifier']([$.variable])),
+                    l.snippet(op_create_identifier([$.variable])),
                 ]))
                 default: return pa.au($[0])
             }
@@ -262,7 +262,7 @@ export const Initialization = (
                     //temp variables
                     b.sub($['temp ordered variables'].map(($) => b.nested_line([
                         l.snippet("const "),
-                        l.snippet(op['create identifier']([$.name])),
+                        l.snippet(op_create_identifier([$.name])),
                         $.type.transform(
                             ($) => l.sub([
                                 l.snippet(": "),
@@ -367,12 +367,12 @@ export const Initialization = (
                                             ]),
                                             $.arguments.transform(
                                                 ($) => b.nested_line([
-                                                    op['dictionary is empty']($)
+                                                    op_dictionary_is_empty($)
                                                         ? l.snippet("null")
                                                         : l.sub([
                                                             l.snippet("{"),
                                                             l.indent([
-                                                                b.sub(op['dictionary to list, sorted by code point']($).map(($) => b.sub([
+                                                                b.sub(op_dictionary_to_list($).map(($) => b.sub([
                                                                     b.nested_line([
                                                                         String_Literal($.key, { 'delimiter': "apostrophe" }),
                                                                         l.snippet(": "),
@@ -473,7 +473,7 @@ export const Initialization = (
                                                         case 'full': return pa.ss($, ($) => l.sub([
                                                             l.snippet("switch ($[0]) {"),
                                                             l.indent([
-                                                                b.sub(op['dictionary to list, sorted by code point']($.cases).map(($) => b.sub([
+                                                                b.sub(op_dictionary_to_list($.cases).map(($) => b.sub([
                                                                     b.nested_line([
                                                                         l.snippet("case "),
                                                                         String_Literal($.key, { 'delimiter': "apostrophe" }),
@@ -489,7 +489,7 @@ export const Initialization = (
                                                         case 'partial': return pa.ss($, ($) => l.sub([
                                                             l.snippet("switch ($[0]) {"),
                                                             l.indent([
-                                                                b.sub(op['dictionary to list, sorted by code point']($.cases).map(($) => b.sub([
+                                                                b.sub(op_dictionary_to_list($.cases).map(($) => b.sub([
                                                                     b.nested_line([
                                                                         l.snippet("case "),
                                                                         String_Literal($.key, { 'delimiter': "apostrophe" }),
@@ -532,11 +532,11 @@ export const Variables = (
         'export': boolean
     }
 ): s_out.Block_Part => {
-    return b.sub(op['dictionary to list, sorted by code point']($).map(($) => b.sub([
+    return b.sub(op_dictionary_to_list($).map(($) => b.sub([
         b.nested_line([
             $p.export ? l.snippet("export ") : l.nothing(),
             l.snippet("const "),
-            l.snippet(op['create identifier']([$.key])),
+            l.snippet(op_create_identifier([$.key])),
             $.value.type.transform(
                 ($) => l.sub([
                     l.snippet(": "),
@@ -583,7 +583,7 @@ export const Literal = (
                 case 'dictionary': return pa.ss($, ($) => l.sub([
                     l.snippet("_pa.dictionary_literal({"),
                     l.indent([
-                        b.sub(op['dictionary to list, sorted by code point']($).map(($) => b.nested_line([
+                        b.sub(op_dictionary_to_list($).map(($) => b.nested_line([
                             String_Literal($.key, { 'delimiter': "apostrophe" }),
                             l.snippet(": "),
                             Initialization($.value, $p),
@@ -647,9 +647,9 @@ export const Literal = (
                 case 'null': return pa.ss($, ($) => l.snippet("null"))
                 case 'number': return pa.ss($, ($) => pa.cc($, ($) => {
                     switch ($[0]) {
-                        case 'floting point': return pa.ss($, ($) => l.snippet(pa.impure['approximate number'].serialize($)))
-                        case 'integer': return pa.ss($, ($) => l.snippet(pa.impure.integer.serialize($)))
-                        case 'signed integer': return pa.ss($, ($) => l.snippet(pa.impure.integer.serialize($)))
+                        case 'floting point': return pa.ss($, ($) => l.snippet(op_approximate_number_serialize($)))
+                        case 'integer': return pa.ss($, ($) => l.snippet(op_integer_serialize($)))
+                        case 'signed integer': return pa.ss($, ($) => l.snippet(op_integer_serialize($)))
                         default: return pa.au($[0])
                     }
                 }))
@@ -676,7 +676,7 @@ export const Literal = (
                     return pa.cc($.delimiter, ($) => {
                         switch ($[0]) {
                             case 'quote': return pa.ss($, ($) => String_Literal(value, { 'delimiter': "quote" }))
-                            case 'backtick': return pa.ss($, ($) => l.snippet(op['serialize with grave delimiter'](value)))
+                            case 'backtick': return pa.ss($, ($) => l.snippet(op_serialize_with_grave_delimiter(value)))
                             default: return pa.au($[0])
                         }
                     })
