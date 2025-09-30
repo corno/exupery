@@ -12,7 +12,7 @@
     "exupery-core-data": "^0.1.10",
     "exupery-core-dev": "^0.1.2",
     "exupery-standard-library": "^0.1.9",
-    "pareto-fountain-pen": "^0.1.25",
+    "pareto-fountain-pen": "^0.1.27",
     "pareto-standard-operations": "^0.1.6"
   }
 }
