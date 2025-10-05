@@ -1,15 +1,15 @@
 import * as pa from 'exupery-core-alg'
 
-import * as s_out from "pareto-fountain-pen/dist/generated/interface/schemas/block/data_types/target"
-import * as s_in from "../../generated/interface/schemas/typescript_light/data_types/source"
+import * as d_out from "pareto-fountain-pen/dist/generated/interface/schemas/block/data_types/target"
+import * as d_in from "../../generated/interface/schemas/typescript_light/data_types/source"
 
-import { $$ as op_create_identifier } from "../../operations/create_identifier"
+import { $$ as op_create_identifier } from "../../operations/impure/create_identifier"
 import { $$ as op_list_is_empty } from "pareto-standard-operations/dist/impure/list/is_empty"
 import { $$ as op_dictionary_is_empty } from "pareto-standard-operations/dist/impure/dictionary/is_empty"
 import { $$ as op_enrich_list_elements_with_position_information } from "pareto-standard-operations/dist/impure/list/enrich_with_position_information"
 import { $$ as op_dictionary_to_list } from "pareto-standard-operations/dist/impure/dictionary/to_list_sorted_by_code_point"
-import { $$ as op_serialize_with_apostrophe_delimiter } from "pareto-standard-operations/dist/impure/text/serialize_with_apostrophe_delimiter"
-import { $$ as op_serialize_with_quote_delimiter } from "pareto-standard-operations/dist/impure/text/serialize_with_quote_delimiter"
+import { $$ as op_serialize_with_apostrophe_delimiter } from "../../operations/impure/serialize_apostrophed_string"
+import { $$ as op_serialize_with_quote_delimiter } from "../../operations/impure/serialize_quoted_string"
 import { $$ as op_serialize_approximate_number } from "exupery-standard-library/dist/approximate_number/serialize"
 
 
@@ -18,13 +18,13 @@ import {
 } from "pareto-fountain-pen/dist/shorthands/block"
 
 
-export const Block = ($: s_in.Block): s_out.Block => {
+export const Block = ($: d_in.Block): d_out.Block => {
     return $ //FIXME: this is a temporary solution
 }
 
 export const Identifier = (
     $: string //FIX should have been a schema type
-): s_out.Line_Part => {
+): d_out.Line_Part => {
     return l.snippet(op_create_identifier([$]))
 }
 
@@ -33,16 +33,16 @@ export const String_Literal = (
     $p: {
         'delimiter': "quote" | "apostrophe"
     }
-): s_out.Line_Part => {
+): d_out.Line_Part => {
     return l.snippet($p.delimiter === "quote" ? op_serialize_with_quote_delimiter($) : op_serialize_with_apostrophe_delimiter($))
 }
 
 export const Statements = (
-    $: s_in.Statements,
+    $: d_in.Statements,
     $p: {
         'replace empty type literals by null': boolean
     }
-): s_out.Block_Part => b.sub($.map(($) => b.nested_line([
+): d_out.Block_Part => b.sub($.map(($) => b.nested_line([
     pa.cc($, ($) => {
         switch ($[0]) {
             case 'import': return pa.ss($, ($) => l.sub([
@@ -117,11 +117,11 @@ export const Statements = (
 ])))
 
 export const Expression = (
-    $: s_in.Expression,
+    $: d_in.Expression,
     $p: {
         'replace empty type literals by null': boolean
     }
-): s_out.Line_Part => pa.cc($, ($) => {
+): d_out.Line_Part => pa.cc($, ($) => {
     switch ($[0]) {
         case 'array literal': return pa.ss($, ($) => l.sub([
             l.snippet("["),
@@ -206,24 +206,24 @@ export const Expression = (
 })
 
 export const Type = (
-    $: s_in.Type,
+    $: d_in.Type,
     $p: {
         'replace empty type literals by null': boolean
     }
-): s_out.Line_Part => pa.cc($, ($) => {
+): d_out.Line_Part => pa.cc($, ($) => {
     switch ($[0]) {
         case 'boolean': return pa.ss($, ($) => l.snippet("boolean"))
         case 'function': return pa.ss($, ($) => l.sub([
             op_list_is_empty($['type parameters'])
-            ? l.nothing()
-            : l.sub([
-                l.snippet("<"),
-                l.sub(op_enrich_list_elements_with_position_information($['type parameters']).map(($) => l.sub([
-                    Identifier($.value),
-                    $['is last'] ? l.nothing() : l.snippet(", ")
-                ]))),
-                l.snippet(">"),
-            ]),            l.snippet("("),
+                ? l.nothing()
+                : l.sub([
+                    l.snippet("<"),
+                    l.sub(op_enrich_list_elements_with_position_information($['type parameters']).map(($) => l.sub([
+                        Identifier($.value),
+                        $['is last'] ? l.nothing() : l.snippet(", ")
+                    ]))),
+                    l.snippet(">"),
+                ]), l.snippet("("),
             l.indent([
                 b.sub($['parameters'].map(($) => b.nested_line([
                     Identifier($.name),

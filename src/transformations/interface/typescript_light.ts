@@ -1,8 +1,8 @@
 import * as pa from 'exupery-core-alg'
 import * as pt from 'exupery-core-types'
 
-import * as s_in from "../../generated/interface/schemas/interface/data_types/source"
-import * as s_out from "../../generated/interface/schemas/typescript_light/data_types/target"
+import * as d_in from "../../generated/interface/schemas/interface/data_types/source"
+import * as d_out from "../../generated/interface/schemas/typescript_light/data_types/target"
 
 import * as s_out_ts from "../../generated/interface/schemas/typescript_light/data_types/target"
 
@@ -14,9 +14,7 @@ import {
     b, l, block,
 } from "pareto-fountain-pen/dist/shorthands/block"
 
-import { $$ as op_create_identifier } from "../../operations/create_identifier"
-import { $$ as op_serialize_with_quote_delimiter } from "pareto-standard-operations/dist/impure/text/serialize_with_quote_delimiter"
-import { $$ as op_serialize_with_apostrophe_delimiter } from "pareto-standard-operations/dist/impure/text/serialize_with_apostrophe_delimiter"
+import { $$ as op_create_identifier } from "../../operations/impure/create_identifier"
 import { $$ as op_dictionary_to_list } from "pareto-standard-operations/dist/impure/dictionary/to_list_sorted_by_code_point"
 import { $$ as op_flatten_list } from "pareto-standard-operations/dist/pure/list/flatten"
 import { $$ as op_flatten_dictionary } from "pareto-standard-operations/dist/pure/dictionary/flatten"
@@ -25,12 +23,12 @@ import { $$ as op_join_list_of_texts } from "pareto-standard-operations/dist/pur
 import { $$ as op_create_valid_file_name } from "pareto-standard-operations/dist/impure/text/create_valid_file_name"
 
 export function line_dictionary(
-    $: pt.Dictionary<s_out.Line_Part>,
-    if_empty: s_out.Line_Part,
-    prefix: s_out.Line_Part,
-    suffix: s_out.Line_Part,
+    $: pt.Dictionary<d_out.Line_Part>,
+    if_empty: d_out.Line_Part,
+    prefix: d_out.Line_Part,
+    suffix: d_out.Line_Part,
     add_commas: boolean
-): s_out.Line_Part {
+): d_out.Line_Part {
     let is_empty = true
     $.map(($) => {
         is_empty = false
@@ -41,7 +39,7 @@ export function line_dictionary(
         let is_first = true
         return l.sub([
             prefix,
-            l.sub(op_dictionary_to_list($).map(($): s_out.Line_Part => {
+            l.sub(op_dictionary_to_list($).map(($): d_out.Line_Part => {
                 const out = l.sub([
                     is_first ?
                         l.nothing()
@@ -60,7 +58,7 @@ export function line_dictionary(
 
 }
 
-export const Module_Set = ($: s_in.Module_Set): s_out.Directory => {
+export const Module_Set = ($: d_in.Module_Set): d_out.Directory => {
     return $.map(($, key) => pa.cc($, ($) => {
         switch ($[0]) {
             case 'module': return pa.ss($, ($) => {
@@ -241,22 +239,22 @@ export const Module_Set = ($: s_in.Module_Set): s_out.Directory => {
 }
 
 export const Type_to_Aliases = (
-    $: s_in.Type,
+    $: d_in.Type,
     $p: {
         'key': string,
-        'type parameters': s_in.Type_Parameters,
-        'function type parameters': pt.Optional_Value<s_in.Type_Parameters>,
-        'module parameters': s_in.Type_Parameters,
-        'temp imports': s_in.Module['imports'],
+        'type parameters': d_in.Type_Parameters,
+        'function type parameters': pt.Optional_Value<d_in.Type_Parameters>,
+        'module parameters': d_in.Type_Parameters,
+        'temp imports': d_in.Module['imports'],
     }
-): s_out.Block_Part => {
+): d_out.Block_Part => {
 
     const Namespace = (
         key: string,
         $p: {
-            'callback': () => s_out.Block_Part
+            'callback': () => d_out.Block_Part
         }
-    ): s_out.Block_Part => {
+    ): d_out.Block_Part => {
         return b.sub([
             b.simple_line(""),
             b.nested_line([
@@ -272,15 +270,15 @@ export const Type_to_Aliases = (
     }
 
     const Type_to_Aliases_2 = (
-        $: s_in.Type,
+        $: d_in.Type,
         $p: {
             'key': string,
-            'type parameters': s_in.Type_Parameters,
-            'module parameters': s_in.Type_Parameters,
-            'function type parameters': pt.Optional_Value<s_in.Type_Parameters>,
-            'temp imports': s_in.Module['imports'],
+            'type parameters': d_in.Type_Parameters,
+            'module parameters': d_in.Type_Parameters,
+            'function type parameters': pt.Optional_Value<d_in.Type_Parameters>,
+            'temp imports': d_in.Module['imports'],
         }
-    ): s_out.Block_Part => {
+    ): d_out.Block_Part => {
         return b.sub([
             Type_to_Aliases(
                 $,
@@ -317,7 +315,7 @@ export const Type_to_Aliases = (
             )
         ])
     }
-    return pa.cc($, ($): s_out.Block_Part => {
+    return pa.cc($, ($): d_out.Block_Part => {
         switch ($[0]) {
             case 'boolean': return pa.ss($, ($) => b.nothing())
             case 'component': return pa.ss($, ($) => Namespace(
@@ -512,10 +510,10 @@ export const Identifier = (
 }
 
 export const Type_to_Type = (
-    $: s_in.Type,
+    $: d_in.Type,
     $p: {
         'module parameters': pt.Optional_Value<pt.Dictionary<null>>,
-        'temp imports': pt.Optional_Value<s_in.Module['imports']>,
+        'temp imports': pt.Optional_Value<d_in.Module['imports']>,
     }
 ): s_out_ts.Type => {
 
@@ -749,12 +747,12 @@ export const Type_Declaration = (
     $: null,
     $p: {
         'name': string,
-        'type parameters': s_in.Type_Parameters,
-        'module parameters': s_in.Type_Parameters,
-        'function type parameters': pt.Optional_Value<s_in.Type_Parameters>,
-        'callback': () => s_out.Line_Part
+        'type parameters': d_in.Type_Parameters,
+        'module parameters': d_in.Type_Parameters,
+        'function type parameters': pt.Optional_Value<d_in.Type_Parameters>,
+        'callback': () => d_out.Line_Part
     }
-): s_out.Block_Part => {
+): d_out.Block_Part => {
     return b.nested_line([
         l.sub([
             l.snippet("export type "),

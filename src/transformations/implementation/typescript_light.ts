@@ -1,11 +1,9 @@
 import * as pa from 'exupery-core-alg'
 import * as pt from 'exupery-core-types'
 
-import * as s_in from "../../generated/interface/schemas/implementation/data_types/source"
+import * as d_in from "../../generated/interface/schemas/implementation/data_types/source"
 import * as s_in_interface from "../../generated/interface/schemas/interface/data_types/source"
-import * as s_out from "../../generated/interface/schemas/typescript_light/data_types/target"
-
-import { $$ as x } from "../../operations/create_identifier"
+import * as d_out from "../../generated/interface/schemas/typescript_light/data_types/target"
 
 import * as _interface from "../interface/typescript_light"
 
@@ -18,31 +16,31 @@ import {
 import { $$ as op_join_list_of_texts } from "pareto-standard-operations/dist/pure/text/join_list_of_texts"
 import { $$ as op_flatten_dictionary } from "pareto-standard-operations/dist/pure/dictionary/flatten"
 import { $$ as op_dictionary_to_list } from "pareto-standard-operations/dist/impure/dictionary/to_list_sorted_by_code_point"
-import { $$ as op_serialize_with_apostrophe_delimiter } from "pareto-standard-operations/dist/impure/text/serialize_with_apostrophe_delimiter"
-import { $$ as op_serialize_with_quote_delimiter } from "pareto-standard-operations/dist/impure/text/serialize_with_quote_delimiter"
-import { $$ as op_serialize_with_grave_delimiter } from "pareto-standard-operations/dist/impure/text/serialize_with_grave_delimiter"
+import { $$ as op_serialize_with_apostrophe_delimiter } from "../../operations/impure/serialize_apostrophed_string"
+import { $$ as op_serialize_with_quote_delimiter } from "../../operations/impure/serialize_quoted_string"
+import { $$ as op_serialize_with_grave_delimiter } from "../../operations/impure/serialize_backticked_string"
 
 import { $$ as op_repeat } from "pareto-standard-operations/dist/impure/text/repeat"
 import { $$ as op_create_valid_file_name } from "pareto-standard-operations/dist/impure/text/create_valid_file_name"
-import { $$ as op_create_identifier } from "../../operations/create_identifier"
+import { $$ as op_create_identifier } from "../../operations/impure/create_identifier"
 import { $$ as op_dictionary_is_empty } from "pareto-standard-operations/dist/impure/dictionary/is_empty"
 import { $$ as op_approximate_number_serialize } from "exupery-standard-library/dist/approximate_number/serialize"
 import { $$ as op_integer_serialize } from "exupery-standard-library/dist/integer/serialize"
 
 export const Module_Set = (
-    $: s_in.Module_Set,
+    $: d_in.Module_Set,
     $p: {
         'phase': 'development' | 'production'
     }
-): s_out.Directory => {
+): d_out.Directory => {
     return $.map(($, key) => pa.cc($, ($) => {
         switch ($[0]) {
-            case 'module': return pa.ss($, ($): s_out.Directory.D => {
+            case 'module': return pa.ss($, ($): d_out.Directory.D => {
                 const type_imports = $['type imports']
                 const valid_file_name = ($: string): string => {
                     return op_create_valid_file_name($, { 'replace spaces with underscores': true })
                 }
-                const x: s_out.Block = block([
+                const x: d_out.Block = block([
                     b.simple_line("import * as _pa from 'exupery-core-alg'"),
                     $p.phase === 'development' ? b.simple_line("import * as _pd from 'exupery-core-dev'") : b.nothing(),
 
@@ -115,12 +113,12 @@ export const Module_Set = (
 
 
 export function line_dictionary(
-    $: pt.Dictionary<s_out.Line_Part>,
-    if_empty: s_out.Line_Part,
-    prefix: s_out.Line_Part,
-    suffix: s_out.Line_Part,
+    $: pt.Dictionary<d_out.Line_Part>,
+    if_empty: d_out.Line_Part,
+    prefix: d_out.Line_Part,
+    suffix: d_out.Line_Part,
     add_commas: boolean
-): s_out.Line_Part {
+): d_out.Line_Part {
     let is_empty = true
     $.map(($) => {
         is_empty = false
@@ -129,9 +127,9 @@ export function line_dictionary(
         return if_empty
     } else {
         let is_first = true
-        const x: s_out.Line_Part = l.sub([
+        const x: d_out.Line_Part = l.sub([
             prefix,
-            l.sub(op_dictionary_to_list($).map(($): s_out.Line_Part => {
+            l.sub(op_dictionary_to_list($).map(($): d_out.Line_Part => {
 
                 const out = l.sub([
                     is_first ?
@@ -157,16 +155,16 @@ export const String_Literal = (
     $p: {
         'delimiter': "quote" | "apostrophe"
     }
-): s_out.Line_Part => {
+): d_out.Line_Part => {
     return l.snippet($p.delimiter === "quote" ? op_serialize_with_quote_delimiter($) : op_serialize_with_apostrophe_delimiter($))
 }
 
 export const Selection = (
-    $: s_in.Selection,
+    $: d_in.Selection,
     $p: {
         'temp imports': s_in_interface.Imports
     }
-): s_out.Line_Part => {
+): d_out.Line_Part => {
     return l.sub([
         pa.cc($.start, ($) => {
             switch ($[0]) {
@@ -248,11 +246,11 @@ export const Selection = (
 }
 
 export const Initialization = (
-    $: s_in.Initialization,
+    $: d_in.Initialization,
     $p: {
         'temp imports': s_in_interface.Imports
     }
-): s_out.Line_Part => {
+): d_out.Line_Part => {
     return pa.cc($, ($) => {
         switch ($[0]) {
             case 'block': return pa.ss($, ($) => l.sub([
@@ -526,12 +524,12 @@ export const Initialization = (
 }
 
 export const Variables = (
-    $: s_in.Variables,
+    $: d_in.Variables,
     $p: {
         'type imports': s_in_interface.Imports
         'export': boolean
     }
-): s_out.Block_Part => {
+): d_out.Block_Part => {
     return b.sub(op_dictionary_to_list($).map(($) => b.sub([
         b.nested_line([
             $p.export ? l.snippet("export ") : l.nothing(),
@@ -565,13 +563,13 @@ export const Variables = (
 }
 
 export const Literal = (
-    $: s_in.Literal,
+    $: d_in.Literal,
     $p: {
         'temp imports': s_in_interface.Imports
     },
-): s_out.Line_Part => {
+): d_out.Line_Part => {
     return l.sub([
-        pa.cc($, ($): s_out.Line_Part => {
+        pa.cc($, ($): d_out.Line_Part => {
             switch ($[0]) {
                 case 'boolean': return pa.ss($, ($) => pa.cc($, ($) => {
                     switch ($[0]) {

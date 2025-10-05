@@ -4,7 +4,7 @@ import * as pt from 'exupery-core-types'
 import * as s_in_inf from "../../generated/interface/schemas/interface/data_types/source"
 import * as s_in_imp from "../../generated/interface/schemas/implementation/data_types/source"
 
-import * as s_out from "../../generated/interface/schemas/typescript_light/data_types/target"
+import * as d_out from "../../generated/interface/schemas/typescript_light/data_types/target"
 
 import * as t_interface_to_typescript_temp from "../interface/typescript_light"
 import * as t_implementation_to_typescript_temp from "../implementation/typescript_light"
@@ -22,8 +22,8 @@ export const Temp_Library = (
     $p: {
         'phase': 'development' | 'production'
     }
-): s_out.Directory => {
-    return pa.dictionary_literal<s_out.Directory.D>({
+): d_out.Directory => {
+    return pa.dictionary_literal<d_out.Directory.D>({
         "interface": sh.n.directory(t_interface_to_typescript_temp.Module_Set($.interface)),
         "implementation": sh.n.directory(t_implementation_to_typescript_temp.Module_Set(
             $.implementation,
