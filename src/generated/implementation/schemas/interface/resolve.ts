@@ -352,18 +352,6 @@ export const r_Type: _i_signatures._T_Type = ($, $p) => _pa.block(() => {
                     )
                 })
             })])
-            case 'key value pair': return _pa.ss($, ($) => ['key value pair', _pa.block(() => {
-                return r_Type(
-                    $,
-                    {
-                        'location 2 string': l2s,
-                        'parameters': ({
-                            'lookups': null,
-                            'values': null,
-                        }),
-                    }
-                )
-            })])
             case 'null': return _pa.ss($, ($) => ['null', _pa.block(() => {
                 return null
             })])

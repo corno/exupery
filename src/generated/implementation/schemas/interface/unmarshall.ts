@@ -372,12 +372,6 @@ export const Type: _i_signatures._T_Type = ($, $p) => _i_generic.process_unresol
                     ),
                 }
             )],
-            'key value pair': ($): _i_out._T_Type.SG<_i_in._T_Range> => ['key value pair', Type(
-                $,
-                {
-                    'value deserializers': $p['value deserializers'],
-                }
-            )],
             'null': ($): _i_out._T_Type.SG<_i_in._T_Range> => ['null', _i_generic.process_nothing(
                 $,
                 null

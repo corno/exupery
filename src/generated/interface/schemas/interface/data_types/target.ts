@@ -60,7 +60,6 @@ export type _T_Type<M_Source> = _i_core._T_State_Group<M_Source,
         readonly 'type parameters': _T_Type_Parameters<M_Source>
     }]
     | readonly ['group', _i_core._T_Dictionary<M_Source, _T_Type<M_Source>>]
-    | readonly ['key value pair', _T_Type<M_Source>]
     | readonly ['null', null]
     | readonly ['number', _i_core._T_State_Group<M_Source, 
         | readonly ['float', null]
@@ -361,10 +360,6 @@ export namespace _T_Type {
             export type D<M_Source> = _T_Type<M_Source>
         }
         export type group<M_Source> = _i_core._T_Dictionary<M_Source, _T_Type<M_Source>>
-        
-        export namespace key_value_pair {
-        }
-        export type key_value_pair<M_Source> = _T_Type<M_Source>
         export type _null<M_Source> = null
         
         export namespace _number {
@@ -438,7 +433,6 @@ export namespace _T_Type {
             readonly 'type parameters': _T_Type_Parameters<M_Source>
         }]
         | readonly ['group', _i_core._T_Dictionary<M_Source, _T_Type<M_Source>>]
-        | readonly ['key value pair', _T_Type<M_Source>]
         | readonly ['null', null]
         | readonly ['number', _i_core._T_State_Group<M_Source, 
             | readonly ['float', null]
@@ -743,10 +737,6 @@ export namespace Type {
             export type D<M_Source> = _T_Type<M_Source>
         }
         export type group<M_Source> = _i_core._T_Dictionary<M_Source, _T_Type<M_Source>>
-        
-        export namespace key_value_pair {
-        }
-        export type key_value_pair<M_Source> = _T_Type<M_Source>
         export type _null<M_Source> = null
         
         export namespace _number {
@@ -820,7 +810,6 @@ export namespace Type {
             readonly 'type parameters': _T_Type_Parameters<M_Source>
         }]
         | readonly ['group', _i_core._T_Dictionary<M_Source, _T_Type<M_Source>>]
-        | readonly ['key value pair', _T_Type<M_Source>]
         | readonly ['null', null]
         | readonly ['number', _i_core._T_State_Group<M_Source, 
             | readonly ['float', null]

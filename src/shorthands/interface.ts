@@ -93,6 +93,7 @@ export namespace t {
             'parameter': parameter,
         }])
     }
+    
     export const parameter_type = (
         parameter: string,
     ): _out.Type<_edata.Source_Location> => {
@@ -101,6 +102,7 @@ export namespace t {
             'parameter': parameter,
         }])
     }
+
     export const parameter_function = (
         parameter: string,
     ): _out.Type<_edata.Source_Location> => {
@@ -109,6 +111,7 @@ export namespace t {
             'parameter': parameter,
         }])
     }
+
     export const component_sibling = (
         sibling: string,
         args: Raw_Or_Normal_Dictionary<_out.Type<_edata.Source_Location>>,
@@ -120,6 +123,7 @@ export namespace t {
             'sub selection': wrap_list(sub_selection)
         }])
     }
+
     export const component_imported = (
         imp: string,
         type: string,
@@ -143,11 +147,6 @@ export namespace t {
         return wrap_state_group(['dictionary', type])
     }
 
-    export const key_value_pair = (
-        type: _out.Type<_edata.Source_Location>
-    ): _out.Type<_edata.Source_Location> => {
-        return wrap_state_group(['key value pair', type])
-    }
     export const function_ = (
         type_parameters: Raw_Or_Normal_Dictionary<null>,
         context: _out.Type<_edata.Source_Location>,
@@ -161,30 +160,37 @@ export namespace t {
             'return': return_,
         }])
     }
+
     export const group = (
         properties: Raw_Or_Normal_Dictionary<_out.Type<_edata.Source_Location>>
     ): _out.Type<_edata.Source_Location> => {
         return wrap_state_group(['group', wrap_dictionary(properties)])
     }
+    
     export const array = (
         type: _out.Type<_edata.Source_Location>
     ): _out.Type<_edata.Source_Location> => {
         return wrap_state_group(['array', type])
     }
+
     export const null_ = (): _out.Type<_edata.Source_Location> => {
         return wrap_state_group(['null', null])
     }
+
     export const float = (): _out.Type<_edata.Source_Location> => {
         return wrap_state_group(['number', wrap_state_group(['float', null])])
     }
+
     export const integer = ($?: 'signed' | 'unsigned'): _out.Type<_edata.Source_Location> => {
         return wrap_state_group(['number', wrap_state_group(['integer', { 'signed': $ === 'signed' }])])
     }
+
     export const optional = (
         type: _out.Type<_edata.Source_Location>
     ): _out.Type<_edata.Source_Location> => {
         return wrap_state_group(['optional', type])
     }
+
     export const tagged_union = (
         states: Raw_Or_Normal_Dictionary<_out.Type<_edata.Source_Location>>
     ): _out.Type<_edata.Source_Location> => {

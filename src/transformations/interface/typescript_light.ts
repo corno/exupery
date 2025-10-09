@@ -445,21 +445,6 @@ export const Type_to_Aliases = (
                     )
                 }
             ))
-            case 'key value pair': return pa.ss($, ($) => Namespace(
-                $p.key,
-                {
-                    'callback': () => Type_to_Aliases_2(
-                        $,
-                        {
-                            'module parameters': $p['module parameters'],
-                            'type parameters': $p['type parameters'],
-                            'function type parameters': $p['function type parameters'],
-                            'key': "K",
-                            'temp imports': $p['temp imports'],
-                        }
-                    )
-                }
-            ))
             case 'null': return pa.ss($, ($) => b.nothing())
             case 'number': return pa.ss($, ($) => b.nothing())
             case 'optional': return pa.ss($, ($) => Namespace(
@@ -672,19 +657,6 @@ export const Type_to_Type = (
             case 'array': return pa.ss($, ($) => sh2.t.type_reference(
                 " pt",
                 ["Array"],
-                [
-                    Type_to_Type(
-                        $,
-                        {
-                            'module parameters': $p['module parameters'],
-                            'temp imports': $p['temp imports'],
-                        }
-                    )
-                ]
-            ))
-            case 'key value pair': return pa.ss($, ($) => sh2.t.type_reference(
-                " pt",
-                ["Key Value Pair"],
                 [
                     Type_to_Type(
                         $,

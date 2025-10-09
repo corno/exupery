@@ -60,7 +60,6 @@ export type _T_Type = _i_core._T_State_Group<null,
         readonly 'type parameters': _T_Type_Parameters
     }]
     | readonly ['group', _i_core._T_Dictionary<null, _T_Type>]
-    | readonly ['key value pair', _T_Type]
     | readonly ['null', null]
     | readonly ['number', _i_core._T_State_Group<null, 
         | readonly ['float', null]
@@ -361,10 +360,6 @@ export namespace _T_Type {
             export type D = _T_Type
         }
         export type group = _i_core._T_Dictionary<null, _T_Type>
-        
-        export namespace key_value_pair {
-        }
-        export type key_value_pair = _T_Type
         export type _null = null
         
         export namespace _number {
@@ -438,7 +433,6 @@ export namespace _T_Type {
             readonly 'type parameters': _T_Type_Parameters
         }]
         | readonly ['group', _i_core._T_Dictionary<null, _T_Type>]
-        | readonly ['key value pair', _T_Type]
         | readonly ['null', null]
         | readonly ['number', _i_core._T_State_Group<null, 
             | readonly ['float', null]
@@ -743,10 +737,6 @@ export namespace Type {
             export type D = _T_Type
         }
         export type group = _i_core._T_Dictionary<null, _T_Type>
-        
-        export namespace key_value_pair {
-        }
-        export type key_value_pair = _T_Type
         export type _null = null
         
         export namespace _number {
@@ -820,7 +810,6 @@ export namespace Type {
             readonly 'type parameters': _T_Type_Parameters
         }]
         | readonly ['group', _i_core._T_Dictionary<null, _T_Type>]
-        | readonly ['key value pair', _T_Type]
         | readonly ['null', null]
         | readonly ['number', _i_core._T_State_Group<null, 
             | readonly ['float', null]

@@ -241,15 +241,6 @@ export const Type: _i_signatures._T_Type = ($, $p) => ['state', _pa.cc($, ($): _
                 }
             ))],
         }))
-        case 'key value pair': return _pa.ss($, ($) => ({
-            'state': "key value pair",
-            'value': Type(
-                $,
-                {
-                    'value serializers': $p['value serializers'],
-                }
-            ),
-        }))
         case 'null': return _pa.ss($, ($) => ({
             'state': "null",
             'value': ['nothing', null],
