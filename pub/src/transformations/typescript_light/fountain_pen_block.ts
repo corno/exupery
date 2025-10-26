@@ -3,14 +3,14 @@ import * as pa from 'exupery-core-alg'
 import * as d_out from "pareto-fountain-pen/dist/generated/interface/schemas/block/data_types/target"
 import * as d_in from "../../generated/interface/schemas/typescript_light/data_types/source"
 
-import { $$ as op_create_identifier } from "../../operations/impure/create_identifier"
-import { $$ as op_list_is_empty } from "pareto-standard-operations/dist/impure/list/is_empty"
-import { $$ as op_dictionary_is_empty } from "pareto-standard-operations/dist/impure/dictionary/is_empty"
-import { $$ as op_enrich_list_elements_with_position_information } from "pareto-standard-operations/dist/impure/list/enrich_with_position_information"
-import { $$ as op_dictionary_to_list } from "pareto-standard-operations/dist/impure/dictionary/to_list_sorted_by_code_point"
-import { $$ as op_serialize_with_apostrophe_delimiter } from "../../operations/impure/serialize_apostrophed_string"
-import { $$ as op_serialize_with_quote_delimiter } from "../../operations/impure/serialize_quoted_string"
-import { $$ as op_serialize_approximate_number } from "exupery-standard-library/dist/approximate_number/serialize"
+import { $$ as op_create_identifier } from "../../operations/impure/text/create_identifier"
+import { $$ as op_list_is_empty } from "pareto-standard-operations/dist/operations/impure/list/is_empty"
+import { $$ as op_dictionary_is_empty } from "pareto-standard-operations/dist/operations/impure/dictionary/is_empty"
+import { $$ as op_enrich_list_elements_with_position_information } from "pareto-standard-operations/dist/operations/impure/list/enrich_with_position_information"
+import { $$ as op_dictionary_to_list } from "pareto-standard-operations/dist/operations/impure/dictionary/to_list_sorted_by_code_point"
+import { $$ as op_serialize_with_apostrophe_delimiter } from "../../operations/impure/text/serialize_apostrophed_string"
+import { $$ as op_serialize_with_quote_delimiter } from "../../operations/impure/text/serialize_quoted_string"
+import { $$ as op_serialize_approximate_number } from "exupery-standard-library/dist/operations/impure/approximate_number/serialize"
 
 
 import {

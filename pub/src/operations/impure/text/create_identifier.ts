@@ -1,8 +1,8 @@
 import * as _ea from 'exupery-core-alg'
 
-import { $$ as op_to_character_list } from "exupery-standard-library/dist/text/to_character_list"
-import { $$ as op_join_list_of_texts } from "pareto-standard-operations/dist/pure/text/join_list_of_texts"
-import { $$ as op_integer_serialize } from "exupery-standard-library/dist/integer/serialize"
+import { $$ as op_to_character_list } from "exupery-standard-library/dist/operations/impure/text/to_character_list"
+import { $$ as op_join_list_of_texts } from "pareto-standard-operations/dist/operations/pure/text/join_list_of_texts"
+import { $$ as op_integer_serialize } from "exupery-standard-library/dist/operations/impure/integer/serialize"
 
 export const $$ = ($: string[]): string => {
     const the_string = op_join_list_of_texts(_ea.array_literal($))

@@ -13,19 +13,19 @@ import {
     b, l, block
 } from "pareto-fountain-pen/dist/shorthands/block"
 
-import { $$ as op_join_list_of_texts } from "pareto-standard-operations/dist/pure/text/join_list_of_texts"
-import { $$ as op_flatten_dictionary } from "pareto-standard-operations/dist/pure/dictionary/flatten"
-import { $$ as op_dictionary_to_list } from "pareto-standard-operations/dist/impure/dictionary/to_list_sorted_by_code_point"
-import { $$ as op_serialize_with_apostrophe_delimiter } from "../../operations/impure/serialize_apostrophed_string"
-import { $$ as op_serialize_with_quote_delimiter } from "../../operations/impure/serialize_quoted_string"
-import { $$ as op_serialize_with_grave_delimiter } from "../../operations/impure/serialize_backticked_string"
+import { $$ as op_join_list_of_texts } from "pareto-standard-operations/dist/operations/pure/text/join_list_of_texts"
+import { $$ as op_flatten_dictionary } from "pareto-standard-operations/dist/operations/pure/dictionary/flatten"
+import { $$ as op_dictionary_to_list } from "pareto-standard-operations/dist/operations/impure/dictionary/to_list_sorted_by_code_point"
+import { $$ as op_serialize_with_apostrophe_delimiter } from "../../operations/impure/text/serialize_apostrophed_string"
+import { $$ as op_serialize_with_quote_delimiter } from "../../operations/impure/text/serialize_quoted_string"
+import { $$ as op_serialize_with_grave_delimiter } from "../../operations/impure/text/serialize_backticked_string"
 
-import { $$ as op_repeat } from "pareto-standard-operations/dist/impure/text/repeat"
-import { $$ as op_create_valid_file_name } from "pareto-standard-operations/dist/impure/text/create_valid_file_name"
-import { $$ as op_create_identifier } from "../../operations/impure/create_identifier"
-import { $$ as op_dictionary_is_empty } from "pareto-standard-operations/dist/impure/dictionary/is_empty"
-import { $$ as op_approximate_number_serialize } from "exupery-standard-library/dist/approximate_number/serialize"
-import { $$ as op_integer_serialize } from "exupery-standard-library/dist/integer/serialize"
+import { $$ as op_repeat } from "pareto-standard-operations/dist/operations/impure/text/repeat"
+import { $$ as op_create_valid_file_name } from "pareto-standard-operations/dist/operations/impure/text/create_valid_file_name"
+import { $$ as op_create_identifier } from "../../operations/impure/text/create_identifier"
+import { $$ as op_dictionary_is_empty } from "pareto-standard-operations/dist/operations/impure/dictionary/is_empty"
+import { $$ as op_approximate_number_serialize } from "exupery-standard-library/dist/operations/impure/approximate_number/serialize"
+import { $$ as op_integer_serialize } from "exupery-standard-library/dist/operations/impure/integer/serialize"
 
 export const Module_Set = (
     $: d_in.Module_Set,
