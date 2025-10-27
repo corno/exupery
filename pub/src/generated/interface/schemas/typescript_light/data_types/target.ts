@@ -351,9 +351,9 @@ export namespace _T_Group_Part {
         }
         export type optional = _pt.Optional_Value<_T_Group_Part>
         
-        export namespace sub_block {
+        export namespace sub_group {
         }
-        export type sub_block = _T_Group
+        export type sub_group = _T_Group
     }
     export type SG = 
         | readonly ['line', string]
@@ -962,9 +962,9 @@ export namespace Group_Part {
         }
         export type optional = _pt.Optional_Value<_T_Group_Part>
         
-        export namespace sub_block {
+        export namespace sub_group {
         }
-        export type sub_block = _T_Group
+        export type sub_group = _T_Group
     }
     export type SG = 
         | readonly ['line', string]
