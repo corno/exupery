@@ -21,12 +21,12 @@ import { $$ as op_join_list_of_texts } from "pareto-standard-operations/dist/ope
 import { $$ as op_create_valid_file_name } from "pareto-standard-operations/dist/operations/impure/text/create_valid_file_name"
 
 export function line_dictionary(
-    $: pt.Dictionary<d_out.Line_Part>,
-    if_empty: d_out.Line_Part,
-    prefix: d_out.Line_Part,
-    suffix: d_out.Line_Part,
+    $: pt.Dictionary<d_out.Block_Part>,
+    if_empty: d_out.Block_Part,
+    prefix: d_out.Block_Part,
+    suffix: d_out.Block_Part,
     add_commas: boolean
-): d_out.Line_Part {
+): d_out.Block_Part {
     let is_empty = true
     $.map(($) => {
         is_empty = false
@@ -35,15 +35,15 @@ export function line_dictionary(
         return if_empty
     } else {
         let is_first = true
-        return sh.l.sub([
+        return sh.b.sub([
             prefix,
-            sh.l.sub(op_dictionary_to_list($).map(($): d_out.Line_Part => {
-                const out = sh.l.sub([
+            sh.b.sub(op_dictionary_to_list($).map(($): d_out.Block_Part => {
+                const out = sh.b.sub([
                     is_first ?
-                        sh.l.nothing()
+                        sh.b.nothing()
                         : add_commas
-                            ? sh.l.snippet(", ")
-                            : sh.l.nothing()
+                            ? sh.b.snippet(", ")
+                            : sh.b.nothing()
                     ,
                     $.value,
                 ])
@@ -71,10 +71,10 @@ export const Module_Set = ($: d_in.Module_Set): d_out.Directory => {
 
                     sh.g.simple_line(""),
                     sh.g.sub(op_dictionary_to_list($.imports).map(($) => sh.g.sub([
-                        sh.g.nested_line([
-                            sh.l.snippet("import * as "),
-                            sh.l.snippet(op_create_identifier([" i ", $.key])),
-                            sh.l.snippet(" from "),
+                        sh.g.nested_block([
+                            sh.b.snippet("import * as "),
+                            sh.b.snippet(op_create_identifier([" i ", $.key])),
+                            sh.b.snippet(" from "),
                             String_Literal(
                                 pa.cc($.value.type, ($): string => {
                                     switch ($[0]) {
@@ -147,21 +147,21 @@ export const Module_Set = ($: d_in.Module_Set): d_out.Directory => {
                                 'module parameters': x_module_parameters,
                                 'function type parameters': pa.not_set(),
                                 'callback': () => {
-                                    return sh.l.sub([
-                                        sh.l.snippet(op_create_identifier([" T ", $.key])),
+                                    return sh.b.sub([
+                                        sh.b.snippet(op_create_identifier([" T ", $.key])),
                                         line_dictionary(
                                             op_flatten_dictionary(
                                                 pa.dictionary_literal({
-                                                    "M": x_module_parameters.map(($, key) => sh.l.snippet(op_create_identifier(["M ", key]))),
-                                                    "T": $.value.parameters.map(($, key) => sh.l.snippet(op_create_identifier(["T ", key]))),
+                                                    "M": x_module_parameters.map(($, key) => sh.b.snippet(op_create_identifier(["M ", key]))),
+                                                    "T": $.value.parameters.map(($, key) => sh.b.snippet(op_create_identifier(["T ", key]))),
                                                 }),
                                                 {
                                                     'separator': " "
                                                 }
                                             ),
-                                            sh.l.nothing(),
-                                            sh.l.snippet("<"),
-                                            sh.l.snippet(">"),
+                                            sh.b.nothing(),
+                                            sh.b.snippet("<"),
+                                            sh.b.snippet(">"),
                                             true,
                                         ),
                                     ])
@@ -220,12 +220,12 @@ export const Module_Set = ($: d_in.Module_Set): d_out.Directory => {
                     //             }
                     //         }))
                     //     )
-                    // ).map(($) => sh.g.nested_line([
+                    // ).map(($) => sh.g.nested_block([
 
-                    //     sh.l.snippet("export import "),
-                    //     sh.l.snippet(op['create identifier']($.key),
-                    //     sh.l.snippet(" = "),
-                    //     sh.l.snippet(op['create identifier'](` T ${$.key}`),
+                    //     sh.b.snippet("export import "),
+                    //     sh.b.snippet(op['create identifier']($.key),
+                    //     sh.b.snippet(" = "),
+                    //     sh.b.snippet(op['create identifier'](` T ${$.key}`),
                     // ]))),
 
                 ])]
@@ -255,14 +255,14 @@ export const Type_to_Aliases = (
     ): d_out.Group_Part => {
         return sh.g.sub([
             sh.g.simple_line(""),
-            sh.g.nested_line([
-                sh.l.snippet("export namespace "),
-                sh.l.snippet(op_create_identifier([key])),
-                sh.l.snippet(" {"),
-                sh.l.indent([
+            sh.g.nested_block([
+                sh.b.snippet("export namespace "),
+                sh.b.snippet(op_create_identifier([key])),
+                sh.b.snippet(" {"),
+                sh.b.indent([
                     $p.callback()
                 ]),
-                sh.l.snippet("}")
+                sh.b.snippet("}")
             ])
         ])
     }
@@ -720,13 +720,13 @@ export const Type_Declaration = (
         'type parameters': d_in.Type_Parameters,
         'module parameters': d_in.Type_Parameters,
         'function type parameters': pt.Optional_Value<d_in.Type_Parameters>,
-        'callback': () => d_out.Line_Part
+        'callback': () => d_out.Block_Part
     }
 ): d_out.Group_Part => {
-    return sh.g.nested_line([
-        sh.l.sub([
-            sh.l.snippet("export type "),
-            sh.l.snippet(op_create_identifier([$p.name])),
+    return sh.g.nested_block([
+        sh.b.sub([
+            sh.b.snippet("export type "),
+            sh.b.snippet(op_create_identifier([$p.name])),
             line_dictionary(
                 op_flatten_dictionary(
                     pa.dictionary_literal({
@@ -741,13 +741,13 @@ export const Type_Declaration = (
                         //'escape': "$",
                         'separator': " "
                     }
-                ).map(($, key) => sh.l.snippet(op_create_identifier([key]))),
-                sh.l.nothing(),
-                sh.l.snippet("<"),
-                sh.l.snippet(">"),
+                ).map(($, key) => sh.b.snippet(op_create_identifier([key]))),
+                sh.b.nothing(),
+                sh.b.snippet("<"),
+                sh.b.snippet(">"),
                 true,
             ),
-            sh.l.snippet(" = "),
+            sh.b.snippet(" = "),
             $p.callback()
         ])
     ])

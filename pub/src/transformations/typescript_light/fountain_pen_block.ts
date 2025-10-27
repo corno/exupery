@@ -22,32 +22,32 @@ export const Group = ($: d_in.Group): d_out_fp.Group => {
 export const Group_Part = ($: d_in.Group_Part): d_out_fp.Group_Part => {
     return _ea.cc($, ($): d_out_fp.Group_Part => {
         switch ($[0]) {
-            case 'line': return _ea.ss($, ($) => ['line', $])
+            case 'block': return _ea.ss($, ($) => ['block', $])
             case 'nothing': return _ea.ss($, ($) => ['nothing', null])
             case 'optional': return _ea.ss($, ($) => ['optional', $.map(($) => Group_Part($))])
-            case 'nested line': return _ea.ss($, ($) => ['nested line', Line($)])
+            case 'nested block': return _ea.ss($, ($) => ['nested block', Block($)])
             case 'sub group': return _ea.ss($, ($) => ['sub group', Group($)])
             default: return _ea.au($[0])
         }
     })
 }
 
-export const Line = (
-    $: d_in.Line
-): d_out_fp.Line => {
-    return $.map(($) => Line_Part($))
+export const Block = (
+    $: d_in.Block
+): d_out_fp.Block => {
+    return $.map(($) => Block_Part($))
 }
 
-export const Line_Part = (
-    $: d_in.Line_Part
-): d_out_fp.Line_Part => {
-    return _ea.cc($, ($): d_out_fp.Line_Part => {
+export const Block_Part = (
+    $: d_in.Block_Part
+): d_out_fp.Block_Part => {
+    return _ea.cc($, ($): d_out_fp.Block_Part => {
         switch ($[0]) {
-            case 'snippet': return _ea.ss($, ($) => sh.l.snippet($))
+            case 'snippet': return _ea.ss($, ($) => sh.b.snippet($))
             case 'nothing': return _ea.ss($, ($) => ['nothing', null])
-            case 'optional': return _ea.ss($, ($) => ['optional', $.map(($): d_out_fp.Line_Part => Line_Part($))])
+            case 'optional': return _ea.ss($, ($) => ['optional', $.map(($): d_out_fp.Block_Part => Block_Part($))])
             case 'indent': return _ea.ss($, ($) => ['indent', Group($)])
-            case 'sub line': return _ea.ss($, ($) => ['sub line', Line($)])
+            case 'sub block': return _ea.ss($, ($) => ['sub block', Block($)])
             default: return _ea.au($[0])
         }
     })
@@ -55,8 +55,8 @@ export const Line_Part = (
 
 export const Identifier = (
     $: string //FIX should have been a schema type
-): d_out_fp.Line_Part => {
-    return sh.l.snippet(op_create_identifier([$]))
+): d_out_fp.Block_Part => {
+    return sh.b.snippet(op_create_identifier([$]))
 }
 
 export const String_Literal = (
@@ -64,8 +64,8 @@ export const String_Literal = (
     $p: {
         'delimiter': "quote" | "apostrophe"
     }
-): d_out_fp.Line_Part => {
-    return sh.l.snippet($p.delimiter === "quote" ? op_serialize_with_quote_delimiter($) : op_serialize_with_apostrophe_delimiter($))
+): d_out_fp.Block_Part => {
+    return sh.b.snippet($p.delimiter === "quote" ? op_serialize_with_quote_delimiter($) : op_serialize_with_apostrophe_delimiter($))
 }
 
 export const Statements = (
@@ -73,73 +73,73 @@ export const Statements = (
     $p: {
         'replace empty type literals by null': boolean
     }
-): d_out_fp.Group_Part => sh.g.sub($.map(($) => sh.g.nested_line([
+): d_out_fp.Group_Part => sh.g.sub($.map(($) => sh.g.nested_block([
     _ea.cc($, ($) => {
         switch ($[0]) {
-            case 'import': return _ea.ss($, ($) => sh.l.sub([
-                sh.l.snippet("import "),
+            case 'import': return _ea.ss($, ($) => sh.b.sub([
+                sh.b.snippet("import "),
                 _ea.cc($.type, ($) => {
                     switch ($[0]) {
-                        case 'named': return _ea.ss($, ($) => sh.l.sub([
-                            sh.l.snippet("{ "),
-                            sh.l.sub(op_dictionary_to_list($.specifiers).map(($) => sh.l.sub([
+                        case 'named': return _ea.ss($, ($) => sh.b.sub([
+                            sh.b.snippet("{ "),
+                            sh.b.sub(op_dictionary_to_list($.specifiers).map(($) => sh.b.sub([
                                 Identifier($.key),
-                                sh.l.snippet(", ")
+                                sh.b.snippet(", ")
                             ]))),
-                            sh.l.snippet("}"),
+                            sh.b.snippet("}"),
                         ]))
-                        case 'namespace': return _ea.ss($, ($) => sh.l.sub([
-                            sh.l.snippet("* as "),
+                        case 'namespace': return _ea.ss($, ($) => sh.b.sub([
+                            sh.b.snippet("* as "),
                             Identifier($),
                         ]))
                         default: return _ea.au($[0])
                     }
                 }),
-                sh.l.snippet(" from "),
+                sh.b.snippet(" from "),
                 String_Literal($.from, { 'delimiter': "quote" }),
             ]))
-            case 'module declaration': return _ea.ss($, ($) => sh.l.sub([
-                $.export ? sh.l.snippet("export ") : sh.l.nothing(),
-                sh.l.snippet("namespace {"),
-                sh.l.indent([
+            case 'module declaration': return _ea.ss($, ($) => sh.b.sub([
+                $.export ? sh.b.snippet("export ") : sh.b.nothing(),
+                sh.b.snippet("namespace {"),
+                sh.b.indent([
                     Statements($['block'], $p),
                 ]),
-                sh.l.snippet("}"),
+                sh.b.snippet("}"),
             ]))
-            case 'type alias declaration': return _ea.ss($, ($) => sh.l.sub([
-                $.export ? sh.l.snippet("export ") : sh.l.nothing(),
-                sh.l.snippet("type "),
+            case 'type alias declaration': return _ea.ss($, ($) => sh.b.sub([
+                $.export ? sh.b.snippet("export ") : sh.b.nothing(),
+                sh.b.snippet("type "),
                 Identifier($['name']),
                 op_list_is_empty($['parameters'])
-                    ? sh.l.nothing()
-                    : sh.l.sub([
-                        sh.l.snippet("<"),
-                        sh.l.sub(op_enrich_list_elements_with_position_information($['parameters']).map(($) => sh.l.sub([
+                    ? sh.b.nothing()
+                    : sh.b.sub([
+                        sh.b.snippet("<"),
+                        sh.b.sub(op_enrich_list_elements_with_position_information($['parameters']).map(($) => sh.b.sub([
                             Identifier($.value),
-                            $['is last'] ? sh.l.nothing() : sh.l.snippet(", ")
+                            $['is last'] ? sh.b.nothing() : sh.b.snippet(", ")
                         ]))),
-                        sh.l.snippet(">"),
+                        sh.b.snippet(">"),
                     ]),
-                sh.l.snippet(" = "),
+                sh.b.snippet(" = "),
                 Type($['type'], $p),
             ]))
-            case 'variable': return _ea.ss($, ($) => sh.l.sub([
-                $.export ? sh.l.snippet("export ") : sh.l.nothing(),
-                $.const ? sh.l.snippet("const ") : sh.l.snippet("let "),
+            case 'variable': return _ea.ss($, ($) => sh.b.sub([
+                $.export ? sh.b.snippet("export ") : sh.b.nothing(),
+                $.const ? sh.b.snippet("const ") : sh.b.snippet("let "),
                 Identifier($['name']),
                 $.type.transform(
-                    ($) => sh.l.sub([
-                        sh.l.snippet(": "),
+                    ($) => sh.b.sub([
+                        sh.b.snippet(": "),
                         Type($, $p)
                     ]),
-                    () => sh.l.nothing(),
+                    () => sh.b.nothing(),
                 ),
                 $.expression.transform(
-                    ($) => sh.l.sub([
-                        sh.l.snippet("= "),
+                    ($) => sh.b.sub([
+                        sh.b.snippet("= "),
                         Expression($, $p)
                     ]),
-                    () => sh.l.nothing(),
+                    () => sh.b.nothing(),
                 ),
             ]))
             default: return _ea.au($[0])
@@ -152,86 +152,86 @@ export const Expression = (
     $p: {
         'replace empty type literals by null': boolean
     }
-): d_out_fp.Line_Part => _ea.cc($, ($) => {
+): d_out_fp.Block_Part => _ea.cc($, ($) => {
     switch ($[0]) {
-        case 'array literal': return _ea.ss($, ($) => sh.l.sub([
-            sh.l.snippet("["),
-            sh.l.indent([
-                sh.g.sub(op_enrich_list_elements_with_position_information($).map(($) => sh.g.nested_line([
+        case 'array literal': return _ea.ss($, ($) => sh.b.sub([
+            sh.b.snippet("["),
+            sh.b.indent([
+                sh.g.sub(op_enrich_list_elements_with_position_information($).map(($) => sh.g.nested_block([
                     Expression($.value, $p),
-                    $['is last'] ? sh.l.nothing() : sh.l.snippet(", ")
+                    $['is last'] ? sh.b.nothing() : sh.b.snippet(", ")
                 ]))),
             ]),
-            sh.l.snippet("]"),
+            sh.b.snippet("]"),
         ]))
-        case 'arrow function': return _ea.ss($, ($) => sh.l.sub([
-            sh.l.snippet("("),
-            sh.l.indent([
-                sh.g.sub($.parameters.map(($) => sh.g.nested_line([
+        case 'arrow function': return _ea.ss($, ($) => sh.b.sub([
+            sh.b.snippet("("),
+            sh.b.indent([
+                sh.g.sub($.parameters.map(($) => sh.g.nested_block([
                     Identifier($.name),
                     $.type.transform(
-                        ($) => sh.l.sub([
-                            sh.l.snippet(": "),
+                        ($) => sh.b.sub([
+                            sh.b.snippet(": "),
                             Type($, $p)
                         ]),
-                        () => sh.l.nothing(),
+                        () => sh.b.nothing(),
                     ),
-                    sh.l.snippet(",")
+                    sh.b.snippet(",")
                 ]))),
             ]),
-            sh.l.snippet(")"),
+            sh.b.snippet(")"),
             $['return type'].transform(
-                ($) => sh.l.sub([
-                    sh.l.snippet(": "),
+                ($) => sh.b.sub([
+                    sh.b.snippet(": "),
                     Type($, $p)
                 ]),
-                () => sh.l.nothing(),
+                () => sh.b.nothing(),
             ),
-            sh.l.snippet(" => "),
+            sh.b.snippet(" => "),
             _ea.cc($.type, ($) => {
                 switch ($[0]) {
-                    case 'block': return _ea.ss($, ($) => sh.l.sub([
-                        sh.l.snippet("{"),
-                        sh.l.indent([
+                    case 'block': return _ea.ss($, ($) => sh.b.sub([
+                        sh.b.snippet("{"),
+                        sh.b.indent([
                             Statements($, $p),
                         ]),
-                        sh.l.snippet("}"),
+                        sh.b.snippet("}"),
                     ]))
                     case 'expression': return _ea.ss($, ($) => Expression($, $p))
                     default: return _ea.au($[0])
                 }
             }),
         ]))
-        case 'call': return _ea.ss($, ($) => sh.l.sub([
+        case 'call': return _ea.ss($, ($) => sh.b.sub([
             Expression($['function selection'], $p),
-            sh.l.snippet("("),
-            sh.l.indent([
-                sh.g.sub(op_enrich_list_elements_with_position_information($['arguments']).map(($) => sh.g.nested_line([
+            sh.b.snippet("("),
+            sh.b.indent([
+                sh.g.sub(op_enrich_list_elements_with_position_information($['arguments']).map(($) => sh.g.nested_block([
                     Expression($.value, $p),
-                    $['is last'] ? sh.l.nothing() : sh.l.snippet(", ")
+                    $['is last'] ? sh.b.nothing() : sh.b.snippet(", ")
                 ]))),
             ]),
-            sh.l.snippet(")"),
+            sh.b.snippet(")"),
         ]))
-        case 'false': return _ea.ss($, ($) => sh.l.snippet("false"))
-        case 'null': return _ea.ss($, ($) => sh.l.snippet("null"))
-        case 'number literal': return _ea.ss($, ($) => sh.l.snippet(op_serialize_approximate_number($)))
-        case 'object literal': return _ea.ss($, ($) => sh.l.sub([
-            sh.l.snippet("{"),
-            sh.l.indent([
-                sh.g.sub(op_dictionary_to_list($.properties).map(($) => sh.g.nested_line([
+        case 'false': return _ea.ss($, ($) => sh.b.snippet("false"))
+        case 'null': return _ea.ss($, ($) => sh.b.snippet("null"))
+        case 'number literal': return _ea.ss($, ($) => sh.b.snippet(op_serialize_approximate_number($)))
+        case 'object literal': return _ea.ss($, ($) => sh.b.sub([
+            sh.b.snippet("{"),
+            sh.b.indent([
+                sh.g.sub(op_dictionary_to_list($.properties).map(($) => sh.g.nested_block([
                     String_Literal($.key, { 'delimiter': "apostrophe" }),
-                    sh.l.snippet(": "),
+                    sh.b.snippet(": "),
                     Expression($.value, $p),
-                    sh.l.snippet(",")
+                    sh.b.snippet(",")
                 ]))),
             ]),
-            sh.l.snippet("}"),
+            sh.b.snippet("}"),
         ]))
-        case 'string literal': return _ea.ss($, ($) => sh.l.sub([
-            sh.l.snippet($['delimiter'][0] === "quote" ? op_serialize_with_quote_delimiter($['value']) : op_serialize_with_apostrophe_delimiter($['value']))
+        case 'string literal': return _ea.ss($, ($) => sh.b.sub([
+            sh.b.snippet($['delimiter'][0] === "quote" ? op_serialize_with_quote_delimiter($['value']) : op_serialize_with_apostrophe_delimiter($['value']))
         ]))
-        case 'true': return _ea.ss($, ($) => sh.l.snippet("true"))
+        case 'true': return _ea.ss($, ($) => sh.b.snippet("true"))
         default: return _ea.au($[0])
     }
 })
@@ -241,92 +241,92 @@ export const Type = (
     $p: {
         'replace empty type literals by null': boolean
     }
-): d_out_fp.Line_Part => _ea.cc($, ($) => {
+): d_out_fp.Block_Part => _ea.cc($, ($) => {
     switch ($[0]) {
-        case 'boolean': return _ea.ss($, ($) => sh.l.snippet("boolean"))
-        case 'function': return _ea.ss($, ($) => sh.l.sub([
+        case 'boolean': return _ea.ss($, ($) => sh.b.snippet("boolean"))
+        case 'function': return _ea.ss($, ($) => sh.b.sub([
             op_list_is_empty($['type parameters'])
-                ? sh.l.nothing()
-                : sh.l.sub([
-                    sh.l.snippet("<"),
-                    sh.l.sub(op_enrich_list_elements_with_position_information($['type parameters']).map(($) => sh.l.sub([
+                ? sh.b.nothing()
+                : sh.b.sub([
+                    sh.b.snippet("<"),
+                    sh.b.sub(op_enrich_list_elements_with_position_information($['type parameters']).map(($) => sh.b.sub([
                         Identifier($.value),
-                        $['is last'] ? sh.l.nothing() : sh.l.snippet(", ")
+                        $['is last'] ? sh.b.nothing() : sh.b.snippet(", ")
                     ]))),
-                    sh.l.snippet(">"),
-                ]), sh.l.snippet("("),
-            sh.l.indent([
-                sh.g.sub($['parameters'].map(($) => sh.g.nested_line([
+                    sh.b.snippet(">"),
+                ]), sh.b.snippet("("),
+            sh.b.indent([
+                sh.g.sub($['parameters'].map(($) => sh.g.nested_block([
                     Identifier($.name),
                     $.type.transform(
-                        ($) => sh.l.sub([
-                            sh.l.snippet(": "),
+                        ($) => sh.b.sub([
+                            sh.b.snippet(": "),
                             Type($, $p)
                         ]),
-                        () => sh.l.nothing(),
+                        () => sh.b.nothing(),
                     ),
-                    sh.l.snippet(",")
+                    sh.b.snippet(",")
                 ]))),
             ]),
-            sh.l.snippet(") => "),
+            sh.b.snippet(") => "),
             Type($['return'], $p)
         ]))
         case 'literal type': return _ea.ss($, ($) => String_Literal($.value, { 'delimiter': $.delimiter[0] })) //FIX, implement a switch for the delimiter
-        case 'null': return _ea.ss($, ($) => sh.l.snippet("null"))
-        case 'number': return _ea.ss($, ($) => sh.l.snippet("number"))
-        case 'string': return _ea.ss($, ($) => sh.l.snippet("string"))
-        case 'tuple': return _ea.ss($, ($) => sh.l.sub([
-            $.readonly ? sh.l.snippet("readonly ") : sh.l.nothing(),
-            sh.l.snippet("["),
-            sh.l.sub(op_enrich_list_elements_with_position_information($['elements']).map(($) => sh.l.sub([
+        case 'null': return _ea.ss($, ($) => sh.b.snippet("null"))
+        case 'number': return _ea.ss($, ($) => sh.b.snippet("number"))
+        case 'string': return _ea.ss($, ($) => sh.b.snippet("string"))
+        case 'tuple': return _ea.ss($, ($) => sh.b.sub([
+            $.readonly ? sh.b.snippet("readonly ") : sh.b.nothing(),
+            sh.b.snippet("["),
+            sh.b.sub(op_enrich_list_elements_with_position_information($['elements']).map(($) => sh.b.sub([
                 Type($.value, $p),
                 $['is last']
-                    ? sh.l.nothing()
-                    : sh.l.snippet(", ")
+                    ? sh.b.nothing()
+                    : sh.b.snippet(", ")
             ]))),
-            sh.l.snippet("]"),
+            sh.b.snippet("]"),
         ]))
         case 'type literal': return _ea.ss($, ($) => $p['replace empty type literals by null'] && op_dictionary_is_empty($['properties'])
-            ? sh.l.snippet("null")
-            : sh.l.sub([
-                sh.l.snippet("{"),
-                sh.l.indent([
+            ? sh.b.snippet("null")
+            : sh.b.sub([
+                sh.b.snippet("{"),
+                sh.b.indent([
                     sh.g.sub(op_dictionary_to_list($['properties']).map(($) => sh.g.sub([
-                        sh.g.nested_line([
-                            $.value['readonly'] ? sh.l.snippet("readonly ") : sh.l.nothing(),
+                        sh.g.nested_block([
+                            $.value['readonly'] ? sh.b.snippet("readonly ") : sh.b.nothing(),
                             String_Literal($.key, { 'delimiter': "apostrophe" }),
-                            sh.l.snippet(": "),
+                            sh.b.snippet(": "),
                             Type($.value.type, $p),
                         ])
                     ]))),
                 ]),
-                sh.l.snippet("}")
+                sh.b.snippet("}")
             ])
         )
-        case 'type reference': return _ea.ss($, ($) => sh.l.sub([
+        case 'type reference': return _ea.ss($, ($) => sh.b.sub([
             Identifier($['start']),
-            sh.l.sub($['tail'].map(($) => sh.l.sub([
-                sh.l.snippet("."),
+            sh.b.sub($['tail'].map(($) => sh.b.sub([
+                sh.b.snippet("."),
                 Identifier($),
             ]))),
             op_list_is_empty($['type arguments'])
-                ? sh.l.nothing()
-                : sh.l.sub([
-                    sh.l.snippet("<"),
-                    sh.l.sub(op_enrich_list_elements_with_position_information($['type arguments']).map(($) => sh.l.sub([
+                ? sh.b.nothing()
+                : sh.b.sub([
+                    sh.b.snippet("<"),
+                    sh.b.sub(op_enrich_list_elements_with_position_information($['type arguments']).map(($) => sh.b.sub([
                         Type($['value'], $p),
-                        $['is last'] ? sh.l.nothing() : sh.l.snippet(", "),
+                        $['is last'] ? sh.b.nothing() : sh.b.snippet(", "),
                     ]))),
-                    sh.l.snippet(">"),
+                    sh.b.snippet(">"),
                 ]),
         ]))
-        case 'union': return _ea.ss($, ($) => sh.l.indent([
-            sh.g.sub($.map(($) => sh.g.nested_line([
-                sh.l.snippet("| "),
+        case 'union': return _ea.ss($, ($) => sh.b.indent([
+            sh.g.sub($.map(($) => sh.g.nested_block([
+                sh.b.snippet("| "),
                 Type($, $p),
             ])))
         ]))
-        case 'void': return _ea.ss($, ($) => sh.l.snippet("void"))
+        case 'void': return _ea.ss($, ($) => sh.b.snippet("void"))
         default: return _ea.au($[0])
     }
 })
