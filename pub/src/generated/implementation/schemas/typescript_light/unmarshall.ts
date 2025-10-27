@@ -7,10 +7,10 @@ import * as _i_out from "../../../interface/schemas/typescript_light/data_types/
 import * as _i_signatures from "../../../interface/schemas/typescript_light/unmarshall"
 
 
-export const Block: _i_signatures._T_Block = ($, $p) => _i_generic.process_unconstrained_list(
+export const Group: _i_signatures._T_Group = ($, $p) => _i_generic.process_unconstrained_list(
     $,
     {
-        'value': ($) => Block_Part(
+        'value': ($) => Group_Part(
             $,
             {
                 'value deserializers': $p['value deserializers'],
@@ -18,28 +18,28 @@ export const Block: _i_signatures._T_Block = ($, $p) => _i_generic.process_uncon
         ),
     }
 )
-export const Block_Part: _i_signatures._T_Block_Part = ($, $p) => _i_generic.process_unconstrained_state_group(
+export const Group_Part: _i_signatures._T_Group_Part = ($, $p) => _i_generic.process_unconstrained_state_group(
     $,
     {
         'states': _pa.dictionary_literal({
-            'line': ($): _i_out._T_Block_Part.SG => ['line', _i_generic.process_text(
+            'line': ($): _i_out._T_Group_Part.SG => ['line', _i_generic.process_text(
                 $,
                 null
             )],
-            'nested line': ($): _i_out._T_Block_Part.SG => ['nested line', Line(
+            'nested line': ($): _i_out._T_Group_Part.SG => ['nested line', Line(
                 $,
                 {
                     'value deserializers': $p['value deserializers'],
                 }
             )],
-            'nothing': ($): _i_out._T_Block_Part.SG => ['nothing', _i_generic.process_nothing(
+            'nothing': ($): _i_out._T_Group_Part.SG => ['nothing', _i_generic.process_nothing(
                 $,
                 null
             )],
-            'optional': ($): _i_out._T_Block_Part.SG => ['optional', _i_generic.process_optional(
+            'optional': ($): _i_out._T_Group_Part.SG => ['optional', _i_generic.process_optional(
                 $,
                 {
-                    'value': ($) => Block_Part(
+                    'value': ($) => Group_Part(
                         $,
                         {
                             'value deserializers': $p['value deserializers'],
@@ -47,7 +47,7 @@ export const Block_Part: _i_signatures._T_Block_Part = ($, $p) => _i_generic.pro
                     ),
                 }
             )],
-            'sub block': ($): _i_out._T_Block_Part.SG => ['sub block', Block(
+            'sub group': ($): _i_out._T_Group_Part.SG => ['sub group', Group(
                 $,
                 {
                     'value deserializers': $p['value deserializers'],
@@ -69,7 +69,7 @@ export const Directory: _i_signatures._T_Directory = ($, $p) => _i_generic.proce
                             'value deserializers': $p['value deserializers'],
                         }
                     )],
-                    'file': ($): _i_out._T_Directory.D.SG => ['file', Block(
+                    'file': ($): _i_out._T_Directory.D.SG => ['file', Group(
                         $,
                         {
                             'value deserializers': $p['value deserializers'],
@@ -166,7 +166,7 @@ export const Expression: _i_signatures._T_Expression = ($, $p) => _i_generic.pro
                             $,
                             {
                                 'states': _pa.dictionary_literal({
-                                    'block': ($): _i_out._T_Expression.SG.arrow_function._type.SG => ['block', Statements(
+                                    'group': ($): _i_out._T_Expression.SG.arrow_function._type.SG => ['group', Statements(
                                         $,
                                         {
                                             'value deserializers': $p['value deserializers'],
@@ -283,7 +283,7 @@ export const Line_Part: _i_signatures._T_Line_Part = ($, $p) => _i_generic.proce
     $,
     {
         'states': _pa.dictionary_literal({
-            'indent': ($): _i_out._T_Line_Part.SG => ['indent', Block(
+            'indent': ($): _i_out._T_Line_Part.SG => ['indent', Group(
                 $,
                 {
                     'value deserializers': $p['value deserializers'],
@@ -413,10 +413,10 @@ export const Statements: _i_signatures._T_Statements = ($, $p) => _i_generic.pro
                         $,
                         {
                             'properties': ($) => ({
-                                'block': _pa.cc(_i_generic.get_entry(
+                                'group': _pa.cc(_i_generic.get_entry(
                                     $,
                                     {
-                                        'key': "block",
+                                        'key': "group",
                                     }
                                 ), ($) => Statements(
                                     $,

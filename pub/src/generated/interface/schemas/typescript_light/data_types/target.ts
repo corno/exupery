@@ -4,19 +4,19 @@ import * as _i_core from "../../../core/unconstrained"
 
 // **** TYPES
 
-export type _T_Block = _i_core._T_List<null, _T_Block_Part>
+export type _T_Group = _i_core._T_List<null, _T_Group_Part>
 
-export type _T_Block_Part = _i_core._T_State_Group<null, 
+export type _T_Group_Part = _i_core._T_State_Group<null, 
     | readonly ['line', string]
     | readonly ['nested line', _T_Line]
     | readonly ['nothing', null]
-    | readonly ['optional', _pt.Optional_Value<_T_Block_Part>]
-    | readonly ['sub block', _T_Block]
+    | readonly ['optional', _pt.Optional_Value<_T_Group_Part>]
+    | readonly ['sub group', _T_Group]
 >
 
 export type _T_Directory = _i_core._T_Dictionary<null, _i_core._T_State_Group<null, 
     | readonly ['directory', _T_Directory]
-    | readonly ['file', _T_Block]
+    | readonly ['file', _T_Group]
 >>
 
 export type _T_Expression = _i_core._T_State_Group<null, 
@@ -28,7 +28,7 @@ export type _T_Expression = _i_core._T_State_Group<null,
         }>
         readonly 'return type': _pt.Optional_Value<_T_Type>
         readonly 'type': _i_core._T_State_Group<null, 
-            | readonly ['block', _T_Statements]
+            | readonly ['group', _T_Statements]
             | readonly ['expression', _T_Expression]
         >
     }]
@@ -49,7 +49,7 @@ export type _T_Expression = _i_core._T_State_Group<null,
 export type _T_Line = _i_core._T_List<null, _T_Line_Part>
 
 export type _T_Line_Part = _i_core._T_State_Group<null, 
-    | readonly ['indent', _T_Block]
+    | readonly ['indent', _T_Group]
     | readonly ['nothing', null]
     | readonly ['optional', _pt.Optional_Value<_T_Line_Part>]
     | readonly ['snippet', string]
@@ -72,7 +72,7 @@ export type _T_Statements = _i_core._T_List<null, _i_core._T_State_Group<null,
         >
     }]
     | readonly ['module declaration', {
-        readonly 'block': _T_Statements
+        readonly 'group': _T_Statements
         readonly 'export': boolean
         readonly 'name': string
     }]
@@ -134,9 +134,9 @@ export type _T_Type = _i_core._T_State_Group<null,
 
 // **** FRIENDLY NAMES FOR THE GLOBAL TYPES
 
-export type Block = _T_Block
+export type Group = _T_Group
 
-export type Block_Part = _T_Block_Part
+export type Group_Part = _T_Group_Part
 
 export type Directory = _T_Directory
 
@@ -156,14 +156,14 @@ export type Type = _T_Type
 
 // **** ALIASES FOR NESTED TYPE WITH PREFIXED ROOT NAMES
 
-export namespace _T_Block {
+export namespace _T_Group {
     
     export namespace L {
     }
-    export type L = _T_Block_Part
+    export type L = _T_Group_Part
 }
 
-export namespace _T_Block_Part {
+export namespace _T_Group_Part {
     
     export namespace SG {
         export type line = string
@@ -177,20 +177,20 @@ export namespace _T_Block_Part {
             
             export namespace O {
             }
-            export type O = _T_Block_Part
+            export type O = _T_Group_Part
         }
-        export type optional = _pt.Optional_Value<_T_Block_Part>
+        export type optional = _pt.Optional_Value<_T_Group_Part>
         
-        export namespace sub_block {
+        export namespace sub_group {
         }
-        export type sub_block = _T_Block
+        export type sub_group = _T_Group
     }
     export type SG = 
         | readonly ['line', string]
         | readonly ['nested line', _T_Line]
         | readonly ['nothing', null]
-        | readonly ['optional', _pt.Optional_Value<_T_Block_Part>]
-        | readonly ['sub block', _T_Block]
+        | readonly ['optional', _pt.Optional_Value<_T_Group_Part>]
+        | readonly ['sub group', _T_Group]
 }
 
 export namespace _T_Directory {
@@ -205,15 +205,15 @@ export namespace _T_Directory {
             
             export namespace file {
             }
-            export type file = _T_Block
+            export type file = _T_Group
         }
         export type SG = 
             | readonly ['directory', _T_Directory]
-            | readonly ['file', _T_Block]
+            | readonly ['file', _T_Group]
     }
     export type D = _i_core._T_State_Group<null, 
         | readonly ['directory', _T_Directory]
-        | readonly ['file', _T_Block]
+        | readonly ['file', _T_Group]
     >
 }
 
@@ -266,20 +266,20 @@ export namespace _T_Expression {
                 
                 export namespace SG {
                     
-                    export namespace block {
+                    export namespace group {
                     }
-                    export type block = _T_Statements
+                    export type group = _T_Statements
                     
                     export namespace expression {
                     }
                     export type expression = _T_Expression
                 }
                 export type SG = 
-                    | readonly ['block', _T_Statements]
+                    | readonly ['group', _T_Statements]
                     | readonly ['expression', _T_Expression]
             }
             export type _type = _i_core._T_State_Group<null, 
-                | readonly ['block', _T_Statements]
+                | readonly ['group', _T_Statements]
                 | readonly ['expression', _T_Expression]
             >
         }
@@ -290,7 +290,7 @@ export namespace _T_Expression {
             }>
             readonly 'return type': _pt.Optional_Value<_T_Type>
             readonly 'type': _i_core._T_State_Group<null, 
-                | readonly ['block', _T_Statements]
+                | readonly ['group', _T_Statements]
                 | readonly ['expression', _T_Expression]
             >
         }
@@ -345,7 +345,7 @@ export namespace _T_Expression {
             }>
             readonly 'return type': _pt.Optional_Value<_T_Type>
             readonly 'type': _i_core._T_State_Group<null, 
-                | readonly ['block', _T_Statements]
+                | readonly ['group', _T_Statements]
                 | readonly ['expression', _T_Expression]
             >
         }]
@@ -376,7 +376,7 @@ export namespace _T_Line_Part {
         
         export namespace indent {
         }
-        export type indent = _T_Block
+        export type indent = _T_Group
         export type nothing = null
         
         export namespace optional {
@@ -393,7 +393,7 @@ export namespace _T_Line_Part {
         export type sub_line = _T_Line
     }
     export type SG = 
-        | readonly ['indent', _T_Block]
+        | readonly ['indent', _T_Group]
         | readonly ['nothing', null]
         | readonly ['optional', _pt.Optional_Value<_T_Line_Part>]
         | readonly ['snippet', string]
@@ -462,14 +462,14 @@ export namespace _T_Statements {
             
             export namespace module_declaration {
                 
-                export namespace block {
+                export namespace group {
                 }
-                export type block = _T_Statements
+                export type group = _T_Statements
                 export type _export = boolean
                 export type name = string
             }
             export type module_declaration = {
-                readonly 'block': _T_Statements
+                readonly 'group': _T_Statements
                 readonly 'export': boolean
                 readonly 'name': string
             }
@@ -534,7 +534,7 @@ export namespace _T_Statements {
                 >
             }]
             | readonly ['module declaration', {
-                readonly 'block': _T_Statements
+                readonly 'group': _T_Statements
                 readonly 'export': boolean
                 readonly 'name': string
             }]
@@ -563,7 +563,7 @@ export namespace _T_Statements {
             >
         }]
         | readonly ['module declaration', {
-            readonly 'block': _T_Statements
+            readonly 'group': _T_Statements
             readonly 'export': boolean
             readonly 'name': string
         }]
@@ -767,14 +767,14 @@ export namespace _T_Type {
 
 // *** ALIASES FOR NESTED TYPES
 
-export namespace Block {
+export namespace Group {
     
     export namespace L {
     }
-    export type L = _T_Block_Part
+    export type L = _T_Group_Part
 }
 
-export namespace Block_Part {
+export namespace Group_Part {
     
     export namespace SG {
         export type line = string
@@ -788,20 +788,20 @@ export namespace Block_Part {
             
             export namespace O {
             }
-            export type O = _T_Block_Part
+            export type O = _T_Group_Part
         }
-        export type optional = _pt.Optional_Value<_T_Block_Part>
+        export type optional = _pt.Optional_Value<_T_Group_Part>
         
-        export namespace sub_block {
+        export namespace sub_group {
         }
-        export type sub_block = _T_Block
+        export type sub_group = _T_Group
     }
     export type SG = 
         | readonly ['line', string]
         | readonly ['nested line', _T_Line]
         | readonly ['nothing', null]
-        | readonly ['optional', _pt.Optional_Value<_T_Block_Part>]
-        | readonly ['sub block', _T_Block]
+        | readonly ['optional', _pt.Optional_Value<_T_Group_Part>]
+        | readonly ['sub group', _T_Group]
 }
 
 export namespace Directory {
@@ -816,15 +816,15 @@ export namespace Directory {
             
             export namespace file {
             }
-            export type file = _T_Block
+            export type file = _T_Group
         }
         export type SG = 
             | readonly ['directory', _T_Directory]
-            | readonly ['file', _T_Block]
+            | readonly ['file', _T_Group]
     }
     export type D = _i_core._T_State_Group<null, 
         | readonly ['directory', _T_Directory]
-        | readonly ['file', _T_Block]
+        | readonly ['file', _T_Group]
     >
 }
 
@@ -877,20 +877,20 @@ export namespace Expression {
                 
                 export namespace SG {
                     
-                    export namespace block {
+                    export namespace group {
                     }
-                    export type block = _T_Statements
+                    export type group = _T_Statements
                     
                     export namespace expression {
                     }
                     export type expression = _T_Expression
                 }
                 export type SG = 
-                    | readonly ['block', _T_Statements]
+                    | readonly ['group', _T_Statements]
                     | readonly ['expression', _T_Expression]
             }
             export type _type = _i_core._T_State_Group<null, 
-                | readonly ['block', _T_Statements]
+                | readonly ['group', _T_Statements]
                 | readonly ['expression', _T_Expression]
             >
         }
@@ -901,7 +901,7 @@ export namespace Expression {
             }>
             readonly 'return type': _pt.Optional_Value<_T_Type>
             readonly 'type': _i_core._T_State_Group<null, 
-                | readonly ['block', _T_Statements]
+                | readonly ['group', _T_Statements]
                 | readonly ['expression', _T_Expression]
             >
         }
@@ -956,7 +956,7 @@ export namespace Expression {
             }>
             readonly 'return type': _pt.Optional_Value<_T_Type>
             readonly 'type': _i_core._T_State_Group<null, 
-                | readonly ['block', _T_Statements]
+                | readonly ['group', _T_Statements]
                 | readonly ['expression', _T_Expression]
             >
         }]
@@ -987,7 +987,7 @@ export namespace Line_Part {
         
         export namespace indent {
         }
-        export type indent = _T_Block
+        export type indent = _T_Group
         export type nothing = null
         
         export namespace optional {
@@ -1004,7 +1004,7 @@ export namespace Line_Part {
         export type sub_line = _T_Line
     }
     export type SG = 
-        | readonly ['indent', _T_Block]
+        | readonly ['indent', _T_Group]
         | readonly ['nothing', null]
         | readonly ['optional', _pt.Optional_Value<_T_Line_Part>]
         | readonly ['snippet', string]
@@ -1073,14 +1073,14 @@ export namespace Statements {
             
             export namespace module_declaration {
                 
-                export namespace block {
+                export namespace group {
                 }
-                export type block = _T_Statements
+                export type group = _T_Statements
                 export type _export = boolean
                 export type name = string
             }
             export type module_declaration = {
-                readonly 'block': _T_Statements
+                readonly 'group': _T_Statements
                 readonly 'export': boolean
                 readonly 'name': string
             }
@@ -1145,7 +1145,7 @@ export namespace Statements {
                 >
             }]
             | readonly ['module declaration', {
-                readonly 'block': _T_Statements
+                readonly 'group': _T_Statements
                 readonly 'export': boolean
                 readonly 'name': string
             }]
@@ -1174,7 +1174,7 @@ export namespace Statements {
             >
         }]
         | readonly ['module declaration', {
-            readonly 'block': _T_Statements
+            readonly 'group': _T_Statements
             readonly 'export': boolean
             readonly 'name': string
         }]

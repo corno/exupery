@@ -10,9 +10,7 @@ import * as sh2 from "../../shorthands/typescript_light"
 
 import { String_Literal, Type } from "../typescript_light/fountain_pen_block"
 
-import {
-    b, l, block,
-} from "pareto-fountain-pen/dist/shorthands/block"
+import * as sh from "../../shorthands/typescript_light"
 
 import { $$ as op_create_identifier } from "../../operations/impure/text/create_identifier"
 import { $$ as op_dictionary_to_list } from "pareto-standard-operations/dist/operations/impure/dictionary/to_list_sorted_by_code_point"
@@ -37,15 +35,15 @@ export function line_dictionary(
         return if_empty
     } else {
         let is_first = true
-        return l.sub([
+        return sh.l.sub([
             prefix,
-            l.sub(op_dictionary_to_list($).map(($): d_out.Line_Part => {
-                const out = l.sub([
+            sh.l.sub(op_dictionary_to_list($).map(($): d_out.Line_Part => {
+                const out = sh.l.sub([
                     is_first ?
-                        l.nothing()
+                        sh.l.nothing()
                         : add_commas
-                            ? l.snippet(", ")
-                            : l.nothing()
+                            ? sh.l.snippet(", ")
+                            : sh.l.nothing()
                     ,
                     $.value,
                 ])
@@ -68,15 +66,15 @@ export const Module_Set = ($: d_in.Module_Set): d_out.Directory => {
                 const valid_file_name = ($: string): string => {
                     return op_create_valid_file_name($, { 'replace spaces with underscores': true })
                 }
-                return ['file', block([
-                    b.simple_line("import * as _pt from 'exupery-core-types'"),
+                return ['file', sh.group([
+                    sh.g.simple_line("import * as _pt from 'exupery-core-types'"),
 
-                    b.simple_line(""),
-                    b.sub(op_dictionary_to_list($.imports).map(($) => b.sub([
-                        b.nested_line([
-                            l.snippet("import * as "),
-                            l.snippet(op_create_identifier([" i ", $.key])),
-                            l.snippet(" from "),
+                    sh.g.simple_line(""),
+                    sh.g.sub(op_dictionary_to_list($.imports).map(($) => sh.g.sub([
+                        sh.g.nested_line([
+                            sh.l.snippet("import * as "),
+                            sh.l.snippet(op_create_identifier([" i ", $.key])),
+                            sh.l.snippet(" from "),
                             String_Literal(
                                 pa.cc($.value.type, ($): string => {
                                     switch ($[0]) {
@@ -108,10 +106,10 @@ export const Module_Set = ($: d_in.Module_Set): d_out.Directory => {
                      * The problem with 3. is that TypeScript is not able to resolve the recursive types correctly in that case. 
                      * So, I'm going with 1.
                      */
-                    b.simple_line(""),
-                    b.simple_line("// **** TYPES"),
-                    b.sub(op_dictionary_to_list($.types).map(($) => b.sub([
-                        b.simple_line(""),
+                    sh.g.simple_line(""),
+                    sh.g.simple_line("// **** TYPES"),
+                    sh.g.sub(op_dictionary_to_list($.types).map(($) => sh.g.sub([
+                        sh.g.simple_line(""),
                         Type_Declaration(
                             null,
                             {
@@ -137,10 +135,10 @@ export const Module_Set = ($: d_in.Module_Set): d_out.Directory => {
                         ),
                     ]))),
 
-                    b.simple_line(""),
-                    b.simple_line("// **** FRIENDLY NAMES FOR THE GLOBAL TYPES"),
-                    b.sub(op_dictionary_to_list($.types).map(($) => b.sub([
-                        b.simple_line(""),
+                    sh.g.simple_line(""),
+                    sh.g.simple_line("// **** FRIENDLY NAMES FOR THE GLOBAL TYPES"),
+                    sh.g.sub(op_dictionary_to_list($.types).map(($) => sh.g.sub([
+                        sh.g.simple_line(""),
                         Type_Declaration(
                             null,
                             {
@@ -149,21 +147,21 @@ export const Module_Set = ($: d_in.Module_Set): d_out.Directory => {
                                 'module parameters': x_module_parameters,
                                 'function type parameters': pa.not_set(),
                                 'callback': () => {
-                                    return l.sub([
-                                        l.snippet(op_create_identifier([" T ", $.key])),
+                                    return sh.l.sub([
+                                        sh.l.snippet(op_create_identifier([" T ", $.key])),
                                         line_dictionary(
                                             op_flatten_dictionary(
                                                 pa.dictionary_literal({
-                                                    "M": x_module_parameters.map(($, key) => l.snippet(op_create_identifier(["M ", key]))),
-                                                    "T": $.value.parameters.map(($, key) => l.snippet(op_create_identifier(["T ", key]))),
+                                                    "M": x_module_parameters.map(($, key) => sh.l.snippet(op_create_identifier(["M ", key]))),
+                                                    "T": $.value.parameters.map(($, key) => sh.l.snippet(op_create_identifier(["T ", key]))),
                                                 }),
                                                 {
                                                     'separator': " "
                                                 }
                                             ),
-                                            l.nothing(),
-                                            l.snippet("<"),
-                                            l.snippet(">"),
+                                            sh.l.nothing(),
+                                            sh.l.snippet("<"),
+                                            sh.l.snippet(">"),
                                             true,
                                         ),
                                     ])
@@ -172,9 +170,9 @@ export const Module_Set = ($: d_in.Module_Set): d_out.Directory => {
                         ),
                     ]))),
 
-                    b.simple_line(""),
-                    b.simple_line("// **** ALIASES FOR NESTED TYPE WITH PREFIXED ROOT NAMES"),
-                    b.sub(op_dictionary_to_list($.types).map(($) => b.sub([
+                    sh.g.simple_line(""),
+                    sh.g.simple_line("// **** ALIASES FOR NESTED TYPE WITH PREFIXED ROOT NAMES"),
+                    sh.g.sub(op_dictionary_to_list($.types).map(($) => sh.g.sub([
                         Type_to_Aliases(
                             $.value.type,
                             {
@@ -187,9 +185,9 @@ export const Module_Set = ($: d_in.Module_Set): d_out.Directory => {
                         ),
                     ]))),
 
-                    b.simple_line(""),
-                    b.simple_line("// *** ALIASES FOR NESTED TYPES"),
-                    b.sub(op_dictionary_to_list($.types).map(($) => b.sub([
+                    sh.g.simple_line(""),
+                    sh.g.simple_line("// *** ALIASES FOR NESTED TYPES"),
+                    sh.g.sub(op_dictionary_to_list($.types).map(($) => sh.g.sub([
                         Type_to_Aliases(
                             $.value.type,
                             {
@@ -222,12 +220,12 @@ export const Module_Set = ($: d_in.Module_Set): d_out.Directory => {
                     //             }
                     //         }))
                     //     )
-                    // ).map(($) => b.nested_line([
+                    // ).map(($) => sh.g.nested_line([
 
-                    //     l.snippet("export import "),
-                    //     l.snippet(op['create identifier']($.key),
-                    //     l.snippet(" = "),
-                    //     l.snippet(op['create identifier'](` T ${$.key}`),
+                    //     sh.l.snippet("export import "),
+                    //     sh.l.snippet(op['create identifier']($.key),
+                    //     sh.l.snippet(" = "),
+                    //     sh.l.snippet(op['create identifier'](` T ${$.key}`),
                     // ]))),
 
                 ])]
@@ -247,24 +245,24 @@ export const Type_to_Aliases = (
         'module parameters': d_in.Type_Parameters,
         'temp imports': d_in.Module['imports'],
     }
-): d_out.Block_Part => {
+): d_out.Group_Part => {
 
     const Namespace = (
         key: string,
         $p: {
-            'callback': () => d_out.Block_Part
+            'callback': () => d_out.Group_Part
         }
-    ): d_out.Block_Part => {
-        return b.sub([
-            b.simple_line(""),
-            b.nested_line([
-                l.snippet("export namespace "),
-                l.snippet(op_create_identifier([key])),
-                l.snippet(" {"),
-                l.indent([
+    ): d_out.Group_Part => {
+        return sh.g.sub([
+            sh.g.simple_line(""),
+            sh.g.nested_line([
+                sh.l.snippet("export namespace "),
+                sh.l.snippet(op_create_identifier([key])),
+                sh.l.snippet(" {"),
+                sh.l.indent([
                     $p.callback()
                 ]),
-                l.snippet("}")
+                sh.l.snippet("}")
             ])
         ])
     }
@@ -278,8 +276,8 @@ export const Type_to_Aliases = (
             'function type parameters': pt.Optional_Value<d_in.Type_Parameters>,
             'temp imports': d_in.Module['imports'],
         }
-    ): d_out.Block_Part => {
-        return b.sub([
+    ): d_out.Group_Part => {
+        return sh.g.sub([
             Type_to_Aliases(
                 $,
                 {
@@ -315,14 +313,14 @@ export const Type_to_Aliases = (
             )
         ])
     }
-    return pa.cc($, ($): d_out.Block_Part => {
+    return pa.cc($, ($): d_out.Group_Part => {
         switch ($[0]) {
-            case 'boolean': return pa.ss($, ($) => b.nothing())
+            case 'boolean': return pa.ss($, ($) => sh.g.nothing())
             case 'component': return pa.ss($, ($) => Namespace(
                 $p.key,
                 {
-                    'callback': () => b.sub([
-                        b.sub(op_dictionary_to_list($['type arguments']).map(($) => {
+                    'callback': () => sh.g.sub([
+                        sh.g.sub(op_dictionary_to_list($['type arguments']).map(($) => {
                             return Type_to_Aliases_2(
                                 $.value,
                                 {
@@ -370,7 +368,7 @@ export const Type_to_Aliases = (
             case 'function': return pa.ss($, ($) => Namespace(
                 $p.key,
                 {
-                    'callback': () => b.sub([
+                    'callback': () => sh.g.sub([
                         Type_to_Aliases_2(
                             $.context,
                             {
@@ -384,7 +382,7 @@ export const Type_to_Aliases = (
                         Namespace("PARAMS", {
                             "callback": () => {
                                 const ftp = $['type parameters']
-                                return b.sub(op_dictionary_to_list($.parameters).map(($) => {
+                                return sh.g.sub(op_dictionary_to_list($.parameters).map(($) => {
                                     return Type_to_Aliases_2(
                                         $.value,
                                         {
@@ -414,8 +412,8 @@ export const Type_to_Aliases = (
             case 'group': return pa.ss($, ($) => Namespace(
                 $p.key,
                 {
-                    'callback': () => b.sub([
-                        b.sub(op_dictionary_to_list($).map(($) => {
+                    'callback': () => sh.g.sub([
+                        sh.g.sub(op_dictionary_to_list($).map(($) => {
                             return Type_to_Aliases_2(
                                 $.value,
                                 {
@@ -445,8 +443,8 @@ export const Type_to_Aliases = (
                     )
                 }
             ))
-            case 'null': return pa.ss($, ($) => b.nothing())
-            case 'number': return pa.ss($, ($) => b.nothing())
+            case 'null': return pa.ss($, ($) => sh.g.nothing())
+            case 'number': return pa.ss($, ($) => sh.g.nothing())
             case 'optional': return pa.ss($, ($) => Namespace(
                 $p.key,
                 {
@@ -462,12 +460,12 @@ export const Type_to_Aliases = (
                     )
                 }
             ))
-            case 'parameter': return pa.ss($, ($) => b.nothing())
+            case 'parameter': return pa.ss($, ($) => sh.g.nothing())
             case 'tagged union': return pa.ss($, ($) => Namespace(
                 $p.key,
                 {
-                    'callback': () => b.sub([
-                        b.sub(op_dictionary_to_list($).map(($) => {
+                    'callback': () => sh.g.sub([
+                        sh.g.sub(op_dictionary_to_list($).map(($) => {
                             return Type_to_Aliases_2(
                                 $.value,
                                 {
@@ -482,7 +480,7 @@ export const Type_to_Aliases = (
                     ])
                 }
             ))
-            case 'string': return pa.ss($, ($) => b.nothing())
+            case 'string': return pa.ss($, ($) => sh.g.nothing())
             default: return pa.au($[0])
         }
     })
@@ -724,11 +722,11 @@ export const Type_Declaration = (
         'function type parameters': pt.Optional_Value<d_in.Type_Parameters>,
         'callback': () => d_out.Line_Part
     }
-): d_out.Block_Part => {
-    return b.nested_line([
-        l.sub([
-            l.snippet("export type "),
-            l.snippet(op_create_identifier([$p.name])),
+): d_out.Group_Part => {
+    return sh.g.nested_line([
+        sh.l.sub([
+            sh.l.snippet("export type "),
+            sh.l.snippet(op_create_identifier([$p.name])),
             line_dictionary(
                 op_flatten_dictionary(
                     pa.dictionary_literal({
@@ -743,13 +741,13 @@ export const Type_Declaration = (
                         //'escape': "$",
                         'separator': " "
                     }
-                ).map(($, key) => l.snippet(op_create_identifier([key]))),
-                l.nothing(),
-                l.snippet("<"),
-                l.snippet(">"),
+                ).map(($, key) => sh.l.snippet(op_create_identifier([key]))),
+                sh.l.nothing(),
+                sh.l.snippet("<"),
+                sh.l.snippet(">"),
                 true,
             ),
-            l.snippet(" = "),
+            sh.l.snippet(" = "),
             $p.callback()
         ])
     ])

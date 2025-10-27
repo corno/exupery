@@ -5,13 +5,13 @@ import * as _i_out from "../../../interface/core/astn_target"
 import * as _i_signatures from "../../../interface/schemas/typescript_light/marshall"
 
 
-export const Block: _i_signatures._T_Block = ($, $p) => ['list', $.map(($) => Block_Part(
+export const Group: _i_signatures._T_Group = ($, $p) => ['list', $.map(($) => Group_Part(
     $,
     {
         'value serializers': $p['value serializers'],
     }
 ))]
-export const Block_Part: _i_signatures._T_Block_Part = ($, $p) => ['state', _pa.cc($, ($): _i_out._T_Value.SG.state => {
+export const Group_Part: _i_signatures._T_Group_Part = ($, $p) => ['state', _pa.cc($, ($): _i_out._T_Value.SG.state => {
     switch ($[0]) {
         case 'line': return _pa.ss($, ($) => ({
             'state': "line",
@@ -36,7 +36,7 @@ export const Block_Part: _i_signatures._T_Block_Part = ($, $p) => ['state', _pa.
         case 'optional': return _pa.ss($, ($) => ({
             'state': "optional",
             'value': ['optional', $.transform(
-                ($): _i_out._T_Value.SG.optional => ['set', Block_Part(
+                ($): _i_out._T_Value.SG.optional => ['set', Group_Part(
                     $,
                     {
                         'value serializers': $p['value serializers'],
@@ -45,9 +45,9 @@ export const Block_Part: _i_signatures._T_Block_Part = ($, $p) => ['state', _pa.
                 () => ['not set', null]
             )],
         }))
-        case 'sub block': return _pa.ss($, ($) => ({
-            'state': "sub block",
-            'value': Block(
+        case 'sub group': return _pa.ss($, ($) => ({
+            'state': "sub group",
+            'value': Group(
                 $,
                 {
                     'value serializers': $p['value serializers'],
@@ -70,7 +70,7 @@ export const Directory: _i_signatures._T_Directory = ($, $p) => ['dictionary', $
         }))
         case 'file': return _pa.ss($, ($) => ({
             'state': "file",
-            'value': Block(
+            'value': Group(
                 $,
                 {
                     'value serializers': $p['value serializers'],
@@ -120,8 +120,8 @@ export const Expression: _i_signatures._T_Expression = ($, $p) => ['state', _pa.
                 )]),
                 'type': _pa.cc($['type'], ($) => ['state', _pa.cc($, ($): _i_out._T_Value.SG.state => {
                     switch ($[0]) {
-                        case 'block': return _pa.ss($, ($) => ({
-                            'state': "block",
+                        case 'group': return _pa.ss($, ($) => ({
+                            'state': "group",
                             'value': Statements(
                                 $,
                                 {
@@ -215,7 +215,7 @@ export const Line_Part: _i_signatures._T_Line_Part = ($, $p) => ['state', _pa.cc
     switch ($[0]) {
         case 'indent': return _pa.ss($, ($) => ({
             'state': "indent",
-            'value': Block(
+            'value': Group(
                 $,
                 {
                     'value serializers': $p['value serializers'],
@@ -305,7 +305,7 @@ export const Statements: _i_signatures._T_Statements = ($, $p) => ['list', $.map
         case 'module declaration': return _pa.ss($, ($) => ({
             'state': "module declaration",
             'value': ['verbose group', _pa.dictionary_literal({
-                'block': _pa.cc($['block'], ($) => Statements(
+                'group': _pa.cc($['group'], ($) => Statements(
                     $,
                     {
                         'value serializers': $p['value serializers'],

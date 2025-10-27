@@ -9,8 +9,8 @@ import * as d_out from "../../generated/interface/schemas/typescript_light/data_
 import * as t_interface_to_typescript_temp from "../interface/typescript_light"
 import * as t_implementation_to_typescript_temp from "../implementation/typescript_light"
 
-//shorthands
-import * as sh from "pareto-fountain-pen/dist/shorthands/block"
+import * as sh_fp from "pareto-fountain-pen/dist/shorthands/block"
+import * as sh_tl from "../../shorthands/typescript_light"
 
 export type Temp_Library = {
     'interface': s_in_inf.Module_Set
@@ -24,8 +24,8 @@ export const Temp_Library = (
     }
 ): d_out.Directory => {
     return pa.dictionary_literal<d_out.Directory.D>({
-        "interface": sh.n.directory(t_interface_to_typescript_temp.Module_Set($.interface)),
-        "implementation": sh.n.directory(t_implementation_to_typescript_temp.Module_Set(
+        "interface": sh_fp.n.directory(t_interface_to_typescript_temp.Module_Set($.interface)),
+        "implementation": sh_fp.n.directory(t_implementation_to_typescript_temp.Module_Set(
             $.implementation,
             {
                 'phase': $p.phase,
