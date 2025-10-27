@@ -5,16 +5,6 @@ import * as _i_out from "./data_types/target"
 
 // **** TYPES
 
-export type _T_Group = (
-    $$_: _i_in._T_Group,
-    $$_p: null,
-) => _i_out._T_Group
-
-export type _T_Group_Part = (
-    $$_: _i_in._T_Group_Part,
-    $$_p: null,
-) => _i_out._T_Group_Part
-
 export type _T_Directory = (
     $$_: _i_in._T_Directory,
     $$_p: null,
@@ -24,6 +14,16 @@ export type _T_Expression = (
     $$_: _i_in._T_Expression,
     $$_p: null,
 ) => _i_out._T_Expression
+
+export type _T_Group = (
+    $$_: _i_in._T_Group,
+    $$_p: null,
+) => _i_out._T_Group
+
+export type _T_Group_Part = (
+    $$_: _i_in._T_Group_Part,
+    $$_p: null,
+) => _i_out._T_Group_Part
 
 export type _T_Line = (
     $$_: _i_in._T_Line,
@@ -57,13 +57,13 @@ export type _T_Type = (
 
 // **** FRIENDLY NAMES FOR THE GLOBAL TYPES
 
-export type Group = _T_Group
-
-export type Group_Part = _T_Group_Part
-
 export type Directory = _T_Directory
 
 export type Expression = _T_Expression
+
+export type Group = _T_Group
+
+export type Group_Part = _T_Group_Part
 
 export type Line = _T_Line
 
@@ -78,34 +78,6 @@ export type String_Literal = _T_String_Literal
 export type Type = _T_Type
 
 // **** ALIASES FOR NESTED TYPE WITH PREFIXED ROOT NAMES
-
-export namespace _T_Group {
-    
-    export namespace CONTEXT {
-    }
-    export type CONTEXT = _i_in._T_Group
-    
-    export namespace PARAMS {
-    }
-    
-    export namespace RESULT {
-    }
-    export type RESULT = _i_out._T_Group
-}
-
-export namespace _T_Group_Part {
-    
-    export namespace CONTEXT {
-    }
-    export type CONTEXT = _i_in._T_Group_Part
-    
-    export namespace PARAMS {
-    }
-    
-    export namespace RESULT {
-    }
-    export type RESULT = _i_out._T_Group_Part
-}
 
 export namespace _T_Directory {
     
@@ -133,6 +105,34 @@ export namespace _T_Expression {
     export namespace RESULT {
     }
     export type RESULT = _i_out._T_Expression
+}
+
+export namespace _T_Group {
+    
+    export namespace CONTEXT {
+    }
+    export type CONTEXT = _i_in._T_Group
+    
+    export namespace PARAMS {
+    }
+    
+    export namespace RESULT {
+    }
+    export type RESULT = _i_out._T_Group
+}
+
+export namespace _T_Group_Part {
+    
+    export namespace CONTEXT {
+    }
+    export type CONTEXT = _i_in._T_Group_Part
+    
+    export namespace PARAMS {
+    }
+    
+    export namespace RESULT {
+    }
+    export type RESULT = _i_out._T_Group_Part
 }
 
 export namespace _T_Line {
@@ -221,34 +221,6 @@ export namespace _T_Type {
 
 // *** ALIASES FOR NESTED TYPES
 
-export namespace Group {
-    
-    export namespace CONTEXT {
-    }
-    export type CONTEXT = _i_in._T_Group
-    
-    export namespace PARAMS {
-    }
-    
-    export namespace RESULT {
-    }
-    export type RESULT = _i_out._T_Group
-}
-
-export namespace Group_Part {
-    
-    export namespace CONTEXT {
-    }
-    export type CONTEXT = _i_in._T_Group_Part
-    
-    export namespace PARAMS {
-    }
-    
-    export namespace RESULT {
-    }
-    export type RESULT = _i_out._T_Group_Part
-}
-
 export namespace Directory {
     
     export namespace CONTEXT {
@@ -275,6 +247,34 @@ export namespace Expression {
     export namespace RESULT {
     }
     export type RESULT = _i_out._T_Expression
+}
+
+export namespace Group {
+    
+    export namespace CONTEXT {
+    }
+    export type CONTEXT = _i_in._T_Group
+    
+    export namespace PARAMS {
+    }
+    
+    export namespace RESULT {
+    }
+    export type RESULT = _i_out._T_Group
+}
+
+export namespace Group_Part {
+    
+    export namespace CONTEXT {
+    }
+    export type CONTEXT = _i_in._T_Group_Part
+    
+    export namespace PARAMS {
+    }
+    
+    export namespace RESULT {
+    }
+    export type RESULT = _i_out._T_Group_Part
 }
 
 export namespace Line {

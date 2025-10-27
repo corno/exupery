@@ -102,7 +102,7 @@ export const Statements = (
                 $.export ? sh.l.snippet("export ") : sh.l.nothing(),
                 sh.l.snippet("namespace {"),
                 sh.l.indent([
-                    Statements($['group'], $p),
+                    Statements($['block'], $p),
                 ]),
                 sh.l.snippet("}"),
             ]))
@@ -190,7 +190,7 @@ export const Expression = (
             sh.l.snippet(" => "),
             _ea.cc($.type, ($) => {
                 switch ($[0]) {
-                    case 'group': return _ea.ss($, ($) => sh.l.sub([
+                    case 'block': return _ea.ss($, ($) => sh.l.sub([
                         sh.l.snippet("{"),
                         sh.l.indent([
                             Statements($, $p),
