@@ -1,7 +1,7 @@
 import * as _edata from 'exupery-core-data'
 import * as _et from 'exupery-core-types'
 
-import * as _target from "../generated/interface/schemas/typescript_light/data_types/target"
+import * as _target from "../interface/generated/pareto/schemas/typescript_light/data_types/target"
 
 import {
     Raw_Or_Normal_Dictionary,

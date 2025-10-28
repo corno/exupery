@@ -1,8 +1,8 @@
 import * as pa from 'exupery-core-alg'
 import * as pt from 'exupery-core-types'
 
-import * as d_in from "../../generated/interface/schemas/implementation/data_types/source"
-import * as s_in_interface from "../../generated/interface/schemas/interface/data_types/source"
+import * as d_in from "../../interface/generated/pareto/schemas/implementation/data_types/source"
+import * as s_in_interface from "../../interface/generated/pareto/schemas/interface/data_types/source"
 import * as d_out from "pareto-fountain-pen/dist/generated/interface/schemas/block/data_types/target"
 
 import * as _interface from "../interface/typescript_light"

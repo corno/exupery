@@ -1,10 +1,10 @@
 import * as pa from 'exupery-core-alg'
 import * as pt from 'exupery-core-types'
 
-import * as d_in from "../../generated/interface/schemas/interface/data_types/source"
-import * as d_out from "../../generated/interface/schemas/typescript_light/data_types/target"
+import * as d_in from "../../interface/generated/pareto/schemas/interface/data_types/source"
+import * as d_out from "../../interface/generated/pareto/schemas/typescript_light/data_types/target"
 
-import * as s_out_ts from "../../generated/interface/schemas/typescript_light/data_types/target"
+import * as s_out_ts from "../../interface/generated/pareto/schemas/typescript_light/data_types/target"
 
 import * as sh2 from "../../shorthands/typescript_light"
 

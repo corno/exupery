@@ -1,8 +1,8 @@
 import * as _edata from 'exupery-core-data'
 
-import * as unresolved from "../generated/interface/schemas/implementation/data_types/target"
+import * as unresolved from "../interface/generated/pareto/schemas/implementation/data_types/target"
 
-import * as unresolved_interface from "../generated/interface/schemas/interface/data_types/target"
+import * as unresolved_interface from "../interface/generated/pareto/schemas/interface/data_types/target"
 
 import {
     Raw_Or_Normal_Dictionary,

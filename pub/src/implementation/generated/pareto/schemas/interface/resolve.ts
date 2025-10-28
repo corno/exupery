@@ -2,8 +2,8 @@ import * as _pa from 'exupery-core-alg'
 import * as _pd from 'exupery-core-dev'
 
 import * as _i_generic from "../../generic/resolve"
-import * as _i_out from "../../../interface/schemas/interface/data_types/source"
-import * as _i_signatures from "../../../interface/schemas/interface/data_types/resolve"
+import * as _i_out from "../../../../../interface/generated/pareto/schemas/interface/data_types/source"
+import * as _i_signatures from "../../../../../interface/generated/pareto/schemas/interface/data_types/resolve"
 
 
 export const r_Imports: _i_signatures._T_Imports = ($, $p) => _pa.block(() => {

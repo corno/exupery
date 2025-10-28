@@ -1,8 +1,8 @@
 import * as _ea from 'exupery-core-alg'
 
 import * as d_out_fp from "pareto-fountain-pen/dist/generated/interface/schemas/block/data_types/target"
-import * as d_out_tl from "../../generated/interface/schemas/typescript_light/data_types/source"
-import * as d_in from "../../generated/interface/schemas/typescript_light/data_types/source"
+import * as d_out_tl from "../../interface/generated/pareto/schemas/typescript_light/data_types/source"
+import * as d_in from "../../interface/generated/pareto/schemas/typescript_light/data_types/source"
 
 import { $$ as op_create_identifier } from "../../operations/impure/text/create_identifier"
 import { $$ as op_list_is_empty } from "pareto-standard-operations/dist/operations/impure/list/is_empty"
