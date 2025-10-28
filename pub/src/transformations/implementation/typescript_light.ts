@@ -37,7 +37,7 @@ export const Module_Set = (
             case 'module': return pa.ss($, ($): d_out.Directory.D => {
                 const type_imports = $['type imports']
                 const valid_file_name = ($: string): string => {
-                    return op_create_valid_file_name($, { 'replace spaces with underscores': false }) //this filename will be placed in a quoted string
+                    return op_create_valid_file_name($, { 'replace spaces with underscores': true })
                 }
                 const x: d_out.Group = sh.group([
                     sh.g.simple_line("import * as _pa from 'exupery-core-alg'"),
