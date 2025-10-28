@@ -13,12 +13,12 @@ import { String_Literal, Type } from "../typescript_light/fountain_pen_block"
 import * as sh from "../../../shorthands/typescript_light"
 
 import { $$ as op_create_identifier } from "../../../implementation/operations/impure/text/create_identifier"
-import { $$ as op_dictionary_to_list } from "pareto-standard-operations/dist/operations/impure/dictionary/to_list_sorted_by_code_point"
-import { $$ as op_flatten_list } from "pareto-standard-operations/dist/operations/pure/list/flatten"
-import { $$ as op_flatten_dictionary } from "pareto-standard-operations/dist/operations/pure/dictionary/flatten"
-import { $$ as op_repeat } from "pareto-standard-operations/dist/operations/impure/text/repeat"
-import { $$ as op_join_list_of_texts } from "pareto-standard-operations/dist/operations/pure/text/join_list_of_texts"
-import { $$ as op_create_valid_file_name } from "pareto-standard-operations/dist/operations/impure/text/create_valid_file_name"
+import { $$ as op_dictionary_to_list } from "pareto-standard-operations/dist/implementation/operations/impure/dictionary/to_list_sorted_by_code_point"
+import { $$ as op_flatten_list } from "pareto-standard-operations/dist/implementation/operations/pure/list/flatten"
+import { $$ as op_flatten_dictionary } from "pareto-standard-operations/dist/implementation/operations/pure/dictionary/flatten"
+import { $$ as op_repeat } from "pareto-standard-operations/dist/implementation/operations/impure/text/repeat"
+import { $$ as op_join_list_of_texts } from "pareto-standard-operations/dist/implementation/operations/pure/text/join_list_of_texts"
+import { $$ as op_create_valid_file_name } from "pareto-standard-operations/dist/implementation/operations/impure/text/create_valid_file_name"
 
 export function line_dictionary(
     $: pt.Dictionary<d_out.Block_Part>,
