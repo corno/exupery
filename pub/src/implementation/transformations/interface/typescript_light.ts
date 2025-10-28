@@ -1,18 +1,18 @@
 import * as pa from 'exupery-core-alg'
 import * as pt from 'exupery-core-types'
 
-import * as d_in from "../../interface/generated/pareto/schemas/interface/data_types/source"
-import * as d_out from "../../interface/generated/pareto/schemas/typescript_light/data_types/target"
+import * as d_in from "../../../interface/generated/pareto/schemas/interface/data_types/source"
+import * as d_out from "../../../interface/generated/pareto/schemas/typescript_light/data_types/target"
 
-import * as s_out_ts from "../../interface/generated/pareto/schemas/typescript_light/data_types/target"
+import * as s_out_ts from "../../../interface/generated/pareto/schemas/typescript_light/data_types/target"
 
-import * as sh2 from "../../shorthands/typescript_light"
+import * as sh2 from "../../../shorthands/typescript_light"
 
 import { String_Literal, Type } from "../typescript_light/fountain_pen_block"
 
-import * as sh from "../../shorthands/typescript_light"
+import * as sh from "../../../shorthands/typescript_light"
 
-import { $$ as op_create_identifier } from "../../operations/impure/text/create_identifier"
+import { $$ as op_create_identifier } from "../../../implementation/operations/impure/text/create_identifier"
 import { $$ as op_dictionary_to_list } from "pareto-standard-operations/dist/operations/impure/dictionary/to_list_sorted_by_code_point"
 import { $$ as op_flatten_list } from "pareto-standard-operations/dist/operations/pure/list/flatten"
 import { $$ as op_flatten_dictionary } from "pareto-standard-operations/dist/operations/pure/dictionary/flatten"
