@@ -14,6 +14,8 @@ import { $$ as op_serialize_with_quote_delimiter } from "../../operations/impure
 import { $$ as op_serialize_approximate_number } from "exupery-standard-library/dist/implementation/operations/impure/approximate_number/serialize"
 
 import * as sh from "pareto-fountain-pen/dist/shorthands/block"
+import { Signature } from "../../../interface/algorithms/transformations/typescript_light/fountain_pen_block"
+
 
 export const Group = ($: d_in.Group): d_out_fp.Group => {
     return $.map(($) => Group_Part($))

@@ -3,6 +3,8 @@ import * as _ea from 'exupery-core-alg'
 import { $$ as op_to_character_list } from "exupery-standard-library/dist/implementation/operations/impure/text/to_character_list"
 import { $$ as op_join_list_of_texts } from "pareto-standard-operations/dist/implementation/operations/pure/text/join_list_of_texts"
 import { $$ as op_integer_serialize } from "exupery-standard-library/dist/implementation/operations/impure/integer/serialize"
+import { Signature } from "../../../../interface/algorithms/operations/impure/text/create_identifier"
+
 
 export const $$ = ($: string[]): string => {
     const the_string = op_join_list_of_texts(_ea.array_literal($))

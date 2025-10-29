@@ -19,6 +19,8 @@ import { $$ as op_flatten_dictionary } from "pareto-standard-operations/dist/imp
 import { $$ as op_repeat } from "pareto-standard-operations/dist/implementation/operations/impure/text/repeat"
 import { $$ as op_join_list_of_texts } from "pareto-standard-operations/dist/implementation/operations/pure/text/join_list_of_texts"
 import { $$ as op_create_valid_file_name } from "pareto-standard-operations/dist/implementation/operations/impure/text/create_valid_file_name"
+import { Signature } from "../../../interface/algorithms/transformations/interface/typescript_light"
+
 
 export function line_dictionary(
     $: pt.Dictionary<d_out.Block_Part>,

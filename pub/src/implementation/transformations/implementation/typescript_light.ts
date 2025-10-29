@@ -25,6 +25,8 @@ import { $$ as op_create_identifier } from "../../../implementation/operations/i
 import { $$ as op_dictionary_is_empty } from "pareto-standard-operations/dist/implementation/operations/impure/dictionary/is_empty"
 import { $$ as op_approximate_number_serialize } from "exupery-standard-library/dist/implementation/operations/impure/approximate_number/serialize"
 import { $$ as op_integer_serialize } from "exupery-standard-library/dist/implementation/operations/impure/integer/serialize"
+import { Signature } from "../../../interface/algorithms/transformations/implementation/typescript_light"
+
 
 export const Module_Set = (
     $: d_in.Module_Set,
