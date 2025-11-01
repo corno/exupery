@@ -1,8 +1,8 @@
 import * as _ea from 'exupery-core-alg'
 
 import * as d_out_fp from "pareto-fountain-pen/dist/interface/generated/pareto/schemas/block/data_types/target"
-import * as d_out_tl from "../../../interface/generated/pareto/schemas/typescript_light/data_types/source"
-import * as d_in from "../../../interface/generated/pareto/schemas/typescript_light/data_types/source"
+import * as d_out_tl from "../../../../interface/generated/pareto/schemas/typescript_light/data_types/source"
+import * as d_in from "../../../../interface/generated/pareto/schemas/typescript_light/data_types/source"
 
 import { $$ as op_create_identifier } from "../../operations/impure/text/create_identifier"
 import { $$ as op_list_is_empty } from "pareto-standard-operations/dist/implementation/operations/impure/list/is_empty"
@@ -14,7 +14,7 @@ import { $$ as op_serialize_with_quote_delimiter } from "../../operations/impure
 import { $$ as op_serialize_approximate_number } from "exupery-standard-library/dist/implementation/operations/impure/approximate_number/serialize"
 
 import * as sh from "pareto-fountain-pen/dist/shorthands/block"
-import { Signature } from "../../../interface/algorithms/transformations/typescript_light/fountain_pen_block"
+import { Signature } from "../../../../interface/algorithms/transformations/typescript_light/fountain_pen_block"
 
 
 export const Group = ($: d_in.Group): d_out_fp.Group => {

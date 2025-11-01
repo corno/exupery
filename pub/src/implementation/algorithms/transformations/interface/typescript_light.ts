@@ -1,25 +1,25 @@
 import * as pa from 'exupery-core-alg'
 import * as pt from 'exupery-core-types'
 
-import * as d_in from "../../../interface/generated/pareto/schemas/interface/data_types/source"
-import * as d_out from "../../../interface/generated/pareto/schemas/typescript_light/data_types/target"
+import * as d_in from "../../../../interface/generated/pareto/schemas/interface/data_types/source"
+import * as d_out from "../../../../interface/generated/pareto/schemas/typescript_light/data_types/target"
 
-import * as s_out_ts from "../../../interface/generated/pareto/schemas/typescript_light/data_types/target"
+import * as s_out_ts from "../../../../interface/generated/pareto/schemas/typescript_light/data_types/target"
 
-import * as sh2 from "../../../shorthands/typescript_light"
+import * as sh2 from "../../../../shorthands/typescript_light"
 
-import { String_Literal, Type } from "../typescript_light/fountain_pen_block"
+import * as t_tl_2_fp from "../typescript_light/fountain_pen_block"
 
-import * as sh from "../../../shorthands/typescript_light"
+import * as sh from "../../../../shorthands/typescript_light"
 
-import { $$ as op_create_identifier } from "../../../implementation/operations/impure/text/create_identifier"
+import { $$ as op_create_identifier } from "../../operations/impure/text/create_identifier"
 import { $$ as op_dictionary_to_list } from "pareto-standard-operations/dist/implementation/operations/impure/dictionary/to_list_sorted_by_code_point"
 import { $$ as op_flatten_list } from "pareto-standard-operations/dist/implementation/operations/pure/list/flatten"
 import { $$ as op_flatten_dictionary } from "pareto-standard-operations/dist/implementation/operations/pure/dictionary/flatten"
 import { $$ as op_repeat } from "pareto-standard-operations/dist/implementation/operations/impure/text/repeat"
 import { $$ as op_join_list_of_texts } from "pareto-standard-operations/dist/implementation/operations/pure/text/join_list_of_texts"
 import { $$ as op_create_valid_file_name } from "pareto-standard-operations/dist/implementation/operations/impure/text/create_valid_file_name"
-import { Signature } from "../../../interface/algorithms/transformations/interface/typescript_light"
+import { Signature } from "../../../../interface/algorithms/transformations/interface/typescript_light"
 
 
 export function line_dictionary(
@@ -77,11 +77,11 @@ export const Module_Set = ($: d_in.Module_Set): d_out.Directory => {
                             sh.b.snippet("import * as "),
                             sh.b.snippet(op_create_identifier([" i ", $.key])),
                             sh.b.snippet(" from "),
-                            String_Literal(
+                            t_tl_2_fp.String_Literal(
                                 pa.cc($.value.type, ($): string => {
                                     switch ($[0]) {
                                         case 'external': return pa.ss($, ($) => valid_file_name($))
-                                        case 'ancestor': return pa.ss($, ($) => `${op_repeat("../", { 'count': $['number of steps'] })}${valid_file_name($.dependency)}`)
+                                        case 'ancestor': return pa.ss($, ($) => `${op_repeat("../../", { 'count': $['number of steps'] })}${valid_file_name($.dependency)}`)
                                         case 'sibling': return pa.ss($, ($) => `./${valid_file_name($)}`)
                                         default: return pa.au($[0])
                                     }
@@ -120,7 +120,7 @@ export const Module_Set = ($: d_in.Module_Set): d_out.Directory => {
                                 'module parameters': x_module_parameters,
                                 'function type parameters': pa.not_set(),
                                 'callback': () => {
-                                    return Type(
+                                    return t_tl_2_fp.Type(
                                         Type_to_Type(
                                             $.value.type,
                                             {
@@ -298,7 +298,7 @@ export const Type_to_Aliases = (
                     'module parameters': $p['module parameters'],
                     'function type parameters': $p['function type parameters'],
                     'callback': () => {
-                        return Type(
+                        return t_tl_2_fp.Type(
                             Type_to_Type(
                                 $,
                                 {

@@ -1,31 +1,31 @@
 import * as pa from 'exupery-core-alg'
 import * as pt from 'exupery-core-types'
 
-import * as d_in from "../../../interface/generated/pareto/schemas/implementation/data_types/source"
-import * as s_in_interface from "../../../interface/generated/pareto/schemas/interface/data_types/source"
+import * as d_in from "../../../../interface/generated/pareto/schemas/implementation/data_types/source"
+import * as s_in_interface from "../../../../interface/generated/pareto/schemas/interface/data_types/source"
 import * as d_out from "pareto-fountain-pen/dist/interface/generated/pareto/schemas/block/data_types/target"
 
-import * as _interface from "../interface/typescript_light"
+import * as t_inf_2_tl from "../interface/typescript_light"
 
-import { Type } from "../typescript_light/fountain_pen_block"
+import * as t_tl_2_fp from "../typescript_light/fountain_pen_block"
 
-import * as sh from "../../../shorthands/typescript_light"
+import * as sh from "../../../../shorthands/typescript_light"
 
 
 import { $$ as op_join_list_of_texts } from "pareto-standard-operations/dist/implementation/operations/pure/text/join_list_of_texts"
 import { $$ as op_flatten_dictionary } from "pareto-standard-operations/dist/implementation/operations/pure/dictionary/flatten"
 import { $$ as op_dictionary_to_list } from "pareto-standard-operations/dist/implementation/operations/impure/dictionary/to_list_sorted_by_code_point"
-import { $$ as op_serialize_with_apostrophe_delimiter } from "../../../implementation/operations/impure/text/serialize_apostrophed_string"
-import { $$ as op_serialize_with_quote_delimiter } from "../../../implementation/operations/impure/text/serialize_quoted_string"
-import { $$ as op_serialize_with_grave_delimiter } from "../../../implementation/operations/impure/text/serialize_backticked_string"
+import { $$ as op_serialize_with_apostrophe_delimiter } from "../../operations/impure/text/serialize_apostrophed_string"
+import { $$ as op_serialize_with_quote_delimiter } from "../../operations/impure/text/serialize_quoted_string"
+import { $$ as op_serialize_with_grave_delimiter } from "../../operations/impure/text/serialize_backticked_string"
 
 import { $$ as op_repeat } from "pareto-standard-operations/dist/implementation/operations/impure/text/repeat"
 import { $$ as op_create_valid_file_name } from "pareto-standard-operations/dist/implementation/operations/impure/text/create_valid_file_name"
-import { $$ as op_create_identifier } from "../../../implementation/operations/impure/text/create_identifier"
+import { $$ as op_create_identifier } from "../../operations/impure/text/create_identifier"
 import { $$ as op_dictionary_is_empty } from "pareto-standard-operations/dist/implementation/operations/impure/dictionary/is_empty"
 import { $$ as op_approximate_number_serialize } from "exupery-standard-library/dist/implementation/operations/impure/approximate_number/serialize"
 import { $$ as op_integer_serialize } from "exupery-standard-library/dist/implementation/operations/impure/integer/serialize"
-import { Signature } from "../../../interface/algorithms/transformations/implementation/typescript_light"
+import { Signature } from "../../../../interface/algorithms/transformations/implementation/typescript_light"
 
 
 export const Module_Set = (
@@ -55,7 +55,7 @@ export const Module_Set = (
                                 pa.cc($.value.type, ($): string => {
                                     switch ($[0]) {
                                         case 'external': return pa.ss($, ($) => valid_file_name($))
-                                        case 'ancestor': return pa.ss($, ($) => `${op_repeat("../", { 'count': $['number of steps'] })}${valid_file_name($.dependency)}`)
+                                        case 'ancestor': return pa.ss($, ($) => `${op_repeat("../../", { 'count': $['number of steps'] })}${valid_file_name($.dependency)}`)
                                         case 'sibling': return pa.ss($, ($) => `./${valid_file_name($)}`)
                                         default: return pa.au($[0])
                                     }
@@ -80,7 +80,7 @@ export const Module_Set = (
                                 pa.cc($.value.type, ($): string => {
                                     switch ($[0]) {
                                         case 'external': return pa.ss($, ($) => valid_file_name($))
-                                        case 'ancestor': return pa.ss($, ($) => `${op_repeat("../", { 'count': $['number of steps'] })}${valid_file_name($.dependency)}`)
+                                        case 'ancestor': return pa.ss($, ($) => `${op_repeat("../../", { 'count': $['number of steps'] })}${valid_file_name($.dependency)}`)
                                         case 'sibling': return pa.ss($, ($) => `./${valid_file_name($)}`)
                                         default: return pa.au($[0])
                                     }
@@ -265,8 +265,8 @@ export const Initialization = (
                         $.type.transform(
                             ($) => sh.b.sub([
                                 sh.b.snippet(": "),
-                                Type(
-                                    _interface.Type_to_Type(
+                                t_tl_2_fp.Type(
+                                    t_inf_2_tl.Type_to_Type(
                                         $,
                                         {
                                             'module parameters': pa.not_set(),
@@ -409,8 +409,8 @@ export const Initialization = (
                                                 $['temp resulting node'].transform(
                                                     ($) => sh.b.sub([
                                                         sh.b.snippet(": "),
-                                                        Type(
-                                                            _interface.Type_to_Type(
+                                                        t_tl_2_fp.Type(
+                                                            t_inf_2_tl.Type_to_Type(
                                                                 $,
                                                                 {
                                                                     'module parameters': pa.not_set(),
@@ -449,8 +449,8 @@ export const Initialization = (
                                         $['temp resulting node'].transform(
                                             ($) => sh.b.sub([
                                                 sh.b.snippet(": "),
-                                                Type(
-                                                    _interface.Type_to_Type(
+                                                t_tl_2_fp.Type(
+                                                    t_inf_2_tl.Type_to_Type(
                                                         $,
                                                         {
                                                             'module parameters': pa.not_set(),
@@ -539,8 +539,8 @@ export const Variables = (
             $.value.type.transform(
                 ($) => sh.b.sub([
                     sh.b.snippet(": "),
-                    Type(
-                        _interface.Type_to_Type(
+                    t_tl_2_fp.Type(
+                        t_inf_2_tl.Type_to_Type(
                             $,
                             {
                                 'module parameters': pa.not_set(),
@@ -599,8 +599,8 @@ export const Literal = (
                     $['temp resulting node'].transform(
                         ($) => sh.b.sub([
                             sh.b.snippet(": "),
-                            Type(
-                                _interface.Type_to_Type(
+                            t_tl_2_fp.Type(
+                                t_inf_2_tl.Type_to_Type(
                                     $,
                                     {
                                         'module parameters': pa.not_set(),
