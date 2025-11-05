@@ -81,7 +81,7 @@ export const Module_Set = ($: d_in.Module_Set): d_out.Directory => {
                                 _ea.cc($.value.type, ($): string => {
                                     switch ($[0]) {
                                         case 'external': return _ea.ss($, ($) => valid_file_name($))
-                                        case 'ancestor': return _ea.ss($, ($) => `${op_repeat("../../", { 'count': $['number of steps'] })}${valid_file_name($.dependency)}`)
+                                        case 'ancestor': return _ea.ss($, ($) => `${op_repeat("../", { 'count': $['number of steps'] })}${valid_file_name($.dependency)}`)
                                         case 'sibling': return _ea.ss($, ($) => `./${valid_file_name($)}`)
                                         default: return _ea.au($[0])
                                     }
