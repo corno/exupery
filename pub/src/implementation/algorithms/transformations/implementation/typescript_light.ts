@@ -12,19 +12,19 @@ import * as t_tl_2_fp from "../typescript_light/fountain_pen_block"
 import * as sh from "../../../../shorthands/typescript_light"
 
 
-import { $$ as op_join_list_of_texts } from "pareto-standard-operations/dist/implementation/operations/pure/text/join_list_of_texts"
-import { $$ as op_flatten_dictionary } from "pareto-standard-operations/dist/implementation/operations/pure/dictionary/flatten"
-import { $$ as op_dictionary_to_list } from "pareto-standard-operations/dist/implementation/operations/impure/dictionary/to_list_sorted_by_code_point"
+import { $$ as op_join_list_of_texts } from "pareto-standard-operations/dist/implementation/algorithms/operations/pure/text/join_list_of_texts"
+import { $$ as op_flatten_dictionary } from "pareto-standard-operations/dist/implementation/algorithms/operations/pure/dictionary/flatten"
+import { $$ as op_dictionary_to_list } from "pareto-standard-operations/dist/implementation/algorithms/operations/impure/dictionary/to_list_sorted_by_code_point"
 import { $$ as op_serialize_with_apostrophe_delimiter } from "../../operations/impure/text/serialize_apostrophed_string"
 import { $$ as op_serialize_with_quote_delimiter } from "../../operations/impure/text/serialize_quoted_string"
 import { $$ as op_serialize_with_grave_delimiter } from "../../operations/impure/text/serialize_backticked_string"
 
-import { $$ as op_repeat } from "pareto-standard-operations/dist/implementation/operations/impure/text/repeat"
-import { $$ as op_create_valid_file_name } from "pareto-standard-operations/dist/implementation/operations/impure/text/create_valid_file_name"
+import { $$ as op_repeat } from "pareto-standard-operations/dist/implementation/algorithms/operations/impure/text/repeat"
+import { $$ as op_create_valid_file_name } from "pareto-standard-operations/dist/implementation/algorithms/operations/impure/text/create_valid_file_name"
 import { $$ as op_create_identifier } from "../../operations/impure/text/create_identifier"
-import { $$ as op_dictionary_is_empty } from "pareto-standard-operations/dist/implementation/operations/impure/dictionary/is_empty"
-import { $$ as op_approximate_number_serialize } from "exupery-standard-library/dist/implementation/operations/impure/approximate_number/serialize"
-import { $$ as op_integer_serialize } from "exupery-standard-library/dist/implementation/operations/impure/integer/serialize"
+import { $$ as op_dictionary_is_empty } from "pareto-standard-operations/dist/implementation/algorithms/operations/impure/dictionary/is_empty"
+import { $$ as op_approximate_number_serialize } from "exupery-standard-library/dist/implementation/algorithms/operations/impure/approximate_number/serialize"
+import { $$ as op_integer_serialize } from "exupery-standard-library/dist/implementation/algorithms/operations/impure/integer/serialize"
 import { Signature } from "../../../../interface/algorithms/transformations/implementation/typescript_light"
 
 

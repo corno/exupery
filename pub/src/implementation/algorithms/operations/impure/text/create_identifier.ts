@@ -1,8 +1,8 @@
 import * as _ea from 'exupery-core-alg'
 
-import { $$ as op_to_character_list } from "exupery-standard-library/dist/implementation/operations/impure/text/to_character_list"
-import { $$ as op_join_list_of_texts } from "pareto-standard-operations/dist/implementation/operations/pure/text/join_list_of_texts"
-import { $$ as op_integer_serialize } from "exupery-standard-library/dist/implementation/operations/impure/integer/serialize"
+import { $$ as op_to_character_list } from "exupery-standard-library/dist/implementation/algorithms/operations/impure/text/to_character_list"
+import { $$ as op_join_list_of_texts } from "pareto-standard-operations/dist/implementation/algorithms/operations/pure/text/join_list_of_texts"
+import { $$ as op_integer_serialize } from "exupery-standard-library/dist/implementation/algorithms/operations/impure/integer/serialize"
 import { Signature } from "../../../../../interface/algorithms/operations/impure/text/create_identifier"
 
 
@@ -173,7 +173,7 @@ export const $$ = ($: string[]): string => {
                     case 124: consume_and_add("$vb_"); break; // Vertical Bar (|)
                     case 125: consume_and_add("$cc_"); break; // Close Curly Brace (})
                     case 126: consume_and_add("$ti_"); break; // Tilde (~)
-                    default: _ea.panic("unhandled character: \"", op_integer_serialize(current_character), "\"");
+                    default: _ea.deprecated_panic("unhandled character: \"", op_integer_serialize(current_character), "\"");
                 }
             }
         }

@@ -5,13 +5,13 @@ import * as d_out_tl from "../../../../interface/generated/pareto/schemas/typesc
 import * as d_in from "../../../../interface/generated/pareto/schemas/typescript_light/data_types/source"
 
 import { $$ as op_create_identifier } from "../../operations/impure/text/create_identifier"
-import { $$ as op_list_is_empty } from "pareto-standard-operations/dist/implementation/operations/impure/list/is_empty"
-import { $$ as op_dictionary_is_empty } from "pareto-standard-operations/dist/implementation/operations/impure/dictionary/is_empty"
-import { $$ as op_enrich_list_elements_with_position_information } from "pareto-standard-operations/dist/implementation/operations/impure/list/enrich_with_position_information"
-import { $$ as op_dictionary_to_list } from "pareto-standard-operations/dist/implementation/operations/impure/dictionary/to_list_sorted_by_code_point"
+import { $$ as op_list_is_empty } from "pareto-standard-operations/dist/implementation/algorithms/operations/impure/list/is_empty"
+import { $$ as op_dictionary_is_empty } from "pareto-standard-operations/dist/implementation/algorithms/operations/impure/dictionary/is_empty"
+import { $$ as op_enrich_list_elements_with_position_information } from "pareto-standard-operations/dist/implementation/algorithms/operations/impure/list/enrich_with_position_information"
+import { $$ as op_dictionary_to_list } from "pareto-standard-operations/dist/implementation/algorithms/operations/impure/dictionary/to_list_sorted_by_code_point"
 import { $$ as op_serialize_with_apostrophe_delimiter } from "../../operations/impure/text/serialize_apostrophed_string"
 import { $$ as op_serialize_with_quote_delimiter } from "../../operations/impure/text/serialize_quoted_string"
-import { $$ as op_serialize_approximate_number } from "exupery-standard-library/dist/implementation/operations/impure/approximate_number/serialize"
+import { $$ as op_serialize_approximate_number } from "exupery-standard-library/dist/implementation/algorithms/operations/impure/approximate_number/serialize"
 
 import * as sh from "pareto-fountain-pen/dist/shorthands/block"
 import { Signature } from "../../../../interface/algorithms/transformations/typescript_light/fountain_pen_block"

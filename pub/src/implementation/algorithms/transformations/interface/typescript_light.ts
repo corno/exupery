@@ -13,12 +13,12 @@ import * as t_tl_2_fp from "../typescript_light/fountain_pen_block"
 import * as sh from "../../../../shorthands/typescript_light"
 
 import { $$ as op_create_identifier } from "../../operations/impure/text/create_identifier"
-import { $$ as op_dictionary_to_list } from "pareto-standard-operations/dist/implementation/operations/impure/dictionary/to_list_sorted_by_code_point"
-import { $$ as op_flatten_list } from "pareto-standard-operations/dist/implementation/operations/pure/list/flatten"
-import { $$ as op_flatten_dictionary } from "pareto-standard-operations/dist/implementation/operations/pure/dictionary/flatten"
-import { $$ as op_repeat } from "pareto-standard-operations/dist/implementation/operations/impure/text/repeat"
-import { $$ as op_join_list_of_texts } from "pareto-standard-operations/dist/implementation/operations/pure/text/join_list_of_texts"
-import { $$ as op_create_valid_file_name } from "pareto-standard-operations/dist/implementation/operations/impure/text/create_valid_file_name"
+import { $$ as op_dictionary_to_list } from "pareto-standard-operations/dist/implementation/algorithms/operations/impure/dictionary/to_list_sorted_by_code_point"
+import { $$ as op_flatten_list } from "pareto-standard-operations/dist/implementation/algorithms/operations/pure/list/flatten"
+import { $$ as op_flatten_dictionary } from "pareto-standard-operations/dist/implementation/algorithms/operations/pure/dictionary/flatten"
+import { $$ as op_repeat } from "pareto-standard-operations/dist/implementation/algorithms/operations/impure/text/repeat"
+import { $$ as op_join_list_of_texts } from "pareto-standard-operations/dist/implementation/algorithms/operations/pure/text/join_list_of_texts"
+import { $$ as op_create_valid_file_name } from "pareto-standard-operations/dist/implementation/algorithms/operations/impure/text/create_valid_file_name"
 import { Signature } from "../../../../interface/algorithms/transformations/interface/typescript_light"
 
 
@@ -544,14 +544,14 @@ export const Type_to_Type = (
                     _ea.dictionary_literal<_et.Dictionary<s_out_ts.Type>>({
                         "M": _ea.cc($.location, ($): _et.Dictionary<s_out_ts.Type> => {
                             switch ($[0]) {
-                                case 'import': return _ea.ss($, ($) => $p['temp imports'].transform(($) => $, () => _ea.panic("DSFSDFSD")).__get_entry($.import).transform(($) => $, () => {
+                                case 'import': return _ea.ss($, ($) => $p['temp imports'].transform(($) => $, () => _ea.deprecated_panic("DSFSDFSD")).__get_entry($.import).transform(($) => $, () => {
                                     let keys = ""
                                     $p['temp imports'].map(($) => {
                                         $.map(($, key) => {
                                             keys += `, '${key}'`
                                         })
                                     })
-                                    return _ea.panic(`no such import: ${$.import} @ ${keys}`)
+                                    return _ea.deprecated_panic(`no such import: ${$.import} @ ${keys}`)
                                 })['type arguments'].map(($): s_out_ts.Type => Type_to_Type(
                                     $,
                                     {
@@ -559,7 +559,7 @@ export const Type_to_Type = (
                                         'temp imports': $p['temp imports'],
                                     }
                                 )))
-                                case 'sibling': return _ea.ss($, ($): _et.Dictionary<s_out_ts.Type> => $p['module parameters'].transform(($) => $, () => _ea.panic("DSFSDFSD")).map(($, key): s_out_ts.Type => sh2.t.type_reference(
+                                case 'sibling': return _ea.ss($, ($): _et.Dictionary<s_out_ts.Type> => $p['module parameters'].transform(($) => $, () => _ea.deprecated_panic("DSFSDFSD")).map(($, key): s_out_ts.Type => sh2.t.type_reference(
                                     `M ${key}`,
                                     [],
                                     [],
