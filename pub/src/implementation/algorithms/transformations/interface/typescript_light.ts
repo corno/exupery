@@ -1,5 +1,5 @@
-import * as pa from 'exupery-core-alg'
-import * as pt from 'exupery-core-types'
+import * as _ea from 'exupery-core-alg'
+import * as _et from 'exupery-core-types'
 
 import * as d_in from "../../../../interface/generated/pareto/schemas/interface/data_types/source"
 import * as d_out from "../../../../interface/generated/pareto/schemas/typescript_light/data_types/target"
@@ -23,7 +23,7 @@ import { Signature } from "../../../../interface/algorithms/transformations/inte
 
 
 export function line_dictionary(
-    $: pt.Dictionary<d_out.Block_Part>,
+    $: _et.Dictionary<d_out.Block_Part>,
     if_empty: d_out.Block_Part,
     prefix: d_out.Block_Part,
     suffix: d_out.Block_Part,
@@ -59,9 +59,9 @@ export function line_dictionary(
 }
 
 export const Module_Set = ($: d_in.Module_Set): d_out.Directory => {
-    return $.map(($, key) => pa.cc($, ($) => {
+    return $.map(($, key) => _ea.cc($, ($) => {
         switch ($[0]) {
-            case 'module': return pa.ss($, ($) => {
+            case 'module': return _ea.ss($, ($) => {
                 const x_imports = $.imports
                 const x_module_parameters = $['type parameters']
 
@@ -78,12 +78,12 @@ export const Module_Set = ($: d_in.Module_Set): d_out.Directory => {
                             sh.b.snippet(op_create_identifier([" i ", $.key])),
                             sh.b.snippet(" from "),
                             t_tl_2_fp.String_Literal(
-                                pa.cc($.value.type, ($): string => {
+                                _ea.cc($.value.type, ($): string => {
                                     switch ($[0]) {
-                                        case 'external': return pa.ss($, ($) => valid_file_name($))
-                                        case 'ancestor': return pa.ss($, ($) => `${op_repeat("../../", { 'count': $['number of steps'] })}${valid_file_name($.dependency)}`)
-                                        case 'sibling': return pa.ss($, ($) => `./${valid_file_name($)}`)
-                                        default: return pa.au($[0])
+                                        case 'external': return _ea.ss($, ($) => valid_file_name($))
+                                        case 'ancestor': return _ea.ss($, ($) => `${op_repeat("../../", { 'count': $['number of steps'] })}${valid_file_name($.dependency)}`)
+                                        case 'sibling': return _ea.ss($, ($) => `./${valid_file_name($)}`)
+                                        default: return _ea.au($[0])
                                     }
                                 })
                                 + op_join_list_of_texts(
@@ -115,17 +115,17 @@ export const Module_Set = ($: d_in.Module_Set): d_out.Directory => {
                         Type_Declaration(
                             null,
                             {
-                                'name': Identifier(pa.array_literal([" T ", $.key])),
+                                'name': Identifier(_ea.array_literal([" T ", $.key])),
                                 'type parameters': $.value.parameters,
                                 'module parameters': x_module_parameters,
-                                'function type parameters': pa.not_set(),
+                                'function type parameters': _ea.not_set(),
                                 'callback': () => {
                                     return t_tl_2_fp.Type(
                                         Type_to_Type(
                                             $.value.type,
                                             {
-                                                'module parameters': pa.set(x_module_parameters),
-                                                'temp imports': pa.set(x_imports),
+                                                'module parameters': _ea.set(x_module_parameters),
+                                                'temp imports': _ea.set(x_imports),
                                             },
                                         ),
                                         {
@@ -147,13 +147,13 @@ export const Module_Set = ($: d_in.Module_Set): d_out.Directory => {
                                 'name': $.key,
                                 'type parameters': $.value.parameters,
                                 'module parameters': x_module_parameters,
-                                'function type parameters': pa.not_set(),
+                                'function type parameters': _ea.not_set(),
                                 'callback': () => {
                                     return sh.b.sub([
                                         sh.b.snippet(op_create_identifier([" T ", $.key])),
                                         line_dictionary(
                                             op_flatten_dictionary(
-                                                pa.dictionary_literal({
+                                                _ea.dictionary_literal({
                                                     "M": x_module_parameters.map(($, key) => sh.b.snippet(op_create_identifier(["M ", key]))),
                                                     "T": $.value.parameters.map(($, key) => sh.b.snippet(op_create_identifier(["T ", key]))),
                                                 }),
@@ -181,7 +181,7 @@ export const Module_Set = ($: d_in.Module_Set): d_out.Directory => {
                                 'key': ` T ${$.key}`,
                                 'type parameters': $.value.parameters,
                                 'module parameters': x_module_parameters,
-                                'function type parameters': pa.not_set(),
+                                'function type parameters': _ea.not_set(),
                                 'temp imports': x_imports,
                             }
                         ),
@@ -196,7 +196,7 @@ export const Module_Set = ($: d_in.Module_Set): d_out.Directory => {
                                 'key': $.key,
                                 'type parameters': $.value.parameters,
                                 'module parameters': x_module_parameters,
-                                'function type parameters': pa.not_set(),
+                                'function type parameters': _ea.not_set(),
                                 'temp imports': x_imports,
                             }
                         ),
@@ -232,8 +232,8 @@ export const Module_Set = ($: d_in.Module_Set): d_out.Directory => {
 
                 ])]
             })
-            case 'set': return pa.ss($, ($) => ['directory', Module_Set($)])
-            default: return pa.au($[0])
+            case 'set': return _ea.ss($, ($) => ['directory', Module_Set($)])
+            default: return _ea.au($[0])
         }
     }))
 }
@@ -243,7 +243,7 @@ export const Type_to_Aliases = (
     $p: {
         'key': string,
         'type parameters': d_in.Type_Parameters,
-        'function type parameters': pt.Optional_Value<d_in.Type_Parameters>,
+        'function type parameters': _et.Optional_Value<d_in.Type_Parameters>,
         'module parameters': d_in.Type_Parameters,
         'temp imports': d_in.Module['imports'],
     }
@@ -275,7 +275,7 @@ export const Type_to_Aliases = (
             'key': string,
             'type parameters': d_in.Type_Parameters,
             'module parameters': d_in.Type_Parameters,
-            'function type parameters': pt.Optional_Value<d_in.Type_Parameters>,
+            'function type parameters': _et.Optional_Value<d_in.Type_Parameters>,
             'temp imports': d_in.Module['imports'],
         }
     ): d_out.Group_Part => {
@@ -302,8 +302,8 @@ export const Type_to_Aliases = (
                             Type_to_Type(
                                 $,
                                 {
-                                    'module parameters': pa.set($p['module parameters']),
-                                    'temp imports': pa.set($p['temp imports']),
+                                    'module parameters': _ea.set($p['module parameters']),
+                                    'temp imports': _ea.set($p['temp imports']),
                                 },
                             ),
                             {
@@ -315,10 +315,10 @@ export const Type_to_Aliases = (
             )
         ])
     }
-    return pa.cc($, ($): d_out.Group_Part => {
+    return _ea.cc($, ($): d_out.Group_Part => {
         switch ($[0]) {
-            case 'boolean': return pa.ss($, ($) => sh.g.nothing())
-            case 'component': return pa.ss($, ($) => Namespace(
+            case 'boolean': return _ea.ss($, ($) => sh.g.nothing())
+            case 'component': return _ea.ss($, ($) => Namespace(
                 $p.key,
                 {
                     'callback': () => sh.g.sub([
@@ -337,7 +337,7 @@ export const Type_to_Aliases = (
                     ])
                 }
             ))
-            case 'computed': return pa.ss($, ($) => Namespace(
+            case 'computed': return _ea.ss($, ($) => Namespace(
                 $p.key,
                 {
                     'callback': () => Type_to_Aliases_2(
@@ -352,7 +352,7 @@ export const Type_to_Aliases = (
                     )
                 }
             ))
-            case 'dictionary': return pa.ss($, ($) => Namespace(
+            case 'dictionary': return _ea.ss($, ($) => Namespace(
                 $p.key,
                 {
                     'callback': () => Type_to_Aliases_2(
@@ -367,7 +367,7 @@ export const Type_to_Aliases = (
                     )
                 }
             ))
-            case 'function': return pa.ss($, ($) => Namespace(
+            case 'function': return _ea.ss($, ($) => Namespace(
                 $p.key,
                 {
                     'callback': () => sh.g.sub([
@@ -376,7 +376,7 @@ export const Type_to_Aliases = (
                             {
                                 'module parameters': $p['module parameters'],
                                 'type parameters': $p['type parameters'],
-                                'function type parameters': pa.set($['type parameters']),
+                                'function type parameters': _ea.set($['type parameters']),
                                 'key': "CONTEXT",
                                 'temp imports': $p['temp imports'],
                             }
@@ -390,7 +390,7 @@ export const Type_to_Aliases = (
                                         {
                                             'module parameters': $p['module parameters'],
                                             'type parameters': $p['type parameters'],
-                                            'function type parameters': pa.set(ftp),
+                                            'function type parameters': _ea.set(ftp),
                                             'key': $.key,
                                             'temp imports': $p['temp imports'],
                                         }
@@ -403,7 +403,7 @@ export const Type_to_Aliases = (
                             {
                                 'module parameters': $p['module parameters'],
                                 'type parameters': $p['type parameters'],
-                                'function type parameters': pa.set($['type parameters']),
+                                'function type parameters': _ea.set($['type parameters']),
                                 'key': "RESULT",
                                 'temp imports': $p['temp imports'],
                             }
@@ -411,7 +411,7 @@ export const Type_to_Aliases = (
                     ])
                 }
             ))
-            case 'group': return pa.ss($, ($) => Namespace(
+            case 'group': return _ea.ss($, ($) => Namespace(
                 $p.key,
                 {
                     'callback': () => sh.g.sub([
@@ -430,7 +430,7 @@ export const Type_to_Aliases = (
                     ])
                 }
             ))
-            case 'array': return pa.ss($, ($) => Namespace(
+            case 'array': return _ea.ss($, ($) => Namespace(
                 $p.key,
                 {
                     'callback': () => Type_to_Aliases_2(
@@ -445,9 +445,9 @@ export const Type_to_Aliases = (
                     )
                 }
             ))
-            case 'null': return pa.ss($, ($) => sh.g.nothing())
-            case 'number': return pa.ss($, ($) => sh.g.nothing())
-            case 'optional': return pa.ss($, ($) => Namespace(
+            case 'null': return _ea.ss($, ($) => sh.g.nothing())
+            case 'number': return _ea.ss($, ($) => sh.g.nothing())
+            case 'optional': return _ea.ss($, ($) => Namespace(
                 $p.key,
                 {
                     'callback': () => Type_to_Aliases_2(
@@ -462,8 +462,8 @@ export const Type_to_Aliases = (
                     )
                 }
             ))
-            case 'parameter': return pa.ss($, ($) => sh.g.nothing())
-            case 'tagged union': return pa.ss($, ($) => Namespace(
+            case 'parameter': return _ea.ss($, ($) => sh.g.nothing())
+            case 'tagged union': return _ea.ss($, ($) => Namespace(
                 $p.key,
                 {
                     'callback': () => sh.g.sub([
@@ -482,14 +482,14 @@ export const Type_to_Aliases = (
                     ])
                 }
             ))
-            case 'string': return pa.ss($, ($) => sh.g.nothing())
-            default: return pa.au($[0])
+            case 'string': return _ea.ss($, ($) => sh.g.nothing())
+            default: return _ea.au($[0])
         }
     })
 }
 
 export const Identifier = (
-    $: pt.Array<string>
+    $: _et.Array<string>
 ): string => {
     return op_join_list_of_texts($)
 }
@@ -497,61 +497,61 @@ export const Identifier = (
 export const Type_to_Type = (
     $: d_in.Type,
     $p: {
-        'module parameters': pt.Optional_Value<pt.Dictionary<null>>,
-        'temp imports': pt.Optional_Value<d_in.Module['imports']>,
+        'module parameters': _et.Optional_Value<_et.Dictionary<null>>,
+        'temp imports': _et.Optional_Value<d_in.Module['imports']>,
     }
 ): s_out_ts.Type => {
 
-    return pa.cc($, ($): s_out_ts.Type => {
+    return _ea.cc($, ($): s_out_ts.Type => {
         switch ($[0]) {
-            case 'boolean': return pa.ss($, ($) => sh2.t.boolean())
-            case 'component': return pa.ss($, ($) => sh2.t.type_reference(
+            case 'boolean': return _ea.ss($, ($) => sh2.t.boolean())
+            case 'component': return _ea.ss($, ($) => sh2.t.type_reference(
                 //start
-                pa.cc($.location, ($): string => {
+                _ea.cc($.location, ($): string => {
                     switch ($[0]) {
-                        case 'import': return pa.ss($, ($) => Identifier(pa.array_literal([" i ", $.import])))
-                        case 'sibling': return pa.ss($, ($) => Identifier(pa.array_literal([" T ", $])))
-                        default: return pa.au($[0])
+                        case 'import': return _ea.ss($, ($) => Identifier(_ea.array_literal([" i ", $.import])))
+                        case 'sibling': return _ea.ss($, ($) => Identifier(_ea.array_literal([" T ", $])))
+                        default: return _ea.au($[0])
                     }
                 }),
                 //tail
-                op_flatten_list<string>(pa.array_literal([
-                    pa.cc($.location, ($): pt.Array<string> => {
+                op_flatten_list<string>(_ea.array_literal([
+                    _ea.cc($.location, ($): _et.Array<string> => {
                         switch ($[0]) {
-                            case 'import': return pa.ss($, ($) => pa.array_literal([
-                                Identifier(pa.array_literal([" T ", $.type]))
+                            case 'import': return _ea.ss($, ($) => _ea.array_literal([
+                                Identifier(_ea.array_literal([" T ", $.type]))
                             ]))
-                            case 'sibling': return pa.ss($, ($) => pa.array_literal([]))
-                            default: return pa.au($[0])
+                            case 'sibling': return _ea.ss($, ($) => _ea.array_literal([]))
+                            default: return _ea.au($[0])
                         }
                     }),
-                    op_flatten_list<string>($['sub selection'].map(($): pt.Array<string> => pa.cc($, ($) => {
+                    op_flatten_list<string>($['sub selection'].map(($): _et.Array<string> => _ea.cc($, ($) => {
                         switch ($[0]) {
-                            case 'dictionary': return pa.ss($, ($) => pa.array_literal(["D"]))
-                            case 'group': return pa.ss($, ($) => pa.array_literal([$]))
-                            case 'list': return pa.ss($, ($) => pa.array_literal(["L"]))
-                            case 'optional': return pa.ss($, ($) => pa.array_literal(["O"]))
-                            case 'state group': return pa.ss($, ($) => pa.array_literal([
+                            case 'dictionary': return _ea.ss($, ($) => _ea.array_literal(["D"]))
+                            case 'group': return _ea.ss($, ($) => _ea.array_literal([$]))
+                            case 'list': return _ea.ss($, ($) => _ea.array_literal(["L"]))
+                            case 'optional': return _ea.ss($, ($) => _ea.array_literal(["O"]))
+                            case 'state group': return _ea.ss($, ($) => _ea.array_literal([
                                 "SG",
                                 $,
                             ]))
-                            default: return pa.au($[0])
+                            default: return _ea.au($[0])
                         }
                     })))
                 ])),
                 //type arguments
                 op_dictionary_to_list<s_out_ts.Type>(op_flatten_dictionary(
-                    pa.dictionary_literal<pt.Dictionary<s_out_ts.Type>>({
-                        "M": pa.cc($.location, ($): pt.Dictionary<s_out_ts.Type> => {
+                    _ea.dictionary_literal<_et.Dictionary<s_out_ts.Type>>({
+                        "M": _ea.cc($.location, ($): _et.Dictionary<s_out_ts.Type> => {
                             switch ($[0]) {
-                                case 'import': return pa.ss($, ($) => $p['temp imports'].transform(($) => $, () => pa.panic("DSFSDFSD")).__get_entry($.import).transform(($) => $, () => {
+                                case 'import': return _ea.ss($, ($) => $p['temp imports'].transform(($) => $, () => _ea.panic("DSFSDFSD")).__get_entry($.import).transform(($) => $, () => {
                                     let keys = ""
                                     $p['temp imports'].map(($) => {
                                         $.map(($, key) => {
                                             keys += `, '${key}'`
                                         })
                                     })
-                                    return pa.panic(`no such import: ${$.import} @ ${keys}`)
+                                    return _ea.panic(`no such import: ${$.import} @ ${keys}`)
                                 })['type arguments'].map(($): s_out_ts.Type => Type_to_Type(
                                     $,
                                     {
@@ -559,12 +559,12 @@ export const Type_to_Type = (
                                         'temp imports': $p['temp imports'],
                                     }
                                 )))
-                                case 'sibling': return pa.ss($, ($): pt.Dictionary<s_out_ts.Type> => $p['module parameters'].transform(($) => $, () => pa.panic("DSFSDFSD")).map(($, key): s_out_ts.Type => sh2.t.type_reference(
+                                case 'sibling': return _ea.ss($, ($): _et.Dictionary<s_out_ts.Type> => $p['module parameters'].transform(($) => $, () => _ea.panic("DSFSDFSD")).map(($, key): s_out_ts.Type => sh2.t.type_reference(
                                     `M ${key}`,
                                     [],
                                     [],
                                 )))
-                                default: return pa.au($[0])
+                                default: return _ea.au($[0])
                             }
                         }),
                         "T": $['type arguments'].map(($): s_out_ts.Type => Type_to_Type(
@@ -580,7 +580,7 @@ export const Type_to_Type = (
                     }
                 )).map(($): s_out_ts.Type => $.value)
             ))
-            case 'computed': return pa.ss($, ($) => sh2.t.type_reference(
+            case 'computed': return _ea.ss($, ($) => sh2.t.type_reference(
                 " pt",
                 ["Computed Value"],
                 [
@@ -593,7 +593,7 @@ export const Type_to_Type = (
                     )
                 ]
             ))
-            case 'dictionary': return pa.ss($, ($) => sh2.t.type_reference(
+            case 'dictionary': return _ea.ss($, ($) => sh2.t.type_reference(
                 " pt",
                 ["Dictionary"],
                 [
@@ -606,7 +606,7 @@ export const Type_to_Type = (
                     )
                 ]
             ))
-            case 'function': return pa.ss($, ($) => sh2.t.function_(
+            case 'function': return _ea.ss($, ($) => sh2.t.function_(
                 op_dictionary_to_list($['type parameters']).map(($) => `F ${$.key}`),
                 [
                     sh2.parameter(
@@ -643,7 +643,7 @@ export const Type_to_Type = (
                     },
                 )
             ))
-            case 'group': return pa.ss($, ($) => sh2.t.type_literal($.map(($) => ({
+            case 'group': return _ea.ss($, ($) => sh2.t.type_literal($.map(($) => ({
                 'readonly': true,
                 'type': Type_to_Type(
                     $,
@@ -654,7 +654,7 @@ export const Type_to_Type = (
                 )
             }))))
 
-            case 'array': return pa.ss($, ($) => sh2.t.type_reference(
+            case 'array': return _ea.ss($, ($) => sh2.t.type_reference(
                 " pt",
                 ["Array"],
                 [
@@ -667,9 +667,9 @@ export const Type_to_Type = (
                     )
                 ]
             ))
-            case 'null': return pa.ss($, ($) => sh2.t.null_())
-            case 'number': return pa.ss($, ($) => sh2.t.number())
-            case 'optional': return pa.ss($, ($) => sh2.t.type_reference(
+            case 'null': return _ea.ss($, ($) => sh2.t.null_())
+            case 'number': return _ea.ss($, ($) => sh2.t.number())
+            case 'optional': return _ea.ss($, ($) => sh2.t.type_reference(
                 " pt",
                 ["Optional Value"],
                 [
@@ -682,13 +682,13 @@ export const Type_to_Type = (
                     )
                 ]
             ))
-            case 'parameter': return pa.ss($, ($) => sh2.t.type_reference(
-                pa.cc($.location, ($): string => {
+            case 'parameter': return _ea.ss($, ($) => sh2.t.type_reference(
+                _ea.cc($.location, ($): string => {
                     switch ($[0]) {
-                        case 'module': return pa.ss($, ($) => "M")
-                        case 'type': return pa.ss($, ($) => "T")
-                        case 'function': return pa.ss($, ($) => "F")
-                        default: return pa.au($[0])
+                        case 'module': return _ea.ss($, ($) => "M")
+                        case 'type': return _ea.ss($, ($) => "T")
+                        case 'function': return _ea.ss($, ($) => "F")
+                        default: return _ea.au($[0])
                     }
                 })
                 + " "
@@ -696,7 +696,7 @@ export const Type_to_Type = (
                 [],
                 []
             ))
-            case 'tagged union': return pa.ss($, ($) => sh2.t.union(
+            case 'tagged union': return _ea.ss($, ($) => sh2.t.union(
                 op_dictionary_to_list($).map(($) => sh2.t.tuple('readonly', [
                     sh2.t.literal_type($.key, 'apostrophe'),
                     Type_to_Type(
@@ -708,9 +708,9 @@ export const Type_to_Type = (
                     )
                 ]))
             ))
-            case 'string': return pa.ss($, ($) => sh2.t.string())
+            case 'string': return _ea.ss($, ($) => sh2.t.string())
 
-            default: return pa.au($[0])
+            default: return _ea.au($[0])
         }
     })
 }
@@ -721,7 +721,7 @@ export const Type_Declaration = (
         'name': string,
         'type parameters': d_in.Type_Parameters,
         'module parameters': d_in.Type_Parameters,
-        'function type parameters': pt.Optional_Value<d_in.Type_Parameters>,
+        'function type parameters': _et.Optional_Value<d_in.Type_Parameters>,
         'callback': () => d_out.Block_Part
     }
 ): d_out.Group_Part => {
@@ -731,12 +731,12 @@ export const Type_Declaration = (
             sh.b.snippet(op_create_identifier([$p.name])),
             line_dictionary(
                 op_flatten_dictionary(
-                    pa.dictionary_literal({
+                    _ea.dictionary_literal({
                         "M": $p['module parameters'],
                         "T": $p['type parameters'],
                         "F": $p['function type parameters'].transform(
                             ($) => $,
-                            () => pa.dictionary_literal({})
+                            () => _ea.dictionary_literal({})
                         ),
                     }),
                     {

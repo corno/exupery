@@ -9,9 +9,9 @@ import {
     wrap_list,
     wrap_dictionary,
     wrap_state_group,
-} from "exupery-core-data/dist/shorthands/unconstrained"
+} from 'exupery-core-data/dist/shorthands/unconstrained'
 
-import * as sh from "exupery-core-data/dist/shorthands/unconstrained"
+import * as sh from 'exupery-core-data/dist/shorthands/unconstrained'
 
 
 export namespace g {
