@@ -93,7 +93,7 @@ export const $$ = ($: string[]): string => {
 
     return _ea.build_text(($i) => {
         const characters = op_to_character_list(the_string)
-        const length = characters.__get_length()
+        const length = characters.__get_number_of_elements()
 
         let position = 0
 
