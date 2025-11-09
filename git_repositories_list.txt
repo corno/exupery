@@ -1,0 +1,8 @@
+Repository: exupery
+Path: /home/corno/workspace/pareto-canon/packages/exupery
+Last Commit: 2025-11-07 (9dc0878)
+Message: new version
+Branch: main
+Remote: git@github.com:corno/exupery
+-------------------------------------------------
+
