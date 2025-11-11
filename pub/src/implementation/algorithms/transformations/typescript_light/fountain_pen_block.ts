@@ -11,7 +11,7 @@ import { $$ as op_enrich_list_elements_with_position_information } from "pareto-
 import { $$ as op_dictionary_to_list } from "pareto-standard-operations/dist/implementation/algorithms/operations/impure/dictionary/to_list_sorted_by_code_point"
 import { $$ as op_serialize_with_apostrophe_delimiter } from "../../operations/impure/text/serialize_apostrophed_string"
 import { $$ as op_serialize_with_quote_delimiter } from "../../operations/impure/text/serialize_quoted_string"
-import { $$ as op_serialize_approximate_number } from "exupery-standard-library/dist/implementation/algorithms/operations/impure/approximate_number/serialize"
+import { $$ as op_serialize_approximate_number } from "pareto-standard-operations/dist/implementation/algorithms/operations/impure/approximate_number/serialize"
 
 import * as sh from "pareto-fountain-pen/dist/shorthands/block"
 import { Signature } from "../../../../interface/algorithms/transformations/typescript_light/fountain_pen_block"

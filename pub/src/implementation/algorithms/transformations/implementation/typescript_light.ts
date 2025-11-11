@@ -23,8 +23,8 @@ import { $$ as op_repeat } from "pareto-standard-operations/dist/implementation/
 import { $$ as op_create_valid_file_name } from "pareto-standard-operations/dist/implementation/algorithms/operations/impure/text/create_valid_file_name"
 import { $$ as op_create_identifier } from "../../operations/impure/text/create_identifier"
 import { $$ as op_dictionary_is_empty } from "pareto-standard-operations/dist/implementation/algorithms/operations/impure/dictionary/is_empty"
-import { $$ as op_approximate_number_serialize } from "exupery-standard-library/dist/implementation/algorithms/operations/impure/approximate_number/serialize"
-import { $$ as op_integer_serialize } from "exupery-standard-library/dist/implementation/algorithms/operations/impure/integer/serialize"
+import { $$ as op_approximate_number_serialize } from "pareto-standard-operations/dist/implementation/algorithms/operations/impure/approximate_number/serialize"
+import { $$ as op_integer_serialize } from "pareto-standard-operations/dist/implementation/algorithms/operations/impure/integer/serialize"
 import { Signature } from "../../../../interface/algorithms/transformations/implementation/typescript_light"
 
 
