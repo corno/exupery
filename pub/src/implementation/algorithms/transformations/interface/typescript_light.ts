@@ -12,13 +12,13 @@ import * as t_tl_2_fp from "../typescript_light/fountain_pen_block"
 
 import * as sh from "../../../../shorthands/typescript_light"
 
-import { $$ as op_create_identifier } from "../../operations/impure/text/create_identifier"
-import { $$ as op_dictionary_to_list } from "pareto-standard-operations/dist/implementation/algorithms/operations/impure/dictionary/to_list_sorted_by_code_point"
+import { $$ as op_create_identifier } from "../../serializers/text/identifier"
+import { $$ as op_dictionary_to_list } from "pareto-standard-operations/dist/implementation/algorithms/operations/impure/dictionary/to_list_sorted_by_insertion"
 import { $$ as op_flatten_list } from "pareto-standard-operations/dist/implementation/algorithms/operations/pure/list/flatten"
 import { $$ as op_flatten_dictionary } from "pareto-standard-operations/dist/implementation/algorithms/operations/pure/dictionary/flatten"
 import { $$ as op_repeat } from "pareto-standard-operations/dist/implementation/algorithms/operations/impure/text/repeat"
 import { $$ as op_join_list_of_texts } from "pareto-standard-operations/dist/implementation/algorithms/operations/pure/text/join_list_of_texts"
-import { $$ as op_create_valid_file_name } from "pareto-standard-operations/dist/implementation/algorithms/operations/impure/text/create_valid_file_name"
+import { $$ as op_create_valid_file_name } from "../../serializers/text/filename"
 import { Signature } from "../../../../interface/algorithms/transformations/interface/typescript_light"
 
 
@@ -66,7 +66,7 @@ export const Module_Set = ($: d_in.Module_Set): d_out.Directory => {
                 const x_module_parameters = $['type parameters']
 
                 const valid_file_name = ($: string): string => {
-                    return op_create_valid_file_name($, { 'replace spaces with underscores': true })
+                    return op_create_valid_file_name($)
                 }
                 return ['file', sh.group([
                     sh.g.simple_line("import * as _pt from 'exupery-core-types'"),

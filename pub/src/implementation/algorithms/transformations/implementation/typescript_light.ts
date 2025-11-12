@@ -14,17 +14,17 @@ import * as sh from "../../../../shorthands/typescript_light"
 
 import { $$ as op_join_list_of_texts } from "pareto-standard-operations/dist/implementation/algorithms/operations/pure/text/join_list_of_texts"
 import { $$ as op_flatten_dictionary } from "pareto-standard-operations/dist/implementation/algorithms/operations/pure/dictionary/flatten"
-import { $$ as op_dictionary_to_list } from "pareto-standard-operations/dist/implementation/algorithms/operations/impure/dictionary/to_list_sorted_by_code_point"
-import { $$ as op_serialize_with_apostrophe_delimiter } from "../../operations/impure/text/serialize_apostrophed_string"
-import { $$ as op_serialize_with_quote_delimiter } from "../../operations/impure/text/serialize_quoted_string"
-import { $$ as op_serialize_with_grave_delimiter } from "../../operations/impure/text/serialize_backticked_string"
+import { $$ as op_dictionary_to_list } from "pareto-standard-operations/dist/implementation/algorithms/operations/impure/dictionary/to_list_sorted_by_insertion"
+import { $$ as op_serialize_with_apostrophe_delimiter } from "../../serializers/text/apostrophed_string"
+import { $$ as op_serialize_with_quote_delimiter } from "../../serializers/text/quoted_string"
+import { $$ as op_serialize_with_grave_delimiter } from "../../serializers/text/backticked_string"
 
 import { $$ as op_repeat } from "pareto-standard-operations/dist/implementation/algorithms/operations/impure/text/repeat"
-import { $$ as op_create_valid_file_name } from "pareto-standard-operations/dist/implementation/algorithms/operations/impure/text/create_valid_file_name"
-import { $$ as op_create_identifier } from "../../operations/impure/text/create_identifier"
+import { $$ as op_create_valid_file_name } from "../../serializers/text/filename"
+import { $$ as op_create_identifier } from "../../serializers/text/identifier"
 import { $$ as op_dictionary_is_empty } from "pareto-standard-operations/dist/implementation/algorithms/operations/impure/dictionary/is_empty"
-import { $$ as op_approximate_number_serialize } from "pareto-standard-operations/dist/implementation/algorithms/operations/impure/approximate_number/serialize"
-import { $$ as op_integer_serialize } from "pareto-standard-operations/dist/implementation/algorithms/operations/impure/integer/serialize"
+import { $$ as op_approximate_number_serialize } from "pareto-standard-operations/dist/implementation/algorithms/serializers/approximate_number/decimal"
+import { $$ as op_integer_serialize } from "pareto-standard-operations/dist/implementation/algorithms/serializers/integer/decimal"
 import { Signature } from "../../../../interface/algorithms/transformations/implementation/typescript_light"
 
 
@@ -39,7 +39,7 @@ export const Module_Set = (
             case 'module': return _ea.ss($, ($): d_out.Directory.D => {
                 const type_imports = $['type imports']
                 const valid_file_name = ($: string): string => {
-                    return op_create_valid_file_name($, { 'replace spaces with underscores': true })
+                    return op_create_valid_file_name($)
                 }
                 const x: d_out.Group = sh.group([
                     sh.g.simple_line("import * as _pa from 'exupery-core-alg'"),
