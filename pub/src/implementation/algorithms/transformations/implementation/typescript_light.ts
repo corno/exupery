@@ -23,7 +23,7 @@ import { $$ as op_repeat } from "pareto-standard-operations/dist/implementation/
 import { $$ as op_create_valid_file_name } from "../../serializers/text/filename"
 import { $$ as op_create_identifier } from "../../serializers/text/identifier"
 import { $$ as op_dictionary_is_empty } from "pareto-standard-operations/dist/implementation/algorithms/operations/impure/dictionary/is_empty"
-import { $$ as op_approximate_number_serialize } from "pareto-standard-operations/dist/implementation/algorithms/serializers/approximate_number/decimal"
+import { $$ as op_approximate_number_serialize } from "pareto-standard-operations/dist/implementation/algorithms/serializers/approximate_number/scientific_notation"
 import { $$ as op_integer_serialize } from "pareto-standard-operations/dist/implementation/algorithms/serializers/integer/decimal"
 import { Signature } from "../../../../interface/algorithms/transformations/implementation/typescript_light"
 
@@ -646,7 +646,7 @@ export const Literal = (
                 case 'null': return _ea.ss($, ($) => sh.b.snippet("null"))
                 case 'number': return _ea.ss($, ($) => _ea.cc($, ($) => {
                     switch ($[0]) {
-                        case 'floting point': return _ea.ss($, ($) => sh.b.snippet(op_approximate_number_serialize($)))
+                        case 'floting point': return _ea.ss($, ($) => sh.b.snippet(op_approximate_number_serialize($, { 'digits': 10 })))
                         case 'integer': return _ea.ss($, ($) => sh.b.snippet(op_integer_serialize($)))
                         case 'signed integer': return _ea.ss($, ($) => sh.b.snippet(op_integer_serialize($)))
                         default: return _ea.au($[0])
