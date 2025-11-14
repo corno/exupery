@@ -1,6 +1,5 @@
 import * as _ea from 'exupery-core-alg'
 
-import { $$ as op_to_character_list } from "pareto-standard-operations/dist/implementation/algorithms/operations/impure/text/to_character_list"
 import { $$ as op_join_list_of_texts } from "pareto-standard-operations/dist/implementation/algorithms/operations/pure/text/join_list_of_texts"
 import { $$ as op_integer_serialize } from "pareto-standard-operations/dist/implementation/algorithms/serializers/integer/decimal"
 import { Signature } from "../../../../interface/algorithms/operations/impure/text/create_identifier"
@@ -92,7 +91,7 @@ export const $$ = ($: string[]): string => {
     }
 
     return _ea.build_text(($i) => {
-        const characters = op_to_character_list(the_string)
+        const characters = _ea.text_to_character_list(the_string)
         const length = characters.__get_number_of_elements()
 
         let position = 0
