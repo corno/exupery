@@ -5,7 +5,7 @@ import * as _target from "../interface/generated/pareto/schemas/typescript_light
 
 import {
     Raw_Or_Normal_Dictionary,
-    Raw_Or_Normal_Array,
+    Raw_Or_Normal_List,
     wrap_list,
     wrap_dictionary,
     wrap_state_group,
@@ -18,9 +18,9 @@ export namespace g {
 
     export const simple_line = (block: string): _target.Group_Part => ['block', block]
 
-    export const nested_block = (snippets: sh.Raw_Or_Normal_Array<_target.Block.L>): _target.Group_Part => ['nested block', sh.wrap_list(snippets)]
+    export const nested_block = (snippets: sh.Raw_Or_Normal_List<_target.Block.L>): _target.Group_Part => ['nested block', sh.wrap_list(snippets)]
 
-    export const sub = (group_parts: sh.Raw_Or_Normal_Array<_target.Group.L>): _target.Group_Part => ['sub group', sh.wrap_list(group_parts)]
+    export const sub = (group_parts: sh.Raw_Or_Normal_List<_target.Group.L>): _target.Group_Part => ['sub group', sh.wrap_list(group_parts)]
 
     export const nothing = (): _target.Group_Part => ['nothing', null]
 
@@ -30,11 +30,11 @@ export namespace g {
 
 export namespace b {
 
-    export const indent = (blocks: sh.Raw_Or_Normal_Array<_target.Group.L>): _target.Block_Part => ['indent', sh.wrap_list(blocks)]
+    export const indent = (blocks: sh.Raw_Or_Normal_List<_target.Group.L>): _target.Block_Part => ['indent', sh.wrap_list(blocks)]
 
     export const snippet = (snippet: string): _target.Block_Part => ['snippet', snippet]
 
-    export const sub = (Block_Parts: sh.Raw_Or_Normal_Array<_target.Block.L>): _target.Block_Part => ['sub block', sh.wrap_list(Block_Parts)]
+    export const sub = (Block_Parts: sh.Raw_Or_Normal_List<_target.Block.L>): _target.Block_Part => ['sub block', sh.wrap_list(Block_Parts)]
 
     export const nothing = (): _target.Block_Part => ['nothing', null]
 
@@ -57,7 +57,7 @@ export namespace b {
 //     children: sh.Raw_Or_Normal_Dictionary<_target.Node>,
 // ): _target.Directory => sh.wrap_dictionary(children)
 
-export const group = (Group_Parts: sh.Raw_Or_Normal_Array<_target.Group.L>): _target.Group => sh.wrap_list(Group_Parts)
+export const group = (Group_Parts: sh.Raw_Or_Normal_List<_target.Group.L>): _target.Group => sh.wrap_list(Group_Parts)
 
 
 export const parameter = (
@@ -77,8 +77,8 @@ export namespace t {
         return ['boolean', null]
     }
     export const function_ = (
-        type_parameters: Raw_Or_Normal_Array<string>,
-        parameters: Raw_Or_Normal_Array<_target.Type.SG._function.parameters.L>,
+        type_parameters: Raw_Or_Normal_List<string>,
+        parameters: Raw_Or_Normal_List<_target.Type.SG._function.parameters.L>,
         return_: _target.Type,
     ): _target.Type => {
         return ['function', {
@@ -104,7 +104,7 @@ export namespace t {
     }
     export const tuple = (
         read_only: 'readonly' | '', 
-        elements: Raw_Or_Normal_Array<_target.Type>): _target.Type => {
+        elements: Raw_Or_Normal_List<_target.Type>): _target.Type => {
         return ['tuple', {
             'readonly': read_only === 'readonly',
             'elements': wrap_list(elements)
@@ -117,8 +117,8 @@ export namespace t {
     }
     export const type_reference = (
         start: string,
-        tail: Raw_Or_Normal_Array<string>,
-        type_arguments: Raw_Or_Normal_Array<_target.Type>,
+        tail: Raw_Or_Normal_List<string>,
+        type_arguments: Raw_Or_Normal_List<_target.Type>,
     ): _target.Type => {
         return ['type reference', {
             'start': start,
@@ -126,7 +126,7 @@ export namespace t {
             'type arguments': wrap_list(type_arguments),
         }]
     }
-    export const union = (cases: Raw_Or_Normal_Array<_target.Type>): _target.Type => {
+    export const union = (cases: Raw_Or_Normal_List<_target.Type>): _target.Type => {
         return ['union', wrap_list(cases)]
     }
     export const void_ = (): _target.Type => {
@@ -155,8 +155,8 @@ export namespace e {
             'properties': wrap_dictionary(properties),
         }]
     }
-    export const array_literal = (
-        elements: Raw_Or_Normal_Array<_target.Expression>
+    export const list_literal = (
+        elements: Raw_Or_Normal_List<_target.Expression>
     ): _target.Expression => {
         return ['array literal', wrap_list(elements)]
     }

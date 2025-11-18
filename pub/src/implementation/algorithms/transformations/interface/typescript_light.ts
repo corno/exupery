@@ -69,7 +69,7 @@ export const Module_Set = ($: d_in.Module_Set): d_out.Directory => {
                     return op_create_valid_file_name($)
                 }
                 return ['file', sh.group([
-                    sh.g.simple_line("import * as _pt from 'exupery-core-types'"),
+                    sh.g.simple_line("import * as _et from 'exupery-core-types'"),
 
                     sh.g.simple_line(""),
                     sh.g.sub(op_dictionary_to_list($.imports).map(($) => sh.g.sub([
@@ -115,7 +115,7 @@ export const Module_Set = ($: d_in.Module_Set): d_out.Directory => {
                         Type_Declaration(
                             null,
                             {
-                                'name': Identifier(_ea.array_literal([" T ", $.key])),
+                                'name': Identifier(_ea.list_literal([" T ", $.key])),
                                 'type parameters': $.value.parameters,
                                 'module parameters': x_module_parameters,
                                 'function type parameters': _ea.not_set(),
@@ -489,7 +489,7 @@ export const Type_to_Aliases = (
 }
 
 export const Identifier = (
-    $: _et.Array<string>
+    $: _et.List<string>
 ): string => {
     return op_join_list_of_texts($)
 }
@@ -509,29 +509,29 @@ export const Type_to_Type = (
                 //start
                 _ea.cc($.location, ($): string => {
                     switch ($[0]) {
-                        case 'import': return _ea.ss($, ($) => Identifier(_ea.array_literal([" i ", $.import])))
-                        case 'sibling': return _ea.ss($, ($) => Identifier(_ea.array_literal([" T ", $])))
+                        case 'import': return _ea.ss($, ($) => Identifier(_ea.list_literal([" i ", $.import])))
+                        case 'sibling': return _ea.ss($, ($) => Identifier(_ea.list_literal([" T ", $])))
                         default: return _ea.au($[0])
                     }
                 }),
                 //tail
-                op_flatten_list<string>(_ea.array_literal([
-                    _ea.cc($.location, ($): _et.Array<string> => {
+                op_flatten_list<string>(_ea.list_literal([
+                    _ea.cc($.location, ($): _et.List<string> => {
                         switch ($[0]) {
-                            case 'import': return _ea.ss($, ($) => _ea.array_literal([
-                                Identifier(_ea.array_literal([" T ", $.type]))
+                            case 'import': return _ea.ss($, ($) => _ea.list_literal([
+                                Identifier(_ea.list_literal([" T ", $.type]))
                             ]))
-                            case 'sibling': return _ea.ss($, ($) => _ea.array_literal([]))
+                            case 'sibling': return _ea.ss($, ($) => _ea.list_literal([]))
                             default: return _ea.au($[0])
                         }
                     }),
-                    op_flatten_list<string>($['sub selection'].map(($): _et.Array<string> => _ea.cc($, ($) => {
+                    op_flatten_list<string>($['sub selection'].map(($): _et.List<string> => _ea.cc($, ($) => {
                         switch ($[0]) {
-                            case 'dictionary': return _ea.ss($, ($) => _ea.array_literal(["D"]))
-                            case 'group': return _ea.ss($, ($) => _ea.array_literal([$]))
-                            case 'list': return _ea.ss($, ($) => _ea.array_literal(["L"]))
-                            case 'optional': return _ea.ss($, ($) => _ea.array_literal(["O"]))
-                            case 'state group': return _ea.ss($, ($) => _ea.array_literal([
+                            case 'dictionary': return _ea.ss($, ($) => _ea.list_literal(["D"]))
+                            case 'group': return _ea.ss($, ($) => _ea.list_literal([$]))
+                            case 'list': return _ea.ss($, ($) => _ea.list_literal(["L"]))
+                            case 'optional': return _ea.ss($, ($) => _ea.list_literal(["O"]))
+                            case 'state group': return _ea.ss($, ($) => _ea.list_literal([
                                 "SG",
                                 $,
                             ]))

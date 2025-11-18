@@ -5,12 +5,16 @@ import * as d_in from "../../../../interface/generated/pareto/schemas/implementa
 import * as s_in_interface from "../../../../interface/generated/pareto/schemas/interface/data_types/source"
 import * as d_out from "pareto-fountain-pen/dist/interface/generated/pareto/schemas/block/data_types/target"
 
-import * as t_inf_2_tl from "../interface/typescript_light"
 
+
+import { Signature } from "../../../../interface/algorithms/transformations/implementation/typescript_light"
+
+
+import * as t_inf_2_tl from "../interface/typescript_light"
 import * as t_tl_2_fp from "../typescript_light/fountain_pen_block"
 
-import * as sh from "../../../../shorthands/typescript_light"
 
+import * as sh from "../../../../shorthands/typescript_light"
 
 import { $$ as op_join_list_of_texts } from "pareto-standard-operations/dist/implementation/algorithms/operations/pure/text/join_list_of_texts"
 import { $$ as op_flatten_dictionary } from "pareto-standard-operations/dist/implementation/algorithms/operations/pure/dictionary/flatten"
@@ -23,10 +27,8 @@ import { $$ as op_repeat } from "pareto-standard-operations/dist/implementation/
 import { $$ as op_create_valid_file_name } from "../../serializers/text/filename"
 import { $$ as op_create_identifier } from "../../serializers/text/identifier"
 import { $$ as op_dictionary_is_empty } from "pareto-standard-operations/dist/implementation/algorithms/operations/impure/dictionary/is_empty"
-import { $$ as op_approximate_number_serialize } from "pareto-standard-operations/dist/implementation/algorithms/serializers/approximate_number/scientific_notation"
-import { $$ as op_integer_serialize } from "pareto-standard-operations/dist/implementation/algorithms/serializers/integer/decimal"
-import { Signature } from "../../../../interface/algorithms/transformations/implementation/typescript_light"
-
+import { $$ as op_approximate_number_serialize } from "pareto-standard-operations/dist/implementation/algorithms/approximate_number/scientific_notation/serializer"
+import { $$ as op_integer_serialize } from "pareto-standard-operations/dist/implementation/algorithms/integer/decimal/serializer"
 
 export const Module_Set = (
     $: d_in.Module_Set,
@@ -633,7 +635,7 @@ export const Literal = (
                 ))
 
                 case 'array': return _ea.ss($, ($) => sh.b.sub([
-                    sh.b.snippet("_pa.array_literal(["),
+                    sh.b.snippet("_pa.list_literal(["),
                     sh.b.indent([
                         sh.g.sub($.map(($) => sh.g.nested_block([
                             Initialization($, $p),

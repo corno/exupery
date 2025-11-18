@@ -6,7 +6,7 @@ import {
     wrap_dictionary,
     wrap_list,
     Raw_Or_Normal_Dictionary,
-    Raw_Or_Normal_Array,
+    Raw_Or_Normal_List,
     wrap_state_group,
 } from 'exupery-core-data/dist/shorthands/unresolved_data'
 
@@ -14,7 +14,7 @@ export namespace import_ {
 
     export const external = (
         key: string,
-        tail: Raw_Or_Normal_Array<string>,
+        tail: Raw_Or_Normal_List<string>,
         args: Raw_Or_Normal_Dictionary<_out.Type<_edata.Source_Location>>
     ): _out.Imports.D<_edata.Source_Location> => {
         return {
@@ -26,7 +26,7 @@ export namespace import_ {
 
     export const sibling = (
         key: string,
-        tail: Raw_Or_Normal_Array<string>,
+        tail: Raw_Or_Normal_List<string>,
         args: Raw_Or_Normal_Dictionary<_out.Type<_edata.Source_Location>>
     ): _out.Imports.D<_edata.Source_Location> => {
         return {
@@ -38,7 +38,7 @@ export namespace import_ {
     export const ancestor = (
         number_of_steps: number,
         key: string,
-        tail: Raw_Or_Normal_Array<string>,
+        tail: Raw_Or_Normal_List<string>,
         args: Raw_Or_Normal_Dictionary<_out.Type<_edata.Source_Location>>,
     ): _out.Imports.D<_edata.Source_Location> => {
         return {
@@ -115,7 +115,7 @@ export namespace t {
     export const component_sibling = (
         sibling: string,
         args: Raw_Or_Normal_Dictionary<_out.Type<_edata.Source_Location>>,
-        sub_selection: Raw_Or_Normal_Array<_out.Type.SG.component.sub_selection.L<_edata.Source_Location>>,
+        sub_selection: Raw_Or_Normal_List<_out.Type.SG.component.sub_selection.L<_edata.Source_Location>>,
     ): _out.Type<_edata.Source_Location> => {
         return wrap_state_group(['component', {
             'location': wrap_state_group(['sibling', sibling]),
@@ -128,7 +128,7 @@ export namespace t {
         imp: string,
         type: string,
         args: Raw_Or_Normal_Dictionary<_out.Type<_edata.Source_Location>>,
-        sub_selection: Raw_Or_Normal_Array<_out.Type.SG.component.sub_selection.L<_edata.Source_Location>>,
+        sub_selection: Raw_Or_Normal_List<_out.Type.SG.component.sub_selection.L<_edata.Source_Location>>,
     ): _out.Type<_edata.Source_Location> => {
         return wrap_state_group(['component', {
             'location': wrap_state_group(['import', {

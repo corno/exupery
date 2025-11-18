@@ -1,4 +1,4 @@
-import * as _pt from 'exupery-core-types'
+import * as _et from 'exupery-core-types'
 
 import * as _i_core from "../../../core/unresolved"
 import * as _i_imports_interface from "../../interface/data_types/target"
@@ -11,7 +11,7 @@ export type _T_Initialization<M_Source> = _i_core._T_State_Group<M_Source,
         readonly 'temp ordered variables': _i_core._T_List<M_Source, {
             readonly 'initialization': _T_Initialization<M_Source>
             readonly 'name': string
-            readonly 'type': _pt.Optional_Value<_i_imports_interface._T_Type<M_Source>>
+            readonly 'type': _et.Optional_Value<_i_imports_interface._T_Type<M_Source>>
         }>
         readonly 'variables': _T_Variables<M_Source>
     }]
@@ -41,7 +41,7 @@ export type _T_Initialization<M_Source> = _i_core._T_State_Group<M_Source,
             >]
             | readonly ['function', _i_core._T_State_Group<M_Source, 
                 | readonly ['call', {
-                    readonly 'arguments': _pt.Optional_Value<_i_core._T_Dictionary<M_Source, _T_Initialization<M_Source>>>
+                    readonly 'arguments': _et.Optional_Value<_i_core._T_Dictionary<M_Source, _T_Initialization<M_Source>>>
                     readonly 'context': _T_Initialization<M_Source>
                 }]
             >]
@@ -50,12 +50,12 @@ export type _T_Initialization<M_Source> = _i_core._T_State_Group<M_Source,
                 | readonly ['transform', {
                     readonly 'if not set': _T_Initialization<M_Source>
                     readonly 'if set': _T_Initialization<M_Source>
-                    readonly 'temp resulting node': _pt.Optional_Value<_i_imports_interface._T_Type<M_Source>>
+                    readonly 'temp resulting node': _et.Optional_Value<_i_imports_interface._T_Type<M_Source>>
                 }]
             >]
             | readonly ['tagged union', _i_core._T_State_Group<M_Source, 
                 | readonly ['switch', {
-                    readonly 'temp resulting node': _pt.Optional_Value<_i_imports_interface._T_Type<M_Source>>
+                    readonly 'temp resulting node': _et.Optional_Value<_i_imports_interface._T_Type<M_Source>>
                     readonly 'type': _i_core._T_State_Group<M_Source, 
                         | readonly ['full', {
                             readonly 'cases': _i_core._T_Dictionary<M_Source, _T_Initialization<M_Source>>
@@ -81,7 +81,7 @@ export type _T_Literal<M_Source> = _i_core._T_State_Group<M_Source,
     | readonly ['function', {
         readonly 'initialization': _T_Initialization<M_Source>
         readonly 'temp has parameters': boolean
-        readonly 'temp resulting node': _pt.Optional_Value<_i_imports_interface._T_Type<M_Source>>
+        readonly 'temp resulting node': _et.Optional_Value<_i_imports_interface._T_Type<M_Source>>
     }]
     | readonly ['group', _i_core._T_Dictionary<M_Source, _T_Initialization<M_Source>>]
     | readonly ['null', null]
@@ -133,7 +133,7 @@ export type _T_Selection<M_Source> = {
         | readonly ['abort', null]
         | readonly ['argument', string]
         | readonly ['call', {
-            readonly 'arguments': _pt.Optional_Value<_i_core._T_Dictionary<M_Source, _T_Initialization<M_Source>>>
+            readonly 'arguments': _et.Optional_Value<_i_core._T_Dictionary<M_Source, _T_Initialization<M_Source>>>
             readonly 'context': _T_Selection<M_Source>
             readonly 'source': _T_Selection<M_Source>
         }]
@@ -158,7 +158,7 @@ export type _T_Type_Parameters<M_Source> = _i_core._T_Dictionary<M_Source, null>
 
 export type _T_Variables<M_Source> = _i_core._T_Dictionary<M_Source, {
     readonly 'initialization': _T_Initialization<M_Source>
-    readonly 'type': _pt.Optional_Value<_i_imports_interface._T_Type<M_Source>>
+    readonly 'type': _et.Optional_Value<_i_imports_interface._T_Type<M_Source>>
 }>
 
 // **** FRIENDLY NAMES FOR THE GLOBAL TYPES
@@ -204,18 +204,18 @@ export namespace _T_Initialization {
                         }
                         export type O<M_Source> = _i_imports_interface._T_Type<M_Source>
                     }
-                    export type _type<M_Source> = _pt.Optional_Value<_i_imports_interface._T_Type<M_Source>>
+                    export type _type<M_Source> = _et.Optional_Value<_i_imports_interface._T_Type<M_Source>>
                 }
                 export type L<M_Source> = {
                     readonly 'initialization': _T_Initialization<M_Source>
                     readonly 'name': string
-                    readonly 'type': _pt.Optional_Value<_i_imports_interface._T_Type<M_Source>>
+                    readonly 'type': _et.Optional_Value<_i_imports_interface._T_Type<M_Source>>
                 }
             }
             export type temp_ordered_variables<M_Source> = _i_core._T_List<M_Source, {
                 readonly 'initialization': _T_Initialization<M_Source>
                 readonly 'name': string
-                readonly 'type': _pt.Optional_Value<_i_imports_interface._T_Type<M_Source>>
+                readonly 'type': _et.Optional_Value<_i_imports_interface._T_Type<M_Source>>
             }>
             
             export namespace variables {
@@ -227,7 +227,7 @@ export namespace _T_Initialization {
             readonly 'temp ordered variables': _i_core._T_List<M_Source, {
                 readonly 'initialization': _T_Initialization<M_Source>
                 readonly 'name': string
-                readonly 'type': _pt.Optional_Value<_i_imports_interface._T_Type<M_Source>>
+                readonly 'type': _et.Optional_Value<_i_imports_interface._T_Type<M_Source>>
             }>
             readonly 'variables': _T_Variables<M_Source>
         }
@@ -352,26 +352,26 @@ export namespace _T_Initialization {
                                     }
                                     export type O<M_Source> = _i_core._T_Dictionary<M_Source, _T_Initialization<M_Source>>
                                 }
-                                export type _arguments<M_Source> = _pt.Optional_Value<_i_core._T_Dictionary<M_Source, _T_Initialization<M_Source>>>
+                                export type _arguments<M_Source> = _et.Optional_Value<_i_core._T_Dictionary<M_Source, _T_Initialization<M_Source>>>
                                 
                                 export namespace context {
                                 }
                                 export type context<M_Source> = _T_Initialization<M_Source>
                             }
                             export type call<M_Source> = {
-                                readonly 'arguments': _pt.Optional_Value<_i_core._T_Dictionary<M_Source, _T_Initialization<M_Source>>>
+                                readonly 'arguments': _et.Optional_Value<_i_core._T_Dictionary<M_Source, _T_Initialization<M_Source>>>
                                 readonly 'context': _T_Initialization<M_Source>
                             }
                         }
                         export type SG<M_Source> = 
                             | readonly ['call', {
-                                readonly 'arguments': _pt.Optional_Value<_i_core._T_Dictionary<M_Source, _T_Initialization<M_Source>>>
+                                readonly 'arguments': _et.Optional_Value<_i_core._T_Dictionary<M_Source, _T_Initialization<M_Source>>>
                                 readonly 'context': _T_Initialization<M_Source>
                             }]
                     }
                     export type _function<M_Source> = _i_core._T_State_Group<M_Source, 
                         | readonly ['call', {
-                            readonly 'arguments': _pt.Optional_Value<_i_core._T_Dictionary<M_Source, _T_Initialization<M_Source>>>
+                            readonly 'arguments': _et.Optional_Value<_i_core._T_Dictionary<M_Source, _T_Initialization<M_Source>>>
                             readonly 'context': _T_Initialization<M_Source>
                         }]
                     >
@@ -400,12 +400,12 @@ export namespace _T_Initialization {
                                     }
                                     export type O<M_Source> = _i_imports_interface._T_Type<M_Source>
                                 }
-                                export type temp_resulting_node<M_Source> = _pt.Optional_Value<_i_imports_interface._T_Type<M_Source>>
+                                export type temp_resulting_node<M_Source> = _et.Optional_Value<_i_imports_interface._T_Type<M_Source>>
                             }
                             export type transform<M_Source> = {
                                 readonly 'if not set': _T_Initialization<M_Source>
                                 readonly 'if set': _T_Initialization<M_Source>
-                                readonly 'temp resulting node': _pt.Optional_Value<_i_imports_interface._T_Type<M_Source>>
+                                readonly 'temp resulting node': _et.Optional_Value<_i_imports_interface._T_Type<M_Source>>
                             }
                         }
                         export type SG<M_Source> = 
@@ -413,7 +413,7 @@ export namespace _T_Initialization {
                             | readonly ['transform', {
                                 readonly 'if not set': _T_Initialization<M_Source>
                                 readonly 'if set': _T_Initialization<M_Source>
-                                readonly 'temp resulting node': _pt.Optional_Value<_i_imports_interface._T_Type<M_Source>>
+                                readonly 'temp resulting node': _et.Optional_Value<_i_imports_interface._T_Type<M_Source>>
                             }]
                     }
                     export type optional<M_Source> = _i_core._T_State_Group<M_Source, 
@@ -421,7 +421,7 @@ export namespace _T_Initialization {
                         | readonly ['transform', {
                             readonly 'if not set': _T_Initialization<M_Source>
                             readonly 'if set': _T_Initialization<M_Source>
-                            readonly 'temp resulting node': _pt.Optional_Value<_i_imports_interface._T_Type<M_Source>>
+                            readonly 'temp resulting node': _et.Optional_Value<_i_imports_interface._T_Type<M_Source>>
                         }]
                     >
                     
@@ -437,7 +437,7 @@ export namespace _T_Initialization {
                                     }
                                     export type O<M_Source> = _i_imports_interface._T_Type<M_Source>
                                 }
-                                export type temp_resulting_node<M_Source> = _pt.Optional_Value<_i_imports_interface._T_Type<M_Source>>
+                                export type temp_resulting_node<M_Source> = _et.Optional_Value<_i_imports_interface._T_Type<M_Source>>
                                 
                                 export namespace _type {
                                     
@@ -496,7 +496,7 @@ export namespace _T_Initialization {
                                 >
                             }
                             export type _switch<M_Source> = {
-                                readonly 'temp resulting node': _pt.Optional_Value<_i_imports_interface._T_Type<M_Source>>
+                                readonly 'temp resulting node': _et.Optional_Value<_i_imports_interface._T_Type<M_Source>>
                                 readonly 'type': _i_core._T_State_Group<M_Source, 
                                     | readonly ['full', {
                                         readonly 'cases': _i_core._T_Dictionary<M_Source, _T_Initialization<M_Source>>
@@ -510,7 +510,7 @@ export namespace _T_Initialization {
                         }
                         export type SG<M_Source> = 
                             | readonly ['switch', {
-                                readonly 'temp resulting node': _pt.Optional_Value<_i_imports_interface._T_Type<M_Source>>
+                                readonly 'temp resulting node': _et.Optional_Value<_i_imports_interface._T_Type<M_Source>>
                                 readonly 'type': _i_core._T_State_Group<M_Source, 
                                     | readonly ['full', {
                                         readonly 'cases': _i_core._T_Dictionary<M_Source, _T_Initialization<M_Source>>
@@ -524,7 +524,7 @@ export namespace _T_Initialization {
                     }
                     export type tagged_union<M_Source> = _i_core._T_State_Group<M_Source, 
                         | readonly ['switch', {
-                            readonly 'temp resulting node': _pt.Optional_Value<_i_imports_interface._T_Type<M_Source>>
+                            readonly 'temp resulting node': _et.Optional_Value<_i_imports_interface._T_Type<M_Source>>
                             readonly 'type': _i_core._T_State_Group<M_Source, 
                                 | readonly ['full', {
                                     readonly 'cases': _i_core._T_Dictionary<M_Source, _T_Initialization<M_Source>>
@@ -553,7 +553,7 @@ export namespace _T_Initialization {
                     >]
                     | readonly ['function', _i_core._T_State_Group<M_Source, 
                         | readonly ['call', {
-                            readonly 'arguments': _pt.Optional_Value<_i_core._T_Dictionary<M_Source, _T_Initialization<M_Source>>>
+                            readonly 'arguments': _et.Optional_Value<_i_core._T_Dictionary<M_Source, _T_Initialization<M_Source>>>
                             readonly 'context': _T_Initialization<M_Source>
                         }]
                     >]
@@ -562,12 +562,12 @@ export namespace _T_Initialization {
                         | readonly ['transform', {
                             readonly 'if not set': _T_Initialization<M_Source>
                             readonly 'if set': _T_Initialization<M_Source>
-                            readonly 'temp resulting node': _pt.Optional_Value<_i_imports_interface._T_Type<M_Source>>
+                            readonly 'temp resulting node': _et.Optional_Value<_i_imports_interface._T_Type<M_Source>>
                         }]
                     >]
                     | readonly ['tagged union', _i_core._T_State_Group<M_Source, 
                         | readonly ['switch', {
-                            readonly 'temp resulting node': _pt.Optional_Value<_i_imports_interface._T_Type<M_Source>>
+                            readonly 'temp resulting node': _et.Optional_Value<_i_imports_interface._T_Type<M_Source>>
                             readonly 'type': _i_core._T_State_Group<M_Source, 
                                 | readonly ['full', {
                                     readonly 'cases': _i_core._T_Dictionary<M_Source, _T_Initialization<M_Source>>
@@ -596,7 +596,7 @@ export namespace _T_Initialization {
                 >]
                 | readonly ['function', _i_core._T_State_Group<M_Source, 
                     | readonly ['call', {
-                        readonly 'arguments': _pt.Optional_Value<_i_core._T_Dictionary<M_Source, _T_Initialization<M_Source>>>
+                        readonly 'arguments': _et.Optional_Value<_i_core._T_Dictionary<M_Source, _T_Initialization<M_Source>>>
                         readonly 'context': _T_Initialization<M_Source>
                     }]
                 >]
@@ -605,12 +605,12 @@ export namespace _T_Initialization {
                     | readonly ['transform', {
                         readonly 'if not set': _T_Initialization<M_Source>
                         readonly 'if set': _T_Initialization<M_Source>
-                        readonly 'temp resulting node': _pt.Optional_Value<_i_imports_interface._T_Type<M_Source>>
+                        readonly 'temp resulting node': _et.Optional_Value<_i_imports_interface._T_Type<M_Source>>
                     }]
                 >]
                 | readonly ['tagged union', _i_core._T_State_Group<M_Source, 
                     | readonly ['switch', {
-                        readonly 'temp resulting node': _pt.Optional_Value<_i_imports_interface._T_Type<M_Source>>
+                        readonly 'temp resulting node': _et.Optional_Value<_i_imports_interface._T_Type<M_Source>>
                         readonly 'type': _i_core._T_State_Group<M_Source, 
                             | readonly ['full', {
                                 readonly 'cases': _i_core._T_Dictionary<M_Source, _T_Initialization<M_Source>>
@@ -642,7 +642,7 @@ export namespace _T_Initialization {
                 >]
                 | readonly ['function', _i_core._T_State_Group<M_Source, 
                     | readonly ['call', {
-                        readonly 'arguments': _pt.Optional_Value<_i_core._T_Dictionary<M_Source, _T_Initialization<M_Source>>>
+                        readonly 'arguments': _et.Optional_Value<_i_core._T_Dictionary<M_Source, _T_Initialization<M_Source>>>
                         readonly 'context': _T_Initialization<M_Source>
                     }]
                 >]
@@ -651,12 +651,12 @@ export namespace _T_Initialization {
                     | readonly ['transform', {
                         readonly 'if not set': _T_Initialization<M_Source>
                         readonly 'if set': _T_Initialization<M_Source>
-                        readonly 'temp resulting node': _pt.Optional_Value<_i_imports_interface._T_Type<M_Source>>
+                        readonly 'temp resulting node': _et.Optional_Value<_i_imports_interface._T_Type<M_Source>>
                     }]
                 >]
                 | readonly ['tagged union', _i_core._T_State_Group<M_Source, 
                     | readonly ['switch', {
-                        readonly 'temp resulting node': _pt.Optional_Value<_i_imports_interface._T_Type<M_Source>>
+                        readonly 'temp resulting node': _et.Optional_Value<_i_imports_interface._T_Type<M_Source>>
                         readonly 'type': _i_core._T_State_Group<M_Source, 
                             | readonly ['full', {
                                 readonly 'cases': _i_core._T_Dictionary<M_Source, _T_Initialization<M_Source>>
@@ -677,7 +677,7 @@ export namespace _T_Initialization {
             readonly 'temp ordered variables': _i_core._T_List<M_Source, {
                 readonly 'initialization': _T_Initialization<M_Source>
                 readonly 'name': string
-                readonly 'type': _pt.Optional_Value<_i_imports_interface._T_Type<M_Source>>
+                readonly 'type': _et.Optional_Value<_i_imports_interface._T_Type<M_Source>>
             }>
             readonly 'variables': _T_Variables<M_Source>
         }]
@@ -707,7 +707,7 @@ export namespace _T_Initialization {
                 >]
                 | readonly ['function', _i_core._T_State_Group<M_Source, 
                     | readonly ['call', {
-                        readonly 'arguments': _pt.Optional_Value<_i_core._T_Dictionary<M_Source, _T_Initialization<M_Source>>>
+                        readonly 'arguments': _et.Optional_Value<_i_core._T_Dictionary<M_Source, _T_Initialization<M_Source>>>
                         readonly 'context': _T_Initialization<M_Source>
                     }]
                 >]
@@ -716,12 +716,12 @@ export namespace _T_Initialization {
                     | readonly ['transform', {
                         readonly 'if not set': _T_Initialization<M_Source>
                         readonly 'if set': _T_Initialization<M_Source>
-                        readonly 'temp resulting node': _pt.Optional_Value<_i_imports_interface._T_Type<M_Source>>
+                        readonly 'temp resulting node': _et.Optional_Value<_i_imports_interface._T_Type<M_Source>>
                     }]
                 >]
                 | readonly ['tagged union', _i_core._T_State_Group<M_Source, 
                     | readonly ['switch', {
-                        readonly 'temp resulting node': _pt.Optional_Value<_i_imports_interface._T_Type<M_Source>>
+                        readonly 'temp resulting node': _et.Optional_Value<_i_imports_interface._T_Type<M_Source>>
                         readonly 'type': _i_core._T_State_Group<M_Source, 
                             | readonly ['full', {
                                 readonly 'cases': _i_core._T_Dictionary<M_Source, _T_Initialization<M_Source>>
@@ -785,12 +785,12 @@ export namespace _T_Literal {
                 }
                 export type O<M_Source> = _i_imports_interface._T_Type<M_Source>
             }
-            export type temp_resulting_node<M_Source> = _pt.Optional_Value<_i_imports_interface._T_Type<M_Source>>
+            export type temp_resulting_node<M_Source> = _et.Optional_Value<_i_imports_interface._T_Type<M_Source>>
         }
         export type _function<M_Source> = {
             readonly 'initialization': _T_Initialization<M_Source>
             readonly 'temp has parameters': boolean
-            readonly 'temp resulting node': _pt.Optional_Value<_i_imports_interface._T_Type<M_Source>>
+            readonly 'temp resulting node': _et.Optional_Value<_i_imports_interface._T_Type<M_Source>>
         }
         
         export namespace group {
@@ -886,7 +886,7 @@ export namespace _T_Literal {
         | readonly ['function', {
             readonly 'initialization': _T_Initialization<M_Source>
             readonly 'temp has parameters': boolean
-            readonly 'temp resulting node': _pt.Optional_Value<_i_imports_interface._T_Type<M_Source>>
+            readonly 'temp resulting node': _et.Optional_Value<_i_imports_interface._T_Type<M_Source>>
         }]
         | readonly ['group', _i_core._T_Dictionary<M_Source, _T_Initialization<M_Source>>]
         | readonly ['null', null]
@@ -1032,7 +1032,7 @@ export namespace _T_Selection {
                     }
                     export type O<M_Source> = _i_core._T_Dictionary<M_Source, _T_Initialization<M_Source>>
                 }
-                export type _arguments<M_Source> = _pt.Optional_Value<_i_core._T_Dictionary<M_Source, _T_Initialization<M_Source>>>
+                export type _arguments<M_Source> = _et.Optional_Value<_i_core._T_Dictionary<M_Source, _T_Initialization<M_Source>>>
                 
                 export namespace context {
                 }
@@ -1043,7 +1043,7 @@ export namespace _T_Selection {
                 export type source<M_Source> = _T_Selection<M_Source>
             }
             export type call<M_Source> = {
-                readonly 'arguments': _pt.Optional_Value<_i_core._T_Dictionary<M_Source, _T_Initialization<M_Source>>>
+                readonly 'arguments': _et.Optional_Value<_i_core._T_Dictionary<M_Source, _T_Initialization<M_Source>>>
                 readonly 'context': _T_Selection<M_Source>
                 readonly 'source': _T_Selection<M_Source>
             }
@@ -1085,7 +1085,7 @@ export namespace _T_Selection {
             | readonly ['abort', null]
             | readonly ['argument', string]
             | readonly ['call', {
-                readonly 'arguments': _pt.Optional_Value<_i_core._T_Dictionary<M_Source, _T_Initialization<M_Source>>>
+                readonly 'arguments': _et.Optional_Value<_i_core._T_Dictionary<M_Source, _T_Initialization<M_Source>>>
                 readonly 'context': _T_Selection<M_Source>
                 readonly 'source': _T_Selection<M_Source>
             }]
@@ -1107,7 +1107,7 @@ export namespace _T_Selection {
         | readonly ['abort', null]
         | readonly ['argument', string]
         | readonly ['call', {
-            readonly 'arguments': _pt.Optional_Value<_i_core._T_Dictionary<M_Source, _T_Initialization<M_Source>>>
+            readonly 'arguments': _et.Optional_Value<_i_core._T_Dictionary<M_Source, _T_Initialization<M_Source>>>
             readonly 'context': _T_Selection<M_Source>
             readonly 'source': _T_Selection<M_Source>
         }]
@@ -1150,11 +1150,11 @@ export namespace _T_Variables {
             }
             export type O<M_Source> = _i_imports_interface._T_Type<M_Source>
         }
-        export type _type<M_Source> = _pt.Optional_Value<_i_imports_interface._T_Type<M_Source>>
+        export type _type<M_Source> = _et.Optional_Value<_i_imports_interface._T_Type<M_Source>>
     }
     export type D<M_Source> = {
         readonly 'initialization': _T_Initialization<M_Source>
-        readonly 'type': _pt.Optional_Value<_i_imports_interface._T_Type<M_Source>>
+        readonly 'type': _et.Optional_Value<_i_imports_interface._T_Type<M_Source>>
     }
 }
 
@@ -1185,18 +1185,18 @@ export namespace Initialization {
                         }
                         export type O<M_Source> = _i_imports_interface._T_Type<M_Source>
                     }
-                    export type _type<M_Source> = _pt.Optional_Value<_i_imports_interface._T_Type<M_Source>>
+                    export type _type<M_Source> = _et.Optional_Value<_i_imports_interface._T_Type<M_Source>>
                 }
                 export type L<M_Source> = {
                     readonly 'initialization': _T_Initialization<M_Source>
                     readonly 'name': string
-                    readonly 'type': _pt.Optional_Value<_i_imports_interface._T_Type<M_Source>>
+                    readonly 'type': _et.Optional_Value<_i_imports_interface._T_Type<M_Source>>
                 }
             }
             export type temp_ordered_variables<M_Source> = _i_core._T_List<M_Source, {
                 readonly 'initialization': _T_Initialization<M_Source>
                 readonly 'name': string
-                readonly 'type': _pt.Optional_Value<_i_imports_interface._T_Type<M_Source>>
+                readonly 'type': _et.Optional_Value<_i_imports_interface._T_Type<M_Source>>
             }>
             
             export namespace variables {
@@ -1208,7 +1208,7 @@ export namespace Initialization {
             readonly 'temp ordered variables': _i_core._T_List<M_Source, {
                 readonly 'initialization': _T_Initialization<M_Source>
                 readonly 'name': string
-                readonly 'type': _pt.Optional_Value<_i_imports_interface._T_Type<M_Source>>
+                readonly 'type': _et.Optional_Value<_i_imports_interface._T_Type<M_Source>>
             }>
             readonly 'variables': _T_Variables<M_Source>
         }
@@ -1333,26 +1333,26 @@ export namespace Initialization {
                                     }
                                     export type O<M_Source> = _i_core._T_Dictionary<M_Source, _T_Initialization<M_Source>>
                                 }
-                                export type _arguments<M_Source> = _pt.Optional_Value<_i_core._T_Dictionary<M_Source, _T_Initialization<M_Source>>>
+                                export type _arguments<M_Source> = _et.Optional_Value<_i_core._T_Dictionary<M_Source, _T_Initialization<M_Source>>>
                                 
                                 export namespace context {
                                 }
                                 export type context<M_Source> = _T_Initialization<M_Source>
                             }
                             export type call<M_Source> = {
-                                readonly 'arguments': _pt.Optional_Value<_i_core._T_Dictionary<M_Source, _T_Initialization<M_Source>>>
+                                readonly 'arguments': _et.Optional_Value<_i_core._T_Dictionary<M_Source, _T_Initialization<M_Source>>>
                                 readonly 'context': _T_Initialization<M_Source>
                             }
                         }
                         export type SG<M_Source> = 
                             | readonly ['call', {
-                                readonly 'arguments': _pt.Optional_Value<_i_core._T_Dictionary<M_Source, _T_Initialization<M_Source>>>
+                                readonly 'arguments': _et.Optional_Value<_i_core._T_Dictionary<M_Source, _T_Initialization<M_Source>>>
                                 readonly 'context': _T_Initialization<M_Source>
                             }]
                     }
                     export type _function<M_Source> = _i_core._T_State_Group<M_Source, 
                         | readonly ['call', {
-                            readonly 'arguments': _pt.Optional_Value<_i_core._T_Dictionary<M_Source, _T_Initialization<M_Source>>>
+                            readonly 'arguments': _et.Optional_Value<_i_core._T_Dictionary<M_Source, _T_Initialization<M_Source>>>
                             readonly 'context': _T_Initialization<M_Source>
                         }]
                     >
@@ -1381,12 +1381,12 @@ export namespace Initialization {
                                     }
                                     export type O<M_Source> = _i_imports_interface._T_Type<M_Source>
                                 }
-                                export type temp_resulting_node<M_Source> = _pt.Optional_Value<_i_imports_interface._T_Type<M_Source>>
+                                export type temp_resulting_node<M_Source> = _et.Optional_Value<_i_imports_interface._T_Type<M_Source>>
                             }
                             export type transform<M_Source> = {
                                 readonly 'if not set': _T_Initialization<M_Source>
                                 readonly 'if set': _T_Initialization<M_Source>
-                                readonly 'temp resulting node': _pt.Optional_Value<_i_imports_interface._T_Type<M_Source>>
+                                readonly 'temp resulting node': _et.Optional_Value<_i_imports_interface._T_Type<M_Source>>
                             }
                         }
                         export type SG<M_Source> = 
@@ -1394,7 +1394,7 @@ export namespace Initialization {
                             | readonly ['transform', {
                                 readonly 'if not set': _T_Initialization<M_Source>
                                 readonly 'if set': _T_Initialization<M_Source>
-                                readonly 'temp resulting node': _pt.Optional_Value<_i_imports_interface._T_Type<M_Source>>
+                                readonly 'temp resulting node': _et.Optional_Value<_i_imports_interface._T_Type<M_Source>>
                             }]
                     }
                     export type optional<M_Source> = _i_core._T_State_Group<M_Source, 
@@ -1402,7 +1402,7 @@ export namespace Initialization {
                         | readonly ['transform', {
                             readonly 'if not set': _T_Initialization<M_Source>
                             readonly 'if set': _T_Initialization<M_Source>
-                            readonly 'temp resulting node': _pt.Optional_Value<_i_imports_interface._T_Type<M_Source>>
+                            readonly 'temp resulting node': _et.Optional_Value<_i_imports_interface._T_Type<M_Source>>
                         }]
                     >
                     
@@ -1418,7 +1418,7 @@ export namespace Initialization {
                                     }
                                     export type O<M_Source> = _i_imports_interface._T_Type<M_Source>
                                 }
-                                export type temp_resulting_node<M_Source> = _pt.Optional_Value<_i_imports_interface._T_Type<M_Source>>
+                                export type temp_resulting_node<M_Source> = _et.Optional_Value<_i_imports_interface._T_Type<M_Source>>
                                 
                                 export namespace _type {
                                     
@@ -1477,7 +1477,7 @@ export namespace Initialization {
                                 >
                             }
                             export type _switch<M_Source> = {
-                                readonly 'temp resulting node': _pt.Optional_Value<_i_imports_interface._T_Type<M_Source>>
+                                readonly 'temp resulting node': _et.Optional_Value<_i_imports_interface._T_Type<M_Source>>
                                 readonly 'type': _i_core._T_State_Group<M_Source, 
                                     | readonly ['full', {
                                         readonly 'cases': _i_core._T_Dictionary<M_Source, _T_Initialization<M_Source>>
@@ -1491,7 +1491,7 @@ export namespace Initialization {
                         }
                         export type SG<M_Source> = 
                             | readonly ['switch', {
-                                readonly 'temp resulting node': _pt.Optional_Value<_i_imports_interface._T_Type<M_Source>>
+                                readonly 'temp resulting node': _et.Optional_Value<_i_imports_interface._T_Type<M_Source>>
                                 readonly 'type': _i_core._T_State_Group<M_Source, 
                                     | readonly ['full', {
                                         readonly 'cases': _i_core._T_Dictionary<M_Source, _T_Initialization<M_Source>>
@@ -1505,7 +1505,7 @@ export namespace Initialization {
                     }
                     export type tagged_union<M_Source> = _i_core._T_State_Group<M_Source, 
                         | readonly ['switch', {
-                            readonly 'temp resulting node': _pt.Optional_Value<_i_imports_interface._T_Type<M_Source>>
+                            readonly 'temp resulting node': _et.Optional_Value<_i_imports_interface._T_Type<M_Source>>
                             readonly 'type': _i_core._T_State_Group<M_Source, 
                                 | readonly ['full', {
                                     readonly 'cases': _i_core._T_Dictionary<M_Source, _T_Initialization<M_Source>>
@@ -1534,7 +1534,7 @@ export namespace Initialization {
                     >]
                     | readonly ['function', _i_core._T_State_Group<M_Source, 
                         | readonly ['call', {
-                            readonly 'arguments': _pt.Optional_Value<_i_core._T_Dictionary<M_Source, _T_Initialization<M_Source>>>
+                            readonly 'arguments': _et.Optional_Value<_i_core._T_Dictionary<M_Source, _T_Initialization<M_Source>>>
                             readonly 'context': _T_Initialization<M_Source>
                         }]
                     >]
@@ -1543,12 +1543,12 @@ export namespace Initialization {
                         | readonly ['transform', {
                             readonly 'if not set': _T_Initialization<M_Source>
                             readonly 'if set': _T_Initialization<M_Source>
-                            readonly 'temp resulting node': _pt.Optional_Value<_i_imports_interface._T_Type<M_Source>>
+                            readonly 'temp resulting node': _et.Optional_Value<_i_imports_interface._T_Type<M_Source>>
                         }]
                     >]
                     | readonly ['tagged union', _i_core._T_State_Group<M_Source, 
                         | readonly ['switch', {
-                            readonly 'temp resulting node': _pt.Optional_Value<_i_imports_interface._T_Type<M_Source>>
+                            readonly 'temp resulting node': _et.Optional_Value<_i_imports_interface._T_Type<M_Source>>
                             readonly 'type': _i_core._T_State_Group<M_Source, 
                                 | readonly ['full', {
                                     readonly 'cases': _i_core._T_Dictionary<M_Source, _T_Initialization<M_Source>>
@@ -1577,7 +1577,7 @@ export namespace Initialization {
                 >]
                 | readonly ['function', _i_core._T_State_Group<M_Source, 
                     | readonly ['call', {
-                        readonly 'arguments': _pt.Optional_Value<_i_core._T_Dictionary<M_Source, _T_Initialization<M_Source>>>
+                        readonly 'arguments': _et.Optional_Value<_i_core._T_Dictionary<M_Source, _T_Initialization<M_Source>>>
                         readonly 'context': _T_Initialization<M_Source>
                     }]
                 >]
@@ -1586,12 +1586,12 @@ export namespace Initialization {
                     | readonly ['transform', {
                         readonly 'if not set': _T_Initialization<M_Source>
                         readonly 'if set': _T_Initialization<M_Source>
-                        readonly 'temp resulting node': _pt.Optional_Value<_i_imports_interface._T_Type<M_Source>>
+                        readonly 'temp resulting node': _et.Optional_Value<_i_imports_interface._T_Type<M_Source>>
                     }]
                 >]
                 | readonly ['tagged union', _i_core._T_State_Group<M_Source, 
                     | readonly ['switch', {
-                        readonly 'temp resulting node': _pt.Optional_Value<_i_imports_interface._T_Type<M_Source>>
+                        readonly 'temp resulting node': _et.Optional_Value<_i_imports_interface._T_Type<M_Source>>
                         readonly 'type': _i_core._T_State_Group<M_Source, 
                             | readonly ['full', {
                                 readonly 'cases': _i_core._T_Dictionary<M_Source, _T_Initialization<M_Source>>
@@ -1623,7 +1623,7 @@ export namespace Initialization {
                 >]
                 | readonly ['function', _i_core._T_State_Group<M_Source, 
                     | readonly ['call', {
-                        readonly 'arguments': _pt.Optional_Value<_i_core._T_Dictionary<M_Source, _T_Initialization<M_Source>>>
+                        readonly 'arguments': _et.Optional_Value<_i_core._T_Dictionary<M_Source, _T_Initialization<M_Source>>>
                         readonly 'context': _T_Initialization<M_Source>
                     }]
                 >]
@@ -1632,12 +1632,12 @@ export namespace Initialization {
                     | readonly ['transform', {
                         readonly 'if not set': _T_Initialization<M_Source>
                         readonly 'if set': _T_Initialization<M_Source>
-                        readonly 'temp resulting node': _pt.Optional_Value<_i_imports_interface._T_Type<M_Source>>
+                        readonly 'temp resulting node': _et.Optional_Value<_i_imports_interface._T_Type<M_Source>>
                     }]
                 >]
                 | readonly ['tagged union', _i_core._T_State_Group<M_Source, 
                     | readonly ['switch', {
-                        readonly 'temp resulting node': _pt.Optional_Value<_i_imports_interface._T_Type<M_Source>>
+                        readonly 'temp resulting node': _et.Optional_Value<_i_imports_interface._T_Type<M_Source>>
                         readonly 'type': _i_core._T_State_Group<M_Source, 
                             | readonly ['full', {
                                 readonly 'cases': _i_core._T_Dictionary<M_Source, _T_Initialization<M_Source>>
@@ -1658,7 +1658,7 @@ export namespace Initialization {
             readonly 'temp ordered variables': _i_core._T_List<M_Source, {
                 readonly 'initialization': _T_Initialization<M_Source>
                 readonly 'name': string
-                readonly 'type': _pt.Optional_Value<_i_imports_interface._T_Type<M_Source>>
+                readonly 'type': _et.Optional_Value<_i_imports_interface._T_Type<M_Source>>
             }>
             readonly 'variables': _T_Variables<M_Source>
         }]
@@ -1688,7 +1688,7 @@ export namespace Initialization {
                 >]
                 | readonly ['function', _i_core._T_State_Group<M_Source, 
                     | readonly ['call', {
-                        readonly 'arguments': _pt.Optional_Value<_i_core._T_Dictionary<M_Source, _T_Initialization<M_Source>>>
+                        readonly 'arguments': _et.Optional_Value<_i_core._T_Dictionary<M_Source, _T_Initialization<M_Source>>>
                         readonly 'context': _T_Initialization<M_Source>
                     }]
                 >]
@@ -1697,12 +1697,12 @@ export namespace Initialization {
                     | readonly ['transform', {
                         readonly 'if not set': _T_Initialization<M_Source>
                         readonly 'if set': _T_Initialization<M_Source>
-                        readonly 'temp resulting node': _pt.Optional_Value<_i_imports_interface._T_Type<M_Source>>
+                        readonly 'temp resulting node': _et.Optional_Value<_i_imports_interface._T_Type<M_Source>>
                     }]
                 >]
                 | readonly ['tagged union', _i_core._T_State_Group<M_Source, 
                     | readonly ['switch', {
-                        readonly 'temp resulting node': _pt.Optional_Value<_i_imports_interface._T_Type<M_Source>>
+                        readonly 'temp resulting node': _et.Optional_Value<_i_imports_interface._T_Type<M_Source>>
                         readonly 'type': _i_core._T_State_Group<M_Source, 
                             | readonly ['full', {
                                 readonly 'cases': _i_core._T_Dictionary<M_Source, _T_Initialization<M_Source>>
@@ -1766,12 +1766,12 @@ export namespace Literal {
                 }
                 export type O<M_Source> = _i_imports_interface._T_Type<M_Source>
             }
-            export type temp_resulting_node<M_Source> = _pt.Optional_Value<_i_imports_interface._T_Type<M_Source>>
+            export type temp_resulting_node<M_Source> = _et.Optional_Value<_i_imports_interface._T_Type<M_Source>>
         }
         export type _function<M_Source> = {
             readonly 'initialization': _T_Initialization<M_Source>
             readonly 'temp has parameters': boolean
-            readonly 'temp resulting node': _pt.Optional_Value<_i_imports_interface._T_Type<M_Source>>
+            readonly 'temp resulting node': _et.Optional_Value<_i_imports_interface._T_Type<M_Source>>
         }
         
         export namespace group {
@@ -1867,7 +1867,7 @@ export namespace Literal {
         | readonly ['function', {
             readonly 'initialization': _T_Initialization<M_Source>
             readonly 'temp has parameters': boolean
-            readonly 'temp resulting node': _pt.Optional_Value<_i_imports_interface._T_Type<M_Source>>
+            readonly 'temp resulting node': _et.Optional_Value<_i_imports_interface._T_Type<M_Source>>
         }]
         | readonly ['group', _i_core._T_Dictionary<M_Source, _T_Initialization<M_Source>>]
         | readonly ['null', null]
@@ -2013,7 +2013,7 @@ export namespace Selection {
                     }
                     export type O<M_Source> = _i_core._T_Dictionary<M_Source, _T_Initialization<M_Source>>
                 }
-                export type _arguments<M_Source> = _pt.Optional_Value<_i_core._T_Dictionary<M_Source, _T_Initialization<M_Source>>>
+                export type _arguments<M_Source> = _et.Optional_Value<_i_core._T_Dictionary<M_Source, _T_Initialization<M_Source>>>
                 
                 export namespace context {
                 }
@@ -2024,7 +2024,7 @@ export namespace Selection {
                 export type source<M_Source> = _T_Selection<M_Source>
             }
             export type call<M_Source> = {
-                readonly 'arguments': _pt.Optional_Value<_i_core._T_Dictionary<M_Source, _T_Initialization<M_Source>>>
+                readonly 'arguments': _et.Optional_Value<_i_core._T_Dictionary<M_Source, _T_Initialization<M_Source>>>
                 readonly 'context': _T_Selection<M_Source>
                 readonly 'source': _T_Selection<M_Source>
             }
@@ -2066,7 +2066,7 @@ export namespace Selection {
             | readonly ['abort', null]
             | readonly ['argument', string]
             | readonly ['call', {
-                readonly 'arguments': _pt.Optional_Value<_i_core._T_Dictionary<M_Source, _T_Initialization<M_Source>>>
+                readonly 'arguments': _et.Optional_Value<_i_core._T_Dictionary<M_Source, _T_Initialization<M_Source>>>
                 readonly 'context': _T_Selection<M_Source>
                 readonly 'source': _T_Selection<M_Source>
             }]
@@ -2088,7 +2088,7 @@ export namespace Selection {
         | readonly ['abort', null]
         | readonly ['argument', string]
         | readonly ['call', {
-            readonly 'arguments': _pt.Optional_Value<_i_core._T_Dictionary<M_Source, _T_Initialization<M_Source>>>
+            readonly 'arguments': _et.Optional_Value<_i_core._T_Dictionary<M_Source, _T_Initialization<M_Source>>>
             readonly 'context': _T_Selection<M_Source>
             readonly 'source': _T_Selection<M_Source>
         }]
@@ -2131,10 +2131,10 @@ export namespace Variables {
             }
             export type O<M_Source> = _i_imports_interface._T_Type<M_Source>
         }
-        export type _type<M_Source> = _pt.Optional_Value<_i_imports_interface._T_Type<M_Source>>
+        export type _type<M_Source> = _et.Optional_Value<_i_imports_interface._T_Type<M_Source>>
     }
     export type D<M_Source> = {
         readonly 'initialization': _T_Initialization<M_Source>
-        readonly 'type': _pt.Optional_Value<_i_imports_interface._T_Type<M_Source>>
+        readonly 'type': _et.Optional_Value<_i_imports_interface._T_Type<M_Source>>
     }
 }

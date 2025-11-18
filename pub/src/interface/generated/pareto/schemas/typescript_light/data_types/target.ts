@@ -1,4 +1,4 @@
-import * as _pt from 'exupery-core-types'
+import * as _et from 'exupery-core-types'
 
 import * as _i_core from "../../../core/unconstrained"
 
@@ -9,7 +9,7 @@ export type _T_Block = _i_core._T_List<null, _T_Block_Part>
 export type _T_Block_Part = _i_core._T_State_Group<null, 
     | readonly ['indent', _T_Group]
     | readonly ['nothing', null]
-    | readonly ['optional', _pt.Optional_Value<_T_Block_Part>]
+    | readonly ['optional', _et.Optional_Value<_T_Block_Part>]
     | readonly ['snippet', string]
     | readonly ['sub block', _T_Block]
 >
@@ -24,9 +24,9 @@ export type _T_Expression = _i_core._T_State_Group<null,
     | readonly ['arrow function', {
         readonly 'parameters': _i_core._T_List<null, {
             readonly 'name': string
-            readonly 'type': _pt.Optional_Value<_T_Type>
+            readonly 'type': _et.Optional_Value<_T_Type>
         }>
-        readonly 'return type': _pt.Optional_Value<_T_Type>
+        readonly 'return type': _et.Optional_Value<_T_Type>
         readonly 'type': _i_core._T_State_Group<null, 
             | readonly ['block', _T_Statements]
             | readonly ['expression', _T_Expression]
@@ -52,7 +52,7 @@ export type _T_Group_Part = _i_core._T_State_Group<null,
     | readonly ['block', string]
     | readonly ['nested block', _T_Block]
     | readonly ['nothing', null]
-    | readonly ['optional', _pt.Optional_Value<_T_Group_Part>]
+    | readonly ['optional', _et.Optional_Value<_T_Group_Part>]
     | readonly ['sub group', _T_Group]
 >
 
@@ -85,9 +85,9 @@ export type _T_Statements = _i_core._T_List<null, _i_core._T_State_Group<null,
     | readonly ['variable', {
         readonly 'const': boolean
         readonly 'export': boolean
-        readonly 'expression': _pt.Optional_Value<_T_Expression>
+        readonly 'expression': _et.Optional_Value<_T_Expression>
         readonly 'name': string
-        readonly 'type': _pt.Optional_Value<_T_Type>
+        readonly 'type': _et.Optional_Value<_T_Type>
     }]
 >>
 
@@ -104,7 +104,7 @@ export type _T_Type = _i_core._T_State_Group<null,
     | readonly ['function', {
         readonly 'parameters': _i_core._T_List<null, {
             readonly 'name': string
-            readonly 'type': _pt.Optional_Value<_T_Type>
+            readonly 'type': _et.Optional_Value<_T_Type>
         }>
         readonly 'return': _T_Type
         readonly 'type parameters': _i_core._T_List<null, string>
@@ -178,7 +178,7 @@ export namespace _T_Block_Part {
             }
             export type O = _T_Block_Part
         }
-        export type optional = _pt.Optional_Value<_T_Block_Part>
+        export type optional = _et.Optional_Value<_T_Block_Part>
         export type snippet = string
         
         export namespace sub_block {
@@ -188,7 +188,7 @@ export namespace _T_Block_Part {
     export type SG = 
         | readonly ['indent', _T_Group]
         | readonly ['nothing', null]
-        | readonly ['optional', _pt.Optional_Value<_T_Block_Part>]
+        | readonly ['optional', _et.Optional_Value<_T_Block_Part>]
         | readonly ['snippet', string]
         | readonly ['sub block', _T_Block]
 }
@@ -242,16 +242,16 @@ export namespace _T_Expression {
                         }
                         export type O = _T_Type
                     }
-                    export type _type = _pt.Optional_Value<_T_Type>
+                    export type _type = _et.Optional_Value<_T_Type>
                 }
                 export type L = {
                     readonly 'name': string
-                    readonly 'type': _pt.Optional_Value<_T_Type>
+                    readonly 'type': _et.Optional_Value<_T_Type>
                 }
             }
             export type parameters = _i_core._T_List<null, {
                 readonly 'name': string
-                readonly 'type': _pt.Optional_Value<_T_Type>
+                readonly 'type': _et.Optional_Value<_T_Type>
             }>
             
             export namespace return_type {
@@ -260,7 +260,7 @@ export namespace _T_Expression {
                 }
                 export type O = _T_Type
             }
-            export type return_type = _pt.Optional_Value<_T_Type>
+            export type return_type = _et.Optional_Value<_T_Type>
             
             export namespace _type {
                 
@@ -286,9 +286,9 @@ export namespace _T_Expression {
         export type arrow_function = {
             readonly 'parameters': _i_core._T_List<null, {
                 readonly 'name': string
-                readonly 'type': _pt.Optional_Value<_T_Type>
+                readonly 'type': _et.Optional_Value<_T_Type>
             }>
-            readonly 'return type': _pt.Optional_Value<_T_Type>
+            readonly 'return type': _et.Optional_Value<_T_Type>
             readonly 'type': _i_core._T_State_Group<null, 
                 | readonly ['block', _T_Statements]
                 | readonly ['expression', _T_Expression]
@@ -341,9 +341,9 @@ export namespace _T_Expression {
         | readonly ['arrow function', {
             readonly 'parameters': _i_core._T_List<null, {
                 readonly 'name': string
-                readonly 'type': _pt.Optional_Value<_T_Type>
+                readonly 'type': _et.Optional_Value<_T_Type>
             }>
-            readonly 'return type': _pt.Optional_Value<_T_Type>
+            readonly 'return type': _et.Optional_Value<_T_Type>
             readonly 'type': _i_core._T_State_Group<null, 
                 | readonly ['block', _T_Statements]
                 | readonly ['expression', _T_Expression]
@@ -386,7 +386,7 @@ export namespace _T_Group_Part {
             }
             export type O = _T_Group_Part
         }
-        export type optional = _pt.Optional_Value<_T_Group_Part>
+        export type optional = _et.Optional_Value<_T_Group_Part>
         
         export namespace sub_group {
         }
@@ -396,7 +396,7 @@ export namespace _T_Group_Part {
         | readonly ['block', string]
         | readonly ['nested block', _T_Block]
         | readonly ['nothing', null]
-        | readonly ['optional', _pt.Optional_Value<_T_Group_Part>]
+        | readonly ['optional', _et.Optional_Value<_T_Group_Part>]
         | readonly ['sub group', _T_Group]
 }
 
@@ -504,7 +504,7 @@ export namespace _T_Statements {
                     }
                     export type O = _T_Expression
                 }
-                export type expression = _pt.Optional_Value<_T_Expression>
+                export type expression = _et.Optional_Value<_T_Expression>
                 export type name = string
                 
                 export namespace _type {
@@ -513,14 +513,14 @@ export namespace _T_Statements {
                     }
                     export type O = _T_Type
                 }
-                export type _type = _pt.Optional_Value<_T_Type>
+                export type _type = _et.Optional_Value<_T_Type>
             }
             export type variable = {
                 readonly 'const': boolean
                 readonly 'export': boolean
-                readonly 'expression': _pt.Optional_Value<_T_Expression>
+                readonly 'expression': _et.Optional_Value<_T_Expression>
                 readonly 'name': string
-                readonly 'type': _pt.Optional_Value<_T_Type>
+                readonly 'type': _et.Optional_Value<_T_Type>
             }
         }
         export type SG = 
@@ -547,9 +547,9 @@ export namespace _T_Statements {
             | readonly ['variable', {
                 readonly 'const': boolean
                 readonly 'export': boolean
-                readonly 'expression': _pt.Optional_Value<_T_Expression>
+                readonly 'expression': _et.Optional_Value<_T_Expression>
                 readonly 'name': string
-                readonly 'type': _pt.Optional_Value<_T_Type>
+                readonly 'type': _et.Optional_Value<_T_Type>
             }]
     }
     export type L = _i_core._T_State_Group<null, 
@@ -576,9 +576,9 @@ export namespace _T_Statements {
         | readonly ['variable', {
             readonly 'const': boolean
             readonly 'export': boolean
-            readonly 'expression': _pt.Optional_Value<_T_Expression>
+            readonly 'expression': _et.Optional_Value<_T_Expression>
             readonly 'name': string
-            readonly 'type': _pt.Optional_Value<_T_Type>
+            readonly 'type': _et.Optional_Value<_T_Type>
         }]
     >
 }
@@ -620,16 +620,16 @@ export namespace _T_Type {
                         }
                         export type O = _T_Type
                     }
-                    export type _type = _pt.Optional_Value<_T_Type>
+                    export type _type = _et.Optional_Value<_T_Type>
                 }
                 export type L = {
                     readonly 'name': string
-                    readonly 'type': _pt.Optional_Value<_T_Type>
+                    readonly 'type': _et.Optional_Value<_T_Type>
                 }
             }
             export type parameters = _i_core._T_List<null, {
                 readonly 'name': string
-                readonly 'type': _pt.Optional_Value<_T_Type>
+                readonly 'type': _et.Optional_Value<_T_Type>
             }>
             
             export namespace _return {
@@ -644,7 +644,7 @@ export namespace _T_Type {
         export type _function = {
             readonly 'parameters': _i_core._T_List<null, {
                 readonly 'name': string
-                readonly 'type': _pt.Optional_Value<_T_Type>
+                readonly 'type': _et.Optional_Value<_T_Type>
             }>
             readonly 'return': _T_Type
             readonly 'type parameters': _i_core._T_List<null, string>
@@ -737,7 +737,7 @@ export namespace _T_Type {
         | readonly ['function', {
             readonly 'parameters': _i_core._T_List<null, {
                 readonly 'name': string
-                readonly 'type': _pt.Optional_Value<_T_Type>
+                readonly 'type': _et.Optional_Value<_T_Type>
             }>
             readonly 'return': _T_Type
             readonly 'type parameters': _i_core._T_List<null, string>
@@ -789,7 +789,7 @@ export namespace Block_Part {
             }
             export type O = _T_Block_Part
         }
-        export type optional = _pt.Optional_Value<_T_Block_Part>
+        export type optional = _et.Optional_Value<_T_Block_Part>
         export type snippet = string
         
         export namespace sub_block {
@@ -799,7 +799,7 @@ export namespace Block_Part {
     export type SG = 
         | readonly ['indent', _T_Group]
         | readonly ['nothing', null]
-        | readonly ['optional', _pt.Optional_Value<_T_Block_Part>]
+        | readonly ['optional', _et.Optional_Value<_T_Block_Part>]
         | readonly ['snippet', string]
         | readonly ['sub block', _T_Block]
 }
@@ -853,16 +853,16 @@ export namespace Expression {
                         }
                         export type O = _T_Type
                     }
-                    export type _type = _pt.Optional_Value<_T_Type>
+                    export type _type = _et.Optional_Value<_T_Type>
                 }
                 export type L = {
                     readonly 'name': string
-                    readonly 'type': _pt.Optional_Value<_T_Type>
+                    readonly 'type': _et.Optional_Value<_T_Type>
                 }
             }
             export type parameters = _i_core._T_List<null, {
                 readonly 'name': string
-                readonly 'type': _pt.Optional_Value<_T_Type>
+                readonly 'type': _et.Optional_Value<_T_Type>
             }>
             
             export namespace return_type {
@@ -871,7 +871,7 @@ export namespace Expression {
                 }
                 export type O = _T_Type
             }
-            export type return_type = _pt.Optional_Value<_T_Type>
+            export type return_type = _et.Optional_Value<_T_Type>
             
             export namespace _type {
                 
@@ -897,9 +897,9 @@ export namespace Expression {
         export type arrow_function = {
             readonly 'parameters': _i_core._T_List<null, {
                 readonly 'name': string
-                readonly 'type': _pt.Optional_Value<_T_Type>
+                readonly 'type': _et.Optional_Value<_T_Type>
             }>
-            readonly 'return type': _pt.Optional_Value<_T_Type>
+            readonly 'return type': _et.Optional_Value<_T_Type>
             readonly 'type': _i_core._T_State_Group<null, 
                 | readonly ['block', _T_Statements]
                 | readonly ['expression', _T_Expression]
@@ -952,9 +952,9 @@ export namespace Expression {
         | readonly ['arrow function', {
             readonly 'parameters': _i_core._T_List<null, {
                 readonly 'name': string
-                readonly 'type': _pt.Optional_Value<_T_Type>
+                readonly 'type': _et.Optional_Value<_T_Type>
             }>
-            readonly 'return type': _pt.Optional_Value<_T_Type>
+            readonly 'return type': _et.Optional_Value<_T_Type>
             readonly 'type': _i_core._T_State_Group<null, 
                 | readonly ['block', _T_Statements]
                 | readonly ['expression', _T_Expression]
@@ -997,7 +997,7 @@ export namespace Group_Part {
             }
             export type O = _T_Group_Part
         }
-        export type optional = _pt.Optional_Value<_T_Group_Part>
+        export type optional = _et.Optional_Value<_T_Group_Part>
         
         export namespace sub_group {
         }
@@ -1007,7 +1007,7 @@ export namespace Group_Part {
         | readonly ['block', string]
         | readonly ['nested block', _T_Block]
         | readonly ['nothing', null]
-        | readonly ['optional', _pt.Optional_Value<_T_Group_Part>]
+        | readonly ['optional', _et.Optional_Value<_T_Group_Part>]
         | readonly ['sub group', _T_Group]
 }
 
@@ -1115,7 +1115,7 @@ export namespace Statements {
                     }
                     export type O = _T_Expression
                 }
-                export type expression = _pt.Optional_Value<_T_Expression>
+                export type expression = _et.Optional_Value<_T_Expression>
                 export type name = string
                 
                 export namespace _type {
@@ -1124,14 +1124,14 @@ export namespace Statements {
                     }
                     export type O = _T_Type
                 }
-                export type _type = _pt.Optional_Value<_T_Type>
+                export type _type = _et.Optional_Value<_T_Type>
             }
             export type variable = {
                 readonly 'const': boolean
                 readonly 'export': boolean
-                readonly 'expression': _pt.Optional_Value<_T_Expression>
+                readonly 'expression': _et.Optional_Value<_T_Expression>
                 readonly 'name': string
-                readonly 'type': _pt.Optional_Value<_T_Type>
+                readonly 'type': _et.Optional_Value<_T_Type>
             }
         }
         export type SG = 
@@ -1158,9 +1158,9 @@ export namespace Statements {
             | readonly ['variable', {
                 readonly 'const': boolean
                 readonly 'export': boolean
-                readonly 'expression': _pt.Optional_Value<_T_Expression>
+                readonly 'expression': _et.Optional_Value<_T_Expression>
                 readonly 'name': string
-                readonly 'type': _pt.Optional_Value<_T_Type>
+                readonly 'type': _et.Optional_Value<_T_Type>
             }]
     }
     export type L = _i_core._T_State_Group<null, 
@@ -1187,9 +1187,9 @@ export namespace Statements {
         | readonly ['variable', {
             readonly 'const': boolean
             readonly 'export': boolean
-            readonly 'expression': _pt.Optional_Value<_T_Expression>
+            readonly 'expression': _et.Optional_Value<_T_Expression>
             readonly 'name': string
-            readonly 'type': _pt.Optional_Value<_T_Type>
+            readonly 'type': _et.Optional_Value<_T_Type>
         }]
     >
 }
@@ -1231,16 +1231,16 @@ export namespace Type {
                         }
                         export type O = _T_Type
                     }
-                    export type _type = _pt.Optional_Value<_T_Type>
+                    export type _type = _et.Optional_Value<_T_Type>
                 }
                 export type L = {
                     readonly 'name': string
-                    readonly 'type': _pt.Optional_Value<_T_Type>
+                    readonly 'type': _et.Optional_Value<_T_Type>
                 }
             }
             export type parameters = _i_core._T_List<null, {
                 readonly 'name': string
-                readonly 'type': _pt.Optional_Value<_T_Type>
+                readonly 'type': _et.Optional_Value<_T_Type>
             }>
             
             export namespace _return {
@@ -1255,7 +1255,7 @@ export namespace Type {
         export type _function = {
             readonly 'parameters': _i_core._T_List<null, {
                 readonly 'name': string
-                readonly 'type': _pt.Optional_Value<_T_Type>
+                readonly 'type': _et.Optional_Value<_T_Type>
             }>
             readonly 'return': _T_Type
             readonly 'type parameters': _i_core._T_List<null, string>
@@ -1348,7 +1348,7 @@ export namespace Type {
         | readonly ['function', {
             readonly 'parameters': _i_core._T_List<null, {
                 readonly 'name': string
-                readonly 'type': _pt.Optional_Value<_T_Type>
+                readonly 'type': _et.Optional_Value<_T_Type>
             }>
             readonly 'return': _T_Type
             readonly 'type parameters': _i_core._T_List<null, string>
