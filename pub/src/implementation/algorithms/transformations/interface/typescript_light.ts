@@ -203,7 +203,7 @@ export const Module_Set = ($: d_in.Module_Set): d_out.Directory => {
                     ]))),
                     // b.array(op['to list, sorted by code point'](
                     //     op.filter(
-                    //         $.types.map(($): pt.Optional_Value<null> => pa.cc($.type, ($) => {
+                    //         $.types.map(($): _et.Optional_Value<null> => pa.cc($.type, ($) => {
                     //             switch ($[0]) {
                     //                 case 'number': return pa.ss($, ($) => pa.not_set())
                     //                 case 'boolean': return pa.ss($, ($) => pa.not_set())
@@ -581,7 +581,7 @@ export const Type_to_Type = (
                 )).map(($): s_out_ts.Type => $.value)
             ))
             case 'computed': return _ea.ss($, ($) => sh2.t.type_reference(
-                " pt",
+                " et",
                 ["Computed Value"],
                 [
                     Type_to_Type(
@@ -594,7 +594,7 @@ export const Type_to_Type = (
                 ]
             ))
             case 'dictionary': return _ea.ss($, ($) => sh2.t.type_reference(
-                " pt",
+                " et",
                 ["Dictionary"],
                 [
                     Type_to_Type(
@@ -655,8 +655,8 @@ export const Type_to_Type = (
             }))))
 
             case 'array': return _ea.ss($, ($) => sh2.t.type_reference(
-                " pt",
-                ["Array"],
+                " et",
+                ["List"],
                 [
                     Type_to_Type(
                         $,
@@ -670,7 +670,7 @@ export const Type_to_Type = (
             case 'null': return _ea.ss($, ($) => sh2.t.null_())
             case 'number': return _ea.ss($, ($) => sh2.t.number())
             case 'optional': return _ea.ss($, ($) => sh2.t.type_reference(
-                " pt",
+                " et",
                 ["Optional Value"],
                 [
                     Type_to_Type(
