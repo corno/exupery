@@ -21,7 +21,7 @@ export const process_unconstrained_state_group = <X>(
                     $.state.value
                 ).transform(
                     ($) => $(data),
-                    () => _ed.implement_me()
+                    () => _ed.implement_me("unconstrained state group")
                 )
             })
             default: return _ea.deprecated_panic(`Unexpected type for state group: ${$[0]}`)
@@ -46,7 +46,7 @@ export const process_unresolved_state_group = <X>(
                         $.state.value
                     ).transform(
                         ($) => $(data),
-                        () => _ed.implement_me()
+                        () => _ed.implement_me("unresolved state group")
                     )
                 }
             })
@@ -71,7 +71,7 @@ export const process_group = <X>(
                             $.entries.__for_each(($) => {
                                 $i['add entry']($.key.value, $.value.transform(
                                     ($) => $.value,
-                                    () => _ed.implement_me()
+                                    () => _ed.implement_me("property has no value")
                                 ))
                             })
                         }))
@@ -121,7 +121,7 @@ export const process_unresolved_dictionary = <X>(
                                             'location': key_location,
                                             'entry': $p.value($.value),
                                         }),
-                                        () => _ed.implement_me() //what to do if the property has no value?
+                                        () => _ed.implement_me("property has no value") //what to do if the property has no value?
                                     ))
                                 })
                             })
@@ -150,7 +150,7 @@ export const process_unconstrained_dictionary = <X>(
                             $.entries.__for_each(($) => {
                                 $i['add entry']($.key.value, $.value.transform(
                                     ($) => $p.value($.value),
-                                    () => _ed.implement_me() //what to do if the property has no value?
+                                    () => _ed.implement_me("property has no value (3)") //what to do if the property has no value?
                                 ))
                             })
                         })
@@ -242,7 +242,7 @@ export const process_unconstrained_list = <X>(
     }
 
 ): unconstrained.List<null, X> => {
-    return _ed.implement_me()
+    return _ed.implement_me("unconstrained list")
 }
 
 export const process_optional = <X>(

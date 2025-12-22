@@ -223,7 +223,7 @@ export const Selection = (
                     ]),
                     sh.b.snippet(")"),
                 ]))
-                case 'implement me': return _ea.ss($, ($) => sh.b.snippet("_pd.implement_me()"))
+                case 'implement me': return _ea.ss($, ($) => sh.b.snippet("_pd.implement_me(\"marker tbd\")"))
                 case 'argument': return _ea.ss($, ($) => sh.b.snippet(op_create_identifier(["FOOO FIX ARGUMENT"])))
                 case 'context': return _ea.ss($, ($) => sh.b.snippet("$"))
                 case 'variable': return _ea.ss($, ($) => sh.b.snippet(op_create_identifier([$])))
