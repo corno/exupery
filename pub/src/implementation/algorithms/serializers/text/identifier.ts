@@ -1,7 +1,7 @@
 import * as _ea from 'exupery-core-alg'
 
-import { $$ as op_join_list_of_texts } from "pareto-standard-operations/dist/implementation/algorithms/operations/pure/text/join_list_of_texts"
-import { $$ as op_integer_serialize } from "pareto-standard-operations/dist/implementation/algorithms/integer/decimal/serializer"
+import { $$ as op_join_list_of_texts } from "pareto-standard-operations/dist/implementation/operations/pure/text/join_list_of_texts"
+import { $$ as op_integer_serialize } from "pareto-standard-operations/dist/implementation/serializers/primitives/integer/decimal"
 import { Signature } from "../../../../interface/algorithms/operations/impure/text/create_identifier"
 
 

@@ -16,19 +16,19 @@ import * as t_tl_2_fp from "../typescript_light/fountain_pen_block"
 
 import * as sh from "../../../../shorthands/typescript_light"
 
-import { $$ as op_join_list_of_texts } from "pareto-standard-operations/dist/implementation/algorithms/operations/pure/text/join_list_of_texts"
-import { $$ as op_flatten_dictionary } from "pareto-standard-operations/dist/implementation/algorithms/operations/pure/dictionary/flatten"
-import { $$ as op_dictionary_to_list } from "pareto-standard-operations/dist/implementation/algorithms/operations/impure/dictionary/to_list_sorted_by_insertion"
+import { $$ as op_join_list_of_texts } from "pareto-standard-operations/dist/implementation/operations/pure/text/join_list_of_texts"
+import { $$ as op_flatten_dictionary } from "pareto-standard-operations/dist/implementation/operations/pure/dictionary/flatten"
+import { $$ as op_dictionary_to_list } from "pareto-standard-operations/dist/implementation/operations/impure/dictionary/to_list_sorted_by_insertion"
 import { $$ as op_serialize_with_apostrophe_delimiter } from "../../serializers/text/apostrophed_string"
 import { $$ as op_serialize_with_quote_delimiter } from "../../serializers/text/quoted_string"
 import { $$ as op_serialize_with_grave_delimiter } from "../../serializers/text/backticked_string"
 
-import { $$ as op_repeat } from "pareto-standard-operations/dist/implementation/algorithms/operations/impure/text/repeat"
+import { $$ as op_repeat } from "pareto-standard-operations/dist/implementation/operations/impure/text/repeat"
 import { $$ as op_create_valid_file_name } from "../../serializers/text/filename"
 import { $$ as op_create_identifier } from "../../serializers/text/identifier"
-import { $$ as op_dictionary_is_empty } from "pareto-standard-operations/dist/implementation/algorithms/operations/impure/dictionary/is_empty"
-import { $$ as op_approximate_number_serialize } from "pareto-standard-operations/dist/implementation/algorithms/approximate_number/scientific_notation/serializer"
-import { $$ as op_integer_serialize } from "pareto-standard-operations/dist/implementation/algorithms/integer/decimal/serializer"
+import { $$ as op_dictionary_is_empty } from "pareto-standard-operations/dist/implementation/operations/impure/dictionary/is_empty"
+import { $$ as op_approximate_number_serialize } from "pareto-standard-operations/dist/implementation/serializers/primitives/approximate_number/scientific_notation"
+import { $$ as op_integer_serialize } from "pareto-standard-operations/dist/implementation/serializers/primitives/integer/decimal"
 
 export const Module_Set = (
     $: d_in.Module_Set,
