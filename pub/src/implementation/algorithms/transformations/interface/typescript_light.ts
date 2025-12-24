@@ -22,13 +22,13 @@ import { $$ as op_create_valid_file_name } from "../../serializers/text/filename
 import { Signature } from "../../../../interface/algorithms/transformations/interface/typescript_light"
 
 
-export function line_dictionary(
+export const line_dictionary = (
     $: _et.Dictionary<d_out.Block_Part>,
     if_empty: d_out.Block_Part,
     prefix: d_out.Block_Part,
     suffix: d_out.Block_Part,
     add_commas: boolean
-): d_out.Block_Part {
+): d_out.Block_Part => {
     let is_empty = true
     $.map(($) => {
         is_empty = false
