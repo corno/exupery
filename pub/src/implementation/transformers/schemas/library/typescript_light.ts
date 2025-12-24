@@ -10,8 +10,8 @@ import * as t_interface_to_typescript_temp from "../interface/typescript_light"
 import * as t_implementation_to_typescript_temp from "../implementation/typescript_light"
 
 import * as sh from "pareto-fountain-pen/dist/shorthands/block"
-import { Signature } from "../../../../interface/algorithms/transformations/library/typescript_light"
 
+// import * as signatures from "../interface/signatures"
 
 export type Temp_Library = {
     'interface': s_in_inf.Module_Set

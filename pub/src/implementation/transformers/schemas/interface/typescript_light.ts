@@ -4,23 +4,20 @@ import * as _et from 'exupery-core-types'
 import * as d_in from "../../../../interface/generated/pareto/schemas/interface/data_types/source"
 import * as d_out from "../../../../interface/generated/pareto/schemas/typescript_light/data_types/target"
 
+//dependencies
 import * as s_out_ts from "../../../../interface/generated/pareto/schemas/typescript_light/data_types/target"
-
-import * as sh2 from "../../../../shorthands/typescript_light"
-
 import * as t_tl_2_fp from "../typescript_light/fountain_pen_block"
-
-import * as sh from "../../../../shorthands/typescript_light"
-
-import { $$ as op_create_identifier } from "../../serializers/text/identifier"
+import { $$ as op_create_identifier } from "../../../serializers/primitives/text/identifier"
 import { $$ as op_dictionary_to_list } from "pareto-standard-operations/dist/implementation/operations/impure/dictionary/to_list_sorted_by_insertion"
 import { $$ as op_flatten_list } from "pareto-standard-operations/dist/implementation/operations/pure/list/flatten"
 import { $$ as op_flatten_dictionary } from "pareto-standard-operations/dist/implementation/operations/pure/dictionary/flatten"
 import { $$ as op_repeat } from "pareto-standard-operations/dist/implementation/operations/impure/text/repeat"
 import { $$ as op_join_list_of_texts } from "pareto-standard-operations/dist/implementation/operations/pure/text/join_list_of_texts"
-import { $$ as op_create_valid_file_name } from "../../serializers/text/filename"
-import { Signature } from "../../../../interface/algorithms/transformations/interface/typescript_light"
+import { $$ as op_create_valid_file_name } from "../../../serializers/primitives/text/filename"
 
+//shorthands
+import * as sh from "../../../../shorthands/typescript_light"
+import * as sh2 from "../../../../shorthands/typescript_light"
 
 export const line_dictionary = (
     $: _et.Dictionary<d_out.Block_Part>,
