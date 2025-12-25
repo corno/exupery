@@ -12,14 +12,14 @@ import * as t_tl_2_fp from "../typescript_light/fountain_pen_block"
 
 import * as sh from "../../../../shorthands/typescript_light"
 
-import { $$ as op_join_list_of_texts } from "pareto-standard-operations/dist/implementation/operations/pure/text/join_list_of_texts"
+import { $$ as op_join_list_of_texts } from "pareto-standard-operations/dist/implementation/serializers/schemas/list_of_texts"
 import { $$ as op_flatten_dictionary } from "pareto-standard-operations/dist/implementation/operations/pure/dictionary/flatten"
 import { $$ as op_dictionary_to_list } from "pareto-standard-operations/dist/implementation/operations/impure/dictionary/to_list_sorted_by_insertion"
 import { $$ as op_serialize_with_apostrophe_delimiter } from "../../../serializers/primitives/text/apostrophed_string"
 import { $$ as op_serialize_with_quote_delimiter } from "../../../serializers/primitives/text/quoted_string"
 import { $$ as op_serialize_with_grave_delimiter } from "../../../serializers/primitives/text/backticked_string"
 
-import { $$ as op_repeat } from "pareto-standard-operations/dist/implementation/operations/impure/text/repeat"
+import { $$ as op_repeat } from "pareto-standard-operations/dist/implementation/serializers/primitives/text/repeated"
 import { $$ as op_create_valid_file_name } from "../../../serializers/primitives/text/filename"
 import { $$ as op_create_identifier } from "../../../serializers/primitives/text/identifier"
 import { $$ as op_dictionary_is_empty } from "pareto-standard-operations/dist/implementation/operations/impure/dictionary/is_empty"
