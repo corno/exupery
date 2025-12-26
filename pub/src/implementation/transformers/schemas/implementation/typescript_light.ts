@@ -12,19 +12,19 @@ import * as t_tl_2_fp from "../typescript_light/fountain_pen_block"
 
 import * as sh from "../../../../shorthands/typescript_light"
 
-import { $$ as op_join_list_of_texts } from "pareto-standard-operations/dist/implementation/serializers/schemas/list_of_texts"
+import { $$ as s_list_of_texts } from "pareto-standard-operations/dist/implementation/serializers/schemas/list_of_texts"
 import { $$ as op_flatten_dictionary } from "pareto-standard-operations/dist/implementation/operations/pure/dictionary/flatten"
 import { $$ as op_dictionary_to_list } from "pareto-standard-operations/dist/implementation/operations/impure/dictionary/to_list_sorted_by_insertion"
-import { $$ as op_serialize_with_apostrophe_delimiter } from "../../../serializers/primitives/text/apostrophed_string"
-import { $$ as op_serialize_with_quote_delimiter } from "../../../serializers/primitives/text/quoted_string"
-import { $$ as op_serialize_with_grave_delimiter } from "../../../serializers/primitives/text/backticked_string"
+import { $$ as s_apostrophed } from "../../../serializers/primitives/text/apostrophed_string"
+import { $$ as s_quoted } from "../../../serializers/primitives/text/quoted_string"
+import { $$ as s_backticked } from "../../../serializers/primitives/text/backticked_string"
 
-import { $$ as op_repeat } from "pareto-standard-operations/dist/implementation/serializers/primitives/text/repeated"
-import { $$ as op_create_valid_file_name } from "../../../serializers/primitives/text/filename"
-import { $$ as op_create_identifier } from "../../../serializers/primitives/text/identifier"
+import { $$ as s_repeated } from "pareto-standard-operations/dist/implementation/serializers/primitives/text/repeated"
+import { $$ as s_file_name } from "../../../serializers/primitives/text/filename"
+import { $$ as s_identifier } from "../../../serializers/primitives/text/identifier"
 import { $$ as op_dictionary_is_empty } from "pareto-standard-operations/dist/implementation/operations/impure/dictionary/is_empty"
-import { $$ as op_approximate_number_serialize } from "pareto-standard-operations/dist/implementation/serializers/primitives/approximate_number/scientific_notation"
-import { $$ as op_integer_serialize } from "pareto-standard-operations/dist/implementation/serializers/primitives/integer/decimal"
+import { $$ as s_scientific_notation } from "pareto-standard-operations/dist/implementation/serializers/primitives/approximate_number/scientific_notation"
+import { $$ as s_decimal } from "pareto-standard-operations/dist/implementation/serializers/primitives/integer/decimal"
 
 export const Module_Set = (
     $: d_in.Module_Set,
@@ -37,7 +37,7 @@ export const Module_Set = (
             case 'module': return _ea.ss($, ($): d_out.Directory.D => {
                 const type_imports = $['type imports']
                 const valid_file_name = ($: string): string => {
-                    return op_create_valid_file_name($)
+                    return s_file_name($)
                 }
                 const x: d_out.Group = sh.group([
                     sh.g.simple_line("import * as _pa from 'exupery-core-alg'"),
@@ -47,18 +47,18 @@ export const Module_Set = (
                     sh.g.sub(op_dictionary_to_list($['type imports']).map(($) => sh.g.sub([
                         sh.g.nested_block([
                             sh.b.snippet("import * as "),
-                            sh.b.snippet(op_create_identifier([" i ", $.key])),
+                            sh.b.snippet(s_identifier([" i ", $.key])),
                             sh.b.snippet(" from "),
                             String_Literal(
                                 _ea.cc($.value.type, ($): string => {
                                     switch ($[0]) {
                                         case 'external': return _ea.ss($, ($) => valid_file_name($))
-                                        case 'ancestor': return _ea.ss($, ($) => `${op_repeat("../", { 'count': $['number of steps'] })}${valid_file_name($.dependency)}`)
+                                        case 'ancestor': return _ea.ss($, ($) => `${s_repeated("../", { 'count': $['number of steps'] })}${valid_file_name($.dependency)}`)
                                         case 'sibling': return _ea.ss($, ($) => `./${valid_file_name($)}`)
                                         default: return _ea.au($[0])
                                     }
                                 })
-                                + op_join_list_of_texts(
+                                + s_list_of_texts(
                                     $.value.tail.map(($) => `/${valid_file_name($)}`),
                                 ),
                                 {
@@ -72,18 +72,18 @@ export const Module_Set = (
                     sh.g.sub(op_dictionary_to_list($['variable imports']).map(($) => sh.g.sub([
                         sh.g.nested_block([
                             sh.b.snippet("import * as "),
-                            sh.b.snippet(op_create_identifier([" i var ", $.key])),
+                            sh.b.snippet(s_identifier([" i var ", $.key])),
                             sh.b.snippet(" from "),
                             String_Literal(
                                 _ea.cc($.value.type, ($): string => {
                                     switch ($[0]) {
                                         case 'external': return _ea.ss($, ($) => valid_file_name($))
-                                        case 'ancestor': return _ea.ss($, ($) => `${op_repeat("../", { 'count': $['number of steps'] })}${valid_file_name($.dependency)}`)
+                                        case 'ancestor': return _ea.ss($, ($) => `${s_repeated("../", { 'count': $['number of steps'] })}${valid_file_name($.dependency)}`)
                                         case 'sibling': return _ea.ss($, ($) => `./${valid_file_name($)}`)
                                         default: return _ea.au($[0])
                                     }
                                 })
-                                + op_join_list_of_texts(
+                                + s_list_of_texts(
                                     $.value.tail.map(($) => `/${valid_file_name($)}`),
                                 ),
                                 {
@@ -155,7 +155,7 @@ export const String_Literal = (
         'delimiter': "quote" | "apostrophe"
     }
 ): d_out.Block_Part => {
-    return sh.b.snippet($p.delimiter === "quote" ? op_serialize_with_quote_delimiter($) : op_serialize_with_apostrophe_delimiter($))
+    return sh.b.snippet($p.delimiter === "quote" ? s_quoted($) : s_apostrophed($))
 }
 
 export const Selection = (
@@ -220,18 +220,18 @@ export const Selection = (
                     sh.b.snippet(")"),
                 ]))
                 case 'implement me': return _ea.ss($, ($) => sh.b.snippet("_pd.implement_me(\"marker tbd\")"))
-                case 'argument': return _ea.ss($, ($) => sh.b.snippet(op_create_identifier(["FOOO FIX ARGUMENT"])))
+                case 'argument': return _ea.ss($, ($) => sh.b.snippet(s_identifier(["FOOO FIX ARGUMENT"])))
                 case 'context': return _ea.ss($, ($) => sh.b.snippet("$"))
-                case 'variable': return _ea.ss($, ($) => sh.b.snippet(op_create_identifier([$])))
+                case 'variable': return _ea.ss($, ($) => sh.b.snippet(s_identifier([$])))
                 case 'parameter': return _ea.ss($, ($) => sh.b.sub([
                     sh.b.snippet("$p["),
                     String_Literal($, { 'delimiter': "apostrophe" }),
                     sh.b.snippet("]"),
                 ]))
                 case 'imported variable': return _ea.ss($, ($) => sh.b.sub([
-                    sh.b.snippet(op_create_identifier([$.import])),
+                    sh.b.snippet(s_identifier([$.import])),
                     sh.b.snippet("."),
-                    sh.b.snippet(op_create_identifier([$.variable])),
+                    sh.b.snippet(s_identifier([$.variable])),
                 ]))
                 default: return _ea.au($[0])
             }
@@ -259,7 +259,7 @@ export const Initialization = (
                     //temp variables
                     sh.g.sub($['temp ordered variables'].map(($) => sh.g.nested_block([
                         sh.b.snippet("const "),
-                        sh.b.snippet(op_create_identifier([$.name])),
+                        sh.b.snippet(s_identifier([$.name])),
                         $.type.transform(
                             ($) => sh.b.sub([
                                 sh.b.snippet(": "),
@@ -533,7 +533,7 @@ export const Variables = (
         sh.g.nested_block([
             $p.export ? sh.b.snippet("export ") : sh.b.nothing(),
             sh.b.snippet("const "),
-            sh.b.snippet(op_create_identifier([$.key])),
+            sh.b.snippet(s_identifier([$.key])),
             $.value.type.transform(
                 ($) => sh.b.sub([
                     sh.b.snippet(": "),
@@ -644,9 +644,9 @@ export const Literal = (
                 case 'null': return _ea.ss($, ($) => sh.b.snippet("null"))
                 case 'number': return _ea.ss($, ($) => _ea.cc($, ($) => {
                     switch ($[0]) {
-                        case 'floting point': return _ea.ss($, ($) => sh.b.snippet(op_approximate_number_serialize($, { 'digits': 10 })))
-                        case 'integer': return _ea.ss($, ($) => sh.b.snippet(op_integer_serialize($)))
-                        case 'signed integer': return _ea.ss($, ($) => sh.b.snippet(op_integer_serialize($)))
+                        case 'floting point': return _ea.ss($, ($) => sh.b.snippet(s_scientific_notation($, { 'digits': 10 })))
+                        case 'integer': return _ea.ss($, ($) => sh.b.snippet(s_decimal($)))
+                        case 'signed integer': return _ea.ss($, ($) => sh.b.snippet(s_decimal($)))
                         default: return _ea.au($[0])
                     }
                 }))
@@ -673,7 +673,7 @@ export const Literal = (
                     return _ea.cc($.delimiter, ($) => {
                         switch ($[0]) {
                             case 'quote': return _ea.ss($, ($) => String_Literal(value, { 'delimiter': "quote" }))
-                            case 'backtick': return _ea.ss($, ($) => sh.b.snippet(op_serialize_with_grave_delimiter(value)))
+                            case 'backtick': return _ea.ss($, ($) => sh.b.snippet(s_backticked(value)))
                             default: return _ea.au($[0])
                         }
                     })

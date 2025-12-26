@@ -4,14 +4,14 @@ import * as d_out_fp from "pareto-fountain-pen/dist/interface/generated/pareto/s
 import * as d_out_tl from "../../../../interface/generated/pareto/schemas/typescript_light/data_types/source"
 import * as d_in from "../../../../interface/generated/pareto/schemas/typescript_light/data_types/source"
 
-import { $$ as op_create_identifier } from "../../../serializers/primitives/text/identifier"
+import { $$ as s_identifier } from "../../../serializers/primitives/text/identifier"
 import { $$ as op_list_is_empty } from "pareto-standard-operations/dist/implementation/operations/impure/list/is_empty"
 import { $$ as op_dictionary_is_empty } from "pareto-standard-operations/dist/implementation/operations/impure/dictionary/is_empty"
 import { $$ as op_enrich_list_elements_with_position_information } from "pareto-fountain-pen/dist/implementation/temp/enrich_with_position_information"
 import { $$ as op_dictionary_to_list } from "pareto-standard-operations/dist/implementation/operations/impure/dictionary/to_list_sorted_by_insertion"
-import { $$ as op_serialize_with_apostrophe_delimiter } from "../../../serializers/primitives/text/apostrophed_string"
-import { $$ as op_serialize_with_quote_delimiter } from "../../../serializers/primitives/text/quoted_string"
-import { $$ as op_serialize_approximate_number } from "pareto-standard-operations/dist/implementation/serializers/primitives/approximate_number/scientific_notation"
+import { $$ as s_apostrophed } from "../../../serializers/primitives/text/apostrophed_string"
+import { $$ as s_quoted } from "../../../serializers/primitives/text/quoted_string"
+import { $$ as s_scientific_notation } from "pareto-standard-operations/dist/implementation/serializers/primitives/approximate_number/scientific_notation"
 
 import * as sh from "pareto-fountain-pen/dist/shorthands/block"
 
@@ -57,7 +57,7 @@ export const Block_Part = (
 export const Identifier = (
     $: string //FIX should have been a schema type
 ): d_out_fp.Block_Part => {
-    return sh.b.snippet(op_create_identifier([$]))
+    return sh.b.snippet(s_identifier([$]))
 }
 
 export const String_Literal = (
@@ -66,7 +66,7 @@ export const String_Literal = (
         'delimiter': "quote" | "apostrophe"
     }
 ): d_out_fp.Block_Part => {
-    return sh.b.snippet($p.delimiter === "quote" ? op_serialize_with_quote_delimiter($) : op_serialize_with_apostrophe_delimiter($))
+    return sh.b.snippet($p.delimiter === "quote" ? s_quoted($) : s_apostrophed($))
 }
 
 export const Statements = (
@@ -216,7 +216,7 @@ export const Expression = (
         ]))
         case 'false': return _ea.ss($, ($) => sh.b.snippet("false"))
         case 'null': return _ea.ss($, ($) => sh.b.snippet("null"))
-        case 'number literal': return _ea.ss($, ($) => sh.b.snippet(op_serialize_approximate_number($, { 'digits': 10 })))
+        case 'number literal': return _ea.ss($, ($) => sh.b.snippet(s_scientific_notation($, { 'digits': 10 })))
         case 'object literal': return _ea.ss($, ($) => sh.b.sub([
             sh.b.snippet("{"),
             sh.b.indent([
@@ -230,7 +230,7 @@ export const Expression = (
             sh.b.snippet("}"),
         ]))
         case 'string literal': return _ea.ss($, ($) => sh.b.sub([
-            sh.b.snippet($['delimiter'][0] === "quote" ? op_serialize_with_quote_delimiter($['value']) : op_serialize_with_apostrophe_delimiter($['value']))
+            sh.b.snippet($['delimiter'][0] === "quote" ? s_quoted($['value']) : s_apostrophed($['value']))
         ]))
         case 'true': return _ea.ss($, ($) => sh.b.snippet("true"))
         default: return _ea.au($[0])

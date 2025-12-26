@@ -7,13 +7,13 @@ import * as d_out from "../../../../interface/generated/pareto/schemas/typescrip
 //dependencies
 import * as s_out_ts from "../../../../interface/generated/pareto/schemas/typescript_light/data_types/target"
 import * as t_tl_2_fp from "../typescript_light/fountain_pen_block"
-import { $$ as op_create_identifier } from "../../../serializers/primitives/text/identifier"
+import { $$ as s_identifier } from "../../../serializers/primitives/text/identifier"
 import { $$ as op_dictionary_to_list } from "pareto-standard-operations/dist/implementation/operations/impure/dictionary/to_list_sorted_by_insertion"
 import { $$ as op_flatten_list } from "pareto-standard-operations/dist/implementation/operations/pure/list/flatten"
 import { $$ as op_flatten_dictionary } from "pareto-standard-operations/dist/implementation/operations/pure/dictionary/flatten"
-import { $$ as op_repeat } from "pareto-standard-operations/dist/implementation/serializers/primitives/text/repeated"
-import { $$ as op_join_list_of_texts } from "pareto-standard-operations/dist/implementation/serializers/schemas/list_of_texts"
-import { $$ as op_create_valid_file_name } from "../../../serializers/primitives/text/filename"
+import { $$ as s_repeated } from "pareto-standard-operations/dist/implementation/serializers/primitives/text/repeated"
+import { $$ as s_list_of_texts } from "pareto-standard-operations/dist/implementation/serializers/schemas/list_of_texts"
+import { $$ as s_file_name } from "../../../serializers/primitives/text/filename"
 
 //shorthands
 import * as sh from "../../../../shorthands/typescript_light"
@@ -63,7 +63,7 @@ export const Module_Set = ($: d_in.Module_Set): d_out.Directory => {
                 const x_module_parameters = $['type parameters']
 
                 const valid_file_name = ($: string): string => {
-                    return op_create_valid_file_name($)
+                    return s_file_name($)
                 }
                 return ['file', sh.group([
                     sh.g.simple_line("import * as _et from 'exupery-core-types'"),
@@ -72,18 +72,18 @@ export const Module_Set = ($: d_in.Module_Set): d_out.Directory => {
                     sh.g.sub(op_dictionary_to_list($.imports).map(($) => sh.g.sub([
                         sh.g.nested_block([
                             sh.b.snippet("import * as "),
-                            sh.b.snippet(op_create_identifier([" i ", $.key])),
+                            sh.b.snippet(s_identifier([" i ", $.key])),
                             sh.b.snippet(" from "),
                             t_tl_2_fp.String_Literal(
                                 _ea.cc($.value.type, ($): string => {
                                     switch ($[0]) {
                                         case 'external': return _ea.ss($, ($) => valid_file_name($))
-                                        case 'ancestor': return _ea.ss($, ($) => `${op_repeat("../", { 'count': $['number of steps'] })}${valid_file_name($.dependency)}`)
+                                        case 'ancestor': return _ea.ss($, ($) => `${s_repeated("../", { 'count': $['number of steps'] })}${valid_file_name($.dependency)}`)
                                         case 'sibling': return _ea.ss($, ($) => `./${valid_file_name($)}`)
                                         default: return _ea.au($[0])
                                     }
                                 })
-                                + op_join_list_of_texts(
+                                + s_list_of_texts(
                                     $.value.tail.map(($) => `/${valid_file_name($)}`),
                                 ),
                                 {
@@ -147,12 +147,12 @@ export const Module_Set = ($: d_in.Module_Set): d_out.Directory => {
                                 'function type parameters': _ea.not_set(),
                                 'callback': () => {
                                     return sh.b.sub([
-                                        sh.b.snippet(op_create_identifier([" T ", $.key])),
+                                        sh.b.snippet(s_identifier([" T ", $.key])),
                                         line_dictionary(
                                             op_flatten_dictionary(
                                                 _ea.dictionary_literal({
-                                                    "M": x_module_parameters.map(($, key) => sh.b.snippet(op_create_identifier(["M ", key]))),
-                                                    "T": $.value.parameters.map(($, key) => sh.b.snippet(op_create_identifier(["T ", key]))),
+                                                    "M": x_module_parameters.map(($, key) => sh.b.snippet(s_identifier(["M ", key]))),
+                                                    "T": $.value.parameters.map(($, key) => sh.b.snippet(s_identifier(["T ", key]))),
                                                 }),
                                                 {
                                                     'separator': " "
@@ -256,7 +256,7 @@ export const Type_to_Aliases = (
             sh.g.simple_line(""),
             sh.g.nested_block([
                 sh.b.snippet("export namespace "),
-                sh.b.snippet(op_create_identifier([key])),
+                sh.b.snippet(s_identifier([key])),
                 sh.b.snippet(" {"),
                 sh.b.indent([
                     $p.callback()
@@ -488,7 +488,7 @@ export const Type_to_Aliases = (
 export const Identifier = (
     $: _et.List<string>
 ): string => {
-    return op_join_list_of_texts($)
+    return s_list_of_texts($)
 }
 
 export const Type_to_Type = (
@@ -725,7 +725,7 @@ export const Type_Declaration = (
     return sh.g.nested_block([
         sh.b.sub([
             sh.b.snippet("export type "),
-            sh.b.snippet(op_create_identifier([$p.name])),
+            sh.b.snippet(s_identifier([$p.name])),
             line_dictionary(
                 op_flatten_dictionary(
                     _ea.dictionary_literal({
@@ -740,7 +740,7 @@ export const Type_Declaration = (
                         //'escape': "$",
                         'separator': " "
                     }
-                ).map(($, key) => sh.b.snippet(op_create_identifier([key]))),
+                ).map(($, key) => sh.b.snippet(s_identifier([key]))),
                 sh.b.nothing(),
                 sh.b.snippet("<"),
                 sh.b.snippet(">"),

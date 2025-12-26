@@ -1,11 +1,11 @@
 import * as _ea from 'exupery-core-alg'
 
-import { $$ as op_join_list_of_texts } from "pareto-standard-operations/dist/implementation/serializers/schemas/list_of_texts"
-import { $$ as op_integer_serialize } from "pareto-standard-operations/dist/implementation/serializers/primitives/integer/decimal"
+import { $$ as s_list_of_texts } from "pareto-standard-operations/dist/implementation/serializers/schemas/list_of_texts"
+import { $$ as s_decimal } from "pareto-standard-operations/dist/implementation/serializers/primitives/integer/decimal"
 
 
 export const $$ = ($: string[]): string => {
-    const the_string = op_join_list_of_texts(_ea.list_literal($))
+    const the_string = s_list_of_texts(_ea.list_literal($))
     if (the_string === "") {
         return "_empty"
     }
@@ -171,7 +171,7 @@ export const $$ = ($: string[]): string => {
                     case 124: consume_and_add("$vb_"); break; // Vertical Bar (|)
                     case 125: consume_and_add("$cc_"); break; // Close Curly Brace (})
                     case 126: consume_and_add("$ti_"); break; // Tilde (~)
-                    default: _ea.deprecated_panic("unhandled character: \"", op_integer_serialize(current_character), "\"");
+                    default: _ea.deprecated_panic("unhandled character: \"", s_decimal(current_character), "\"");
                 }
             }
         }
