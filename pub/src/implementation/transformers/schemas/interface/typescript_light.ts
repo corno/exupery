@@ -8,7 +8,6 @@ import * as d_out from "../../../../interface/generated/pareto/schemas/typescrip
 import * as s_out_ts from "../../../../interface/generated/pareto/schemas/typescript_light/data_types/target"
 import * as t_tl_2_fp from "../typescript_light/fountain_pen_block"
 import { $$ as s_identifier } from "../../../serializers/primitives/text/identifier"
-import { $$ as op_flatten_list } from "pareto-standard-operations/dist/implementation/operations/pure/list/flatten"
 import { $$ as op_flatten_dictionary } from "pareto-standard-operations/dist/implementation/operations/pure/dictionary/flatten"
 import { $$ as s_repeated } from "pareto-standard-operations/dist/implementation/serializers/primitives/text/repeated"
 import { $$ as s_list_of_texts } from "pareto-standard-operations/dist/implementation/serializers/schemas/list_of_texts"
@@ -511,7 +510,7 @@ export const Type_to_Type = (
                     }
                 }),
                 //tail
-                op_flatten_list<string>(_ea.list_literal([
+                _ea.list_literal([
                     _ea.cc($.location, ($): _et.List<string> => {
                         switch ($[0]) {
                             case 'import': return _ea.ss($, ($) => _ea.list_literal([
@@ -521,7 +520,7 @@ export const Type_to_Type = (
                             default: return _ea.au($[0])
                         }
                     }),
-                    op_flatten_list<string>($['sub selection'].map(($): _et.List<string> => _ea.cc($, ($) => {
+                    $['sub selection'].map(($): _et.List<string> => _ea.cc($, ($) => {
                         switch ($[0]) {
                             case 'dictionary': return _ea.ss($, ($) => _ea.list_literal(["D"]))
                             case 'group': return _ea.ss($, ($) => _ea.list_literal([$]))
@@ -533,8 +532,8 @@ export const Type_to_Type = (
                             ]))
                             default: return _ea.au($[0])
                         }
-                    })))
-                ])),
+                    })).flatten(($) => $)
+                ]).flatten(($) => $),
                 //type arguments
                 op_flatten_dictionary(
                     _ea.dictionary_literal<_et.Dictionary<s_out_ts.Type>>({
