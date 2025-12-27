@@ -541,7 +541,7 @@ export const Type_to_Type = (
                     _ea.dictionary_literal<_et.Dictionary<s_out_ts.Type>>({
                         "M": _ea.cc($.location, ($): _et.Dictionary<s_out_ts.Type> => {
                             switch ($[0]) {
-                                case 'import': return _ea.ss($, ($) => $p['temp imports'].transform(($) => $, () => _ea.deprecated_panic("DSFSDFSD")).__get_entry($.import).transform(($) => $, () => {
+                                case 'import': return _ea.ss($, ($) => $p['temp imports'].transform(($) => $, () => _ea.deprecated_panic("DSFSDFSD")).get_entry($.import).transform(($) => $, () => {
                                     let keys = ""
                                     $p['temp imports'].map(($) => {
                                         $.map(($, key) => {

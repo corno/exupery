@@ -79,7 +79,7 @@ export const $$ = ($: string[]): string => {
         "object": null,
         "never": null,
     })
-    if (reserved_keywords.__get_entry(the_string).transform(
+    if (reserved_keywords.get_entry(the_string).transform(
         () => true,
         () => false,
     )) {
@@ -91,7 +91,7 @@ export const $$ = ($: string[]): string => {
 
     return _ea.build_text(($i) => {
         const characters = _ea.text_to_character_list(the_string)
-        const length = characters.__get_number_of_elements()
+        const length = characters.get_number_of_elements()
 
         let position = 0
 
