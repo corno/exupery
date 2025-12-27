@@ -13,8 +13,6 @@ import * as t_tl_2_fp from "../typescript_light/fountain_pen_block"
 import * as sh from "../../../../shorthands/typescript_light"
 
 import { $$ as s_list_of_texts } from "pareto-standard-operations/dist/implementation/serializers/schemas/list_of_texts"
-import { $$ as op_flatten_dictionary } from "pareto-standard-operations/dist/implementation/operations/pure/dictionary/flatten"
-import { $$ as op_dictionary_to_list } from "pareto-standard-operations/dist/implementation/operations/impure/dictionary/to_list_sorted_by_insertion"
 import { $$ as s_apostrophed } from "../../../serializers/primitives/text/apostrophed_string"
 import { $$ as s_quoted } from "../../../serializers/primitives/text/quoted_string"
 import { $$ as s_backticked } from "../../../serializers/primitives/text/backticked_string"
@@ -22,7 +20,6 @@ import { $$ as s_backticked } from "../../../serializers/primitives/text/backtic
 import { $$ as s_repeated } from "pareto-standard-operations/dist/implementation/serializers/primitives/text/repeated"
 import { $$ as s_file_name } from "../../../serializers/primitives/text/filename"
 import { $$ as s_identifier } from "../../../serializers/primitives/text/identifier"
-import { $$ as op_dictionary_is_empty } from "pareto-standard-operations/dist/implementation/operations/impure/dictionary/is_empty"
 import { $$ as s_scientific_notation } from "pareto-standard-operations/dist/implementation/serializers/primitives/approximate_number/scientific_notation"
 import { $$ as s_decimal } from "pareto-standard-operations/dist/implementation/serializers/primitives/integer/decimal"
 
@@ -44,13 +41,13 @@ export const Module_Set = (
                     $p.phase === 'development' ? sh.g.simple_line("import * as _pd from 'exupery-core-dev'") : sh.g.nothing(),
 
                     sh.g.simple_line(""),
-                    sh.g.sub(op_dictionary_to_list($['type imports']).map(($) => sh.g.sub([
+                    sh.g.sub($['type imports'].to_list(($, key) => sh.g.sub([
                         sh.g.nested_block([
                             sh.b.snippet("import * as "),
-                            sh.b.snippet(s_identifier([" i ", $.key])),
+                            sh.b.snippet(s_identifier([" i ", key])),
                             sh.b.snippet(" from "),
                             String_Literal(
-                                _ea.cc($.value.type, ($): string => {
+                                _ea.cc($.type, ($): string => {
                                     switch ($[0]) {
                                         case 'external': return _ea.ss($, ($) => valid_file_name($))
                                         case 'ancestor': return _ea.ss($, ($) => `${s_repeated("../", { 'count': $['number of steps'] })}${valid_file_name($.dependency)}`)
@@ -59,7 +56,7 @@ export const Module_Set = (
                                     }
                                 })
                                 + s_list_of_texts(
-                                    $.value.tail.map(($) => `/${valid_file_name($)}`),
+                                    $.tail.map(($) => `/${valid_file_name($)}`),
                                 ),
                                 {
                                     'delimiter': "quote"
@@ -69,13 +66,13 @@ export const Module_Set = (
                     ]))),
 
                     sh.g.simple_line(""),
-                    sh.g.sub(op_dictionary_to_list($['variable imports']).map(($) => sh.g.sub([
+                    sh.g.sub($['variable imports'].to_list(($, key) => sh.g.sub([
                         sh.g.nested_block([
                             sh.b.snippet("import * as "),
-                            sh.b.snippet(s_identifier([" i var ", $.key])),
+                            sh.b.snippet(s_identifier([" i var ", key])),
                             sh.b.snippet(" from "),
                             String_Literal(
-                                _ea.cc($.value.type, ($): string => {
+                                _ea.cc($.type, ($): string => {
                                     switch ($[0]) {
                                         case 'external': return _ea.ss($, ($) => valid_file_name($))
                                         case 'ancestor': return _ea.ss($, ($) => `${s_repeated("../", { 'count': $['number of steps'] })}${valid_file_name($.dependency)}`)
@@ -84,7 +81,7 @@ export const Module_Set = (
                                     }
                                 })
                                 + s_list_of_texts(
-                                    $.value.tail.map(($) => `/${valid_file_name($)}`),
+                                    $.tail.map(($) => `/${valid_file_name($)}`),
                                 ),
                                 {
                                     'delimiter': "quote"
@@ -128,7 +125,7 @@ export const line_dictionary = (
         let is_first = true
         const x: d_out.Block_Part = sh.b.sub([
             prefix,
-            sh.b.sub(op_dictionary_to_list($).map(($): d_out.Block_Part => {
+                    sh.b.sub($.to_list(($): d_out.Block_Part => {
 
                 const out = sh.b.sub([
                     is_first ?
@@ -137,7 +134,7 @@ export const line_dictionary = (
                             ? sh.b.snippet(", ")
                             : sh.b.nothing()
                     ,
-                    $.value,
+                    $,
                 ])
                 is_first = false
                 return out
@@ -197,16 +194,16 @@ export const Selection = (
                         ]),
                         $.arguments.transform(
                             ($) => sh.g.nested_block([
-                                op_dictionary_is_empty($)
+                                $.is_empty()
                                     ? sh.b.snippet("null")
                                     : sh.b.sub([
                                         sh.b.snippet("{"),
                                         sh.b.indent([
-                                            sh.g.sub(op_dictionary_to_list($).map(($) => sh.g.sub([
+                                            sh.g.sub($.to_list(($, key) => sh.g.sub([
                                                 sh.g.nested_block([
-                                                    String_Literal($.key, { 'delimiter': "apostrophe" }),
+                                                    String_Literal(key, { 'delimiter': "apostrophe" }),
                                                     sh.b.snippet(": "),
-                                                    Initialization($.value, $p),
+                                                    Initialization($, $p),
                                                     sh.b.snippet(","),
                                                 ]),
                                             ]))),
@@ -364,16 +361,16 @@ export const Initialization = (
                                             ]),
                                             $.arguments.transform(
                                                 ($) => sh.g.nested_block([
-                                                    op_dictionary_is_empty($)
+                                                    $.is_empty()
                                                         ? sh.b.snippet("null")
                                                         : sh.b.sub([
                                                             sh.b.snippet("{"),
                                                             sh.b.indent([
-                                                                sh.g.sub(op_dictionary_to_list($).map(($) => sh.g.sub([
+                                                                sh.g.sub($.to_list(($, key) => sh.g.sub([
                                                                     sh.g.nested_block([
-                                                                        String_Literal($.key, { 'delimiter': "apostrophe" }),
+                                                                        String_Literal(key, { 'delimiter': "apostrophe" }),
                                                                         sh.b.snippet(": "),
-                                                                        Initialization($.value, $p),
+                                                                        Initialization($, $p),
                                                                         sh.b.snippet(","),
                                                                     ]),
                                                                 ]))),
@@ -470,12 +467,12 @@ export const Initialization = (
                                                         case 'full': return _ea.ss($, ($) => sh.b.sub([
                                                             sh.b.snippet("switch ($[0]) {"),
                                                             sh.b.indent([
-                                                                sh.g.sub(op_dictionary_to_list($.cases).map(($) => sh.g.sub([
+                                                                sh.g.sub($.cases.to_list(($, key) => sh.g.sub([
                                                                     sh.g.nested_block([
                                                                         sh.b.snippet("case "),
-                                                                        String_Literal($.key, { 'delimiter': "apostrophe" }),
+                                                                        String_Literal(key, { 'delimiter': "apostrophe" }),
                                                                         sh.b.snippet(": return _pa.ss($, ($) => "),
-                                                                        Initialization($.value, $p),
+                                                                        Initialization($, $p),
                                                                         sh.b.snippet(")"),
                                                                     ])
                                                                 ]))),
@@ -486,12 +483,12 @@ export const Initialization = (
                                                         case 'partial': return _ea.ss($, ($) => sh.b.sub([
                                                             sh.b.snippet("switch ($[0]) {"),
                                                             sh.b.indent([
-                                                                sh.g.sub(op_dictionary_to_list($.cases).map(($) => sh.g.sub([
+                                                                sh.g.sub($.cases.to_list(($, key) => sh.g.sub([
                                                                     sh.g.nested_block([
                                                                         sh.b.snippet("case "),
-                                                                        String_Literal($.key, { 'delimiter': "apostrophe" }),
+                                                                        String_Literal(key, { 'delimiter': "apostrophe" }),
                                                                         sh.b.snippet(": return _pa.ss($, ($) => "),
-                                                                        Initialization($.value, $p),
+                                                                        Initialization($, $p),
                                                                         sh.b.snippet(")"),
                                                                     ])
                                                                 ]))),
@@ -529,12 +526,12 @@ export const Variables = (
         'export': boolean
     }
 ): d_out.Group_Part => {
-    return sh.g.sub(op_dictionary_to_list($).map(($) => sh.g.sub([
+    return sh.g.sub($.to_list(($, key) => sh.g.sub([
         sh.g.nested_block([
             $p.export ? sh.b.snippet("export ") : sh.b.nothing(),
             sh.b.snippet("const "),
-            sh.b.snippet(s_identifier([$.key])),
-            $.value.type.transform(
+            sh.b.snippet(s_identifier([key])),
+            $.type.transform(
                 ($) => sh.b.sub([
                     sh.b.snippet(": "),
                     t_tl_2_fp.Type(
@@ -553,7 +550,7 @@ export const Variables = (
                 () => sh.b.nothing()
             ),
             sh.b.snippet(" = "),
-            Initialization($.value.initialization, {
+            Initialization($.initialization, {
                 'temp imports': $p['type imports']
             })
         ])
@@ -580,10 +577,10 @@ export const Literal = (
                 case 'dictionary': return _ea.ss($, ($) => sh.b.sub([
                     sh.b.snippet("_pa.dictionary_literal({"),
                     sh.b.indent([
-                        sh.g.sub(op_dictionary_to_list($).map(($) => sh.g.nested_block([
-                            String_Literal($.key, { 'delimiter': "apostrophe" }),
+                        sh.g.sub($.to_list(($, key) => sh.g.nested_block([
+                            String_Literal(key, { 'delimiter': "apostrophe" }),
                             sh.b.snippet(": "),
-                            Initialization($.value, $p),
+                            Initialization($, $p),
                             sh.b.snippet(","),
                         ])
                         )),

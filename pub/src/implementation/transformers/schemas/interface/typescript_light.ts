@@ -8,7 +8,6 @@ import * as d_out from "../../../../interface/generated/pareto/schemas/typescrip
 import * as s_out_ts from "../../../../interface/generated/pareto/schemas/typescript_light/data_types/target"
 import * as t_tl_2_fp from "../typescript_light/fountain_pen_block"
 import { $$ as s_identifier } from "../../../serializers/primitives/text/identifier"
-import { $$ as op_dictionary_to_list } from "pareto-standard-operations/dist/implementation/operations/impure/dictionary/to_list_sorted_by_insertion"
 import { $$ as op_flatten_list } from "pareto-standard-operations/dist/implementation/operations/pure/list/flatten"
 import { $$ as op_flatten_dictionary } from "pareto-standard-operations/dist/implementation/operations/pure/dictionary/flatten"
 import { $$ as s_repeated } from "pareto-standard-operations/dist/implementation/serializers/primitives/text/repeated"
@@ -36,7 +35,7 @@ export const line_dictionary = (
         let is_first = true
         return sh.b.sub([
             prefix,
-            sh.b.sub(op_dictionary_to_list($).map(($): d_out.Block_Part => {
+            sh.b.sub($.to_list(($): d_out.Block_Part => {
                 const out = sh.b.sub([
                     is_first ?
                         sh.b.nothing()
@@ -44,7 +43,7 @@ export const line_dictionary = (
                             ? sh.b.snippet(", ")
                             : sh.b.nothing()
                     ,
-                    $.value,
+                    $,
                 ])
                 is_first = false
                 return out
@@ -69,13 +68,13 @@ export const Module_Set = ($: d_in.Module_Set): d_out.Directory => {
                     sh.g.simple_line("import * as _et from 'exupery-core-types'"),
 
                     sh.g.simple_line(""),
-                    sh.g.sub(op_dictionary_to_list($.imports).map(($) => sh.g.sub([
+                    sh.g.sub($.imports.to_list(($, key) => sh.g.sub([
                         sh.g.nested_block([
                             sh.b.snippet("import * as "),
-                            sh.b.snippet(s_identifier([" i ", $.key])),
+                            sh.b.snippet(s_identifier([" i ", key])),
                             sh.b.snippet(" from "),
                             t_tl_2_fp.String_Literal(
-                                _ea.cc($.value.type, ($): string => {
+                                _ea.cc($.type, ($): string => {
                                     switch ($[0]) {
                                         case 'external': return _ea.ss($, ($) => valid_file_name($))
                                         case 'ancestor': return _ea.ss($, ($) => `${s_repeated("../", { 'count': $['number of steps'] })}${valid_file_name($.dependency)}`)
@@ -84,7 +83,7 @@ export const Module_Set = ($: d_in.Module_Set): d_out.Directory => {
                                     }
                                 })
                                 + s_list_of_texts(
-                                    $.value.tail.map(($) => `/${valid_file_name($)}`),
+                                    $.tail.map(($) => `/${valid_file_name($)}`),
                                 ),
                                 {
                                     'delimiter': "quote"
@@ -107,19 +106,19 @@ export const Module_Set = ($: d_in.Module_Set): d_out.Directory => {
                      */
                     sh.g.simple_line(""),
                     sh.g.simple_line("// **** TYPES"),
-                    sh.g.sub(op_dictionary_to_list($.types).map(($) => sh.g.sub([
+                    sh.g.sub($.types.to_list(($, key) => sh.g.sub([
                         sh.g.simple_line(""),
                         Type_Declaration(
                             null,
                             {
-                                'name': Identifier(_ea.list_literal([" T ", $.key])),
-                                'type parameters': $.value.parameters,
+                                'name': Identifier(_ea.list_literal([" T ", key])),
+                                'type parameters': $.parameters,
                                 'module parameters': x_module_parameters,
                                 'function type parameters': _ea.not_set(),
                                 'callback': () => {
                                     return t_tl_2_fp.Type(
                                         Type_to_Type(
-                                            $.value.type,
+                                            $.type,
                                             {
                                                 'module parameters': _ea.set(x_module_parameters),
                                                 'temp imports': _ea.set(x_imports),
@@ -136,23 +135,23 @@ export const Module_Set = ($: d_in.Module_Set): d_out.Directory => {
 
                     sh.g.simple_line(""),
                     sh.g.simple_line("// **** FRIENDLY NAMES FOR THE GLOBAL TYPES"),
-                    sh.g.sub(op_dictionary_to_list($.types).map(($) => sh.g.sub([
+                    sh.g.sub($.types.to_list(($, key) => sh.g.sub([
                         sh.g.simple_line(""),
                         Type_Declaration(
                             null,
                             {
-                                'name': $.key,
-                                'type parameters': $.value.parameters,
+                                'name': key,
+                                'type parameters': $.parameters,
                                 'module parameters': x_module_parameters,
                                 'function type parameters': _ea.not_set(),
                                 'callback': () => {
                                     return sh.b.sub([
-                                        sh.b.snippet(s_identifier([" T ", $.key])),
+                                        sh.b.snippet(s_identifier([" T ", key])),
                                         line_dictionary(
                                             op_flatten_dictionary(
                                                 _ea.dictionary_literal({
                                                     "M": x_module_parameters.map(($, key) => sh.b.snippet(s_identifier(["M ", key]))),
-                                                    "T": $.value.parameters.map(($, key) => sh.b.snippet(s_identifier(["T ", key]))),
+                                                    "T": $.parameters.map(($, key) => sh.b.snippet(s_identifier(["T ", key]))),
                                                 }),
                                                 {
                                                     'separator': " "
@@ -171,12 +170,12 @@ export const Module_Set = ($: d_in.Module_Set): d_out.Directory => {
 
                     sh.g.simple_line(""),
                     sh.g.simple_line("// **** ALIASES FOR NESTED TYPE WITH PREFIXED ROOT NAMES"),
-                    sh.g.sub(op_dictionary_to_list($.types).map(($) => sh.g.sub([
+                    sh.g.sub($.types.to_list(($, key) => sh.g.sub([
                         Type_to_Aliases(
-                            $.value.type,
+                            $.type,
                             {
-                                'key': ` T ${$.key}`,
-                                'type parameters': $.value.parameters,
+                                'key': ` T ${key}`,
+                                'type parameters': $.parameters,
                                 'module parameters': x_module_parameters,
                                 'function type parameters': _ea.not_set(),
                                 'temp imports': x_imports,
@@ -186,12 +185,12 @@ export const Module_Set = ($: d_in.Module_Set): d_out.Directory => {
 
                     sh.g.simple_line(""),
                     sh.g.simple_line("// *** ALIASES FOR NESTED TYPES"),
-                    sh.g.sub(op_dictionary_to_list($.types).map(($) => sh.g.sub([
+                    sh.g.sub($.types.to_list(($, key) => sh.g.sub([
                         Type_to_Aliases(
-                            $.value.type,
+                            $.type,
                             {
-                                'key': $.key,
-                                'type parameters': $.value.parameters,
+                                'key': ` T ${key}`,
+                                'type parameters': $.parameters,
                                 'module parameters': x_module_parameters,
                                 'function type parameters': _ea.not_set(),
                                 'temp imports': x_imports,
@@ -319,14 +318,14 @@ export const Type_to_Aliases = (
                 $p.key,
                 {
                     'callback': () => sh.g.sub([
-                        sh.g.sub(op_dictionary_to_list($['type arguments']).map(($) => {
+                        sh.g.sub($['type arguments'].to_list(($, key) => {
                             return Type_to_Aliases_2(
-                                $.value,
+                                $,
                                 {
                                     'module parameters': $p['module parameters'],
                                     'type parameters': $p['type parameters'],
                                     'function type parameters': $p['function type parameters'],
-                                    'key': $.key,
+                                    'key': key,
                                     'temp imports': $p['temp imports'],
                                 }
                             )
@@ -381,14 +380,14 @@ export const Type_to_Aliases = (
                         Namespace("PARAMS", {
                             "callback": () => {
                                 const ftp = $['type parameters']
-                                return sh.g.sub(op_dictionary_to_list($.parameters).map(($) => {
+                                return sh.g.sub($.parameters.to_list(($, key) => {
                                     return Type_to_Aliases_2(
-                                        $.value,
+                                        $,
                                         {
                                             'module parameters': $p['module parameters'],
                                             'type parameters': $p['type parameters'],
                                             'function type parameters': _ea.set(ftp),
-                                            'key': $.key,
+                                            'key': key,
                                             'temp imports': $p['temp imports'],
                                         }
                                     )
@@ -412,14 +411,14 @@ export const Type_to_Aliases = (
                 $p.key,
                 {
                     'callback': () => sh.g.sub([
-                        sh.g.sub(op_dictionary_to_list($).map(($) => {
+                        sh.g.sub($.to_list(($, key) => {
                             return Type_to_Aliases_2(
-                                $.value,
+                                $,
                                 {
                                     'module parameters': $p['module parameters'],
                                     'type parameters': $p['type parameters'],
                                     'function type parameters': $p['function type parameters'],
-                                    'key': $.key,
+                                    'key': key,
                                     'temp imports': $p['temp imports'],
                                 }
                             )
@@ -464,14 +463,14 @@ export const Type_to_Aliases = (
                 $p.key,
                 {
                     'callback': () => sh.g.sub([
-                        sh.g.sub(op_dictionary_to_list($).map(($) => {
+                        sh.g.sub($.to_list(($, key) => {
                             return Type_to_Aliases_2(
-                                $.value,
+                                $,
                                 {
                                     'module parameters': $p['module parameters'],
                                     'type parameters': $p['type parameters'],
                                     'function type parameters': $p['function type parameters'],
-                                    'key': $.key,
+                                    'key': key,
                                     'temp imports': $p['temp imports'],
                                 }
                             )
@@ -537,7 +536,7 @@ export const Type_to_Type = (
                     })))
                 ])),
                 //type arguments
-                op_dictionary_to_list<s_out_ts.Type>(op_flatten_dictionary(
+                op_flatten_dictionary(
                     _ea.dictionary_literal<_et.Dictionary<s_out_ts.Type>>({
                         "M": _ea.cc($.location, ($): _et.Dictionary<s_out_ts.Type> => {
                             switch ($[0]) {
@@ -575,7 +574,7 @@ export const Type_to_Type = (
                     {
                         'separator': " "
                     }
-                )).map(($): s_out_ts.Type => $.value)
+                ).to_list(($): s_out_ts.Type => $)
             ))
             case 'computed': return _ea.ss($, ($) => sh2.t.type_reference(
                 " et",
@@ -604,7 +603,7 @@ export const Type_to_Type = (
                 ]
             ))
             case 'function': return _ea.ss($, ($) => sh2.t.function_(
-                op_dictionary_to_list($['type parameters']).map(($) => `F ${$.key}`),
+                $['type parameters'].to_list(($, key) => `F ${key}`),
                 [
                     sh2.parameter(
                         "$",
@@ -694,10 +693,10 @@ export const Type_to_Type = (
                 []
             ))
             case 'tagged union': return _ea.ss($, ($) => sh2.t.union(
-                op_dictionary_to_list($).map(($) => sh2.t.tuple('readonly', [
-                    sh2.t.literal_type($.key, 'apostrophe'),
+                $.to_list(($, key) => sh2.t.tuple('readonly', [
+                    sh2.t.literal_type(key, 'apostrophe'),
                     Type_to_Type(
-                        $.value,
+                        $,
                         {
                             'module parameters': $p['module parameters'],
                             'temp imports': $p['temp imports'],

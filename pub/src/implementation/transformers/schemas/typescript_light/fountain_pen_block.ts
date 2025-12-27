@@ -1,14 +1,10 @@
 import * as _ea from 'exupery-core-alg'
 
 import * as d_out_fp from "pareto-fountain-pen/dist/interface/generated/pareto/schemas/block/data_types/target"
-import * as d_out_tl from "../../../../interface/generated/pareto/schemas/typescript_light/data_types/source"
 import * as d_in from "../../../../interface/generated/pareto/schemas/typescript_light/data_types/source"
 
 import { $$ as s_identifier } from "../../../serializers/primitives/text/identifier"
-import { $$ as op_list_is_empty } from "pareto-standard-operations/dist/implementation/operations/impure/list/is_empty"
-import { $$ as op_dictionary_is_empty } from "pareto-standard-operations/dist/implementation/operations/impure/dictionary/is_empty"
 import { $$ as op_enrich_list_elements_with_position_information } from "pareto-fountain-pen/dist/implementation/temp/enrich_with_position_information"
-import { $$ as op_dictionary_to_list } from "pareto-standard-operations/dist/implementation/operations/impure/dictionary/to_list_sorted_by_insertion"
 import { $$ as s_apostrophed } from "../../../serializers/primitives/text/apostrophed_string"
 import { $$ as s_quoted } from "../../../serializers/primitives/text/quoted_string"
 import { $$ as s_scientific_notation } from "pareto-standard-operations/dist/implementation/serializers/primitives/approximate_number/scientific_notation"
@@ -83,8 +79,8 @@ export const Statements = (
                     switch ($[0]) {
                         case 'named': return _ea.ss($, ($) => sh.b.sub([
                             sh.b.snippet("{ "),
-                            sh.b.sub(op_dictionary_to_list($.specifiers).map(($) => sh.b.sub([
-                                Identifier($.key),
+                            sh.b.sub($.specifiers.to_list(($, key) => sh.b.sub([
+                                Identifier(key),
                                 sh.b.snippet(", ")
                             ]))),
                             sh.b.snippet("}"),
@@ -111,7 +107,7 @@ export const Statements = (
                 $.export ? sh.b.snippet("export ") : sh.b.nothing(),
                 sh.b.snippet("type "),
                 Identifier($['name']),
-                op_list_is_empty($['parameters'])
+                $['parameters'].is_empty()
                     ? sh.b.nothing()
                     : sh.b.sub([
                         sh.b.snippet("<"),
@@ -220,10 +216,10 @@ export const Expression = (
         case 'object literal': return _ea.ss($, ($) => sh.b.sub([
             sh.b.snippet("{"),
             sh.b.indent([
-                sh.g.sub(op_dictionary_to_list($.properties).map(($) => sh.g.nested_block([
-                    String_Literal($.key, { 'delimiter': "apostrophe" }),
+                sh.g.sub($.properties.to_list(($, key) => sh.g.nested_block([
+                    String_Literal(key, { 'delimiter': "apostrophe" }),
                     sh.b.snippet(": "),
-                    Expression($.value, $p),
+                    Expression($, $p),
                     sh.b.snippet(",")
                 ]))),
             ]),
@@ -246,7 +242,7 @@ export const Type = (
     switch ($[0]) {
         case 'boolean': return _ea.ss($, ($) => sh.b.snippet("boolean"))
         case 'function': return _ea.ss($, ($) => sh.b.sub([
-            op_list_is_empty($['type parameters'])
+            $['type parameters'].is_empty()
                 ? sh.b.nothing()
                 : sh.b.sub([
                     sh.b.snippet("<"),
@@ -287,17 +283,17 @@ export const Type = (
             ]))),
             sh.b.snippet("]"),
         ]))
-        case 'type literal': return _ea.ss($, ($) => $p['replace empty type literals by null'] && op_dictionary_is_empty($['properties'])
+        case 'type literal': return _ea.ss($, ($) => $p['replace empty type literals by null'] && $.properties.is_empty()
             ? sh.b.snippet("null")
             : sh.b.sub([
                 sh.b.snippet("{"),
                 sh.b.indent([
-                    sh.g.sub(op_dictionary_to_list($['properties']).map(($) => sh.g.sub([
+                    sh.g.sub($.properties.to_list(($, key) => sh.g.sub([
                         sh.g.nested_block([
-                            $.value['readonly'] ? sh.b.snippet("readonly ") : sh.b.nothing(),
-                            String_Literal($.key, { 'delimiter': "apostrophe" }),
+                            $['readonly'] ? sh.b.snippet("readonly ") : sh.b.nothing(),
+                            String_Literal(key, { 'delimiter': "apostrophe" }),
                             sh.b.snippet(": "),
-                            Type($.value.type, $p),
+                            Type($.type, $p),
                         ])
                     ]))),
                 ]),
@@ -310,7 +306,7 @@ export const Type = (
                 sh.b.snippet("."),
                 Identifier($),
             ]))),
-            op_list_is_empty($['type arguments'])
+            $['type arguments'].is_empty()
                 ? sh.b.nothing()
                 : sh.b.sub([
                     sh.b.snippet("<"),
