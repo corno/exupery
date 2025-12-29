@@ -1,4 +1,4 @@
-import * as _ea from 'exupery-core-alg'
+import * as _pt from 'pareto-core-transformer'
 
 import * as d_out_fp from "pareto-fountain-pen/dist/interface/generated/pareto/schemas/block/data_types/target"
 import * as d_in from "../../../../interface/generated/pareto/schemas/typescript_light/data_types/source"
@@ -17,14 +17,14 @@ export const Group = ($: d_in.Group): d_out_fp.Group => {
 }
 
 export const Group_Part = ($: d_in.Group_Part): d_out_fp.Group_Part => {
-    return _ea.cc($, ($): d_out_fp.Group_Part => {
+    return _pt.cc($, ($): d_out_fp.Group_Part => {
         switch ($[0]) {
-            case 'block': return _ea.ss($, ($) => ['block', $])
-            case 'nothing': return _ea.ss($, ($) => ['nothing', null])
-            case 'optional': return _ea.ss($, ($) => ['optional', $.map(($) => Group_Part($))])
-            case 'nested block': return _ea.ss($, ($) => ['nested block', Block($)])
-            case 'sub group': return _ea.ss($, ($) => ['sub group', Group($)])
-            default: return _ea.au($[0])
+            case 'block': return _pt.ss($, ($) => ['block', $])
+            case 'nothing': return _pt.ss($, ($) => ['nothing', null])
+            case 'optional': return _pt.ss($, ($) => ['optional', $.map(($) => Group_Part($))])
+            case 'nested block': return _pt.ss($, ($) => ['nested block', Block($)])
+            case 'sub group': return _pt.ss($, ($) => ['sub group', Group($)])
+            default: return _pt.au($[0])
         }
     })
 }
@@ -38,14 +38,14 @@ export const Block = (
 export const Block_Part = (
     $: d_in.Block_Part
 ): d_out_fp.Block_Part => {
-    return _ea.cc($, ($): d_out_fp.Block_Part => {
+    return _pt.cc($, ($): d_out_fp.Block_Part => {
         switch ($[0]) {
-            case 'snippet': return _ea.ss($, ($) => sh.b.snippet($))
-            case 'nothing': return _ea.ss($, ($) => ['nothing', null])
-            case 'optional': return _ea.ss($, ($) => ['optional', $.map(($): d_out_fp.Block_Part => Block_Part($))])
-            case 'indent': return _ea.ss($, ($) => ['indent', Group($)])
-            case 'sub block': return _ea.ss($, ($) => ['sub block', Block($)])
-            default: return _ea.au($[0])
+            case 'snippet': return _pt.ss($, ($) => sh.b.snippet($))
+            case 'nothing': return _pt.ss($, ($) => ['nothing', null])
+            case 'optional': return _pt.ss($, ($) => ['optional', $.map(($): d_out_fp.Block_Part => Block_Part($))])
+            case 'indent': return _pt.ss($, ($) => ['indent', Group($)])
+            case 'sub block': return _pt.ss($, ($) => ['sub block', Block($)])
+            default: return _pt.au($[0])
         }
     })
 }
@@ -71,13 +71,13 @@ export const Statements = (
         'replace empty type literals by null': boolean
     }
 ): d_out_fp.Group_Part => sh.g.sub($.map(($) => sh.g.nested_block([
-    _ea.cc($, ($) => {
+    _pt.cc($, ($) => {
         switch ($[0]) {
-            case 'import': return _ea.ss($, ($) => sh.b.sub([
+            case 'import': return _pt.ss($, ($) => sh.b.sub([
                 sh.b.snippet("import "),
-                _ea.cc($.type, ($) => {
+                _pt.cc($.type, ($) => {
                     switch ($[0]) {
-                        case 'named': return _ea.ss($, ($) => sh.b.sub([
+                        case 'named': return _pt.ss($, ($) => sh.b.sub([
                             sh.b.snippet("{ "),
                             sh.b.sub($.specifiers.to_list(($, key) => sh.b.sub([
                                 Identifier(key),
@@ -85,17 +85,17 @@ export const Statements = (
                             ]))),
                             sh.b.snippet("}"),
                         ]))
-                        case 'namespace': return _ea.ss($, ($) => sh.b.sub([
+                        case 'namespace': return _pt.ss($, ($) => sh.b.sub([
                             sh.b.snippet("* as "),
                             Identifier($),
                         ]))
-                        default: return _ea.au($[0])
+                        default: return _pt.au($[0])
                     }
                 }),
                 sh.b.snippet(" from "),
                 String_Literal($.from, { 'delimiter': "quote" }),
             ]))
-            case 'module declaration': return _ea.ss($, ($) => sh.b.sub([
+            case 'module declaration': return _pt.ss($, ($) => sh.b.sub([
                 $.export ? sh.b.snippet("export ") : sh.b.nothing(),
                 sh.b.snippet("namespace {"),
                 sh.b.indent([
@@ -103,7 +103,7 @@ export const Statements = (
                 ]),
                 sh.b.snippet("}"),
             ]))
-            case 'type alias declaration': return _ea.ss($, ($) => sh.b.sub([
+            case 'type alias declaration': return _pt.ss($, ($) => sh.b.sub([
                 $.export ? sh.b.snippet("export ") : sh.b.nothing(),
                 sh.b.snippet("type "),
                 Identifier($['name']),
@@ -120,7 +120,7 @@ export const Statements = (
                 sh.b.snippet(" = "),
                 Type($['type'], $p),
             ]))
-            case 'variable': return _ea.ss($, ($) => sh.b.sub([
+            case 'variable': return _pt.ss($, ($) => sh.b.sub([
                 $.export ? sh.b.snippet("export ") : sh.b.nothing(),
                 $.const ? sh.b.snippet("const ") : sh.b.snippet("let "),
                 Identifier($['name']),
@@ -139,7 +139,7 @@ export const Statements = (
                     () => sh.b.nothing(),
                 ),
             ]))
-            default: return _ea.au($[0])
+            default: return _pt.au($[0])
         }
     })
 ])))
@@ -149,9 +149,9 @@ export const Expression = (
     $p: {
         'replace empty type literals by null': boolean
     }
-): d_out_fp.Block_Part => _ea.cc($, ($) => {
+): d_out_fp.Block_Part => _pt.cc($, ($) => {
     switch ($[0]) {
-        case 'array literal': return _ea.ss($, ($) => sh.b.sub([
+        case 'array literal': return _pt.ss($, ($) => sh.b.sub([
             sh.b.snippet("["),
             sh.b.indent([
                 sh.g.sub(op_enrich_list_elements_with_position_information($).map(($) => sh.g.nested_block([
@@ -161,7 +161,7 @@ export const Expression = (
             ]),
             sh.b.snippet("]"),
         ]))
-        case 'arrow function': return _ea.ss($, ($) => sh.b.sub([
+        case 'arrow function': return _pt.ss($, ($) => sh.b.sub([
             sh.b.snippet("("),
             sh.b.indent([
                 sh.g.sub($.parameters.map(($) => sh.g.nested_block([
@@ -185,21 +185,21 @@ export const Expression = (
                 () => sh.b.nothing(),
             ),
             sh.b.snippet(" => "),
-            _ea.cc($.type, ($) => {
+            _pt.cc($.type, ($) => {
                 switch ($[0]) {
-                    case 'block': return _ea.ss($, ($) => sh.b.sub([
+                    case 'block': return _pt.ss($, ($) => sh.b.sub([
                         sh.b.snippet("{"),
                         sh.b.indent([
                             Statements($, $p),
                         ]),
                         sh.b.snippet("}"),
                     ]))
-                    case 'expression': return _ea.ss($, ($) => Expression($, $p))
-                    default: return _ea.au($[0])
+                    case 'expression': return _pt.ss($, ($) => Expression($, $p))
+                    default: return _pt.au($[0])
                 }
             }),
         ]))
-        case 'call': return _ea.ss($, ($) => sh.b.sub([
+        case 'call': return _pt.ss($, ($) => sh.b.sub([
             Expression($['function selection'], $p),
             sh.b.snippet("("),
             sh.b.indent([
@@ -210,10 +210,10 @@ export const Expression = (
             ]),
             sh.b.snippet(")"),
         ]))
-        case 'false': return _ea.ss($, ($) => sh.b.snippet("false"))
-        case 'null': return _ea.ss($, ($) => sh.b.snippet("null"))
-        case 'number literal': return _ea.ss($, ($) => sh.b.snippet(s_scientific_notation($, { 'digits': 10 })))
-        case 'object literal': return _ea.ss($, ($) => sh.b.sub([
+        case 'false': return _pt.ss($, ($) => sh.b.snippet("false"))
+        case 'null': return _pt.ss($, ($) => sh.b.snippet("null"))
+        case 'number literal': return _pt.ss($, ($) => sh.b.snippet(s_scientific_notation($, { 'digits': 10 })))
+        case 'object literal': return _pt.ss($, ($) => sh.b.sub([
             sh.b.snippet("{"),
             sh.b.indent([
                 sh.g.sub($.properties.to_list(($, key) => sh.g.nested_block([
@@ -225,11 +225,11 @@ export const Expression = (
             ]),
             sh.b.snippet("}"),
         ]))
-        case 'string literal': return _ea.ss($, ($) => sh.b.sub([
+        case 'string literal': return _pt.ss($, ($) => sh.b.sub([
             sh.b.snippet($['delimiter'][0] === "quote" ? s_quoted($['value']) : s_apostrophed($['value']))
         ]))
-        case 'true': return _ea.ss($, ($) => sh.b.snippet("true"))
-        default: return _ea.au($[0])
+        case 'true': return _pt.ss($, ($) => sh.b.snippet("true"))
+        default: return _pt.au($[0])
     }
 })
 
@@ -238,10 +238,10 @@ export const Type = (
     $p: {
         'replace empty type literals by null': boolean
     }
-): d_out_fp.Block_Part => _ea.cc($, ($) => {
+): d_out_fp.Block_Part => _pt.cc($, ($) => {
     switch ($[0]) {
-        case 'boolean': return _ea.ss($, ($) => sh.b.snippet("boolean"))
-        case 'function': return _ea.ss($, ($) => sh.b.sub([
+        case 'boolean': return _pt.ss($, ($) => sh.b.snippet("boolean"))
+        case 'function': return _pt.ss($, ($) => sh.b.sub([
             $['type parameters'].is_empty()
                 ? sh.b.nothing()
                 : sh.b.sub([
@@ -268,11 +268,11 @@ export const Type = (
             sh.b.snippet(") => "),
             Type($['return'], $p)
         ]))
-        case 'literal type': return _ea.ss($, ($) => String_Literal($.value, { 'delimiter': $.delimiter[0] })) //FIX, implement a switch for the delimiter
-        case 'null': return _ea.ss($, ($) => sh.b.snippet("null"))
-        case 'number': return _ea.ss($, ($) => sh.b.snippet("number"))
-        case 'string': return _ea.ss($, ($) => sh.b.snippet("string"))
-        case 'tuple': return _ea.ss($, ($) => sh.b.sub([
+        case 'literal type': return _pt.ss($, ($) => String_Literal($.value, { 'delimiter': $.delimiter[0] })) //FIX, implement a switch for the delimiter
+        case 'null': return _pt.ss($, ($) => sh.b.snippet("null"))
+        case 'number': return _pt.ss($, ($) => sh.b.snippet("number"))
+        case 'string': return _pt.ss($, ($) => sh.b.snippet("string"))
+        case 'tuple': return _pt.ss($, ($) => sh.b.sub([
             $.readonly ? sh.b.snippet("readonly ") : sh.b.nothing(),
             sh.b.snippet("["),
             sh.b.sub(op_enrich_list_elements_with_position_information($['elements']).map(($) => sh.b.sub([
@@ -283,7 +283,7 @@ export const Type = (
             ]))),
             sh.b.snippet("]"),
         ]))
-        case 'type literal': return _ea.ss($, ($) => $p['replace empty type literals by null'] && $.properties.is_empty()
+        case 'type literal': return _pt.ss($, ($) => $p['replace empty type literals by null'] && $.properties.is_empty()
             ? sh.b.snippet("null")
             : sh.b.sub([
                 sh.b.snippet("{"),
@@ -300,7 +300,7 @@ export const Type = (
                 sh.b.snippet("}")
             ])
         )
-        case 'type reference': return _ea.ss($, ($) => sh.b.sub([
+        case 'type reference': return _pt.ss($, ($) => sh.b.sub([
             Identifier($['start']),
             sh.b.sub($['tail'].map(($) => sh.b.sub([
                 sh.b.snippet("."),
@@ -317,13 +317,13 @@ export const Type = (
                     sh.b.snippet(">"),
                 ]),
         ]))
-        case 'union': return _ea.ss($, ($) => sh.b.indent([
+        case 'union': return _pt.ss($, ($) => sh.b.indent([
             sh.g.sub($.map(($) => sh.g.nested_block([
                 sh.b.snippet("| "),
                 Type($, $p),
             ])))
         ]))
-        case 'void': return _ea.ss($, ($) => sh.b.snippet("void"))
-        default: return _ea.au($[0])
+        case 'void': return _pt.ss($, ($) => sh.b.snippet("void"))
+        default: return _pt.au($[0])
     }
 })

@@ -1,5 +1,5 @@
-import * as _ea from 'exupery-core-alg'
-import * as _et from 'exupery-core-types'
+import * as _pt from 'pareto-core-transformer'
+import * as _pi from 'pareto-core-interface'
 
 import * as d_in from "../../../../interface/generated/pareto/schemas/implementation/data_types/source"
 import * as s_in_interface from "../../../../interface/generated/pareto/schemas/interface/data_types/source"
@@ -29,16 +29,16 @@ export const Module_Set = (
         'phase': 'development' | 'production'
     }
 ): d_out.Directory => {
-    return $.map(($, key) => _ea.cc($, ($) => {
+    return $.map(($, key) => _pt.cc($, ($) => {
         switch ($[0]) {
-            case 'module': return _ea.ss($, ($): d_out.Directory.D => {
+            case 'module': return _pt.ss($, ($): d_out.Directory.D => {
                 const type_imports = $['type imports']
                 const valid_file_name = ($: string): string => {
                     return s_file_name($)
                 }
                 const x: d_out.Group = sh.group([
-                    sh.g.simple_line("import * as _pa from 'exupery-core-alg'"),
-                    $p.phase === 'development' ? sh.g.simple_line("import * as _pd from 'exupery-core-dev'") : sh.g.nothing(),
+                    sh.g.simple_line("import * as _pa from 'pareto-core-transformer'"),
+                    $p.phase === 'development' ? sh.g.simple_line("import * as _pd from 'pareto-core-dev'") : sh.g.nothing(),
 
                     sh.g.simple_line(""),
                     sh.g.sub($['type imports'].to_list(($, key) => sh.g.sub([
@@ -47,12 +47,12 @@ export const Module_Set = (
                             sh.b.snippet(s_identifier([" i ", key])),
                             sh.b.snippet(" from "),
                             String_Literal(
-                                _ea.cc($.type, ($): string => {
+                                _pt.cc($.type, ($): string => {
                                     switch ($[0]) {
-                                        case 'external': return _ea.ss($, ($) => valid_file_name($))
-                                        case 'ancestor': return _ea.ss($, ($) => `${s_repeated("../", { 'count': $['number of steps'] })}${valid_file_name($.dependency)}`)
-                                        case 'sibling': return _ea.ss($, ($) => `./${valid_file_name($)}`)
-                                        default: return _ea.au($[0])
+                                        case 'external': return _pt.ss($, ($) => valid_file_name($))
+                                        case 'ancestor': return _pt.ss($, ($) => `${s_repeated("../", { 'count': $['number of steps'] })}${valid_file_name($.dependency)}`)
+                                        case 'sibling': return _pt.ss($, ($) => `./${valid_file_name($)}`)
+                                        default: return _pt.au($[0])
                                     }
                                 })
                                 + s_list_of_texts(
@@ -72,12 +72,12 @@ export const Module_Set = (
                             sh.b.snippet(s_identifier([" i var ", key])),
                             sh.b.snippet(" from "),
                             String_Literal(
-                                _ea.cc($.type, ($): string => {
+                                _pt.cc($.type, ($): string => {
                                     switch ($[0]) {
-                                        case 'external': return _ea.ss($, ($) => valid_file_name($))
-                                        case 'ancestor': return _ea.ss($, ($) => `${s_repeated("../", { 'count': $['number of steps'] })}${valid_file_name($.dependency)}`)
-                                        case 'sibling': return _ea.ss($, ($) => `./${valid_file_name($)}`)
-                                        default: return _ea.au($[0])
+                                        case 'external': return _pt.ss($, ($) => valid_file_name($))
+                                        case 'ancestor': return _pt.ss($, ($) => `${s_repeated("../", { 'count': $['number of steps'] })}${valid_file_name($.dependency)}`)
+                                        case 'sibling': return _pt.ss($, ($) => `./${valid_file_name($)}`)
+                                        default: return _pt.au($[0])
                                     }
                                 })
                                 + s_list_of_texts(
@@ -101,15 +101,15 @@ export const Module_Set = (
                 ])
                 return ['file', x]
             })
-            case 'set': return _ea.ss($, ($) => ['directory', Module_Set($, $p)])
-            default: return _ea.au($[0])
+            case 'set': return _pt.ss($, ($) => ['directory', Module_Set($, $p)])
+            default: return _pt.au($[0])
         }
     }))
 }
 
 
 export const line_dictionary = (
-    $: _et.Dictionary<d_out.Block_Part>,
+    $: _pi.Dictionary<d_out.Block_Part>,
     if_empty: d_out.Block_Part,
     prefix: d_out.Block_Part,
     suffix: d_out.Block_Part,
@@ -162,10 +162,10 @@ export const Selection = (
     }
 ): d_out.Block_Part => {
     return sh.b.sub([
-        _ea.cc($.start, ($) => {
+        _pt.cc($.start, ($) => {
             switch ($[0]) {
-                case 'abort': return _ea.ss($, ($) => sh.b.snippet("_pa.panic('ABORT SELECTION')"))
-                case 'transform optional value': return _ea.ss($, ($) => sh.b.sub([
+                case 'abort': return _pt.ss($, ($) => sh.b.snippet("_pa.panic('ABORT SELECTION')"))
+                case 'transform optional value': return _pt.ss($, ($) => sh.b.sub([
                     Selection($.source, $p),
                     sh.b.snippet(".transform("),
                     sh.b.indent([
@@ -182,7 +182,7 @@ export const Selection = (
                     sh.b.snippet(")"),
                 ]))
 
-                case 'call': return _ea.ss($, ($) => sh.b.sub([
+                case 'call': return _pt.ss($, ($) => sh.b.sub([
                     Selection($.source, $p),
                     sh.b.snippet("("),
                     sh.b.indent([
@@ -216,21 +216,21 @@ export const Selection = (
                     ]),
                     sh.b.snippet(")"),
                 ]))
-                case 'implement me': return _ea.ss($, ($) => sh.b.snippet("_pd.implement_me(\"marker tbd\")"))
-                case 'argument': return _ea.ss($, ($) => sh.b.snippet(s_identifier(["FOOO FIX ARGUMENT"])))
-                case 'context': return _ea.ss($, ($) => sh.b.snippet("$"))
-                case 'variable': return _ea.ss($, ($) => sh.b.snippet(s_identifier([$])))
-                case 'parameter': return _ea.ss($, ($) => sh.b.sub([
+                case 'implement me': return _pt.ss($, ($) => sh.b.snippet("_pd.implement_me(\"marker tbd\")"))
+                case 'argument': return _pt.ss($, ($) => sh.b.snippet(s_identifier(["FOOO FIX ARGUMENT"])))
+                case 'context': return _pt.ss($, ($) => sh.b.snippet("$"))
+                case 'variable': return _pt.ss($, ($) => sh.b.snippet(s_identifier([$])))
+                case 'parameter': return _pt.ss($, ($) => sh.b.sub([
                     sh.b.snippet("$p["),
                     String_Literal($, { 'delimiter': "apostrophe" }),
                     sh.b.snippet("]"),
                 ]))
-                case 'imported variable': return _ea.ss($, ($) => sh.b.sub([
+                case 'imported variable': return _pt.ss($, ($) => sh.b.sub([
                     sh.b.snippet(s_identifier([$.import])),
                     sh.b.snippet("."),
                     sh.b.snippet(s_identifier([$.variable])),
                 ]))
-                default: return _ea.au($[0])
+                default: return _pt.au($[0])
             }
         }),
         sh.b.sub($.tail.map(($) => sh.b.sub([
@@ -247,9 +247,9 @@ export const Initialization = (
         'temp imports': s_in_interface.Imports
     }
 ): d_out.Block_Part => {
-    return _ea.cc($, ($) => {
+    return _pt.cc($, ($) => {
         switch ($[0]) {
-            case 'block': return _ea.ss($, ($) => sh.b.sub([
+            case 'block': return _pt.ss($, ($) => sh.b.sub([
                 sh.b.snippet("_pa.block("),
                 sh.b.snippet("() => {"),
                 sh.b.indent([
@@ -264,8 +264,8 @@ export const Initialization = (
                                     t_inf_2_tl.Type_to_Type(
                                         $,
                                         {
-                                            'module parameters': _ea.not_set(),
-                                            'temp imports': _ea.set($p['temp imports']),
+                                            'module parameters': _pt.not_set(),
+                                            'temp imports': _pt.set($p['temp imports']),
                                         },
                                     ),
                                     {
@@ -291,35 +291,35 @@ export const Initialization = (
                 ]),
                 sh.b.snippet("})"),
             ]))
-            case 'change context': return _ea.ss($, ($) => sh.b.sub([
+            case 'change context': return _pt.ss($, ($) => sh.b.sub([
                 sh.b.snippet("_pa.cc("),
                 Selection($['new context'], $p),
                 sh.b.snippet(", ($) => "),
                 Initialization($.initialization, $p),
                 sh.b.snippet(")"),
             ]))
-            case 'literal': return _ea.ss($, ($) => Literal($.value, $p))
-            case 'selection': return _ea.ss($, ($) => Selection($, $p))
-            case 'transformation': return _ea.ss($, ($) => {
+            case 'literal': return _pt.ss($, ($) => Literal($.value, $p))
+            case 'selection': return _pt.ss($, ($) => Selection($, $p))
+            case 'transformation': return _pt.ss($, ($) => {
                 const p_source = $.source
                 return sh.b.sub([
-                    _ea.cc($.type, ($) => {
+                    _pt.cc($.type, ($) => {
                         switch ($[0]) {
-                            case 'array': return _ea.ss($, ($) => _ea.cc($, ($) => {
+                            case 'array': return _pt.ss($, ($) => _pt.cc($, ($) => {
                                 switch ($[0]) {
-                                    case 'map': return _ea.ss($, ($) => sh.b.sub([
+                                    case 'map': return _pt.ss($, ($) => sh.b.sub([
                                         Selection(p_source, $p),
                                         sh.b.snippet(".map(($) => "),
                                         Initialization($, $p),
                                         sh.b.snippet(")"),
                                     ]))
-                                    default: return _ea.au($[0])
+                                    default: return _pt.au($[0])
                                 }
                             }))
-                            case 'boolean': return _ea.ss($, ($) => _ea.cc($, ($) => {
+                            case 'boolean': return _pt.ss($, ($) => _pt.cc($, ($) => {
                                 switch ($[0]) {
-                                    case 'not': return _ea.ss($, ($) => sh.b.sub([sh.b.snippet("FIXME BOOLEAN NOT")]))
-                                    case 'transform': return _ea.ss($, ($) => sh.b.sub([
+                                    case 'not': return _pt.ss($, ($) => sh.b.sub([sh.b.snippet("FIXME BOOLEAN NOT")]))
+                                    case 'transform': return _pt.ss($, ($) => sh.b.sub([
                                         Selection(p_source, $p),
                                         sh.b.indent([
                                             sh.g.nested_block([
@@ -332,24 +332,24 @@ export const Initialization = (
                                             ]),
                                         ])
                                     ]))
-                                    default: return _ea.au($[0])
+                                    default: return _pt.au($[0])
                                 }
                             }))
-                            case 'dictionary': return _ea.ss($, ($) => _ea.cc($, ($) => {
+                            case 'dictionary': return _pt.ss($, ($) => _pt.cc($, ($) => {
                                 switch ($[0]) {
-                                    case 'map': return _ea.ss($, ($) => sh.b.sub([
+                                    case 'map': return _pt.ss($, ($) => sh.b.sub([
                                         Selection(p_source, $p),
                                         sh.b.snippet(".map(($) => "),
                                         Initialization($, $p),
                                         sh.b.snippet(")"),
                                     ]))
-                                    default: return _ea.au($[0])
+                                    default: return _pt.au($[0])
                                 }
                             }))
-                            case 'function': return _ea.ss($, ($) => _ea.cc($, ($) => {
+                            case 'function': return _pt.ss($, ($) => _pt.cc($, ($) => {
                                 switch ($[0]) {
 
-                                    case 'call': return _ea.ss($, ($) => sh.b.sub([
+                                    case 'call': return _pt.ss($, ($) => sh.b.sub([
                                         Selection(p_source, $p),
                                         sh.b.snippet("("),
                                         sh.b.indent([
@@ -383,19 +383,19 @@ export const Initialization = (
                                         ]),
                                         sh.b.snippet(")"),
                                     ]))
-                                    default: return _ea.au($[0])
+                                    default: return _pt.au($[0])
                                 }
                             }))
 
-                            case 'optional': return _ea.ss($, ($) => _ea.cc($, ($) => {
+                            case 'optional': return _pt.ss($, ($) => _pt.cc($, ($) => {
                                 switch ($[0]) {
-                                    case 'map': return _ea.ss($, ($) => sh.b.sub([
+                                    case 'map': return _pt.ss($, ($) => sh.b.sub([
                                         Selection(p_source, $p),
                                         sh.b.snippet(".map(($) => "),
                                         Initialization($, $p),
                                         sh.b.snippet(")"),
                                     ]))
-                                    case 'transform': return _ea.ss($, ($) => sh.b.sub([
+                                    case 'transform': return _pt.ss($, ($) => sh.b.sub([
                                         Selection(p_source, $p),
                                         sh.b.snippet(".transform("),
                                         sh.b.indent([
@@ -408,8 +408,8 @@ export const Initialization = (
                                                             t_inf_2_tl.Type_to_Type(
                                                                 $,
                                                                 {
-                                                                    'module parameters': _ea.not_set(),
-                                                                    'temp imports': _ea.set($p['temp imports']),
+                                                                    'module parameters': _pt.not_set(),
+                                                                    'temp imports': _pt.set($p['temp imports']),
                                                                 },
                                                             ),
                                                             {
@@ -430,14 +430,14 @@ export const Initialization = (
                                         ]),
                                         sh.b.snippet(")"),
                                     ]))
-                                    default: return _ea.au($[0])
+                                    default: return _pt.au($[0])
                                 }
                             }))
 
-                            case 'tagged union': return _ea.ss($, ($) => _ea.cc($, ($) => {
+                            case 'tagged union': return _pt.ss($, ($) => _pt.cc($, ($) => {
                                 switch ($[0]) {
 
-                                    case 'switch': return _ea.ss($, ($) => sh.b.sub([
+                                    case 'switch': return _pt.ss($, ($) => sh.b.sub([
                                         sh.b.snippet("_pa.cc("),
                                         Selection(p_source, $p),
                                         sh.b.snippet(", ($)"),
@@ -448,8 +448,8 @@ export const Initialization = (
                                                     t_inf_2_tl.Type_to_Type(
                                                         $,
                                                         {
-                                                            'module parameters': _ea.not_set(),
-                                                            'temp imports': _ea.set($p['temp imports']),
+                                                            'module parameters': _pt.not_set(),
+                                                            'temp imports': _pt.set($p['temp imports']),
                                                         },
                                                     ),
                                                     {
@@ -462,9 +462,9 @@ export const Initialization = (
                                         sh.b.snippet(" => {"),
                                         sh.b.indent([
                                             sh.g.nested_block([
-                                                _ea.cc($.type, ($) => {
+                                                _pt.cc($.type, ($) => {
                                                     switch ($[0]) {
-                                                        case 'full': return _ea.ss($, ($) => sh.b.sub([
+                                                        case 'full': return _pt.ss($, ($) => sh.b.sub([
                                                             sh.b.snippet("switch ($[0]) {"),
                                                             sh.b.indent([
                                                                 sh.g.sub($.cases.to_list(($, key) => sh.g.sub([
@@ -480,7 +480,7 @@ export const Initialization = (
                                                             ]),
                                                             sh.b.snippet("}"),
                                                         ]))
-                                                        case 'partial': return _ea.ss($, ($) => sh.b.sub([
+                                                        case 'partial': return _pt.ss($, ($) => sh.b.sub([
                                                             sh.b.snippet("switch ($[0]) {"),
                                                             sh.b.indent([
                                                                 sh.g.sub($.cases.to_list(($, key) => sh.g.sub([
@@ -499,22 +499,22 @@ export const Initialization = (
                                                             ]),
                                                             sh.b.snippet("}"),
                                                         ]))
-                                                        default: return _ea.au($[0])
+                                                        default: return _pt.au($[0])
                                                     }
                                                 }),
                                             ]),
                                         ]),
                                         sh.b.snippet("})"),
                                     ]))
-                                    default: return _ea.au($[0])
+                                    default: return _pt.au($[0])
                                 }
                             }))
-                            default: return _ea.au($[0])
+                            default: return _pt.au($[0])
                         }
                     })
                 ])
             })
-            default: return _ea.au($[0])
+            default: return _pt.au($[0])
         }
     })
 }
@@ -538,8 +538,8 @@ export const Variables = (
                         t_inf_2_tl.Type_to_Type(
                             $,
                             {
-                                'module parameters': _ea.not_set(),
-                                'temp imports': _ea.set($p['type imports']),
+                                'module parameters': _pt.not_set(),
+                                'temp imports': _pt.set($p['type imports']),
                             },
                         ),
                         {
@@ -565,16 +565,16 @@ export const Literal = (
     },
 ): d_out.Block_Part => {
     return sh.b.sub([
-        _ea.cc($, ($): d_out.Block_Part => {
+        _pt.cc($, ($): d_out.Block_Part => {
             switch ($[0]) {
-                case 'boolean': return _ea.ss($, ($) => _ea.cc($, ($) => {
+                case 'boolean': return _pt.ss($, ($) => _pt.cc($, ($) => {
                     switch ($[0]) {
                         case 'true': return sh.b.snippet("true")
                         case 'false': return sh.b.snippet("false")
-                        default: return _ea.au($[0])
+                        default: return _pt.au($[0])
                     }
                 }))
-                case 'dictionary': return _ea.ss($, ($) => sh.b.sub([
+                case 'dictionary': return _pt.ss($, ($) => sh.b.sub([
                     sh.b.snippet("_pa.dictionary_literal({"),
                     sh.b.indent([
                         sh.g.sub($.to_list(($, key) => sh.g.nested_block([
@@ -587,7 +587,7 @@ export const Literal = (
                     ]),
                     sh.b.snippet("})"),
                 ]))
-                case 'function': return _ea.ss($, ($) => sh.b.sub([
+                case 'function': return _pt.ss($, ($) => sh.b.sub([
                     sh.b.snippet("($"),
                     $['temp has parameters'] ? sh.b.snippet(", $p") : sh.b.nothing(),
                     sh.b.snippet(")"),
@@ -598,8 +598,8 @@ export const Literal = (
                                 t_inf_2_tl.Type_to_Type(
                                     $,
                                     {
-                                        'module parameters': _ea.not_set(),
-                                        'temp imports': _ea.set($p['temp imports']),
+                                        'module parameters': _pt.not_set(),
+                                        'temp imports': _pt.set($p['temp imports']),
                                     },
                                 ),
                                 {
@@ -612,7 +612,7 @@ export const Literal = (
                     sh.b.snippet(" => "),
                     Initialization($.initialization, $p),
                 ]))
-                case 'group': return _ea.ss($, ($) => line_dictionary(
+                case 'group': return _pt.ss($, ($) => line_dictionary(
                     $.map(($, key) => sh.b.indent([
                         sh.g.nested_block([
                             String_Literal(key, { 'delimiter': "apostrophe" }),
@@ -627,7 +627,7 @@ export const Literal = (
                     false
                 ))
 
-                case 'array': return _ea.ss($, ($) => sh.b.sub([
+                case 'array': return _pt.ss($, ($) => sh.b.sub([
                     sh.b.snippet("_pa.list_literal(["),
                     sh.b.indent([
                         sh.g.sub($.map(($) => sh.g.nested_block([
@@ -638,44 +638,44 @@ export const Literal = (
                     ]),
                     sh.b.snippet("])"),
                 ]))
-                case 'null': return _ea.ss($, ($) => sh.b.snippet("null"))
-                case 'number': return _ea.ss($, ($) => _ea.cc($, ($) => {
+                case 'null': return _pt.ss($, ($) => sh.b.snippet("null"))
+                case 'number': return _pt.ss($, ($) => _pt.cc($, ($) => {
                     switch ($[0]) {
-                        case 'floting point': return _ea.ss($, ($) => sh.b.snippet(s_scientific_notation($, { 'digits': 10 })))
-                        case 'integer': return _ea.ss($, ($) => sh.b.snippet(s_decimal($)))
-                        case 'signed integer': return _ea.ss($, ($) => sh.b.snippet(s_decimal($)))
-                        default: return _ea.au($[0])
+                        case 'floting point': return _pt.ss($, ($) => sh.b.snippet(s_scientific_notation($, { 'digits': 10 })))
+                        case 'integer': return _pt.ss($, ($) => sh.b.snippet(s_decimal($)))
+                        case 'signed integer': return _pt.ss($, ($) => sh.b.snippet(s_decimal($)))
+                        default: return _pt.au($[0])
                     }
                 }))
-                case 'optional': return _ea.ss($, ($) => _ea.cc($, ($) => {
+                case 'optional': return _pt.ss($, ($) => _pt.cc($, ($) => {
                     switch ($[0]) {
                         case 'not set': return sh.b.snippet("_pa.not_set()")
-                        case 'set': return _ea.ss($, ($) => sh.b.sub([
+                        case 'set': return _pt.ss($, ($) => sh.b.sub([
                             sh.b.snippet("_pa.set("),
                             Initialization($, $p),
                             sh.b.snippet(")"),
                         ]))
-                        default: return _ea.au($[0])
+                        default: return _pt.au($[0])
                     }
                 }))
-                case 'tagged union': return _ea.ss($, ($) => sh.b.sub([
+                case 'tagged union': return _pt.ss($, ($) => sh.b.sub([
                     sh.b.snippet("["),
                     String_Literal($.case, { 'delimiter': "apostrophe" }),
                     sh.b.snippet(", "),
                     Initialization($.value, $p),
                     sh.b.snippet("]"),
                 ]))
-                case 'string': return _ea.ss($, ($) => {
+                case 'string': return _pt.ss($, ($) => {
                     const value = $.value
-                    return _ea.cc($.delimiter, ($) => {
+                    return _pt.cc($.delimiter, ($) => {
                         switch ($[0]) {
-                            case 'quote': return _ea.ss($, ($) => String_Literal(value, { 'delimiter': "quote" }))
-                            case 'backtick': return _ea.ss($, ($) => sh.b.snippet(s_backticked(value)))
-                            default: return _ea.au($[0])
+                            case 'quote': return _pt.ss($, ($) => String_Literal(value, { 'delimiter': "quote" }))
+                            case 'backtick': return _pt.ss($, ($) => sh.b.snippet(s_backticked(value)))
+                            default: return _pt.au($[0])
                         }
                     })
                 })
-                default: return _ea.au($[0])
+                default: return _pt.au($[0])
             }
         })
     ])

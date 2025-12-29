@@ -1,15 +1,16 @@
-import * as _ea from 'exupery-core-alg'
+import * as _pt from 'pareto-core-serializer'
+import * as _pinternals from 'pareto-core-internals'
 
 import { $$ as s_list_of_texts } from "pareto-standard-operations/dist/implementation/serializers/schemas/list_of_texts"
 import { $$ as s_decimal } from "pareto-standard-operations/dist/implementation/serializers/primitives/integer/decimal"
 
 
 export const $$ = ($: string[]): string => {
-    const the_string = s_list_of_texts(_ea.list_literal($))
+    const the_string = s_list_of_texts(_pinternals.list_literal($))
     if (the_string === "") {
         return "_empty"
     }
-    const reserved_keywords = _ea.dictionary_literal({
+    const reserved_keywords = _pinternals.dictionary_literal({
         //Reserved Words
         "arguments": null,
         "break": null,
@@ -83,14 +84,14 @@ export const $$ = ($: string[]): string => {
         () => true,
         () => false,
     )) {
-        return _ea.build_text(($i) => {
+        return _pt.build_text(($i) => {
             $i['add snippet']("_")
             $i['add snippet'](the_string)
         })
     }
 
-    return _ea.build_text(($i) => {
-        const characters = _ea.text_to_character_list(the_string)
+    return _pt.build_text(($i) => {
+        const characters = _pinternals.text_to_character_list(the_string)
         const length = characters.get_number_of_elements()
 
         let position = 0
@@ -171,7 +172,7 @@ export const $$ = ($: string[]): string => {
                     case 124: consume_and_add("$vb_"); break; // Vertical Bar (|)
                     case 125: consume_and_add("$cc_"); break; // Close Curly Brace (})
                     case 126: consume_and_add("$ti_"); break; // Tilde (~)
-                    default: _ea.deprecated_panic("unhandled character: \"", s_decimal(current_character), "\"");
+                    default: _pinternals.panic("unhandled character: \"", s_decimal(current_character), "\"");
                 }
             }
         }

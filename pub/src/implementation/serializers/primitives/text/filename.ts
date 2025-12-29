@@ -1,9 +1,9 @@
-import * as _et from 'exupery-core-types'
-import * as _ea from 'exupery-core-alg'
+import * as _pt from 'pareto-core-serializer'
+import * as _pinternals from 'pareto-core-internals'
 
 export const $$ = ($: string): string => {
-    return _ea.build_text(($i) => {
-        _ea.text_to_character_list($).__for_each(($) => {
+    return _pt.build_text(($i) => {
+        _pinternals.text_to_character_list($).__for_each(($) => {
             if ($ === 36) { // $
                 $i['add snippet'](`$$`)
             } else if ($ === 95) { // _
