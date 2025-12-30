@@ -1,12 +1,12 @@
 import * as _pt from 'pareto-core-transformer'
 
 import * as d_out_fp from "pareto-fountain-pen/dist/interface/generated/pareto/schemas/block/data_types/target"
-import * as d_in from "../../../../interface/generated/pareto/schemas/typescript_light/data_types/source"
+import * as d_in from "../../../../../interface/generated/pareto/schemas/typescript_light/data_types/source"
 
-import { $$ as s_identifier } from "../../../serializers/primitives/text/identifier"
+import { $$ as s_identifier } from "../../../primitives/text/serializers/identifier"
 import { $$ as op_enrich_list_elements_with_position_information } from "pareto-fountain-pen/dist/implementation/temp/enrich_with_position_information"
-import { $$ as s_apostrophed } from "../../../serializers/primitives/text/apostrophed_string"
-import { $$ as s_quoted } from "../../../serializers/primitives/text/quoted_string"
+import { $$ as s_apostrophed } from "../../../primitives/text/serializers/apostrophed_string"
+import { $$ as s_quoted } from "../../../primitives/text/serializers/quoted_string"
 import { $$ as s_scientific_notation } from "pareto-standard-operations/dist/implementation/serializers/primitives/approximate_number/scientific_notation"
 
 import * as sh from "pareto-fountain-pen/dist/shorthands/block"

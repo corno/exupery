@@ -1,12 +1,12 @@
 import * as _pt from 'pareto-core-transformer'
 
-import * as s_in_inf from "../../../../interface/generated/pareto/schemas/interface/data_types/source"
-import * as s_in_imp from "../../../../interface/generated/pareto/schemas/implementation/data_types/source"
+import * as s_in_inf from "../../../../../interface/generated/pareto/schemas/interface/data_types/source"
+import * as s_in_imp from "../../../../../interface/generated/pareto/schemas/implementation/data_types/source"
 
-import * as d_out from "../../../../interface/generated/pareto/schemas/typescript_light/data_types/target"
+import * as d_out from "../../../../../interface/generated/pareto/schemas/typescript_light/data_types/target"
 
-import * as t_interface_to_typescript_temp from "../interface/typescript_light"
-import * as t_implementation_to_typescript_temp from "../implementation/typescript_light"
+import * as t_interface_to_typescript_temp from "../../interface/transformers/typescript_light"
+import * as t_implementation_to_typescript_temp from "../../implementation/transformers/typescript_light"
 
 import * as sh from "pareto-fountain-pen/dist/shorthands/block"
 

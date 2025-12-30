@@ -1,25 +1,25 @@
 import * as _pt from 'pareto-core-transformer'
 import * as _pi from 'pareto-core-interface'
 
-import * as d_in from "../../../../interface/generated/pareto/schemas/implementation/data_types/source"
-import * as s_in_interface from "../../../../interface/generated/pareto/schemas/interface/data_types/source"
+import * as d_in from "../../../../../interface/generated/pareto/schemas/implementation/data_types/source"
+import * as s_in_interface from "../../../../../interface/generated/pareto/schemas/interface/data_types/source"
 import * as d_out from "pareto-fountain-pen/dist/interface/generated/pareto/schemas/block/data_types/target"
 
 
-import * as t_inf_2_tl from "../interface/typescript_light"
-import * as t_tl_2_fp from "../typescript_light/fountain_pen_block"
+import * as t_inf_2_tl from "../../interface/transformers/typescript_light"
+import * as t_tl_2_fp from "../../typescript_light/transformers/fountain_pen_block"
 
 
-import * as sh from "../../../../shorthands/typescript_light"
+import * as sh from "../../../../../shorthands/typescript_light"
 
 import { $$ as s_list_of_texts } from "pareto-standard-operations/dist/implementation/serializers/schemas/list_of_texts"
-import { $$ as s_apostrophed } from "../../../serializers/primitives/text/apostrophed_string"
-import { $$ as s_quoted } from "../../../serializers/primitives/text/quoted_string"
-import { $$ as s_backticked } from "../../../serializers/primitives/text/backticked_string"
+import { $$ as s_apostrophed } from "../../../primitives/text/serializers/apostrophed_string"
+import { $$ as s_quoted } from "../../../primitives/text/serializers/quoted_string"
+import { $$ as s_backticked } from "../../../primitives/text/serializers/backticked_string"
 
 import { $$ as s_repeated } from "pareto-standard-operations/dist/implementation/serializers/primitives/text/repeated"
-import { $$ as s_file_name } from "../../../serializers/primitives/text/filename"
-import { $$ as s_identifier } from "../../../serializers/primitives/text/identifier"
+import { $$ as s_file_name } from "../../../primitives/text/serializers/filename"
+import { $$ as s_identifier } from "../../../primitives/text/serializers/identifier"
 import { $$ as s_scientific_notation } from "pareto-standard-operations/dist/implementation/serializers/primitives/approximate_number/scientific_notation"
 import { $$ as s_decimal } from "pareto-standard-operations/dist/implementation/serializers/primitives/integer/decimal"
 

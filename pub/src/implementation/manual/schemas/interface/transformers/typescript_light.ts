@@ -2,21 +2,21 @@ import * as _pt from 'pareto-core-transformer'
 import * as _pi from 'pareto-core-interface'
 import * as _pinternals from 'pareto-core-internals'
 
-import * as d_in from "../../../../interface/generated/pareto/schemas/interface/data_types/source"
-import * as d_out from "../../../../interface/generated/pareto/schemas/typescript_light/data_types/target"
+import * as d_in from "../../../../../interface/generated/pareto/schemas/interface/data_types/source"
+import * as d_out from "../../../../../interface/generated/pareto/schemas/typescript_light/data_types/target"
 
 //dependencies
-import * as s_out_ts from "../../../../interface/generated/pareto/schemas/typescript_light/data_types/target"
-import * as t_tl_2_fp from "../typescript_light/fountain_pen_block"
-import { $$ as s_identifier } from "../../../serializers/primitives/text/identifier"
+import * as s_out_ts from "../../../../../interface/generated/pareto/schemas/typescript_light/data_types/target"
+import * as t_tl_2_fp from "../../typescript_light/transformers/fountain_pen_block"
+import { $$ as s_identifier } from "../../../primitives/text/serializers/identifier"
 import { $$ as op_flatten_dictionary } from "pareto-standard-operations/dist/implementation/operations/pure/dictionary/flatten"
 import { $$ as s_repeated } from "pareto-standard-operations/dist/implementation/serializers/primitives/text/repeated"
 import { $$ as s_list_of_texts } from "pareto-standard-operations/dist/implementation/serializers/schemas/list_of_texts"
-import { $$ as s_file_name } from "../../../serializers/primitives/text/filename"
+import { $$ as s_file_name } from "../../../primitives/text/serializers/filename"
 
 //shorthands
-import * as sh from "../../../../shorthands/typescript_light"
-import * as sh2 from "../../../../shorthands/typescript_light"
+import * as sh from "../../../../../shorthands/typescript_light"
+import * as sh2 from "../../../../../shorthands/typescript_light"
 
 export const line_dictionary = (
     $: _pi.Dictionary<d_out.Block_Part>,
