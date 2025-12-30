@@ -1,5 +1,4 @@
 import * as _pt from 'pareto-core-transformer'
-import * as _pi from 'pareto-core-interface'
 
 import * as s_in_inf from "../../../../interface/generated/pareto/schemas/interface/data_types/source"
 import * as s_in_imp from "../../../../interface/generated/pareto/schemas/implementation/data_types/source"
