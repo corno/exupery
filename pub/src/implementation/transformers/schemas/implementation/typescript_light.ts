@@ -38,7 +38,7 @@ export const Module_Set = (
                 }
                 const x: d_out.Group = sh.group([
                     sh.g.simple_line("import * as _pa from 'pareto-core-transformer'"),
-                    $p.phase === 'development' ? sh.g.simple_line("import * as _pd from 'pareto-core-dev'") : sh.g.nothing(),
+                    $p.phase === 'development' ? sh.g.simple_line("import * as _pdev from 'pareto-core-dev'") : sh.g.nothing(),
 
                     sh.g.simple_line(""),
                     sh.g.sub($['type imports'].to_list(($, key) => sh.g.sub([
@@ -216,7 +216,7 @@ export const Selection = (
                     ]),
                     sh.b.snippet(")"),
                 ]))
-                case 'implement me': return _pt.ss($, ($) => sh.b.snippet("_pd.implement_me(\"marker tbd\")"))
+                case 'implement me': return _pt.ss($, ($) => sh.b.snippet("_pdev.implement_me(\"marker tbd\")"))
                 case 'argument': return _pt.ss($, ($) => sh.b.snippet(s_identifier(["FOOO FIX ARGUMENT"])))
                 case 'context': return _pt.ss($, ($) => sh.b.snippet("$"))
                 case 'variable': return _pt.ss($, ($) => sh.b.snippet(s_identifier([$])))
