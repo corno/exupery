@@ -1,5 +1,6 @@
 import * as _pt from 'pareto-core-transformer'
 import * as _pi from 'pareto-core-interface'
+import * as _pinternals from 'pareto-core-internals'
 
 import * as d_in from "../../../../interface/generated/pareto/schemas/interface/data_types/source"
 import * as d_out from "../../../../interface/generated/pareto/schemas/typescript_light/data_types/target"
@@ -540,14 +541,14 @@ export const Type_to_Type = (
                     _pt.dictionary_literal<_pi.Dictionary<s_out_ts.Type>>({
                         "M": _pt.cc($.location, ($): _pi.Dictionary<s_out_ts.Type> => {
                             switch ($[0]) {
-                                case 'import': return _pt.ss($, ($) => $p['temp imports'].transform(($) => $, () => _pt.deprecated_panic("DSFSDFSD")).get_entry($.import).transform(($) => $, () => {
+                                case 'import': return _pt.ss($, ($) => $p['temp imports'].transform(($) => $, () => _pinternals.panic("DSFSDFSD")).get_entry($.import).transform(($) => $, () => {
                                     let keys = ""
                                     $p['temp imports'].map(($) => {
                                         $.map(($, key) => {
                                             keys += `, '${key}'`
                                         })
                                     })
-                                    return _pt.deprecated_panic(`no such import: ${$.import} @ ${keys}`)
+                                    return _pinternals.panic(`no such import: ${$.import} @ ${keys}`)
                                 })['type arguments'].map(($): s_out_ts.Type => Type_to_Type(
                                     $,
                                     {
@@ -555,7 +556,7 @@ export const Type_to_Type = (
                                         'temp imports': $p['temp imports'],
                                     }
                                 )))
-                                case 'sibling': return _pt.ss($, ($): _pi.Dictionary<s_out_ts.Type> => $p['module parameters'].transform(($) => $, () => _pt.deprecated_panic("DSFSDFSD")).map(($, key): s_out_ts.Type => sh2.t.type_reference(
+                                case 'sibling': return _pt.ss($, ($): _pi.Dictionary<s_out_ts.Type> => $p['module parameters'].transform(($) => $, () => _pinternals.panic("DSFSDFSD")).map(($, key): s_out_ts.Type => sh2.t.type_reference(
                                     `M ${key}`,
                                     [],
                                     [],
