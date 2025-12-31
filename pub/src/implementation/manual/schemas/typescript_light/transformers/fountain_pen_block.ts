@@ -7,7 +7,7 @@ import { $$ as s_identifier } from "../../../primitives/text/serializers/identif
 import { $$ as op_enrich_list_elements_with_position_information } from "pareto-fountain-pen/dist/implementation/temp/enrich_with_position_information"
 import { $$ as s_apostrophed } from "../../../primitives/text/serializers/apostrophed_string"
 import { $$ as s_quoted } from "../../../primitives/text/serializers/quoted_string"
-import { $$ as s_scientific_notation } from "pareto-standard-operations/dist/implementation/serializers/primitives/approximate_number/scientific_notation"
+import { $$ as s_scientific_notation } from "pareto-standard-operations/dist/implementation/manual/primitives/approximate_number/serializers/scientific_notation"
 
 import * as sh from "pareto-fountain-pen/dist/shorthands/block"
 

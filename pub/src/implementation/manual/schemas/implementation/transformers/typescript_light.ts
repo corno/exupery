@@ -12,16 +12,16 @@ import * as t_tl_2_fp from "../../typescript_light/transformers/fountain_pen_blo
 
 import * as sh from "../../../../../shorthands/typescript_light"
 
-import { $$ as s_list_of_texts } from "pareto-standard-operations/dist/implementation/serializers/schemas/list_of_texts"
+import { $$ as s_list_of_texts } from "pareto-standard-operations/dist/implementation/temp_serializers/schemas/list_of_texts"
 import { $$ as s_apostrophed } from "../../../primitives/text/serializers/apostrophed_string"
 import { $$ as s_quoted } from "../../../primitives/text/serializers/quoted_string"
 import { $$ as s_backticked } from "../../../primitives/text/serializers/backticked_string"
 
-import { $$ as s_repeated } from "pareto-standard-operations/dist/implementation/serializers/primitives/text/repeated"
+import { $$ as s_repeated } from "pareto-standard-operations/dist/implementation/manual/primitives/text/serializers/repeated"
 import { $$ as s_file_name } from "../../../primitives/text/serializers/filename"
 import { $$ as s_identifier } from "../../../primitives/text/serializers/identifier"
-import { $$ as s_scientific_notation } from "pareto-standard-operations/dist/implementation/serializers/primitives/approximate_number/scientific_notation"
-import { $$ as s_decimal } from "pareto-standard-operations/dist/implementation/serializers/primitives/integer/decimal"
+import { $$ as s_scientific_notation } from "pareto-standard-operations/dist/implementation/manual/primitives/approximate_number/serializers/scientific_notation"
+import { $$ as s_decimal } from "pareto-standard-operations/dist/implementation/manual/primitives/integer/serializers/decimal"
 
 export const Module_Set = (
     $: d_in.Module_Set,

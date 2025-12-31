@@ -1,8 +1,8 @@
 import * as _pt from 'pareto-core-serializer'
 import * as _pinternals from 'pareto-core-internals'
 
-import { $$ as s_list_of_texts } from "pareto-standard-operations/dist/implementation/serializers/schemas/list_of_texts"
-import { $$ as s_decimal } from "pareto-standard-operations/dist/implementation/serializers/primitives/integer/decimal"
+import { $$ as s_list_of_texts } from "pareto-standard-operations/dist/implementation/temp_serializers/schemas/list_of_texts"
+import { $$ as s_decimal } from "pareto-standard-operations/dist/implementation/manual/primitives/integer/serializers/decimal"
 
 
 export const $$ = ($: string[]): string => {

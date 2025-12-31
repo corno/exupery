@@ -10,8 +10,8 @@ import * as s_out_ts from "../../../../../interface/generated/pareto/schemas/typ
 import * as t_tl_2_fp from "../../typescript_light/transformers/fountain_pen_block"
 import { $$ as s_identifier } from "../../../primitives/text/serializers/identifier"
 import { $$ as op_flatten_dictionary } from "pareto-standard-operations/dist/implementation/operations/pure/dictionary/flatten"
-import { $$ as s_repeated } from "pareto-standard-operations/dist/implementation/serializers/primitives/text/repeated"
-import { $$ as s_list_of_texts } from "pareto-standard-operations/dist/implementation/serializers/schemas/list_of_texts"
+import { $$ as s_repeated } from "pareto-standard-operations/dist/implementation/manual/primitives/text/serializers/repeated"
+import { $$ as s_list_of_texts } from "pareto-standard-operations/dist/implementation/temp_serializers/schemas/list_of_texts"
 import { $$ as s_file_name } from "../../../primitives/text/serializers/filename"
 
 //shorthands

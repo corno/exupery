@@ -1,6 +1,6 @@
 {
   "name": "exupery",
-  "version": "0.3.13",
+  "version": "0.3.14",
   "description": "A library for the Exupery programming Language",
   "main": "./dist/index.js",
   "types": "dist/index.d.ts",
@@ -8,6 +8,6 @@
     "dist"
   ],
   "dependencies": {
-    "pareto-fountain-pen": "^0.3.22"
+    "pareto-fountain-pen": "^0.3.23"
   }
 }
