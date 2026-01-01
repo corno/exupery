@@ -1,4 +1,4 @@
-import * as _pt from 'pareto-core-transformer'
+import * as _p from 'pareto-core-transformer'
 
 import * as s_in_inf from "../../../../../interface/generated/pareto/schemas/interface/data_types/source"
 import * as s_in_imp from "../../../../../interface/generated/pareto/schemas/implementation/data_types/source"
@@ -23,7 +23,7 @@ export const Temp_Library = (
         'phase': 'development' | 'production'
     }
 ): d_out.Directory => {
-    return _pt.dictionary_literal<d_out.Directory.D>({
+    return _p.dictionary_literal<d_out.Directory.D>({
         "interface": sh.n.directory(t_interface_to_typescript_temp.Module_Set($.interface)),
         "implementation": sh.n.directory(t_implementation_to_typescript_temp.Module_Set(
             $.implementation,
