@@ -1,5 +1,6 @@
-import * as _pt from 'pareto-core-serializer'
+import * as _p from 'pareto-core-serializer'
 import * as _pinternals from 'pareto-core-internals'
+
 
 import { $$ as s_list_of_texts } from "pareto-standard-operations/dist/implementation/temp_serializers/schemas/list_of_texts"
 import { $$ as s_decimal } from "pareto-standard-operations/dist/implementation/manual/primitives/integer/serializers/decimal"
@@ -84,13 +85,13 @@ export const $$ = ($: string[]): string => {
         () => true,
         () => false,
     )) {
-        return _pt.build_text(($i) => {
+        return _p.build_text(($i) => {
             $i['add snippet']("_")
             $i['add snippet'](the_string)
         })
     }
 
-    return _pt.build_text(($i) => {
+    return _p.build_text(($i) => {
         const characters = _pinternals.text_to_character_list(the_string)
         const length = characters.get_number_of_elements()
 
