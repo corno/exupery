@@ -26,7 +26,12 @@ import { $$ as s_decimal } from "pareto-standard-operations/dist/implementation/
 export const Module_Set = (
     $: d_in.Module_Set,
     $p: {
-        'phase': 'development' | 'production'
+        'phase': 'development' | 'production',
+        // 'algorithm type': 
+        // | ['tranformer', null]
+        // | ['refiner', null]
+        // | ['serializer', null]
+        // | ['deserializer', null]
     }
 ): d_out.Directory => {
     return $.map(($, key) => _p.cc($, ($) => {
@@ -37,7 +42,7 @@ export const Module_Set = (
                     return s_file_name($)
                 }
                 const x: d_out.Group = sh.group([
-                    sh.g.simple_line("import * as _pa from 'pareto-core-transformer'"),
+                    sh.g.simple_line("import * as _p from 'pareto-core-internals'"),
                     $p.phase === 'development' ? sh.g.simple_line("import * as _pdev from 'pareto-core-dev'") : sh.g.nothing(),
 
                     sh.g.simple_line(""),
@@ -164,7 +169,7 @@ export const Selection = (
     return sh.b.sub([
         _p.cc($.start, ($) => {
             switch ($[0]) {
-                case 'abort': return _p.ss($, ($) => sh.b.snippet("_pa.panic('ABORT SELECTION')"))
+                case 'abort': return _p.ss($, ($) => sh.b.snippet("_p.panic('ABORT SELECTION')"))
                 case 'transform optional value': return _p.ss($, ($) => sh.b.sub([
                     Selection($.source, $p),
                     sh.b.snippet(".transform("),
@@ -250,7 +255,7 @@ export const Initialization = (
     return _p.cc($, ($) => {
         switch ($[0]) {
             case 'block': return _p.ss($, ($) => sh.b.sub([
-                sh.b.snippet("_pa.block("),
+                sh.b.snippet("_p.block("),
                 sh.b.snippet("() => {"),
                 sh.b.indent([
                     //temp variables
@@ -292,7 +297,7 @@ export const Initialization = (
                 sh.b.snippet("})"),
             ]))
             case 'change context': return _p.ss($, ($) => sh.b.sub([
-                sh.b.snippet("_pa.cc("),
+                sh.b.snippet("_p.cc("),
                 Selection($['new context'], $p),
                 sh.b.snippet(", ($) => "),
                 Initialization($.initialization, $p),
@@ -438,7 +443,7 @@ export const Initialization = (
                                 switch ($[0]) {
 
                                     case 'switch': return _p.ss($, ($) => sh.b.sub([
-                                        sh.b.snippet("_pa.cc("),
+                                        sh.b.snippet("_p.cc("),
                                         Selection(p_source, $p),
                                         sh.b.snippet(", ($)"),
                                         $['temp resulting node'].transform(
@@ -471,12 +476,12 @@ export const Initialization = (
                                                                     sh.g.nested_block([
                                                                         sh.b.snippet("case "),
                                                                         String_Literal(key, { 'delimiter': "apostrophe" }),
-                                                                        sh.b.snippet(": return _pa.ss($, ($) => "),
+                                                                        sh.b.snippet(": return _p.ss($, ($) => "),
                                                                         Initialization($, $p),
                                                                         sh.b.snippet(")"),
                                                                     ])
                                                                 ]))),
-                                                                sh.g.simple_line("default: return _pa.au($[0])")
+                                                                sh.g.simple_line("default: return _p.au($[0])")
                                                             ]),
                                                             sh.b.snippet("}"),
                                                         ]))
@@ -487,7 +492,7 @@ export const Initialization = (
                                                                     sh.g.nested_block([
                                                                         sh.b.snippet("case "),
                                                                         String_Literal(key, { 'delimiter': "apostrophe" }),
-                                                                        sh.b.snippet(": return _pa.ss($, ($) => "),
+                                                                        sh.b.snippet(": return _p.ss($, ($) => "),
                                                                         Initialization($, $p),
                                                                         sh.b.snippet(")"),
                                                                     ])
@@ -575,7 +580,7 @@ export const Literal = (
                     }
                 }))
                 case 'dictionary': return _p.ss($, ($) => sh.b.sub([
-                    sh.b.snippet("_pa.dictionary_literal({"),
+                    sh.b.snippet("_p.dictionary_literal({"),
                     sh.b.indent([
                         sh.g.sub($.to_list(($, key) => sh.g.nested_block([
                             String_Literal(key, { 'delimiter': "apostrophe" }),
@@ -628,7 +633,7 @@ export const Literal = (
                 ))
 
                 case 'array': return _p.ss($, ($) => sh.b.sub([
-                    sh.b.snippet("_pa.list_literal(["),
+                    sh.b.snippet("_p.list_literal(["),
                     sh.b.indent([
                         sh.g.sub($.map(($) => sh.g.nested_block([
                             Initialization($, $p),
@@ -649,9 +654,9 @@ export const Literal = (
                 }))
                 case 'optional': return _p.ss($, ($) => _p.cc($, ($) => {
                     switch ($[0]) {
-                        case 'not set': return sh.b.snippet("_pa.not_set()")
+                        case 'not set': return sh.b.snippet("_p.not_set()")
                         case 'set': return _p.ss($, ($) => sh.b.sub([
-                            sh.b.snippet("_pa.set("),
+                            sh.b.snippet("_p.set("),
                             Initialization($, $p),
                             sh.b.snippet(")"),
                         ]))

@@ -1,0 +1,3276 @@
+(
+    'operations': {
+        `pure`: | 'set' {
+        }
+        `impure`: | 'set' {
+        }
+    }
+    'schema tree': | 'set' {
+        `interface`: | 'schema' (
+            'complexity': | 'constrained' (
+                'resolvers': {
+                    `Module Set`: (
+                        'signature': ~
+                        'type resolver': | 'dictionary' (
+                            'benchmark': ~
+                            'definition': ~
+                            'resolver': | 'state group' (
+                                'definition': ~
+                                'states': {
+                                    `module`: (
+                                        'constraints': {
+                                        }
+                                        'resolver': | 'component' (
+                                            'arguments': * (
+                                                'lookups': * {
+                                                }
+                                                'values': * {
+                                                }
+                                            )
+                                            'constraints': {
+                                            }
+                                            'location': | 'internal' `Module`
+                                            'signature': ~
+                                        )
+                                    )
+                                    `set`: (
+                                        'constraints': {
+                                        }
+                                        'resolver': | 'component' (
+                                            'arguments': * (
+                                                'lookups': * {
+                                                }
+                                                'values': * {
+                                                }
+                                            )
+                                            'constraints': {
+                                            }
+                                            'location': | 'internal' `Module Set`
+                                            'signature': ~
+                                        )
+                                    )
+                                }
+                            )
+                        )
+                    )
+                    `Type Parameters`: (
+                        'signature': ~
+                        'type resolver': | 'dictionary' (
+                            'benchmark': ~
+                            'definition': ~
+                            'resolver': | 'nothing' ~
+                        )
+                    )
+                    `Module`: (
+                        'signature': ~
+                        'type resolver': | 'group' {
+                            `imports`: (
+                                'definition': ~
+                                'resolver': | 'component' (
+                                    'arguments': * (
+                                        'lookups': * {
+                                        }
+                                        'values': * {
+                                        }
+                                    )
+                                    'constraints': {
+                                    }
+                                    'location': | 'internal' `Imports`
+                                    'signature': ~
+                                )
+                            )
+                            `type parameters`: (
+                                'definition': ~
+                                'resolver': | 'component' (
+                                    'arguments': * (
+                                        'lookups': * {
+                                        }
+                                        'values': * {
+                                        }
+                                    )
+                                    'constraints': {
+                                    }
+                                    'location': | 'internal' `Type Parameters`
+                                    'signature': ~
+                                )
+                            )
+                            `types`: (
+                                'definition': ~
+                                'resolver': | 'dictionary' (
+                                    'benchmark': ~
+                                    'definition': ~
+                                    'resolver': | 'group' {
+                                        `parameters`: (
+                                            'definition': ~
+                                            'resolver': | 'component' (
+                                                'arguments': * (
+                                                    'lookups': * {
+                                                    }
+                                                    'values': * {
+                                                    }
+                                                )
+                                                'constraints': {
+                                                }
+                                                'location': | 'internal' `Type Parameters`
+                                                'signature': ~
+                                            )
+                                        )
+                                        `type`: (
+                                            'definition': ~
+                                            'resolver': | 'component' (
+                                                'arguments': * (
+                                                    'lookups': * {
+                                                    }
+                                                    'values': * {
+                                                    }
+                                                )
+                                                'constraints': {
+                                                }
+                                                'location': | 'internal' `Type`
+                                                'signature': ~
+                                            )
+                                        )
+                                    }
+                                )
+                            )
+                        }
+                    )
+                    `Imports`: (
+                        'signature': ~
+                        'type resolver': | 'dictionary' (
+                            'benchmark': ~
+                            'definition': ~
+                            'resolver': | 'group' {
+                                `type`: (
+                                    'definition': ~
+                                    'resolver': | 'state group' (
+                                        'definition': ~
+                                        'states': {
+                                            `external`: (
+                                                'constraints': {
+                                                }
+                                                'resolver': | 'text' ~
+                                            )
+                                            `ancestor`: (
+                                                'constraints': {
+                                                }
+                                                'resolver': | 'group' {
+                                                    `number of steps`: (
+                                                        'definition': ~
+                                                        'resolver': | 'number' ~
+                                                    )
+                                                    `dependency`: (
+                                                        'definition': ~
+                                                        'resolver': | 'text' ~
+                                                    )
+                                                }
+                                            )
+                                            `sibling`: (
+                                                'constraints': {
+                                                }
+                                                'resolver': | 'text' ~
+                                            )
+                                        }
+                                    )
+                                )
+                                `tail`: (
+                                    'definition': ~
+                                    'resolver': | 'list' (
+                                        'definition': ~
+                                        'resolver': | 'text' ~
+                                        'result': ~
+                                    )
+                                )
+                                `type arguments`: (
+                                    'definition': ~
+                                    'resolver': | 'component' (
+                                        'arguments': * (
+                                            'lookups': * {
+                                            }
+                                            'values': * {
+                                            }
+                                        )
+                                        'constraints': {
+                                        }
+                                        'location': | 'internal' `Type Arguments`
+                                        'signature': ~
+                                    )
+                                )
+                            }
+                        )
+                    )
+                    `Type Arguments`: (
+                        'signature': ~
+                        'type resolver': | 'dictionary' (
+                            'benchmark': ~
+                            'definition': ~
+                            'resolver': | 'component' (
+                                'arguments': * (
+                                    'lookups': * {
+                                    }
+                                    'values': * {
+                                    }
+                                )
+                                'constraints': {
+                                }
+                                'location': | 'internal' `Type`
+                                'signature': ~
+                            )
+                        )
+                    )
+                    `Type Parameter Selection`: (
+                        'signature': ~
+                        'type resolver': | 'group' {
+                            `location`: (
+                                'definition': ~
+                                'resolver': | 'state group' (
+                                    'definition': ~
+                                    'states': {
+                                        `module`: (
+                                            'constraints': {
+                                            }
+                                            'resolver': | 'nothing' ~
+                                        )
+                                        `type`: (
+                                            'constraints': {
+                                            }
+                                            'resolver': | 'nothing' ~
+                                        )
+                                        `function`: (
+                                            'constraints': {
+                                            }
+                                            'resolver': | 'nothing' ~
+                                        )
+                                    }
+                                )
+                            )
+                            `parameter`: (
+                                'definition': ~
+                                'resolver': | 'text' ~
+                            )
+                        }
+                    )
+                    `Type`: (
+                        'signature': ~
+                        'type resolver': | 'state group' (
+                            'definition': ~
+                            'states': {
+                                `boolean`: (
+                                    'constraints': {
+                                    }
+                                    'resolver': | 'nothing' ~
+                                )
+                                `component`: (
+                                    'constraints': {
+                                    }
+                                    'resolver': | 'group' {
+                                        `location`: (
+                                            'definition': ~
+                                            'resolver': | 'state group' (
+                                                'definition': ~
+                                                'states': {
+                                                    `import`: (
+                                                        'constraints': {
+                                                        }
+                                                        'resolver': | 'group' {
+                                                            `import`: (
+                                                                'definition': ~
+                                                                'resolver': | 'text' ~
+                                                            )
+                                                            `type`: (
+                                                                'definition': ~
+                                                                'resolver': | 'text' ~
+                                                            )
+                                                        }
+                                                    )
+                                                    `sibling`: (
+                                                        'constraints': {
+                                                        }
+                                                        'resolver': | 'text' ~
+                                                    )
+                                                }
+                                            )
+                                        )
+                                        `type arguments`: (
+                                            'definition': ~
+                                            'resolver': | 'component' (
+                                                'arguments': * (
+                                                    'lookups': * {
+                                                    }
+                                                    'values': * {
+                                                    }
+                                                )
+                                                'constraints': {
+                                                }
+                                                'location': | 'internal' `Type Arguments`
+                                                'signature': ~
+                                            )
+                                        )
+                                        `sub selection`: (
+                                            'definition': ~
+                                            'resolver': | 'list' (
+                                                'definition': ~
+                                                'resolver': | 'state group' (
+                                                    'definition': ~
+                                                    'states': {
+                                                        `dictionary`: (
+                                                            'constraints': {
+                                                            }
+                                                            'resolver': | 'nothing' ~
+                                                        )
+                                                        `group`: (
+                                                            'constraints': {
+                                                            }
+                                                            'resolver': | 'text' ~
+                                                        )
+                                                        `list`: (
+                                                            'constraints': {
+                                                            }
+                                                            'resolver': | 'nothing' ~
+                                                        )
+                                                        `optional`: (
+                                                            'constraints': {
+                                                            }
+                                                            'resolver': | 'nothing' ~
+                                                        )
+                                                        `state group`: (
+                                                            'constraints': {
+                                                            }
+                                                            'resolver': | 'text' ~
+                                                        )
+                                                    }
+                                                )
+                                                'result': ~
+                                            )
+                                        )
+                                    }
+                                )
+                                `computed`: (
+                                    'constraints': {
+                                    }
+                                    'resolver': | 'component' (
+                                        'arguments': * (
+                                            'lookups': * {
+                                            }
+                                            'values': * {
+                                            }
+                                        )
+                                        'constraints': {
+                                        }
+                                        'location': | 'internal' `Type`
+                                        'signature': ~
+                                    )
+                                )
+                                `dictionary`: (
+                                    'constraints': {
+                                    }
+                                    'resolver': | 'component' (
+                                        'arguments': * (
+                                            'lookups': * {
+                                            }
+                                            'values': * {
+                                            }
+                                        )
+                                        'constraints': {
+                                        }
+                                        'location': | 'internal' `Type`
+                                        'signature': ~
+                                    )
+                                )
+                                `function`: (
+                                    'constraints': {
+                                    }
+                                    'resolver': | 'group' {
+                                        `type parameters`: (
+                                            'definition': ~
+                                            'resolver': | 'component' (
+                                                'arguments': * (
+                                                    'lookups': * {
+                                                    }
+                                                    'values': * {
+                                                    }
+                                                )
+                                                'constraints': {
+                                                }
+                                                'location': | 'internal' `Type Parameters`
+                                                'signature': ~
+                                            )
+                                        )
+                                        `context`: (
+                                            'definition': ~
+                                            'resolver': | 'component' (
+                                                'arguments': * (
+                                                    'lookups': * {
+                                                    }
+                                                    'values': * {
+                                                    }
+                                                )
+                                                'constraints': {
+                                                }
+                                                'location': | 'internal' `Type`
+                                                'signature': ~
+                                            )
+                                        )
+                                        `parameters`: (
+                                            'definition': ~
+                                            'resolver': | 'dictionary' (
+                                                'benchmark': ~
+                                                'definition': ~
+                                                'resolver': | 'component' (
+                                                    'arguments': * (
+                                                        'lookups': * {
+                                                        }
+                                                        'values': * {
+                                                        }
+                                                    )
+                                                    'constraints': {
+                                                    }
+                                                    'location': | 'internal' `Type`
+                                                    'signature': ~
+                                                )
+                                            )
+                                        )
+                                        `return`: (
+                                            'definition': ~
+                                            'resolver': | 'component' (
+                                                'arguments': * (
+                                                    'lookups': * {
+                                                    }
+                                                    'values': * {
+                                                    }
+                                                )
+                                                'constraints': {
+                                                }
+                                                'location': | 'internal' `Type`
+                                                'signature': ~
+                                            )
+                                        )
+                                    }
+                                )
+                                `group`: (
+                                    'constraints': {
+                                    }
+                                    'resolver': | 'dictionary' (
+                                        'benchmark': ~
+                                        'definition': ~
+                                        'resolver': | 'component' (
+                                            'arguments': * (
+                                                'lookups': * {
+                                                }
+                                                'values': * {
+                                                }
+                                            )
+                                            'constraints': {
+                                            }
+                                            'location': | 'internal' `Type`
+                                            'signature': ~
+                                        )
+                                    )
+                                )
+                                `array`: (
+                                    'constraints': {
+                                    }
+                                    'resolver': | 'component' (
+                                        'arguments': * (
+                                            'lookups': * {
+                                            }
+                                            'values': * {
+                                            }
+                                        )
+                                        'constraints': {
+                                        }
+                                        'location': | 'internal' `Type`
+                                        'signature': ~
+                                    )
+                                )
+                                `null`: (
+                                    'constraints': {
+                                    }
+                                    'resolver': | 'nothing' ~
+                                )
+                                `number`: (
+                                    'constraints': {
+                                    }
+                                    'resolver': | 'state group' (
+                                        'definition': ~
+                                        'states': {
+                                            `integer`: (
+                                                'constraints': {
+                                                }
+                                                'resolver': | 'group' {
+                                                    `signed`: (
+                                                        'definition': ~
+                                                        'resolver': | 'boolean' ~
+                                                    )
+                                                }
+                                            )
+                                            `float`: (
+                                                'constraints': {
+                                                }
+                                                'resolver': | 'nothing' ~
+                                            )
+                                        }
+                                    )
+                                )
+                                `optional`: (
+                                    'constraints': {
+                                    }
+                                    'resolver': | 'component' (
+                                        'arguments': * (
+                                            'lookups': * {
+                                            }
+                                            'values': * {
+                                            }
+                                        )
+                                        'constraints': {
+                                        }
+                                        'location': | 'internal' `Type`
+                                        'signature': ~
+                                    )
+                                )
+                                `parameter`: (
+                                    'constraints': {
+                                    }
+                                    'resolver': | 'component' (
+                                        'arguments': * (
+                                            'lookups': * {
+                                            }
+                                            'values': * {
+                                            }
+                                        )
+                                        'constraints': {
+                                        }
+                                        'location': | 'internal' `Type Parameter Selection`
+                                        'signature': ~
+                                    )
+                                )
+                                `tagged union`: (
+                                    'constraints': {
+                                    }
+                                    'resolver': | 'dictionary' (
+                                        'benchmark': ~
+                                        'definition': ~
+                                        'resolver': | 'component' (
+                                            'arguments': * (
+                                                'lookups': * {
+                                                }
+                                                'values': * {
+                                                }
+                                            )
+                                            'constraints': {
+                                            }
+                                            'location': | 'internal' `Type`
+                                            'signature': ~
+                                        )
+                                    )
+                                )
+                                `string`: (
+                                    'constraints': {
+                                    }
+                                    'resolver': | 'nothing' ~
+                                )
+                            }
+                        )
+                    )
+                }
+                'signatures': (
+                    'types': {
+                        `Module`: (
+                            'parameters': | 'local' (
+                                'lookups': {
+                                }
+                                'values': {
+                                }
+                            )
+                            'resolved parameters': ~
+                            'type': ~
+                        )
+                        `Type Parameters`: (
+                            'parameters': | 'local' (
+                                'lookups': {
+                                }
+                                'values': {
+                                }
+                            )
+                            'resolved parameters': ~
+                            'type': ~
+                        )
+                        `Module Set`: (
+                            'parameters': | 'local' (
+                                'lookups': {
+                                }
+                                'values': {
+                                }
+                            )
+                            'resolved parameters': ~
+                            'type': ~
+                        )
+                        `Imports`: (
+                            'parameters': | 'local' (
+                                'lookups': {
+                                }
+                                'values': {
+                                }
+                            )
+                            'resolved parameters': ~
+                            'type': ~
+                        )
+                        `Type Arguments`: (
+                            'parameters': | 'local' (
+                                'lookups': {
+                                }
+                                'values': {
+                                }
+                            )
+                            'resolved parameters': ~
+                            'type': ~
+                        )
+                        `Type Parameter Selection`: (
+                            'parameters': | 'local' (
+                                'lookups': {
+                                }
+                                'values': {
+                                }
+                            )
+                            'resolved parameters': ~
+                            'type': ~
+                        )
+                        `Type`: (
+                            'parameters': | 'local' (
+                                'lookups': {
+                                }
+                                'values': {
+                                }
+                            )
+                            'resolved parameters': ~
+                            'type': ~
+                        )
+                    }
+                )
+            )
+            'globals': (
+                'complexity': | 'constrained' ~
+                'number types': {
+                }
+                'text types': {
+                    `Pseudo Reference`: (
+                        'type': | 'single line' ~
+                    )
+                    `TBD`: (
+                        'type': | 'single line' ~
+                    )
+                }
+            )
+            'imports': {
+            }
+            'types': {
+                `Type Arguments`: (
+                    'node': | 'dictionary' (
+                        'node': | 'component' | 'internal cyclic' `Type`
+                        'ordered': `false`
+                    )
+                    'type parameters': {
+                    }
+                )
+                `Imports`: (
+                    'node': | 'dictionary' (
+                        'node': | 'group' {
+                            `type`: (
+                                'description': ~
+                                'node': | 'state group' {
+                                    `external`: (
+                                        'description': ~
+                                        'node': | 'text' | 'global' `TBD`
+                                    )
+                                    `ancestor`: (
+                                        'description': ~
+                                        'node': | 'group' {
+                                            `number of steps`: (
+                                                'description': ~
+                                                'node': | 'number' | 'local' (
+                                                    'precision': | 'exact' (
+                                                        'decimal separator offset': ~
+                                                        'type': | 'natural' ~
+                                                    )
+                                                )
+                                            )
+                                            `dependency`: (
+                                                'description': ~
+                                                'node': | 'text' | 'global' `TBD`
+                                            )
+                                        }
+                                    )
+                                    `sibling`: (
+                                        'description': ~
+                                        'node': | 'text' | 'global' `TBD`
+                                    )
+                                }
+                            )
+                            `tail`: (
+                                'description': ~
+                                'node': | 'list' (
+                                    'node': | 'text' | 'global' `TBD`
+                                )
+                            )
+                            `type arguments`: (
+                                'description': ~
+                                'node': | 'component' | 'internal' `Type Arguments`
+                            )
+                        }
+                        'ordered': `false`
+                    )
+                    'type parameters': {
+                    }
+                )
+                `Type Parameters`: (
+                    'node': | 'dictionary' (
+                        'node': | 'nothing' ~
+                        'ordered': `false`
+                    )
+                    'type parameters': {
+                    }
+                )
+                `Module`: (
+                    'node': | 'group' {
+                        `imports`: (
+                            'description': ~
+                            'node': | 'component' | 'internal' `Imports`
+                        )
+                        `type parameters`: (
+                            'description': ~
+                            'node': | 'component' | 'internal' `Type Parameters`
+                        )
+                        `types`: (
+                            'description': ~
+                            'node': | 'dictionary' (
+                                'node': | 'group' {
+                                    `parameters`: (
+                                        'description': ~
+                                        'node': | 'component' | 'internal' `Type Parameters`
+                                    )
+                                    `type`: (
+                                        'description': ~
+                                        'node': | 'component' | 'internal cyclic' `Type`
+                                    )
+                                }
+                                'ordered': `false`
+                            )
+                        )
+                    }
+                    'type parameters': {
+                    }
+                )
+                `Module Set`: (
+                    'node': | 'dictionary' (
+                        'node': | 'state group' {
+                            `module`: (
+                                'description': ~
+                                'node': | 'component' | 'internal' `Module`
+                            )
+                            `set`: (
+                                'description': ~
+                                'node': | 'component' | 'internal cyclic' `Module Set`
+                            )
+                        }
+                        'ordered': `false`
+                    )
+                    'type parameters': {
+                    }
+                )
+                `Type Parameter Selection`: (
+                    'node': | 'group' {
+                        `location`: (
+                            'description': ~
+                            'node': | 'state group' {
+                                `module`: (
+                                    'description': ~
+                                    'node': | 'nothing' ~
+                                )
+                                `type`: (
+                                    'description': ~
+                                    'node': | 'nothing' ~
+                                )
+                                `function`: (
+                                    'description': ~
+                                    'node': | 'nothing' ~
+                                )
+                            }
+                        )
+                        `parameter`: (
+                            'description': ~
+                            'node': | 'text' | 'global' `TBD`
+                        )
+                    }
+                    'type parameters': {
+                    }
+                )
+                `Type`: (
+                    'node': | 'state group' {
+                        `boolean`: (
+                            'description': ~
+                            'node': | 'nothing' ~
+                        )
+                        `component`: (
+                            'description': ~
+                            'node': | 'group' {
+                                `location`: (
+                                    'description': ~
+                                    'node': | 'state group' {
+                                        `import`: (
+                                            'description': ~
+                                            'node': | 'group' {
+                                                `import`: (
+                                                    'description': ~
+                                                    'node': | 'text' | 'global' `TBD`
+                                                )
+                                                `type`: (
+                                                    'description': ~
+                                                    'node': | 'text' | 'global' `TBD`
+                                                )
+                                            }
+                                        )
+                                        `sibling`: (
+                                            'description': ~
+                                            'node': | 'text' | 'global' `TBD`
+                                        )
+                                    }
+                                )
+                                `type arguments`: (
+                                    'description': ~
+                                    'node': | 'component' | 'internal' `Type Arguments`
+                                )
+                                `sub selection`: (
+                                    'description': ~
+                                    'node': | 'list' (
+                                        'node': | 'state group' {
+                                            `dictionary`: (
+                                                'description': ~
+                                                'node': | 'nothing' ~
+                                            )
+                                            `group`: (
+                                                'description': ~
+                                                'node': | 'text' | 'global' `TBD`
+                                            )
+                                            `list`: (
+                                                'description': ~
+                                                'node': | 'nothing' ~
+                                            )
+                                            `optional`: (
+                                                'description': ~
+                                                'node': | 'nothing' ~
+                                            )
+                                            `state group`: (
+                                                'description': ~
+                                                'node': | 'text' | 'global' `TBD`
+                                            )
+                                        }
+                                    )
+                                )
+                            }
+                        )
+                        `computed`: (
+                            'description': ~
+                            'node': | 'component' | 'internal cyclic' `Type`
+                        )
+                        `dictionary`: (
+                            'description': ~
+                            'node': | 'component' | 'internal cyclic' `Type`
+                        )
+                        `function`: (
+                            'description': ~
+                            'node': | 'group' {
+                                `type parameters`: (
+                                    'description': ~
+                                    'node': | 'component' | 'internal' `Type Parameters`
+                                )
+                                `context`: (
+                                    'description': ~
+                                    'node': | 'component' | 'internal cyclic' `Type`
+                                )
+                                `parameters`: (
+                                    'description': ~
+                                    'node': | 'dictionary' (
+                                        'node': | 'component' | 'internal cyclic' `Type`
+                                        'ordered': `false`
+                                    )
+                                )
+                                `return`: (
+                                    'description': ~
+                                    'node': | 'component' | 'internal cyclic' `Type`
+                                )
+                            }
+                        )
+                        `group`: (
+                            'description': ~
+                            'node': | 'dictionary' (
+                                'node': | 'component' | 'internal cyclic' `Type`
+                                'ordered': `false`
+                            )
+                        )
+                        `array`: (
+                            'description': ~
+                            'node': | 'component' | 'internal cyclic' `Type`
+                        )
+                        `null`: (
+                            'description': ~
+                            'node': | 'nothing' ~
+                        )
+                        `number`: (
+                            'description': ~
+                            'node': | 'state group' {
+                                `integer`: (
+                                    'description': ~
+                                    'node': | 'group' {
+                                        `signed`: (
+                                            'description': ~
+                                            'node': | 'boolean' ~
+                                        )
+                                    }
+                                )
+                                `float`: (
+                                    'description': ~
+                                    'node': | 'nothing' ~
+                                )
+                            }
+                        )
+                        `optional`: (
+                            'description': ~
+                            'node': | 'component' | 'internal cyclic' `Type`
+                        )
+                        `parameter`: (
+                            'description': ~
+                            'node': | 'component' | 'internal' `Type Parameter Selection`
+                        )
+                        `tagged union`: (
+                            'description': ~
+                            'node': | 'dictionary' (
+                                'node': | 'component' | 'internal cyclic' `Type`
+                                'ordered': `false`
+                            )
+                        )
+                        `string`: (
+                            'description': ~
+                            'node': | 'nothing' ~
+                        )
+                    }
+                    'type parameters': {
+                    }
+                )
+            }
+        )
+        `implementation`: | 'schema' (
+            'complexity': | 'constrained' (
+                'resolvers': {
+                    `Initialization`: (
+                        'signature': ~
+                        'type resolver': | 'state group' (
+                            'definition': ~
+                            'states': {
+                                `block`: (
+                                    'constraints': {
+                                    }
+                                    'resolver': | 'group' {
+                                        `variables`: (
+                                            'definition': ~
+                                            'resolver': | 'component' (
+                                                'arguments': * (
+                                                    'lookups': * {
+                                                    }
+                                                    'values': * {
+                                                    }
+                                                )
+                                                'constraints': {
+                                                }
+                                                'location': | 'internal' `Variables`
+                                                'signature': ~
+                                            )
+                                        )
+                                        `temp ordered variables`: (
+                                            'definition': ~
+                                            'resolver': | 'list' (
+                                                'definition': ~
+                                                'resolver': | 'group' {
+                                                    `name`: (
+                                                        'definition': ~
+                                                        'resolver': | 'text' ~
+                                                    )
+                                                    `type`: (
+                                                        'definition': ~
+                                                        'resolver': | 'optional' (
+                                                            'constraints': {
+                                                            }
+                                                            'resolver': | 'component' (
+                                                                'arguments': * (
+                                                                    'lookups': * {
+                                                                    }
+                                                                    'values': * {
+                                                                    }
+                                                                )
+                                                                'constraints': {
+                                                                }
+                                                                'location': | 'external' (
+                                                                    'import': `interface`
+                                                                    'type': `Type`
+                                                                )
+                                                                'signature': ~
+                                                            )
+                                                        )
+                                                    )
+                                                    `initialization`: (
+                                                        'definition': ~
+                                                        'resolver': | 'component' (
+                                                            'arguments': * (
+                                                                'lookups': * {
+                                                                }
+                                                                'values': * {
+                                                                }
+                                                            )
+                                                            'constraints': {
+                                                            }
+                                                            'location': | 'internal' `Initialization`
+                                                            'signature': ~
+                                                        )
+                                                    )
+                                                }
+                                                'result': ~
+                                            )
+                                        )
+                                        `initialization`: (
+                                            'definition': ~
+                                            'resolver': | 'component' (
+                                                'arguments': * (
+                                                    'lookups': * {
+                                                    }
+                                                    'values': * {
+                                                    }
+                                                )
+                                                'constraints': {
+                                                }
+                                                'location': | 'internal' `Initialization`
+                                                'signature': ~
+                                            )
+                                        )
+                                    }
+                                )
+                                `change context`: (
+                                    'constraints': {
+                                    }
+                                    'resolver': | 'group' {
+                                        `new context`: (
+                                            'definition': ~
+                                            'resolver': | 'component' (
+                                                'arguments': * (
+                                                    'lookups': * {
+                                                    }
+                                                    'values': * {
+                                                    }
+                                                )
+                                                'constraints': {
+                                                }
+                                                'location': | 'internal' `Selection`
+                                                'signature': ~
+                                            )
+                                        )
+                                        `initialization`: (
+                                            'definition': ~
+                                            'resolver': | 'component' (
+                                                'arguments': * (
+                                                    'lookups': * {
+                                                    }
+                                                    'values': * {
+                                                    }
+                                                )
+                                                'constraints': {
+                                                }
+                                                'location': | 'internal' `Initialization`
+                                                'signature': ~
+                                            )
+                                        )
+                                    }
+                                )
+                                `literal`: (
+                                    'constraints': {
+                                    }
+                                    'resolver': | 'group' {
+                                        `value`: (
+                                            'definition': ~
+                                            'resolver': | 'component' (
+                                                'arguments': * (
+                                                    'lookups': * {
+                                                    }
+                                                    'values': * {
+                                                    }
+                                                )
+                                                'constraints': {
+                                                }
+                                                'location': | 'internal' `Literal`
+                                                'signature': ~
+                                            )
+                                        )
+                                    }
+                                )
+                                `selection`: (
+                                    'constraints': {
+                                    }
+                                    'resolver': | 'component' (
+                                        'arguments': * (
+                                            'lookups': * {
+                                            }
+                                            'values': * {
+                                            }
+                                        )
+                                        'constraints': {
+                                        }
+                                        'location': | 'internal' `Selection`
+                                        'signature': ~
+                                    )
+                                )
+                                `transformation`: (
+                                    'constraints': {
+                                    }
+                                    'resolver': | 'group' {
+                                        `source`: (
+                                            'definition': ~
+                                            'resolver': | 'component' (
+                                                'arguments': * (
+                                                    'lookups': * {
+                                                    }
+                                                    'values': * {
+                                                    }
+                                                )
+                                                'constraints': {
+                                                }
+                                                'location': | 'internal' `Selection`
+                                                'signature': ~
+                                            )
+                                        )
+                                        `type`: (
+                                            'definition': ~
+                                            'resolver': | 'state group' (
+                                                'definition': ~
+                                                'states': {
+                                                    `array`: (
+                                                        'constraints': {
+                                                        }
+                                                        'resolver': | 'state group' (
+                                                            'definition': ~
+                                                            'states': {
+                                                                `map`: (
+                                                                    'constraints': {
+                                                                    }
+                                                                    'resolver': | 'component' (
+                                                                        'arguments': * (
+                                                                            'lookups': * {
+                                                                            }
+                                                                            'values': * {
+                                                                            }
+                                                                        )
+                                                                        'constraints': {
+                                                                        }
+                                                                        'location': | 'internal' `Initialization`
+                                                                        'signature': ~
+                                                                    )
+                                                                )
+                                                            }
+                                                        )
+                                                    )
+                                                    `boolean`: (
+                                                        'constraints': {
+                                                        }
+                                                        'resolver': | 'state group' (
+                                                            'definition': ~
+                                                            'states': {
+                                                                `not`: (
+                                                                    'constraints': {
+                                                                    }
+                                                                    'resolver': | 'nothing' ~
+                                                                )
+                                                                `transform`: (
+                                                                    'constraints': {
+                                                                    }
+                                                                    'resolver': | 'group' {
+                                                                        `if false`: (
+                                                                            'definition': ~
+                                                                            'resolver': | 'component' (
+                                                                                'arguments': * (
+                                                                                    'lookups': * {
+                                                                                    }
+                                                                                    'values': * {
+                                                                                    }
+                                                                                )
+                                                                                'constraints': {
+                                                                                }
+                                                                                'location': | 'internal' `Initialization`
+                                                                                'signature': ~
+                                                                            )
+                                                                        )
+                                                                        `if true`: (
+                                                                            'definition': ~
+                                                                            'resolver': | 'component' (
+                                                                                'arguments': * (
+                                                                                    'lookups': * {
+                                                                                    }
+                                                                                    'values': * {
+                                                                                    }
+                                                                                )
+                                                                                'constraints': {
+                                                                                }
+                                                                                'location': | 'internal' `Initialization`
+                                                                                'signature': ~
+                                                                            )
+                                                                        )
+                                                                    }
+                                                                )
+                                                            }
+                                                        )
+                                                    )
+                                                    `dictionary`: (
+                                                        'constraints': {
+                                                        }
+                                                        'resolver': | 'state group' (
+                                                            'definition': ~
+                                                            'states': {
+                                                                `map`: (
+                                                                    'constraints': {
+                                                                    }
+                                                                    'resolver': | 'component' (
+                                                                        'arguments': * (
+                                                                            'lookups': * {
+                                                                            }
+                                                                            'values': * {
+                                                                            }
+                                                                        )
+                                                                        'constraints': {
+                                                                        }
+                                                                        'location': | 'internal' `Initialization`
+                                                                        'signature': ~
+                                                                    )
+                                                                )
+                                                            }
+                                                        )
+                                                    )
+                                                    `function`: (
+                                                        'constraints': {
+                                                        }
+                                                        'resolver': | 'state group' (
+                                                            'definition': ~
+                                                            'states': {
+                                                                `call`: (
+                                                                    'constraints': {
+                                                                    }
+                                                                    'resolver': | 'group' {
+                                                                        `context`: (
+                                                                            'definition': ~
+                                                                            'resolver': | 'component' (
+                                                                                'arguments': * (
+                                                                                    'lookups': * {
+                                                                                    }
+                                                                                    'values': * {
+                                                                                    }
+                                                                                )
+                                                                                'constraints': {
+                                                                                }
+                                                                                'location': | 'internal' `Initialization`
+                                                                                'signature': ~
+                                                                            )
+                                                                        )
+                                                                        `arguments`: (
+                                                                            'definition': ~
+                                                                            'resolver': | 'optional' (
+                                                                                'constraints': {
+                                                                                }
+                                                                                'resolver': | 'dictionary' (
+                                                                                    'benchmark': ~
+                                                                                    'definition': ~
+                                                                                    'resolver': | 'component' (
+                                                                                        'arguments': * (
+                                                                                            'lookups': * {
+                                                                                            }
+                                                                                            'values': * {
+                                                                                            }
+                                                                                        )
+                                                                                        'constraints': {
+                                                                                        }
+                                                                                        'location': | 'internal' `Initialization`
+                                                                                        'signature': ~
+                                                                                    )
+                                                                                )
+                                                                            )
+                                                                        )
+                                                                    }
+                                                                )
+                                                            }
+                                                        )
+                                                    )
+                                                    `optional`: (
+                                                        'constraints': {
+                                                        }
+                                                        'resolver': | 'state group' (
+                                                            'definition': ~
+                                                            'states': {
+                                                                `map`: (
+                                                                    'constraints': {
+                                                                    }
+                                                                    'resolver': | 'component' (
+                                                                        'arguments': * (
+                                                                            'lookups': * {
+                                                                            }
+                                                                            'values': * {
+                                                                            }
+                                                                        )
+                                                                        'constraints': {
+                                                                        }
+                                                                        'location': | 'internal' `Initialization`
+                                                                        'signature': ~
+                                                                    )
+                                                                )
+                                                                `transform`: (
+                                                                    'constraints': {
+                                                                    }
+                                                                    'resolver': | 'group' {
+                                                                        `if not set`: (
+                                                                            'definition': ~
+                                                                            'resolver': | 'component' (
+                                                                                'arguments': * (
+                                                                                    'lookups': * {
+                                                                                    }
+                                                                                    'values': * {
+                                                                                    }
+                                                                                )
+                                                                                'constraints': {
+                                                                                }
+                                                                                'location': | 'internal' `Initialization`
+                                                                                'signature': ~
+                                                                            )
+                                                                        )
+                                                                        `if set`: (
+                                                                            'definition': ~
+                                                                            'resolver': | 'component' (
+                                                                                'arguments': * (
+                                                                                    'lookups': * {
+                                                                                    }
+                                                                                    'values': * {
+                                                                                    }
+                                                                                )
+                                                                                'constraints': {
+                                                                                }
+                                                                                'location': | 'internal' `Initialization`
+                                                                                'signature': ~
+                                                                            )
+                                                                        )
+                                                                        `temp resulting node`: (
+                                                                            'definition': ~
+                                                                            'resolver': | 'optional' (
+                                                                                'constraints': {
+                                                                                }
+                                                                                'resolver': | 'component' (
+                                                                                    'arguments': * (
+                                                                                        'lookups': * {
+                                                                                        }
+                                                                                        'values': * {
+                                                                                        }
+                                                                                    )
+                                                                                    'constraints': {
+                                                                                    }
+                                                                                    'location': | 'external' (
+                                                                                        'import': `interface`
+                                                                                        'type': `Type`
+                                                                                    )
+                                                                                    'signature': ~
+                                                                                )
+                                                                            )
+                                                                        )
+                                                                    }
+                                                                )
+                                                            }
+                                                        )
+                                                    )
+                                                    `tagged union`: (
+                                                        'constraints': {
+                                                        }
+                                                        'resolver': | 'state group' (
+                                                            'definition': ~
+                                                            'states': {
+                                                                `switch`: (
+                                                                    'constraints': {
+                                                                    }
+                                                                    'resolver': | 'group' {
+                                                                        `temp resulting node`: (
+                                                                            'definition': ~
+                                                                            'resolver': | 'optional' (
+                                                                                'constraints': {
+                                                                                }
+                                                                                'resolver': | 'component' (
+                                                                                    'arguments': * (
+                                                                                        'lookups': * {
+                                                                                        }
+                                                                                        'values': * {
+                                                                                        }
+                                                                                    )
+                                                                                    'constraints': {
+                                                                                    }
+                                                                                    'location': | 'external' (
+                                                                                        'import': `interface`
+                                                                                        'type': `Type`
+                                                                                    )
+                                                                                    'signature': ~
+                                                                                )
+                                                                            )
+                                                                        )
+                                                                        `type`: (
+                                                                            'definition': ~
+                                                                            'resolver': | 'state group' (
+                                                                                'definition': ~
+                                                                                'states': {
+                                                                                    `partial`: (
+                                                                                        'constraints': {
+                                                                                        }
+                                                                                        'resolver': | 'group' {
+                                                                                            `cases`: (
+                                                                                                'definition': ~
+                                                                                                'resolver': | 'dictionary' (
+                                                                                                    'benchmark': ~
+                                                                                                    'definition': ~
+                                                                                                    'resolver': | 'component' (
+                                                                                                        'arguments': * (
+                                                                                                            'lookups': * {
+                                                                                                            }
+                                                                                                            'values': * {
+                                                                                                            }
+                                                                                                        )
+                                                                                                        'constraints': {
+                                                                                                        }
+                                                                                                        'location': | 'internal' `Initialization`
+                                                                                                        'signature': ~
+                                                                                                    )
+                                                                                                )
+                                                                                            )
+                                                                                            `default`: (
+                                                                                                'definition': ~
+                                                                                                'resolver': | 'component' (
+                                                                                                    'arguments': * (
+                                                                                                        'lookups': * {
+                                                                                                        }
+                                                                                                        'values': * {
+                                                                                                        }
+                                                                                                    )
+                                                                                                    'constraints': {
+                                                                                                    }
+                                                                                                    'location': | 'internal' `Initialization`
+                                                                                                    'signature': ~
+                                                                                                )
+                                                                                            )
+                                                                                        }
+                                                                                    )
+                                                                                    `full`: (
+                                                                                        'constraints': {
+                                                                                        }
+                                                                                        'resolver': | 'group' {
+                                                                                            `cases`: (
+                                                                                                'definition': ~
+                                                                                                'resolver': | 'dictionary' (
+                                                                                                    'benchmark': ~
+                                                                                                    'definition': ~
+                                                                                                    'resolver': | 'component' (
+                                                                                                        'arguments': * (
+                                                                                                            'lookups': * {
+                                                                                                            }
+                                                                                                            'values': * {
+                                                                                                            }
+                                                                                                        )
+                                                                                                        'constraints': {
+                                                                                                        }
+                                                                                                        'location': | 'internal' `Initialization`
+                                                                                                        'signature': ~
+                                                                                                    )
+                                                                                                )
+                                                                                            )
+                                                                                        }
+                                                                                    )
+                                                                                }
+                                                                            )
+                                                                        )
+                                                                    }
+                                                                )
+                                                            }
+                                                        )
+                                                    )
+                                                }
+                                            )
+                                        )
+                                    }
+                                )
+                            }
+                        )
+                    )
+                    `Literal`: (
+                        'signature': ~
+                        'type resolver': | 'state group' (
+                            'definition': ~
+                            'states': {
+                                `array`: (
+                                    'constraints': {
+                                    }
+                                    'resolver': | 'list' (
+                                        'definition': ~
+                                        'resolver': | 'component' (
+                                            'arguments': * (
+                                                'lookups': * {
+                                                }
+                                                'values': * {
+                                                }
+                                            )
+                                            'constraints': {
+                                            }
+                                            'location': | 'internal' `Initialization`
+                                            'signature': ~
+                                        )
+                                        'result': ~
+                                    )
+                                )
+                                `boolean`: (
+                                    'constraints': {
+                                    }
+                                    'resolver': | 'state group' (
+                                        'definition': ~
+                                        'states': {
+                                            `false`: (
+                                                'constraints': {
+                                                }
+                                                'resolver': | 'nothing' ~
+                                            )
+                                            `true`: (
+                                                'constraints': {
+                                                }
+                                                'resolver': | 'nothing' ~
+                                            )
+                                        }
+                                    )
+                                )
+                                `dictionary`: (
+                                    'constraints': {
+                                    }
+                                    'resolver': | 'dictionary' (
+                                        'benchmark': ~
+                                        'definition': ~
+                                        'resolver': | 'component' (
+                                            'arguments': * (
+                                                'lookups': * {
+                                                }
+                                                'values': * {
+                                                }
+                                            )
+                                            'constraints': {
+                                            }
+                                            'location': | 'internal' `Initialization`
+                                            'signature': ~
+                                        )
+                                    )
+                                )
+                                `function`: (
+                                    'constraints': {
+                                    }
+                                    'resolver': | 'group' {
+                                        `initialization`: (
+                                            'definition': ~
+                                            'resolver': | 'component' (
+                                                'arguments': * (
+                                                    'lookups': * {
+                                                    }
+                                                    'values': * {
+                                                    }
+                                                )
+                                                'constraints': {
+                                                }
+                                                'location': | 'internal' `Initialization`
+                                                'signature': ~
+                                            )
+                                        )
+                                        `temp has parameters`: (
+                                            'definition': ~
+                                            'resolver': | 'boolean' ~
+                                        )
+                                        `temp resulting node`: (
+                                            'definition': ~
+                                            'resolver': | 'optional' (
+                                                'constraints': {
+                                                }
+                                                'resolver': | 'component' (
+                                                    'arguments': * (
+                                                        'lookups': * {
+                                                        }
+                                                        'values': * {
+                                                        }
+                                                    )
+                                                    'constraints': {
+                                                    }
+                                                    'location': | 'external' (
+                                                        'import': `interface`
+                                                        'type': `Type`
+                                                    )
+                                                    'signature': ~
+                                                )
+                                            )
+                                        )
+                                    }
+                                )
+                                `group`: (
+                                    'constraints': {
+                                    }
+                                    'resolver': | 'dictionary' (
+                                        'benchmark': ~
+                                        'definition': ~
+                                        'resolver': | 'component' (
+                                            'arguments': * (
+                                                'lookups': * {
+                                                }
+                                                'values': * {
+                                                }
+                                            )
+                                            'constraints': {
+                                            }
+                                            'location': | 'internal' `Initialization`
+                                            'signature': ~
+                                        )
+                                    )
+                                )
+                                `null`: (
+                                    'constraints': {
+                                    }
+                                    'resolver': | 'nothing' ~
+                                )
+                                `number`: (
+                                    'constraints': {
+                                    }
+                                    'resolver': | 'state group' (
+                                        'definition': ~
+                                        'states': {
+                                            `floting point`: (
+                                                'constraints': {
+                                                }
+                                                'resolver': | 'number' ~
+                                            )
+                                            `integer`: (
+                                                'constraints': {
+                                                }
+                                                'resolver': | 'number' ~
+                                            )
+                                            `signed integer`: (
+                                                'constraints': {
+                                                }
+                                                'resolver': | 'number' ~
+                                            )
+                                        }
+                                    )
+                                )
+                                `optional`: (
+                                    'constraints': {
+                                    }
+                                    'resolver': | 'state group' (
+                                        'definition': ~
+                                        'states': {
+                                            `not set`: (
+                                                'constraints': {
+                                                }
+                                                'resolver': | 'nothing' ~
+                                            )
+                                            `set`: (
+                                                'constraints': {
+                                                }
+                                                'resolver': | 'component' (
+                                                    'arguments': * (
+                                                        'lookups': * {
+                                                        }
+                                                        'values': * {
+                                                        }
+                                                    )
+                                                    'constraints': {
+                                                    }
+                                                    'location': | 'internal' `Initialization`
+                                                    'signature': ~
+                                                )
+                                            )
+                                        }
+                                    )
+                                )
+                                `string`: (
+                                    'constraints': {
+                                    }
+                                    'resolver': | 'group' {
+                                        `delimiter`: (
+                                            'definition': ~
+                                            'resolver': | 'state group' (
+                                                'definition': ~
+                                                'states': {
+                                                    `backtick`: (
+                                                        'constraints': {
+                                                        }
+                                                        'resolver': | 'nothing' ~
+                                                    )
+                                                    `quote`: (
+                                                        'constraints': {
+                                                        }
+                                                        'resolver': | 'nothing' ~
+                                                    )
+                                                }
+                                            )
+                                        )
+                                        `value`: (
+                                            'definition': ~
+                                            'resolver': | 'text' ~
+                                        )
+                                    }
+                                )
+                                `tagged union`: (
+                                    'constraints': {
+                                    }
+                                    'resolver': | 'group' {
+                                        `case`: (
+                                            'definition': ~
+                                            'resolver': | 'text' ~
+                                        )
+                                        `value`: (
+                                            'definition': ~
+                                            'resolver': | 'component' (
+                                                'arguments': * (
+                                                    'lookups': * {
+                                                    }
+                                                    'values': * {
+                                                    }
+                                                )
+                                                'constraints': {
+                                                }
+                                                'location': | 'internal' `Initialization`
+                                                'signature': ~
+                                            )
+                                        )
+                                    }
+                                )
+                            }
+                        )
+                    )
+                    `Module`: (
+                        'signature': ~
+                        'type resolver': | 'group' {
+                            `type imports`: (
+                                'definition': ~
+                                'resolver': | 'component' (
+                                    'arguments': * (
+                                        'lookups': * {
+                                        }
+                                        'values': * {
+                                        }
+                                    )
+                                    'constraints': {
+                                    }
+                                    'location': | 'external' (
+                                        'import': `interface`
+                                        'type': `Imports`
+                                    )
+                                    'signature': ~
+                                )
+                            )
+                            `variable imports`: (
+                                'definition': ~
+                                'resolver': | 'dictionary' (
+                                    'benchmark': ~
+                                    'definition': ~
+                                    'resolver': | 'group' {
+                                        `tail`: (
+                                            'definition': ~
+                                            'resolver': | 'list' (
+                                                'definition': ~
+                                                'resolver': | 'text' ~
+                                                'result': ~
+                                            )
+                                        )
+                                        `type`: (
+                                            'definition': ~
+                                            'resolver': | 'state group' (
+                                                'definition': ~
+                                                'states': {
+                                                    `ancestor`: (
+                                                        'constraints': {
+                                                        }
+                                                        'resolver': | 'group' {
+                                                            `dependency`: (
+                                                                'definition': ~
+                                                                'resolver': | 'text' ~
+                                                            )
+                                                            `number of steps`: (
+                                                                'definition': ~
+                                                                'resolver': | 'number' ~
+                                                            )
+                                                        }
+                                                    )
+                                                    `external`: (
+                                                        'constraints': {
+                                                        }
+                                                        'resolver': | 'text' ~
+                                                    )
+                                                    `sibling`: (
+                                                        'constraints': {
+                                                        }
+                                                        'resolver': | 'text' ~
+                                                    )
+                                                }
+                                            )
+                                        )
+                                    }
+                                )
+                            )
+                            `variables`: (
+                                'definition': ~
+                                'resolver': | 'component' (
+                                    'arguments': * (
+                                        'lookups': * {
+                                        }
+                                        'values': * {
+                                        }
+                                    )
+                                    'constraints': {
+                                    }
+                                    'location': | 'internal' `Variables`
+                                    'signature': ~
+                                )
+                            )
+                        }
+                    )
+                    `Module Set`: (
+                        'signature': ~
+                        'type resolver': | 'dictionary' (
+                            'benchmark': ~
+                            'definition': ~
+                            'resolver': | 'state group' (
+                                'definition': ~
+                                'states': {
+                                    `module`: (
+                                        'constraints': {
+                                        }
+                                        'resolver': | 'component' (
+                                            'arguments': * (
+                                                'lookups': * {
+                                                }
+                                                'values': * {
+                                                }
+                                            )
+                                            'constraints': {
+                                            }
+                                            'location': | 'internal' `Module`
+                                            'signature': ~
+                                        )
+                                    )
+                                    `set`: (
+                                        'constraints': {
+                                        }
+                                        'resolver': | 'component' (
+                                            'arguments': * (
+                                                'lookups': * {
+                                                }
+                                                'values': * {
+                                                }
+                                            )
+                                            'constraints': {
+                                            }
+                                            'location': | 'internal' `Module Set`
+                                            'signature': ~
+                                        )
+                                    )
+                                }
+                            )
+                        )
+                    )
+                    `Selection`: (
+                        'signature': ~
+                        'type resolver': | 'group' {
+                            `start`: (
+                                'definition': ~
+                                'resolver': | 'state group' (
+                                    'definition': ~
+                                    'states': {
+                                        `abort`: (
+                                            'constraints': {
+                                            }
+                                            'resolver': | 'nothing' ~
+                                        )
+                                        `transform optional value`: (
+                                            'constraints': {
+                                            }
+                                            'resolver': | 'group' {
+                                                `source`: (
+                                                    'definition': ~
+                                                    'resolver': | 'component' (
+                                                        'arguments': * (
+                                                            'lookups': * {
+                                                            }
+                                                            'values': * {
+                                                            }
+                                                        )
+                                                        'constraints': {
+                                                        }
+                                                        'location': | 'internal' `Selection`
+                                                        'signature': ~
+                                                    )
+                                                )
+                                                `if not set`: (
+                                                    'definition': ~
+                                                    'resolver': | 'component' (
+                                                        'arguments': * (
+                                                            'lookups': * {
+                                                            }
+                                                            'values': * {
+                                                            }
+                                                        )
+                                                        'constraints': {
+                                                        }
+                                                        'location': | 'internal' `Selection`
+                                                        'signature': ~
+                                                    )
+                                                )
+                                                `if set`: (
+                                                    'definition': ~
+                                                    'resolver': | 'component' (
+                                                        'arguments': * (
+                                                            'lookups': * {
+                                                            }
+                                                            'values': * {
+                                                            }
+                                                        )
+                                                        'constraints': {
+                                                        }
+                                                        'location': | 'internal' `Selection`
+                                                        'signature': ~
+                                                    )
+                                                )
+                                            }
+                                        )
+                                        `call`: (
+                                            'constraints': {
+                                            }
+                                            'resolver': | 'group' {
+                                                `source`: (
+                                                    'definition': ~
+                                                    'resolver': | 'component' (
+                                                        'arguments': * (
+                                                            'lookups': * {
+                                                            }
+                                                            'values': * {
+                                                            }
+                                                        )
+                                                        'constraints': {
+                                                        }
+                                                        'location': | 'internal' `Selection`
+                                                        'signature': ~
+                                                    )
+                                                )
+                                                `context`: (
+                                                    'definition': ~
+                                                    'resolver': | 'component' (
+                                                        'arguments': * (
+                                                            'lookups': * {
+                                                            }
+                                                            'values': * {
+                                                            }
+                                                        )
+                                                        'constraints': {
+                                                        }
+                                                        'location': | 'internal' `Selection`
+                                                        'signature': ~
+                                                    )
+                                                )
+                                                `arguments`: (
+                                                    'definition': ~
+                                                    'resolver': | 'optional' (
+                                                        'constraints': {
+                                                        }
+                                                        'resolver': | 'dictionary' (
+                                                            'benchmark': ~
+                                                            'definition': ~
+                                                            'resolver': | 'component' (
+                                                                'arguments': * (
+                                                                    'lookups': * {
+                                                                    }
+                                                                    'values': * {
+                                                                    }
+                                                                )
+                                                                'constraints': {
+                                                                }
+                                                                'location': | 'internal' `Initialization`
+                                                                'signature': ~
+                                                            )
+                                                        )
+                                                    )
+                                                )
+                                            }
+                                        )
+                                        `implement me`: (
+                                            'constraints': {
+                                            }
+                                            'resolver': | 'nothing' ~
+                                        )
+                                        `argument`: (
+                                            'constraints': {
+                                            }
+                                            'resolver': | 'text' ~
+                                        )
+                                        `context`: (
+                                            'constraints': {
+                                            }
+                                            'resolver': | 'nothing' ~
+                                        )
+                                        `variable`: (
+                                            'constraints': {
+                                            }
+                                            'resolver': | 'text' ~
+                                        )
+                                        `parameter`: (
+                                            'constraints': {
+                                            }
+                                            'resolver': | 'text' ~
+                                        )
+                                        `imported variable`: (
+                                            'constraints': {
+                                            }
+                                            'resolver': | 'group' {
+                                                `import`: (
+                                                    'definition': ~
+                                                    'resolver': | 'text' ~
+                                                )
+                                                `variable`: (
+                                                    'definition': ~
+                                                    'resolver': | 'text' ~
+                                                )
+                                            }
+                                        )
+                                    }
+                                )
+                            )
+                            `tail`: (
+                                'definition': ~
+                                'resolver': | 'list' (
+                                    'definition': ~
+                                    'resolver': | 'text' ~
+                                    'result': ~
+                                )
+                            )
+                        }
+                    )
+                    `Type Parameters`: (
+                        'signature': ~
+                        'type resolver': | 'dictionary' (
+                            'benchmark': ~
+                            'definition': ~
+                            'resolver': | 'nothing' ~
+                        )
+                    )
+                    `Variables`: (
+                        'signature': ~
+                        'type resolver': | 'dictionary' (
+                            'benchmark': ~
+                            'definition': ~
+                            'resolver': | 'group' {
+                                `type`: (
+                                    'definition': ~
+                                    'resolver': | 'optional' (
+                                        'constraints': {
+                                        }
+                                        'resolver': | 'component' (
+                                            'arguments': * (
+                                                'lookups': * {
+                                                }
+                                                'values': * {
+                                                }
+                                            )
+                                            'constraints': {
+                                            }
+                                            'location': | 'external' (
+                                                'import': `interface`
+                                                'type': `Type`
+                                            )
+                                            'signature': ~
+                                        )
+                                    )
+                                )
+                                `initialization`: (
+                                    'definition': ~
+                                    'resolver': | 'component' (
+                                        'arguments': * (
+                                            'lookups': * {
+                                            }
+                                            'values': * {
+                                            }
+                                        )
+                                        'constraints': {
+                                        }
+                                        'location': | 'internal' `Initialization`
+                                        'signature': ~
+                                    )
+                                )
+                            }
+                        )
+                    )
+                }
+                'signatures': (
+                    'types': {
+                        `Initialization`: (
+                            'parameters': | 'local' (
+                                'lookups': {
+                                }
+                                'values': {
+                                }
+                            )
+                            'resolved parameters': ~
+                            'type': ~
+                        )
+                        `Literal`: (
+                            'parameters': | 'local' (
+                                'lookups': {
+                                }
+                                'values': {
+                                }
+                            )
+                            'resolved parameters': ~
+                            'type': ~
+                        )
+                        `Module`: (
+                            'parameters': | 'local' (
+                                'lookups': {
+                                }
+                                'values': {
+                                }
+                            )
+                            'resolved parameters': ~
+                            'type': ~
+                        )
+                        `Module Set`: (
+                            'parameters': | 'local' (
+                                'lookups': {
+                                }
+                                'values': {
+                                }
+                            )
+                            'resolved parameters': ~
+                            'type': ~
+                        )
+                        `Selection`: (
+                            'parameters': | 'local' (
+                                'lookups': {
+                                }
+                                'values': {
+                                }
+                            )
+                            'resolved parameters': ~
+                            'type': ~
+                        )
+                        `Type Parameters`: (
+                            'parameters': | 'local' (
+                                'lookups': {
+                                }
+                                'values': {
+                                }
+                            )
+                            'resolved parameters': ~
+                            'type': ~
+                        )
+                        `Variables`: (
+                            'parameters': | 'local' (
+                                'lookups': {
+                                }
+                                'values': {
+                                }
+                            )
+                            'resolved parameters': ~
+                            'type': ~
+                        )
+                    }
+                )
+            )
+            'globals': (
+                'complexity': | 'unconstrained' ~
+                'number types': {
+                }
+                'text types': {
+                    `TBD`: (
+                        'type': | 'single line' ~
+                    )
+                    `Identifier`: (
+                        'type': | 'single line' ~
+                    )
+                    `Text Value`: (
+                        'type': | 'multi line' ~
+                    )
+                }
+            )
+            'imports': {
+                `interface`: (
+                    'schema': ~
+                    'schema set child': `interface`
+                )
+            }
+            'types': {
+                `Variables`: (
+                    'node': | 'dictionary' (
+                        'node': | 'group' {
+                            `type`: (
+                                'description': ~
+                                'node': | 'optional' | 'component' | 'external' (
+                                    'import': `interface`
+                                    'type': `Type`
+                                )
+                            )
+                            `initialization`: (
+                                'description': ~
+                                'node': | 'component' | 'internal cyclic' `Initialization`
+                            )
+                        }
+                        'ordered': `false`
+                    )
+                    'type parameters': {
+                    }
+                )
+                `Literal`: (
+                    'node': | 'state group' {
+                        `array`: (
+                            'description': ~
+                            'node': | 'list' (
+                                'node': | 'component' | 'internal cyclic' `Initialization`
+                            )
+                        )
+                        `boolean`: (
+                            'description': ~
+                            'node': | 'state group' {
+                                `false`: (
+                                    'description': ~
+                                    'node': | 'nothing' ~
+                                )
+                                `true`: (
+                                    'description': ~
+                                    'node': | 'nothing' ~
+                                )
+                            }
+                        )
+                        `dictionary`: (
+                            'description': ~
+                            'node': | 'dictionary' (
+                                'node': | 'component' | 'internal cyclic' `Initialization`
+                                'ordered': `false`
+                            )
+                        )
+                        `function`: (
+                            'description': ~
+                            'node': | 'group' {
+                                `initialization`: (
+                                    'description': ~
+                                    'node': | 'component' | 'internal cyclic' `Initialization`
+                                )
+                                `temp has parameters`: (
+                                    'description': ~
+                                    'node': | 'boolean' ~
+                                )
+                                `temp resulting node`: (
+                                    'description': ~
+                                    'node': | 'optional' | 'component' | 'external' (
+                                        'import': `interface`
+                                        'type': `Type`
+                                    )
+                                )
+                            }
+                        )
+                        `group`: (
+                            'description': ~
+                            'node': | 'dictionary' (
+                                'node': | 'component' | 'internal cyclic' `Initialization`
+                                'ordered': `false`
+                            )
+                        )
+                        `null`: (
+                            'description': ~
+                            'node': | 'nothing' ~
+                        )
+                        `number`: (
+                            'description': ~
+                            'node': | 'state group' {
+                                `floting point`: (
+                                    'description': ~
+                                    'node': | 'number' | 'local' (
+                                        'precision': | 'approximation' (
+                                            'significant digits': `FIXME NUMBER`
+                                        )
+                                    )
+                                )
+                                `integer`: (
+                                    'description': ~
+                                    'node': | 'number' | 'local' (
+                                        'precision': | 'exact' (
+                                            'decimal separator offset': ~
+                                            'type': | 'integer' ~
+                                        )
+                                    )
+                                )
+                                `signed integer`: (
+                                    'description': ~
+                                    'node': | 'number' | 'local' (
+                                        'precision': | 'exact' (
+                                            'decimal separator offset': ~
+                                            'type': | 'natural' ~
+                                        )
+                                    )
+                                )
+                            }
+                        )
+                        `optional`: (
+                            'description': ~
+                            'node': | 'state group' {
+                                `not set`: (
+                                    'description': ~
+                                    'node': | 'nothing' ~
+                                )
+                                `set`: (
+                                    'description': ~
+                                    'node': | 'component' | 'internal cyclic' `Initialization`
+                                )
+                            }
+                        )
+                        `string`: (
+                            'description': ~
+                            'node': | 'group' {
+                                `delimiter`: (
+                                    'description': ~
+                                    'node': | 'state group' {
+                                        `backtick`: (
+                                            'description': ~
+                                            'node': | 'nothing' ~
+                                        )
+                                        `quote`: (
+                                            'description': ~
+                                            'node': | 'nothing' ~
+                                        )
+                                    }
+                                )
+                                `value`: (
+                                    'description': ~
+                                    'node': | 'text' | 'local' (
+                                        'type': | 'single line' ~
+                                    )
+                                )
+                            }
+                        )
+                        `tagged union`: (
+                            'description': ~
+                            'node': | 'group' {
+                                `case`: (
+                                    'description': ~
+                                    'node': | 'text' | 'global' `Identifier`
+                                )
+                                `value`: (
+                                    'description': ~
+                                    'node': | 'component' | 'internal cyclic' `Initialization`
+                                )
+                            }
+                        )
+                    }
+                    'type parameters': {
+                    }
+                )
+                `Initialization`: (
+                    'node': | 'state group' {
+                        `block`: (
+                            'description': ~
+                            'node': | 'group' {
+                                `variables`: (
+                                    'description': ~
+                                    'node': | 'component' | 'internal' `Variables`
+                                )
+                                `temp ordered variables`: (
+                                    'description': ~
+                                    'node': | 'list' (
+                                        'node': | 'group' {
+                                            `name`: (
+                                                'description': ~
+                                                'node': | 'text' | 'global' `Identifier`
+                                            )
+                                            `type`: (
+                                                'description': ~
+                                                'node': | 'optional' | 'component' | 'external' (
+                                                    'import': `interface`
+                                                    'type': `Type`
+                                                )
+                                            )
+                                            `initialization`: (
+                                                'description': ~
+                                                'node': | 'component' | 'internal cyclic' `Initialization`
+                                            )
+                                        }
+                                    )
+                                )
+                                `initialization`: (
+                                    'description': ~
+                                    'node': | 'component' | 'internal cyclic' `Initialization`
+                                )
+                            }
+                        )
+                        `change context`: (
+                            'description': ~
+                            'node': | 'group' {
+                                `new context`: (
+                                    'description': ~
+                                    'node': | 'component' | 'internal cyclic' `Selection`
+                                )
+                                `initialization`: (
+                                    'description': ~
+                                    'node': | 'component' | 'internal cyclic' `Initialization`
+                                )
+                            }
+                        )
+                        `literal`: (
+                            'description': ~
+                            'node': | 'group' {
+                                `value`: (
+                                    'description': ~
+                                    'node': | 'component' | 'internal' `Literal`
+                                )
+                            }
+                        )
+                        `selection`: (
+                            'description': ~
+                            'node': | 'component' | 'internal cyclic' `Selection`
+                        )
+                        `transformation`: (
+                            'description': ~
+                            'node': | 'group' {
+                                `source`: (
+                                    'description': ~
+                                    'node': | 'component' | 'internal cyclic' `Selection`
+                                )
+                                `type`: (
+                                    'description': ~
+                                    'node': | 'state group' {
+                                        `array`: (
+                                            'description': ~
+                                            'node': | 'state group' {
+                                                `map`: (
+                                                    'description': ~
+                                                    'node': | 'component' | 'internal cyclic' `Initialization`
+                                                )
+                                            }
+                                        )
+                                        `boolean`: (
+                                            'description': ~
+                                            'node': | 'state group' {
+                                                `not`: (
+                                                    'description': ~
+                                                    'node': | 'nothing' ~
+                                                )
+                                                `transform`: (
+                                                    'description': ~
+                                                    'node': | 'group' {
+                                                        `if false`: (
+                                                            'description': ~
+                                                            'node': | 'component' | 'internal cyclic' `Initialization`
+                                                        )
+                                                        `if true`: (
+                                                            'description': ~
+                                                            'node': | 'component' | 'internal cyclic' `Initialization`
+                                                        )
+                                                    }
+                                                )
+                                            }
+                                        )
+                                        `dictionary`: (
+                                            'description': ~
+                                            'node': | 'state group' {
+                                                `map`: (
+                                                    'description': ~
+                                                    'node': | 'component' | 'internal cyclic' `Initialization`
+                                                )
+                                            }
+                                        )
+                                        `function`: (
+                                            'description': ~
+                                            'node': | 'state group' {
+                                                `call`: (
+                                                    'description': ~
+                                                    'node': | 'group' {
+                                                        `context`: (
+                                                            'description': ~
+                                                            'node': | 'component' | 'internal cyclic' `Initialization`
+                                                        )
+                                                        `arguments`: (
+                                                            'description': ~
+                                                            'node': | 'optional' | 'dictionary' (
+                                                                'node': | 'component' | 'internal cyclic' `Initialization`
+                                                                'ordered': `false`
+                                                            )
+                                                        )
+                                                    }
+                                                )
+                                            }
+                                        )
+                                        `optional`: (
+                                            'description': ~
+                                            'node': | 'state group' {
+                                                `map`: (
+                                                    'description': ~
+                                                    'node': | 'component' | 'internal cyclic' `Initialization`
+                                                )
+                                                `transform`: (
+                                                    'description': ~
+                                                    'node': | 'group' {
+                                                        `if not set`: (
+                                                            'description': ~
+                                                            'node': | 'component' | 'internal cyclic' `Initialization`
+                                                        )
+                                                        `if set`: (
+                                                            'description': ~
+                                                            'node': | 'component' | 'internal cyclic' `Initialization`
+                                                        )
+                                                        `temp resulting node`: (
+                                                            'description': ~
+                                                            'node': | 'optional' | 'component' | 'external' (
+                                                                'import': `interface`
+                                                                'type': `Type`
+                                                            )
+                                                        )
+                                                    }
+                                                )
+                                            }
+                                        )
+                                        `tagged union`: (
+                                            'description': ~
+                                            'node': | 'state group' {
+                                                `switch`: (
+                                                    'description': ~
+                                                    'node': | 'group' {
+                                                        `temp resulting node`: (
+                                                            'description': ~
+                                                            'node': | 'optional' | 'component' | 'external' (
+                                                                'import': `interface`
+                                                                'type': `Type`
+                                                            )
+                                                        )
+                                                        `type`: (
+                                                            'description': ~
+                                                            'node': | 'state group' {
+                                                                `partial`: (
+                                                                    'description': ~
+                                                                    'node': | 'group' {
+                                                                        `cases`: (
+                                                                            'description': ~
+                                                                            'node': | 'dictionary' (
+                                                                                'node': | 'component' | 'internal cyclic' `Initialization`
+                                                                                'ordered': `false`
+                                                                            )
+                                                                        )
+                                                                        `default`: (
+                                                                            'description': ~
+                                                                            'node': | 'component' | 'internal cyclic' `Initialization`
+                                                                        )
+                                                                    }
+                                                                )
+                                                                `full`: (
+                                                                    'description': ~
+                                                                    'node': | 'group' {
+                                                                        `cases`: (
+                                                                            'description': ~
+                                                                            'node': | 'dictionary' (
+                                                                                'node': | 'component' | 'internal cyclic' `Initialization`
+                                                                                'ordered': `false`
+                                                                            )
+                                                                        )
+                                                                    }
+                                                                )
+                                                            }
+                                                        )
+                                                    }
+                                                )
+                                            }
+                                        )
+                                    }
+                                )
+                            }
+                        )
+                    }
+                    'type parameters': {
+                    }
+                )
+                `Module`: (
+                    'node': | 'group' {
+                        `type imports`: (
+                            'description': ~
+                            'node': | 'component' | 'external' (
+                                'import': `interface`
+                                'type': `Imports`
+                            )
+                        )
+                        `variable imports`: (
+                            'description': ~
+                            'node': | 'dictionary' (
+                                'node': | 'group' {
+                                    `tail`: (
+                                        'description': ~
+                                        'node': | 'list' (
+                                            'node': | 'text' | 'global' `TBD`
+                                        )
+                                    )
+                                    `type`: (
+                                        'description': ~
+                                        'node': | 'state group' {
+                                            `ancestor`: (
+                                                'description': ~
+                                                'node': | 'group' {
+                                                    `dependency`: (
+                                                        'description': ~
+                                                        'node': | 'text' | 'global' `TBD`
+                                                    )
+                                                    `number of steps`: (
+                                                        'description': ~
+                                                        'node': | 'number' | 'local' (
+                                                            'precision': | 'exact' (
+                                                                'decimal separator offset': ~
+                                                                'type': | 'natural' ~
+                                                            )
+                                                        )
+                                                    )
+                                                }
+                                            )
+                                            `external`: (
+                                                'description': ~
+                                                'node': | 'text' | 'global' `TBD`
+                                            )
+                                            `sibling`: (
+                                                'description': ~
+                                                'node': | 'text' | 'global' `TBD`
+                                            )
+                                        }
+                                    )
+                                }
+                                'ordered': `false`
+                            )
+                        )
+                        `variables`: (
+                            'description': ~
+                            'node': | 'component' | 'internal' `Variables`
+                        )
+                    }
+                    'type parameters': {
+                    }
+                )
+                `Module Set`: (
+                    'node': | 'dictionary' (
+                        'node': | 'state group' {
+                            `module`: (
+                                'description': ~
+                                'node': | 'component' | 'internal' `Module`
+                            )
+                            `set`: (
+                                'description': ~
+                                'node': | 'component' | 'internal cyclic' `Module Set`
+                            )
+                        }
+                        'ordered': `false`
+                    )
+                    'type parameters': {
+                    }
+                )
+                `Selection`: (
+                    'node': | 'group' {
+                        `start`: (
+                            'description': ~
+                            'node': | 'state group' {
+                                `abort`: (
+                                    'description': ~
+                                    'node': | 'nothing' ~
+                                )
+                                `transform optional value`: (
+                                    'description': ~
+                                    'node': | 'group' {
+                                        `source`: (
+                                            'description': ~
+                                            'node': | 'component' | 'internal cyclic' `Selection`
+                                        )
+                                        `if not set`: (
+                                            'description': ~
+                                            'node': | 'component' | 'internal cyclic' `Selection`
+                                        )
+                                        `if set`: (
+                                            'description': ~
+                                            'node': | 'component' | 'internal cyclic' `Selection`
+                                        )
+                                    }
+                                )
+                                `call`: (
+                                    'description': ~
+                                    'node': | 'group' {
+                                        `source`: (
+                                            'description': ~
+                                            'node': | 'component' | 'internal cyclic' `Selection`
+                                        )
+                                        `context`: (
+                                            'description': ~
+                                            'node': | 'component' | 'internal cyclic' `Selection`
+                                        )
+                                        `arguments`: (
+                                            'description': ~
+                                            'node': | 'optional' | 'dictionary' (
+                                                'node': | 'component' | 'internal cyclic' `Initialization`
+                                                'ordered': `false`
+                                            )
+                                        )
+                                    }
+                                )
+                                `implement me`: (
+                                    'description': ~
+                                    'node': | 'nothing' ~
+                                )
+                                `argument`: (
+                                    'description': ~
+                                    'node': | 'text' | 'global' `TBD`
+                                )
+                                `context`: (
+                                    'description': ~
+                                    'node': | 'nothing' ~
+                                )
+                                `variable`: (
+                                    'description': ~
+                                    'node': | 'text' | 'global' `TBD`
+                                )
+                                `parameter`: (
+                                    'description': ~
+                                    'node': | 'text' | 'global' `TBD`
+                                )
+                                `imported variable`: (
+                                    'description': ~
+                                    'node': | 'group' {
+                                        `import`: (
+                                            'description': ~
+                                            'node': | 'text' | 'global' `TBD`
+                                        )
+                                        `variable`: (
+                                            'description': ~
+                                            'node': | 'text' | 'global' `TBD`
+                                        )
+                                    }
+                                )
+                            }
+                        )
+                        `tail`: (
+                            'description': ~
+                            'node': | 'list' (
+                                'node': | 'text' | 'global' `TBD`
+                            )
+                        )
+                    }
+                    'type parameters': {
+                    }
+                )
+                `Type Parameters`: (
+                    'node': | 'dictionary' (
+                        'node': | 'nothing' ~
+                        'ordered': `false`
+                    )
+                    'type parameters': {
+                    }
+                )
+            }
+        )
+        `typescript light`: | 'schema' (
+            'complexity': | 'unconstrained' ~
+            'globals': (
+                'complexity': | 'unconstrained' ~
+                'number types': {
+                }
+                'text types': {
+                    `Identifier`: (
+                        'type': | 'single line' ~
+                    )
+                    `Output`: (
+                        'type': | 'single line' ~
+                    )
+                }
+            )
+            'imports': {
+            }
+            'types': {
+                `String Literal`: (
+                    'node': | 'group' {
+                        `delimiter`: (
+                            'description': ~
+                            'node': | 'state group' {
+                                `quote`: (
+                                    'description': ~
+                                    'node': | 'nothing' ~
+                                )
+                                `apostrophe`: (
+                                    'description': ~
+                                    'node': | 'nothing' ~
+                                )
+                            }
+                        )
+                        `value`: (
+                            'description': ~
+                            'node': | 'text' | 'local' (
+                                'type': | 'single line' ~
+                            )
+                        )
+                    }
+                    'type parameters': {
+                    }
+                )
+                `Statements`: (
+                    'node': | 'list' (
+                        'node': | 'state group' {
+                            `import`: (
+                                'description': ~
+                                'node': | 'group' {
+                                    `type`: (
+                                        'description': ~
+                                        'node': | 'state group' {
+                                            `namespace`: (
+                                                'description': ~
+                                                'node': | 'text' | 'local' (
+                                                    'type': | 'single line' ~
+                                                )
+                                            )
+                                            `named`: (
+                                                'description': ~
+                                                'node': | 'group' {
+                                                    `specifiers`: (
+                                                        'description': ~
+                                                        'node': | 'dictionary' (
+                                                            'node': | 'text' | 'local' (
+                                                                'type': | 'single line' ~
+                                                            )
+                                                            'ordered': `false`
+                                                        )
+                                                    )
+                                                }
+                                            )
+                                        }
+                                    )
+                                    `from`: (
+                                        'description': ~
+                                        'node': | 'text' | 'local' (
+                                            'type': | 'single line' ~
+                                        )
+                                    )
+                                }
+                            )
+                            `module declaration`: (
+                                'description': ~
+                                'node': | 'group' {
+                                    `export`: (
+                                        'description': ~
+                                        'node': | 'boolean' ~
+                                    )
+                                    `name`: (
+                                        'description': ~
+                                        'node': | 'text' | 'local' (
+                                            'type': | 'single line' ~
+                                        )
+                                    )
+                                    `block`: (
+                                        'description': ~
+                                        'node': | 'component' | 'internal cyclic' `Statements`
+                                    )
+                                }
+                            )
+                            `type alias declaration`: (
+                                'description': ~
+                                'node': | 'group' {
+                                    `export`: (
+                                        'description': ~
+                                        'node': | 'boolean' ~
+                                    )
+                                    `name`: (
+                                        'description': ~
+                                        'node': | 'text' | 'local' (
+                                            'type': | 'single line' ~
+                                        )
+                                    )
+                                    `parameters`: (
+                                        'description': ~
+                                        'node': | 'list' (
+                                            'node': | 'text' | 'local' (
+                                                'type': | 'single line' ~
+                                            )
+                                        )
+                                    )
+                                    `type`: (
+                                        'description': ~
+                                        'node': | 'component' | 'internal cyclic' `Type`
+                                    )
+                                }
+                            )
+                            `variable`: (
+                                'description': ~
+                                'node': | 'group' {
+                                    `export`: (
+                                        'description': ~
+                                        'node': | 'boolean' ~
+                                    )
+                                    `const`: (
+                                        'description': ~
+                                        'node': | 'boolean' ~
+                                    )
+                                    `name`: (
+                                        'description': ~
+                                        'node': | 'text' | 'local' (
+                                            'type': | 'single line' ~
+                                        )
+                                    )
+                                    `type`: (
+                                        'description': ~
+                                        'node': | 'optional' | 'component' | 'internal cyclic' `Type`
+                                    )
+                                    `expression`: (
+                                        'description': ~
+                                        'node': | 'optional' | 'component' | 'internal cyclic' `Expression`
+                                    )
+                                }
+                            )
+                        }
+                    )
+                    'type parameters': {
+                    }
+                )
+                `Expression`: (
+                    'node': | 'state group' {
+                        `number literal`: (
+                            'description': ~
+                            'node': | 'number' | 'local' (
+                                'precision': | 'approximation' (
+                                    'significant digits': `FIXME NUMBER`
+                                )
+                            )
+                        )
+                        `true`: (
+                            'description': ~
+                            'node': | 'nothing' ~
+                        )
+                        `false`: (
+                            'description': ~
+                            'node': | 'nothing' ~
+                        )
+                        `null`: (
+                            'description': ~
+                            'node': | 'nothing' ~
+                        )
+                        `string literal`: (
+                            'description': ~
+                            'node': | 'component' | 'internal' `String Literal`
+                        )
+                        `object literal`: (
+                            'description': ~
+                            'node': | 'group' {
+                                `properties`: (
+                                    'description': ~
+                                    'node': | 'dictionary' (
+                                        'node': | 'component' | 'internal cyclic' `Expression`
+                                        'ordered': `false`
+                                    )
+                                )
+                            }
+                        )
+                        `array literal`: (
+                            'description': ~
+                            'node': | 'list' (
+                                'node': | 'component' | 'internal cyclic' `Expression`
+                            )
+                        )
+                        `arrow function`: (
+                            'description': ~
+                            'node': | 'group' {
+                                `parameters`: (
+                                    'description': ~
+                                    'node': | 'list' (
+                                        'node': | 'group' {
+                                            `name`: (
+                                                'description': ~
+                                                'node': | 'text' | 'local' (
+                                                    'type': | 'single line' ~
+                                                )
+                                            )
+                                            `type`: (
+                                                'description': ~
+                                                'node': | 'optional' | 'component' | 'internal cyclic' `Type`
+                                            )
+                                        }
+                                    )
+                                )
+                                `return type`: (
+                                    'description': ~
+                                    'node': | 'optional' | 'component' | 'internal cyclic' `Type`
+                                )
+                                `type`: (
+                                    'description': ~
+                                    'node': | 'state group' {
+                                        `block`: (
+                                            'description': ~
+                                            'node': | 'component' | 'internal' `Statements`
+                                        )
+                                        `expression`: (
+                                            'description': ~
+                                            'node': | 'component' | 'internal cyclic' `Expression`
+                                        )
+                                    }
+                                )
+                            }
+                        )
+                        `call`: (
+                            'description': ~
+                            'node': | 'group' {
+                                `function selection`: (
+                                    'description': ~
+                                    'node': | 'component' | 'internal cyclic' `Expression`
+                                )
+                                `arguments`: (
+                                    'description': ~
+                                    'node': | 'list' (
+                                        'node': | 'component' | 'internal cyclic' `Expression`
+                                    )
+                                )
+                            }
+                        )
+                    }
+                    'type parameters': {
+                    }
+                )
+                `Type`: (
+                    'node': | 'state group' {
+                        `boolean`: (
+                            'description': ~
+                            'node': | 'nothing' ~
+                        )
+                        `function`: (
+                            'description': ~
+                            'node': | 'group' {
+                                `type parameters`: (
+                                    'description': ~
+                                    'node': | 'list' (
+                                        'node': | 'text' | 'local' (
+                                            'type': | 'single line' ~
+                                        )
+                                    )
+                                )
+                                `parameters`: (
+                                    'description': ~
+                                    'node': | 'list' (
+                                        'node': | 'group' {
+                                            `name`: (
+                                                'description': ~
+                                                'node': | 'text' | 'local' (
+                                                    'type': | 'single line' ~
+                                                )
+                                            )
+                                            `type`: (
+                                                'description': ~
+                                                'node': | 'optional' | 'component' | 'internal cyclic' `Type`
+                                            )
+                                        }
+                                    )
+                                )
+                                `return`: (
+                                    'description': ~
+                                    'node': | 'component' | 'internal cyclic' `Type`
+                                )
+                            }
+                        )
+                        `literal type`: (
+                            'description': ~
+                            'node': | 'component' | 'internal' `String Literal`
+                        )
+                        `null`: (
+                            'description': ~
+                            'node': | 'nothing' ~
+                        )
+                        `number`: (
+                            'description': ~
+                            'node': | 'nothing' ~
+                        )
+                        `string`: (
+                            'description': ~
+                            'node': | 'nothing' ~
+                        )
+                        `tuple`: (
+                            'description': ~
+                            'node': | 'group' {
+                                `readonly`: (
+                                    'description': ~
+                                    'node': | 'boolean' ~
+                                )
+                                `elements`: (
+                                    'description': ~
+                                    'node': | 'list' (
+                                        'node': | 'component' | 'internal cyclic' `Type`
+                                    )
+                                )
+                            }
+                        )
+                        `type literal`: (
+                            'description': ~
+                            'node': | 'group' {
+                                `properties`: (
+                                    'description': ~
+                                    'node': | 'dictionary' (
+                                        'node': | 'group' {
+                                            `readonly`: (
+                                                'description': ~
+                                                'node': | 'boolean' ~
+                                            )
+                                            `type`: (
+                                                'description': ~
+                                                'node': | 'component' | 'internal cyclic' `Type`
+                                            )
+                                        }
+                                        'ordered': `false`
+                                    )
+                                )
+                            }
+                        )
+                        `type reference`: (
+                            'description': ~
+                            'node': | 'group' {
+                                `start`: (
+                                    'description': ~
+                                    'node': | 'text' | 'local' (
+                                        'type': | 'single line' ~
+                                    )
+                                )
+                                `tail`: (
+                                    'description': ~
+                                    'node': | 'list' (
+                                        'node': | 'text' | 'local' (
+                                            'type': | 'single line' ~
+                                        )
+                                    )
+                                )
+                                `type arguments`: (
+                                    'description': ~
+                                    'node': | 'list' (
+                                        'node': | 'component' | 'internal cyclic' `Type`
+                                    )
+                                )
+                            }
+                        )
+                        `union`: (
+                            'description': ~
+                            'node': | 'list' (
+                                'node': | 'component' | 'internal cyclic' `Type`
+                            )
+                        )
+                        `void`: (
+                            'description': ~
+                            'node': | 'nothing' ~
+                        )
+                    }
+                    'type parameters': {
+                    }
+                )
+                `Group`: (
+                    'node': | 'list' (
+                        'node': | 'component' | 'internal cyclic' `Group Part`
+                    )
+                    'type parameters': {
+                    }
+                )
+                `Block`: (
+                    'node': | 'list' (
+                        'node': | 'component' | 'internal cyclic' `Block Part`
+                    )
+                    'type parameters': {
+                    }
+                )
+                `Group Part`: (
+                    'node': | 'state group' {
+                        `nested block`: (
+                            'description': ~
+                            'node': | 'component' | 'internal' `Block`
+                        )
+                        `block`: (
+                            'description': ~
+                            'node': | 'text' | 'global' `Output`
+                        )
+                        `sub group`: (
+                            'description': ~
+                            'node': | 'component' | 'internal' `Group`
+                        )
+                        `optional`: (
+                            'description': ~
+                            'node': | 'optional' | 'component' | 'internal cyclic' `Group Part`
+                        )
+                        `nothing`: (
+                            'description': ~
+                            'node': | 'nothing' ~
+                        )
+                    }
+                    'type parameters': {
+                    }
+                )
+                `Block Part`: (
+                    'node': | 'state group' {
+                        `snippet`: (
+                            'description': ~
+                            'node': | 'text' | 'global' `Output`
+                        )
+                        `indent`: (
+                            'description': ~
+                            'node': | 'component' | 'internal' `Group`
+                        )
+                        `sub block`: (
+                            'description': ~
+                            'node': | 'component' | 'internal' `Block`
+                        )
+                        `optional`: (
+                            'description': ~
+                            'node': | 'optional' | 'component' | 'internal cyclic' `Block Part`
+                        )
+                        `nothing`: (
+                            'description': ~
+                            'node': | 'nothing' ~
+                        )
+                    }
+                    'type parameters': {
+                    }
+                )
+                `Lines`: (
+                    'node': | 'list' (
+                        'node': | 'group' {
+                            `indentation`: (
+                                'description': ~
+                                'node': | 'number' | 'local' (
+                                    'precision': | 'exact' (
+                                        'decimal separator offset': ~
+                                        'type': | 'natural' ~
+                                    )
+                                )
+                            )
+                            `text`: (
+                                'description': ~
+                                'node': | 'text' | 'global' `Output`
+                            )
+                        }
+                    )
+                    'type parameters': {
+                    }
+                )
+                `Directory`: (
+                    'node': | 'dictionary' (
+                        'node': | 'state group' {
+                            `file`: (
+                                'description': ~
+                                'node': | 'component' | 'internal' `Group`
+                            )
+                            `directory`: (
+                                'description': ~
+                                'node': | 'component' | 'internal cyclic' `Directory`
+                            )
+                        }
+                        'ordered': `false`
+                    )
+                    'type parameters': {
+                    }
+                )
+            }
+        )
+    }
+)
