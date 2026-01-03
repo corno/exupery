@@ -5,8 +5,8 @@ import * as _pi from 'pareto-core-interface'
 export type Signature = _pi.Text_Serializer
 
 export const $$: Signature = ($) => {
-    return _p.build_text(($i) => {
-        _pinternals.text_to_character_list($).__for_each(($) => {
+    return _p.text.build(($i) => {
+        _pinternals.list_from_text($, ($) => $).__for_each(($) => {
             if ($ === 36) { // $
                 $i['add snippet'](`$$`)
             } else if ($ === 95) { // _

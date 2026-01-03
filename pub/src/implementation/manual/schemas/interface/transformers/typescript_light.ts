@@ -111,17 +111,17 @@ export const Module_Set = ($: d_in.Module_Set): d_out.Directory => {
                         Type_Declaration(
                             null,
                             {
-                                'name': Identifier(_p.list_literal([" T ", key])),
+                                'name': Identifier(_p.list.literal([" T ", key])),
                                 'type parameters': $.parameters,
                                 'module parameters': x_module_parameters,
-                                'function type parameters': _p.not_set(),
+                                'function type parameters': _p.optional.not_set(),
                                 'callback': () => {
                                     return t_tl_2_fp.Type(
                                         Type_to_Type(
                                             $.type,
                                             {
-                                                'module parameters': _p.set(x_module_parameters),
-                                                'temp imports': _p.set(x_imports),
+                                                'module parameters': _p.optional.set(x_module_parameters),
+                                                'temp imports': _p.optional.set(x_imports),
                                             },
                                         ),
                                         {
@@ -143,13 +143,13 @@ export const Module_Set = ($: d_in.Module_Set): d_out.Directory => {
                                 'name': key,
                                 'type parameters': $.parameters,
                                 'module parameters': x_module_parameters,
-                                'function type parameters': _p.not_set(),
+                                'function type parameters': _p.optional.not_set(),
                                 'callback': () => {
                                     return sh.b.sub([
                                         sh.b.snippet(s_identifier([" T ", key])),
                                         line_dictionary(
                                             op_flatten_dictionary(
-                                                _p.dictionary_literal({
+                                                _p.dictionary.literal({
                                                     "M": x_module_parameters.map(($, key) => sh.b.snippet(s_identifier(["M ", key]))),
                                                     "T": $.parameters.map(($, key) => sh.b.snippet(s_identifier(["T ", key]))),
                                                 }),
@@ -178,7 +178,7 @@ export const Module_Set = ($: d_in.Module_Set): d_out.Directory => {
                                 'key': ` T ${key}`,
                                 'type parameters': $.parameters,
                                 'module parameters': x_module_parameters,
-                                'function type parameters': _p.not_set(),
+                                'function type parameters': _p.optional.not_set(),
                                 'temp imports': x_imports,
                             }
                         ),
@@ -193,7 +193,7 @@ export const Module_Set = ($: d_in.Module_Set): d_out.Directory => {
                                 'key': ` T ${key}`,
                                 'type parameters': $.parameters,
                                 'module parameters': x_module_parameters,
-                                'function type parameters': _p.not_set(),
+                                'function type parameters': _p.optional.not_set(),
                                 'temp imports': x_imports,
                             }
                         ),
@@ -299,8 +299,8 @@ export const Type_to_Aliases = (
                             Type_to_Type(
                                 $,
                                 {
-                                    'module parameters': _p.set($p['module parameters']),
-                                    'temp imports': _p.set($p['temp imports']),
+                                    'module parameters': _p.optional.set($p['module parameters']),
+                                    'temp imports': _p.optional.set($p['temp imports']),
                                 },
                             ),
                             {
@@ -373,7 +373,7 @@ export const Type_to_Aliases = (
                             {
                                 'module parameters': $p['module parameters'],
                                 'type parameters': $p['type parameters'],
-                                'function type parameters': _p.set($['type parameters']),
+                                'function type parameters': _p.optional.set($['type parameters']),
                                 'key': "CONTEXT",
                                 'temp imports': $p['temp imports'],
                             }
@@ -387,7 +387,7 @@ export const Type_to_Aliases = (
                                         {
                                             'module parameters': $p['module parameters'],
                                             'type parameters': $p['type parameters'],
-                                            'function type parameters': _p.set(ftp),
+                                            'function type parameters': _p.optional.set(ftp),
                                             'key': key,
                                             'temp imports': $p['temp imports'],
                                         }
@@ -400,7 +400,7 @@ export const Type_to_Aliases = (
                             {
                                 'module parameters': $p['module parameters'],
                                 'type parameters': $p['type parameters'],
-                                'function type parameters': _p.set($['type parameters']),
+                                'function type parameters': _p.optional.set($['type parameters']),
                                 'key': "RESULT",
                                 'temp imports': $p['temp imports'],
                             }
@@ -506,29 +506,29 @@ export const Type_to_Type = (
                 //start
                 _p.cc($.location, ($): string => {
                     switch ($[0]) {
-                        case 'import': return _p.ss($, ($) => Identifier(_p.list_literal([" i ", $.import])))
-                        case 'sibling': return _p.ss($, ($) => Identifier(_p.list_literal([" T ", $])))
+                        case 'import': return _p.ss($, ($) => Identifier(_p.list.literal([" i ", $.import])))
+                        case 'sibling': return _p.ss($, ($) => Identifier(_p.list.literal([" T ", $])))
                         default: return _p.au($[0])
                     }
                 }),
                 //tail
-                _p.list_literal([
+                _p.list.literal([
                     _p.cc($.location, ($): _pi.List<string> => {
                         switch ($[0]) {
-                            case 'import': return _p.ss($, ($) => _p.list_literal([
-                                Identifier(_p.list_literal([" T ", $.type]))
+                            case 'import': return _p.ss($, ($) => _p.list.literal([
+                                Identifier(_p.list.literal([" T ", $.type]))
                             ]))
-                            case 'sibling': return _p.ss($, ($) => _p.list_literal([]))
+                            case 'sibling': return _p.ss($, ($) => _p.list.literal([]))
                             default: return _p.au($[0])
                         }
                     }),
                     $['sub selection'].map(($): _pi.List<string> => _p.cc($, ($) => {
                         switch ($[0]) {
-                            case 'dictionary': return _p.ss($, ($) => _p.list_literal(["D"]))
-                            case 'group': return _p.ss($, ($) => _p.list_literal([$]))
-                            case 'list': return _p.ss($, ($) => _p.list_literal(["L"]))
-                            case 'optional': return _p.ss($, ($) => _p.list_literal(["O"]))
-                            case 'state group': return _p.ss($, ($) => _p.list_literal([
+                            case 'dictionary': return _p.ss($, ($) => _p.list.literal(["D"]))
+                            case 'group': return _p.ss($, ($) => _p.list.literal([$]))
+                            case 'list': return _p.ss($, ($) => _p.list.literal(["L"]))
+                            case 'optional': return _p.ss($, ($) => _p.list.literal(["O"]))
+                            case 'state group': return _p.ss($, ($) => _p.list.literal([
                                 "SG",
                                 $,
                             ]))
@@ -538,10 +538,10 @@ export const Type_to_Type = (
                 ]).flatten(($) => $),
                 //type arguments
                 op_flatten_dictionary(
-                    _p.dictionary_literal<_pi.Dictionary<s_out_ts.Type>>({
+                    _p.dictionary.literal<_pi.Dictionary<s_out_ts.Type>>({
                         "M": _p.cc($.location, ($): _pi.Dictionary<s_out_ts.Type> => {
                             switch ($[0]) {
-                                case 'import': return _p.ss($, ($) => $p['temp imports'].transform(($) => $, () => _pinternals.panic("DSFSDFSD")).get_entry($.import).transform(($) => $, () => {
+                                case 'import': return _p.ss($, ($) => $p['temp imports'].transform(($) => $, () => _pinternals.panic("DSFSDFSD")).get_possible_entry($.import).transform(($) => $, () => {
                                     let keys = ""
                                     $p['temp imports'].map(($) => {
                                         $.map(($, key) => {
@@ -729,12 +729,12 @@ export const Type_Declaration = (
             sh.b.snippet(s_identifier([$p.name])),
             line_dictionary(
                 op_flatten_dictionary(
-                    _p.dictionary_literal({
+                    _p.dictionary.literal({
                         "M": $p['module parameters'],
                         "T": $p['type parameters'],
                         "F": $p['function type parameters'].transform(
                             ($) => $,
-                            () => _p.dictionary_literal({})
+                            () => _p.dictionary.literal({})
                         ),
                     }),
                     {

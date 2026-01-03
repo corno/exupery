@@ -57,8 +57,8 @@ export const parameter = (
     return {
         'name': name,
         'type': type === null
-            ? _psh.not_set()
-            : _psh.set(type),
+            ? _psh.optional.not_set()
+            : _psh.optional.set(type),
     }
 }
 

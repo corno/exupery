@@ -21,7 +21,7 @@ export const Block: _i_signatures._T_Block = ($, $p) => _i_generic.process_uncon
 export const Block_Part: _i_signatures._T_Block_Part = ($, $p) => _i_generic.process_unconstrained_state_group(
     $,
     {
-        'states': _pa.dictionary_literal({
+        'states': _pa.dictionary.literal({
             'indent': ($): _i_out._T_Block_Part.SG => ['indent', Group(
                 $,
                 {
@@ -62,7 +62,7 @@ export const Directory: _i_signatures._T_Directory = ($, $p) => _i_generic.proce
         'value': ($) => _i_generic.process_unconstrained_state_group(
             $,
             {
-                'states': _pa.dictionary_literal({
+                'states': _pa.dictionary.literal({
                     'directory': ($): _i_out._T_Directory.D.SG => ['directory', Directory(
                         $,
                         {
@@ -83,7 +83,7 @@ export const Directory: _i_signatures._T_Directory = ($, $p) => _i_generic.proce
 export const Expression: _i_signatures._T_Expression = ($, $p) => _i_generic.process_unconstrained_state_group(
     $,
     {
-        'states': _pa.dictionary_literal({
+        'states': _pa.dictionary.literal({
             'array literal': ($): _i_out._T_Expression.SG => ['array literal', _i_generic.process_unconstrained_list(
                 $,
                 {
@@ -165,7 +165,7 @@ export const Expression: _i_signatures._T_Expression = ($, $p) => _i_generic.pro
                         ), ($) => _i_generic.process_unconstrained_state_group(
                             $,
                             {
-                                'states': _pa.dictionary_literal({
+                                'states': _pa.dictionary.literal({
                                     'block': ($): _i_out._T_Expression.SG.arrow_function._type.SG => ['block', Statements(
                                         $,
                                         {
@@ -282,7 +282,7 @@ export const Group: _i_signatures._T_Group = ($, $p) => _i_generic.process_uncon
 export const Group_Part: _i_signatures._T_Group_Part = ($, $p) => _i_generic.process_unconstrained_state_group(
     $,
     {
-        'states': _pa.dictionary_literal({
+        'states': _pa.dictionary.literal({
             'block': ($): _i_out._T_Group_Part.SG => ['block', _i_generic.process_text(
                 $,
                 null
@@ -355,7 +355,7 @@ export const Statements: _i_signatures._T_Statements = ($, $p) => _i_generic.pro
         'value': ($) => _i_generic.process_unconstrained_state_group(
             $,
             {
-                'states': _pa.dictionary_literal({
+                'states': _pa.dictionary.literal({
                     'import': ($): _i_out._T_Statements.L.SG => ['import', _i_generic.process_group(
                         $,
                         {
@@ -377,7 +377,7 @@ export const Statements: _i_signatures._T_Statements = ($, $p) => _i_generic.pro
                                 ), ($) => _i_generic.process_unconstrained_state_group(
                                     $,
                                     {
-                                        'states': _pa.dictionary_literal({
+                                        'states': _pa.dictionary.literal({
                                             'named': ($): _i_out._T_Statements.L.SG._import._type.SG => ['named', _i_generic.process_group(
                                                 $,
                                                 {
@@ -586,7 +586,7 @@ export const String_Literal: _i_signatures._T_String_Literal = ($, $p) => _i_gen
             ), ($) => _i_generic.process_unconstrained_state_group(
                 $,
                 {
-                    'states': _pa.dictionary_literal({
+                    'states': _pa.dictionary.literal({
                         'apostrophe': ($): _i_out._T_String_Literal.delimiter.SG => ['apostrophe', _i_generic.process_nothing(
                             $,
                             null
@@ -613,7 +613,7 @@ export const String_Literal: _i_signatures._T_String_Literal = ($, $p) => _i_gen
 export const Type: _i_signatures._T_Type = ($, $p) => _i_generic.process_unconstrained_state_group(
     $,
     {
-        'states': _pa.dictionary_literal({
+        'states': _pa.dictionary.literal({
             'boolean': ($): _i_out._T_Type.SG => ['boolean', _i_generic.process_nothing(
                 $,
                 null

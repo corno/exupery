@@ -17,7 +17,7 @@ export const process_unconstrained_state_group = <X>(
         switch ($[0]) {
             case 'tagged value': return _ea.ss($, ($) => {
                 const data = $.value
-                return $p.states.get_entry(
+                return $p.states.get_possible_entry(
                     $.state.value
                 ).transform(
                     ($) => $(data),
@@ -42,7 +42,7 @@ export const process_unresolved_state_group = <X>(
                 const data = $.value
                 return {
                     'location': $["|"].range,
-                    'state group': $p.states.get_entry(
+                    'state group': $p.states.get_possible_entry(
                         $.state.value
                     ).transform(
                         ($) => $(data),
@@ -91,7 +91,7 @@ export const get_entry = (
     }
 
 ): t._T_Value => {
-    return $.get_entry($p.key).transform(
+    return $.get_possible_entry($p.key).transform(
         ($) => $,
         () => _ea.fixme_abort(`no such entry: ${$p.key}`)
     )
@@ -254,8 +254,8 @@ export const process_optional = <X>(
 ): _et.Optional_Value<X> => {
     return _ea.cc($, ($) => {
         switch ($[0]) {
-            case 'not set': return _ea.ss($, ($) => _ea.not_set())
-            case 'set optional value': return _ea.ss($, ($) => _ea.set($p.value($.value)))
+            case 'not set': return _ea.ss($, ($) => _ea.optional.not_set())
+            case 'set optional value': return _ea.ss($, ($) => _ea.optional.set($p.value($.value)))
             default: return _ea.fixme_abort(`Unexpected type for nothing: ${$[0]}`)
 
         }

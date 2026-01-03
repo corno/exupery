@@ -11,7 +11,7 @@ import * as _i_signatures from "../../../../../interface/generated/pareto/schema
 export const Initialization: _i_signatures._T_Initialization = ($, $p) => _i_generic.process_unresolved_state_group(
     $,
     {
-        'states': _pa.dictionary_literal({
+        'states': _pa.dictionary.literal({
             'block': ($): _i_out._T_Initialization.SG<_i_in._T_Range> => ['block', _i_generic.process_group(
                 $,
                 {
@@ -170,11 +170,11 @@ export const Initialization: _i_signatures._T_Initialization = ($, $p) => _i_gen
                         ), ($) => _i_generic.process_unresolved_state_group(
                             $,
                             {
-                                'states': _pa.dictionary_literal({
+                                'states': _pa.dictionary.literal({
                                     'array': ($): _i_out._T_Initialization.SG.transformation._type.SG<_i_in._T_Range> => ['array', _i_generic.process_unresolved_state_group(
                                         $,
                                         {
-                                            'states': _pa.dictionary_literal({
+                                            'states': _pa.dictionary.literal({
                                                 'map': ($): _i_out._T_Initialization.SG.transformation._type.SG.array.SG<_i_in._T_Range> => ['map', Initialization(
                                                     $,
                                                     {
@@ -187,7 +187,7 @@ export const Initialization: _i_signatures._T_Initialization = ($, $p) => _i_gen
                                     'boolean': ($): _i_out._T_Initialization.SG.transformation._type.SG<_i_in._T_Range> => ['boolean', _i_generic.process_unresolved_state_group(
                                         $,
                                         {
-                                            'states': _pa.dictionary_literal({
+                                            'states': _pa.dictionary.literal({
                                                 'not': ($): _i_out._T_Initialization.SG.transformation._type.SG._boolean.SG<_i_in._T_Range> => ['not', _i_generic.process_nothing(
                                                     $,
                                                     null
@@ -227,7 +227,7 @@ export const Initialization: _i_signatures._T_Initialization = ($, $p) => _i_gen
                                     'dictionary': ($): _i_out._T_Initialization.SG.transformation._type.SG<_i_in._T_Range> => ['dictionary', _i_generic.process_unresolved_state_group(
                                         $,
                                         {
-                                            'states': _pa.dictionary_literal({
+                                            'states': _pa.dictionary.literal({
                                                 'map': ($): _i_out._T_Initialization.SG.transformation._type.SG.dictionary.SG<_i_in._T_Range> => ['map', Initialization(
                                                     $,
                                                     {
@@ -240,7 +240,7 @@ export const Initialization: _i_signatures._T_Initialization = ($, $p) => _i_gen
                                     'function': ($): _i_out._T_Initialization.SG.transformation._type.SG<_i_in._T_Range> => ['function', _i_generic.process_unresolved_state_group(
                                         $,
                                         {
-                                            'states': _pa.dictionary_literal({
+                                            'states': _pa.dictionary.literal({
                                                 'call': ($): _i_out._T_Initialization.SG.transformation._type.SG._function.SG<_i_in._T_Range> => ['call', _i_generic.process_group(
                                                     $,
                                                     {
@@ -286,7 +286,7 @@ export const Initialization: _i_signatures._T_Initialization = ($, $p) => _i_gen
                                     'optional': ($): _i_out._T_Initialization.SG.transformation._type.SG<_i_in._T_Range> => ['optional', _i_generic.process_unresolved_state_group(
                                         $,
                                         {
-                                            'states': _pa.dictionary_literal({
+                                            'states': _pa.dictionary.literal({
                                                 'map': ($): _i_out._T_Initialization.SG.transformation._type.SG.optional.SG<_i_in._T_Range> => ['map', Initialization(
                                                     $,
                                                     {
@@ -344,7 +344,7 @@ export const Initialization: _i_signatures._T_Initialization = ($, $p) => _i_gen
                                     'tagged union': ($): _i_out._T_Initialization.SG.transformation._type.SG<_i_in._T_Range> => ['tagged union', _i_generic.process_unresolved_state_group(
                                         $,
                                         {
-                                            'states': _pa.dictionary_literal({
+                                            'states': _pa.dictionary.literal({
                                                 'switch': ($): _i_out._T_Initialization.SG.transformation._type.SG.tagged_union.SG<_i_in._T_Range> => ['switch', _i_generic.process_group(
                                                     $,
                                                     {
@@ -373,7 +373,7 @@ export const Initialization: _i_signatures._T_Initialization = ($, $p) => _i_gen
                                                             ), ($) => _i_generic.process_unresolved_state_group(
                                                                 $,
                                                                 {
-                                                                    'states': _pa.dictionary_literal({
+                                                                    'states': _pa.dictionary.literal({
                                                                         'full': ($): _i_out._T_Initialization.SG.transformation._type.SG.tagged_union.SG._switch._type.SG<_i_in._T_Range> => ['full', _i_generic.process_group(
                                                                             $,
                                                                             {
@@ -452,7 +452,7 @@ export const Initialization: _i_signatures._T_Initialization = ($, $p) => _i_gen
 export const Literal: _i_signatures._T_Literal = ($, $p) => _i_generic.process_unresolved_state_group(
     $,
     {
-        'states': _pa.dictionary_literal({
+        'states': _pa.dictionary.literal({
             'array': ($): _i_out._T_Literal.SG<_i_in._T_Range> => ['array', _i_generic.process_unresolved_list(
                 $,
                 {
@@ -467,7 +467,7 @@ export const Literal: _i_signatures._T_Literal = ($, $p) => _i_generic.process_u
             'boolean': ($): _i_out._T_Literal.SG<_i_in._T_Range> => ['boolean', _i_generic.process_unresolved_state_group(
                 $,
                 {
-                    'states': _pa.dictionary_literal({
+                    'states': _pa.dictionary.literal({
                         'false': ($): _i_out._T_Literal.SG._boolean.SG<_i_in._T_Range> => ['false', _i_generic.process_nothing(
                             $,
                             null
@@ -553,7 +553,7 @@ export const Literal: _i_signatures._T_Literal = ($, $p) => _i_generic.process_u
             'number': ($): _i_out._T_Literal.SG<_i_in._T_Range> => ['number', _i_generic.process_unresolved_state_group(
                 $,
                 {
-                    'states': _pa.dictionary_literal({
+                    'states': _pa.dictionary.literal({
                         'floting point': ($): _i_out._T_Literal.SG._number.SG<_i_in._T_Range> => ['floting point', _i_generic.process_number(
                             $,
                             {
@@ -578,7 +578,7 @@ export const Literal: _i_signatures._T_Literal = ($, $p) => _i_generic.process_u
             'optional': ($): _i_out._T_Literal.SG<_i_in._T_Range> => ['optional', _i_generic.process_unresolved_state_group(
                 $,
                 {
-                    'states': _pa.dictionary_literal({
+                    'states': _pa.dictionary.literal({
                         'not set': ($): _i_out._T_Literal.SG.optional.SG<_i_in._T_Range> => ['not set', _i_generic.process_nothing(
                             $,
                             null
@@ -604,7 +604,7 @@ export const Literal: _i_signatures._T_Literal = ($, $p) => _i_generic.process_u
                         ), ($) => _i_generic.process_unresolved_state_group(
                             $,
                             {
-                                'states': _pa.dictionary_literal({
+                                'states': _pa.dictionary.literal({
                                     'backtick': ($): _i_out._T_Literal.SG._string.delimiter.SG<_i_in._T_Range> => ['backtick', _i_generic.process_nothing(
                                         $,
                                         null
@@ -707,7 +707,7 @@ export const Module: _i_signatures._T_Module = ($, $p) => _i_generic.process_gro
                                 ), ($) => _i_generic.process_unresolved_state_group(
                                     $,
                                     {
-                                        'states': _pa.dictionary_literal({
+                                        'states': _pa.dictionary.literal({
                                             'ancestor': ($): _i_out._T_Module.variable_imports.D._type.SG<_i_in._T_Range> => ['ancestor', _i_generic.process_group(
                                                 $,
                                                 {
@@ -771,7 +771,7 @@ export const Module_Set: _i_signatures._T_Module_Set = ($, $p) => _i_generic.pro
         'value': ($) => _i_generic.process_unresolved_state_group(
             $,
             {
-                'states': _pa.dictionary_literal({
+                'states': _pa.dictionary.literal({
                     'module': ($): _i_out._T_Module_Set.D.SG<_i_in._T_Range> => ['module', Module(
                         $,
                         {
@@ -801,7 +801,7 @@ export const Selection: _i_signatures._T_Selection = ($, $p) => _i_generic.proce
             ), ($) => _i_generic.process_unresolved_state_group(
                 $,
                 {
-                    'states': _pa.dictionary_literal({
+                    'states': _pa.dictionary.literal({
                         'abort': ($): _i_out._T_Selection.start.SG<_i_in._T_Range> => ['abort', _i_generic.process_nothing(
                             $,
                             null

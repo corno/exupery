@@ -269,8 +269,8 @@ export const Initialization = (
                                     t_inf_2_tl.Type_to_Type(
                                         $,
                                         {
-                                            'module parameters': _p.not_set(),
-                                            'temp imports': _p.set($p['temp imports']),
+                                            'module parameters': _p.optional.not_set(),
+                                            'temp imports': _p.optional.set($p['temp imports']),
                                         },
                                     ),
                                     {
@@ -413,8 +413,8 @@ export const Initialization = (
                                                             t_inf_2_tl.Type_to_Type(
                                                                 $,
                                                                 {
-                                                                    'module parameters': _p.not_set(),
-                                                                    'temp imports': _p.set($p['temp imports']),
+                                                                    'module parameters': _p.optional.not_set(),
+                                                                    'temp imports': _p.optional.set($p['temp imports']),
                                                                 },
                                                             ),
                                                             {
@@ -453,8 +453,8 @@ export const Initialization = (
                                                     t_inf_2_tl.Type_to_Type(
                                                         $,
                                                         {
-                                                            'module parameters': _p.not_set(),
-                                                            'temp imports': _p.set($p['temp imports']),
+                                                            'module parameters': _p.optional.not_set(),
+                                                            'temp imports': _p.optional.set($p['temp imports']),
                                                         },
                                                     ),
                                                     {
@@ -543,8 +543,8 @@ export const Variables = (
                         t_inf_2_tl.Type_to_Type(
                             $,
                             {
-                                'module parameters': _p.not_set(),
-                                'temp imports': _p.set($p['type imports']),
+                                'module parameters': _p.optional.not_set(),
+                                'temp imports': _p.optional.set($p['type imports']),
                             },
                         ),
                         {
@@ -580,7 +580,7 @@ export const Literal = (
                     }
                 }))
                 case 'dictionary': return _p.ss($, ($) => sh.b.sub([
-                    sh.b.snippet("_p.dictionary_literal({"),
+                    sh.b.snippet("_p.dictionary.literal({"),
                     sh.b.indent([
                         sh.g.sub($.to_list(($, key) => sh.g.nested_block([
                             String_Literal(key, { 'delimiter': "apostrophe" }),
@@ -603,8 +603,8 @@ export const Literal = (
                                 t_inf_2_tl.Type_to_Type(
                                     $,
                                     {
-                                        'module parameters': _p.not_set(),
-                                        'temp imports': _p.set($p['temp imports']),
+                                        'module parameters': _p.optional.not_set(),
+                                        'temp imports': _p.optional.set($p['temp imports']),
                                     },
                                 ),
                                 {
@@ -633,7 +633,7 @@ export const Literal = (
                 ))
 
                 case 'array': return _p.ss($, ($) => sh.b.sub([
-                    sh.b.snippet("_p.list_literal(["),
+                    sh.b.snippet("_p.list.literal(["),
                     sh.b.indent([
                         sh.g.sub($.map(($) => sh.g.nested_block([
                             Initialization($, $p),
@@ -654,9 +654,9 @@ export const Literal = (
                 }))
                 case 'optional': return _p.ss($, ($) => _p.cc($, ($) => {
                     switch ($[0]) {
-                        case 'not set': return sh.b.snippet("_p.not_set()")
+                        case 'not set': return sh.b.snippet("_p.optional.not_set()")
                         case 'set': return _p.ss($, ($) => sh.b.sub([
-                            sh.b.snippet("_p.set("),
+                            sh.b.snippet("_p.optional.set("),
                             Initialization($, $p),
                             sh.b.snippet(")"),
                         ]))

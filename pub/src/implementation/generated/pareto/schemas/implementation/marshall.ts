@@ -10,14 +10,14 @@ export const Initialization: _i_signatures._T_Initialization = ($, $p) => ['stat
     switch ($[0]) {
         case 'block': return _pa.ss($, ($) => ({
             'state': "block",
-            'value': ['verbose group', _pa.dictionary_literal({
+            'value': ['verbose group', _pa.dictionary.literal({
                 'initialization': _pa.cc($['initialization'], ($) => Initialization(
                     $,
                     {
                         'value serializers': $p['value serializers'],
                     }
                 )),
-                'temp ordered variables': _pa.cc($['temp ordered variables'], ($) => ['list', $.map(($) => ['verbose group', _pa.dictionary_literal({
+                'temp ordered variables': _pa.cc($['temp ordered variables'], ($) => ['list', $.map(($) => ['verbose group', _pa.dictionary.literal({
                     'initialization': _pa.cc($['initialization'], ($) => Initialization(
                         $,
                         {
@@ -48,7 +48,7 @@ export const Initialization: _i_signatures._T_Initialization = ($, $p) => ['stat
         }))
         case 'change context': return _pa.ss($, ($) => ({
             'state': "change context",
-            'value': ['verbose group', _pa.dictionary_literal({
+            'value': ['verbose group', _pa.dictionary.literal({
                 'initialization': _pa.cc($['initialization'], ($) => Initialization(
                     $,
                     {
@@ -65,7 +65,7 @@ export const Initialization: _i_signatures._T_Initialization = ($, $p) => ['stat
         }))
         case 'literal': return _pa.ss($, ($) => ({
             'state': "literal",
-            'value': ['verbose group', _pa.dictionary_literal({
+            'value': ['verbose group', _pa.dictionary.literal({
                 'value': _pa.cc($['value'], ($) => Literal(
                     $,
                     {
@@ -85,7 +85,7 @@ export const Initialization: _i_signatures._T_Initialization = ($, $p) => ['stat
         }))
         case 'transformation': return _pa.ss($, ($) => ({
             'state': "transformation",
-            'value': ['verbose group', _pa.dictionary_literal({
+            'value': ['verbose group', _pa.dictionary.literal({
                 'source': _pa.cc($['source'], ($) => Selection(
                     $,
                     {
@@ -121,7 +121,7 @@ export const Initialization: _i_signatures._T_Initialization = ($, $p) => ['stat
                                     }))
                                     case 'transform': return _pa.ss($, ($) => ({
                                         'state': "transform",
-                                        'value': ['verbose group', _pa.dictionary_literal({
+                                        'value': ['verbose group', _pa.dictionary.literal({
                                             'if false': _pa.cc($['if false'], ($) => Initialization(
                                                 $,
                                                 {
@@ -163,7 +163,7 @@ export const Initialization: _i_signatures._T_Initialization = ($, $p) => ['stat
                                 switch ($[0]) {
                                     case 'call': return _pa.ss($, ($) => ({
                                         'state': "call",
-                                        'value': ['verbose group', _pa.dictionary_literal({
+                                        'value': ['verbose group', _pa.dictionary.literal({
                                             'arguments': _pa.cc($['arguments'], ($) => ['optional', $.transform(
                                                 ($): _i_out._T_Value.SG.optional => ['set', ['dictionary', $.map(($) => Initialization(
                                                     $,
@@ -200,7 +200,7 @@ export const Initialization: _i_signatures._T_Initialization = ($, $p) => ['stat
                                     }))
                                     case 'transform': return _pa.ss($, ($) => ({
                                         'state': "transform",
-                                        'value': ['verbose group', _pa.dictionary_literal({
+                                        'value': ['verbose group', _pa.dictionary.literal({
                                             'if not set': _pa.cc($['if not set'], ($) => Initialization(
                                                 $,
                                                 {
@@ -234,7 +234,7 @@ export const Initialization: _i_signatures._T_Initialization = ($, $p) => ['stat
                                 switch ($[0]) {
                                     case 'switch': return _pa.ss($, ($) => ({
                                         'state': "switch",
-                                        'value': ['verbose group', _pa.dictionary_literal({
+                                        'value': ['verbose group', _pa.dictionary.literal({
                                             'temp resulting node': _pa.cc($['temp resulting node'], ($) => ['optional', $.transform(
                                                 ($): _i_out._T_Value.SG.optional => ['set', _i_r_interface.Type(
                                                     $,
@@ -248,7 +248,7 @@ export const Initialization: _i_signatures._T_Initialization = ($, $p) => ['stat
                                                 switch ($[0]) {
                                                     case 'full': return _pa.ss($, ($) => ({
                                                         'state': "full",
-                                                        'value': ['verbose group', _pa.dictionary_literal({
+                                                        'value': ['verbose group', _pa.dictionary.literal({
                                                             'cases': _pa.cc($['cases'], ($) => ['dictionary', $.map(($) => Initialization(
                                                                 $,
                                                                 {
@@ -259,7 +259,7 @@ export const Initialization: _i_signatures._T_Initialization = ($, $p) => ['stat
                                                     }))
                                                     case 'partial': return _pa.ss($, ($) => ({
                                                         'state': "partial",
-                                                        'value': ['verbose group', _pa.dictionary_literal({
+                                                        'value': ['verbose group', _pa.dictionary.literal({
                                                             'cases': _pa.cc($['cases'], ($) => ['dictionary', $.map(($) => Initialization(
                                                                 $,
                                                                 {
@@ -329,7 +329,7 @@ export const Literal: _i_signatures._T_Literal = ($, $p) => ['state', _pa.cc($, 
         }))
         case 'function': return _pa.ss($, ($) => ({
             'state': "function",
-            'value': ['verbose group', _pa.dictionary_literal({
+            'value': ['verbose group', _pa.dictionary.literal({
                 'initialization': _pa.cc($['initialization'], ($) => Initialization(
                     $,
                     {
@@ -428,7 +428,7 @@ export const Literal: _i_signatures._T_Literal = ($, $p) => ['state', _pa.cc($, 
         }))
         case 'string': return _pa.ss($, ($) => ({
             'state': "string",
-            'value': ['verbose group', _pa.dictionary_literal({
+            'value': ['verbose group', _pa.dictionary.literal({
                 'delimiter': _pa.cc($['delimiter'], ($) => ['state', _pa.cc($, ($): _i_out._T_Value.SG.state => {
                     switch ($[0]) {
                         case 'backtick': return _pa.ss($, ($) => ({
@@ -450,7 +450,7 @@ export const Literal: _i_signatures._T_Literal = ($, $p) => ['state', _pa.cc($, 
         }))
         case 'tagged union': return _pa.ss($, ($) => ({
             'state': "tagged union",
-            'value': ['verbose group', _pa.dictionary_literal({
+            'value': ['verbose group', _pa.dictionary.literal({
                 'case': _pa.cc($['case'], ($) => ['text', ({
                     'delimiter': ['quote', null],
                     'value': $,
@@ -466,14 +466,14 @@ export const Literal: _i_signatures._T_Literal = ($, $p) => ['state', _pa.cc($, 
         default: return _pa.au($[0])
     }
 })]
-export const Module: _i_signatures._T_Module = ($, $p) => ['verbose group', _pa.dictionary_literal({
+export const Module: _i_signatures._T_Module = ($, $p) => ['verbose group', _pa.dictionary.literal({
     'type imports': _pa.cc($['type imports'], ($) => _i_r_interface.Imports(
         $,
         {
             'value serializers': $p['value serializers'],
         }
     )),
-    'variable imports': _pa.cc($['variable imports'], ($) => ['dictionary', $.map(($) => ['verbose group', _pa.dictionary_literal({
+    'variable imports': _pa.cc($['variable imports'], ($) => ['dictionary', $.map(($) => ['verbose group', _pa.dictionary.literal({
         'tail': _pa.cc($['tail'], ($) => ['list', $.map(($) => ['text', ({
             'delimiter': ['quote', null],
             'value': $,
@@ -482,7 +482,7 @@ export const Module: _i_signatures._T_Module = ($, $p) => ['verbose group', _pa.
             switch ($[0]) {
                 case 'ancestor': return _pa.ss($, ($) => ({
                     'state': "ancestor",
-                    'value': ['verbose group', _pa.dictionary_literal({
+                    'value': ['verbose group', _pa.dictionary.literal({
                         'dependency': _pa.cc($['dependency'], ($) => ['text', ({
                             'delimiter': ['quote', null],
                             'value': $,
@@ -544,7 +544,7 @@ export const Module_Set: _i_signatures._T_Module_Set = ($, $p) => ['dictionary',
         default: return _pa.au($[0])
     }
 })])]
-export const Selection: _i_signatures._T_Selection = ($, $p) => ['verbose group', _pa.dictionary_literal({
+export const Selection: _i_signatures._T_Selection = ($, $p) => ['verbose group', _pa.dictionary.literal({
     'start': _pa.cc($['start'], ($) => ['state', _pa.cc($, ($): _i_out._T_Value.SG.state => {
         switch ($[0]) {
             case 'abort': return _pa.ss($, ($) => ({
@@ -560,7 +560,7 @@ export const Selection: _i_signatures._T_Selection = ($, $p) => ['verbose group'
             }))
             case 'call': return _pa.ss($, ($) => ({
                 'state': "call",
-                'value': ['verbose group', _pa.dictionary_literal({
+                'value': ['verbose group', _pa.dictionary.literal({
                     'arguments': _pa.cc($['arguments'], ($) => ['optional', $.transform(
                         ($): _i_out._T_Value.SG.optional => ['set', ['dictionary', $.map(($) => Initialization(
                             $,
@@ -594,7 +594,7 @@ export const Selection: _i_signatures._T_Selection = ($, $p) => ['verbose group'
             }))
             case 'imported variable': return _pa.ss($, ($) => ({
                 'state': "imported variable",
-                'value': ['verbose group', _pa.dictionary_literal({
+                'value': ['verbose group', _pa.dictionary.literal({
                     'import': _pa.cc($['import'], ($) => ['text', ({
                         'delimiter': ['quote', null],
                         'value': $,
@@ -614,7 +614,7 @@ export const Selection: _i_signatures._T_Selection = ($, $p) => ['verbose group'
             }))
             case 'transform optional value': return _pa.ss($, ($) => ({
                 'state': "transform optional value",
-                'value': ['verbose group', _pa.dictionary_literal({
+                'value': ['verbose group', _pa.dictionary.literal({
                     'if not set': _pa.cc($['if not set'], ($) => Selection(
                         $,
                         {
@@ -651,7 +651,7 @@ export const Selection: _i_signatures._T_Selection = ($, $p) => ['verbose group'
     })])]),
 })]
 export const Type_Parameters: _i_signatures._T_Type_Parameters = ($, $p) => ['dictionary', $.map(($) => ['nothing', null])]
-export const Variables: _i_signatures._T_Variables = ($, $p) => ['dictionary', $.map(($) => ['verbose group', _pa.dictionary_literal({
+export const Variables: _i_signatures._T_Variables = ($, $p) => ['dictionary', $.map(($) => ['verbose group', _pa.dictionary.literal({
     'initialization': _pa.cc($['initialization'], ($) => Initialization(
         $,
         {

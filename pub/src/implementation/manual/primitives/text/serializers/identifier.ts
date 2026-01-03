@@ -81,18 +81,18 @@ export const $$ = ($: string[]): string => {
         "object": null,
         "never": null,
     })
-    if (reserved_keywords.get_entry(the_string).transform(
+    if (reserved_keywords.get_possible_entry(the_string).transform(
         () => true,
         () => false,
     )) {
-        return _p.build_text(($i) => {
+        return _p.text.build(($i) => {
             $i['add snippet']("_")
             $i['add snippet'](the_string)
         })
     }
 
-    return _p.build_text(($i) => {
-        const characters = _pinternals.text_to_character_list(the_string)
+    return _p.text.build(($i) => {
+        const characters = _pinternals.list_from_text(the_string, ($) => $)
         const length = characters.get_number_of_elements()
 
         let position = 0
@@ -105,7 +105,7 @@ export const $$ = ($: string[]): string => {
             if (position === length) {
                 return null
             }
-            return characters.__get_element_at(position).transform(
+            return characters.__get_possible_element_at(position).transform(
                 ($) => $,
                 () => null
             )
