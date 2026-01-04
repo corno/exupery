@@ -61,9 +61,7 @@ export namespace sub {
     ): d_out.Type.SG.component.sub_selection.L<_pi.Deprecated_Source_Location> => {
         return _psh.wrap_state_group(['group', name])
     }
-    export const optional = (): d_out.Type.SG.component.sub_selection.L<_pi.Deprecated_Source_Location> => {
-        return _psh.wrap_state_group(['optional', null])
-    }
+    export const optional = (): d_out.Type.SG.component.sub_selection.L<_pi.Deprecated_Source_Location> => _psh.wrap_state_group(['optional', null])
 }
 
 export namespace t {
