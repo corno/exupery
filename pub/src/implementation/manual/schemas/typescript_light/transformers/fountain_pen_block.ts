@@ -17,7 +17,7 @@ export const Group = ($: d_in.Group): d_out_fp.Group => {
 }
 
 export const Group_Part = ($: d_in.Group_Part): d_out_fp.Group_Part => {
-    return _p.cc($, ($): d_out_fp.Group_Part => {
+    return _p.sg($, ($): d_out_fp.Group_Part => {
         switch ($[0]) {
             case 'block': return _p.ss($, ($) => ['block', $])
             case 'nothing': return _p.ss($, ($) => ['nothing', null])
@@ -38,7 +38,7 @@ export const Block = (
 export const Block_Part = (
     $: d_in.Block_Part
 ): d_out_fp.Block_Part => {
-    return _p.cc($, ($): d_out_fp.Block_Part => {
+    return _p.sg($, ($): d_out_fp.Block_Part => {
         switch ($[0]) {
             case 'snippet': return _p.ss($, ($) => sh.b.snippet($))
             case 'nothing': return _p.ss($, ($) => ['nothing', null])
@@ -71,15 +71,15 @@ export const Statements = (
         'replace empty type literals by null': boolean
     }
 ): d_out_fp.Group_Part => sh.g.sub($.map(($) => sh.g.nested_block([
-    _p.cc($, ($) => {
+    _p.sg($, ($) => {
         switch ($[0]) {
             case 'import': return _p.ss($, ($) => sh.b.sub([
                 sh.b.snippet("import "),
-                _p.cc($.type, ($) => {
+                _p.sg($.type, ($) => {
                     switch ($[0]) {
                         case 'named': return _p.ss($, ($) => sh.b.sub([
                             sh.b.snippet("{ "),
-                            sh.b.sub($.specifiers.to_list(($, key) => sh.b.sub([
+                            sh.b.list(_p.list.from_dictionary($.specifiers, ($, key) => sh.b.sub([
                                 Identifier(key),
                                 sh.b.snippet(", ")
                             ]))),
@@ -107,7 +107,7 @@ export const Statements = (
                 $.export ? sh.b.snippet("export ") : sh.b.nothing(),
                 sh.b.snippet("type "),
                 Identifier($['name']),
-                $['parameters'].is_empty()
+                _p.boolean.list_is_empty($['parameters'])
                     ? sh.b.nothing()
                     : sh.b.sub([
                         sh.b.snippet("<"),
@@ -149,7 +149,7 @@ export const Expression = (
     $p: {
         'replace empty type literals by null': boolean
     }
-): d_out_fp.Block_Part => _p.cc($, ($) => {
+): d_out_fp.Block_Part => _p.sg($, ($) => {
     switch ($[0]) {
         case 'array literal': return _p.ss($, ($) => sh.b.sub([
             sh.b.snippet("["),
@@ -185,7 +185,7 @@ export const Expression = (
                 () => sh.b.nothing(),
             ),
             sh.b.snippet(" => "),
-            _p.cc($.type, ($) => {
+            _p.sg($.type, ($) => {
                 switch ($[0]) {
                     case 'block': return _p.ss($, ($) => sh.b.sub([
                         sh.b.snippet("{"),
@@ -216,7 +216,7 @@ export const Expression = (
         case 'object literal': return _p.ss($, ($) => sh.b.sub([
             sh.b.snippet("{"),
             sh.b.indent([
-                sh.g.sub($.properties.to_list(($, key) => sh.g.nested_block([
+                sh.g.sub(_p.list.from_dictionary($.properties, ($, key) => sh.g.nested_block([
                     String_Literal(key, { 'delimiter': "apostrophe" }),
                     sh.b.snippet(": "),
                     Expression($, $p),
@@ -238,11 +238,11 @@ export const Type = (
     $p: {
         'replace empty type literals by null': boolean
     }
-): d_out_fp.Block_Part => _p.cc($, ($) => {
+): d_out_fp.Block_Part => _p.sg($, ($) => {
     switch ($[0]) {
         case 'boolean': return _p.ss($, ($) => sh.b.snippet("boolean"))
         case 'function': return _p.ss($, ($) => sh.b.sub([
-            $['type parameters'].is_empty()
+            _p.boolean.list_is_empty($['type parameters'])
                 ? sh.b.nothing()
                 : sh.b.sub([
                     sh.b.snippet("<"),
@@ -283,12 +283,12 @@ export const Type = (
             ]))),
             sh.b.snippet("]"),
         ]))
-        case 'type literal': return _p.ss($, ($) => $p['replace empty type literals by null'] && $.properties.is_empty()
+        case 'type literal': return _p.ss($, ($) => $p['replace empty type literals by null'] && _p.boolean.dictionary_is_empty($.properties)
             ? sh.b.snippet("null")
             : sh.b.sub([
                 sh.b.snippet("{"),
                 sh.b.indent([
-                    sh.g.sub($.properties.to_list(($, key) => sh.g.sub([
+                    sh.g.sub(_p.list.from_dictionary($.properties, ($, key) => sh.g.sub([
                         sh.g.nested_block([
                             $['readonly'] ? sh.b.snippet("readonly ") : sh.b.nothing(),
                             String_Literal(key, { 'delimiter': "apostrophe" }),
@@ -306,7 +306,7 @@ export const Type = (
                 sh.b.snippet("."),
                 Identifier($),
             ]))),
-            $['type arguments'].is_empty()
+            _p.boolean.list_is_empty($['type arguments'])
                 ? sh.b.nothing()
                 : sh.b.sub([
                     sh.b.snippet("<"),

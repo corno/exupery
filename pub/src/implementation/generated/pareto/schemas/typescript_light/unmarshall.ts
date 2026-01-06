@@ -99,7 +99,7 @@ export const Expression: _i_signatures._T_Expression = ($, $p) => _i_generic.pro
                 $,
                 {
                     'properties': ($) => ({
-                        'parameters': _pa.cc(_i_generic.get_entry(
+                        'parameters': _pa.deprecated_cc(_i_generic.get_entry(
                             $,
                             {
                                 'key': "parameters",
@@ -111,7 +111,7 @@ export const Expression: _i_signatures._T_Expression = ($, $p) => _i_generic.pro
                                     $,
                                     {
                                         'properties': ($) => ({
-                                            'name': _pa.cc(_i_generic.get_entry(
+                                            'name': _pa.deprecated_cc(_i_generic.get_entry(
                                                 $,
                                                 {
                                                     'key': "name",
@@ -120,7 +120,7 @@ export const Expression: _i_signatures._T_Expression = ($, $p) => _i_generic.pro
                                                 $,
                                                 null
                                             )),
-                                            'type': _pa.cc(_i_generic.get_entry(
+                                            'type': _pa.deprecated_cc(_i_generic.get_entry(
                                                 $,
                                                 {
                                                     'key': "type",
@@ -141,7 +141,7 @@ export const Expression: _i_signatures._T_Expression = ($, $p) => _i_generic.pro
                                 ),
                             }
                         )),
-                        'return type': _pa.cc(_i_generic.get_entry(
+                        'return type': _pa.deprecated_cc(_i_generic.get_entry(
                             $,
                             {
                                 'key': "return type",
@@ -157,7 +157,7 @@ export const Expression: _i_signatures._T_Expression = ($, $p) => _i_generic.pro
                                 ),
                             }
                         )),
-                        'type': _pa.cc(_i_generic.get_entry(
+                        'type': _pa.deprecated_cc(_i_generic.get_entry(
                             $,
                             {
                                 'key': "type",
@@ -188,7 +188,7 @@ export const Expression: _i_signatures._T_Expression = ($, $p) => _i_generic.pro
                 $,
                 {
                     'properties': ($) => ({
-                        'arguments': _pa.cc(_i_generic.get_entry(
+                        'arguments': _pa.deprecated_cc(_i_generic.get_entry(
                             $,
                             {
                                 'key': "arguments",
@@ -204,7 +204,7 @@ export const Expression: _i_signatures._T_Expression = ($, $p) => _i_generic.pro
                                 ),
                             }
                         )),
-                        'function selection': _pa.cc(_i_generic.get_entry(
+                        'function selection': _pa.deprecated_cc(_i_generic.get_entry(
                             $,
                             {
                                 'key': "function selection",
@@ -236,7 +236,7 @@ export const Expression: _i_signatures._T_Expression = ($, $p) => _i_generic.pro
                 $,
                 {
                     'properties': ($) => ({
-                        'properties': _pa.cc(_i_generic.get_entry(
+                        'properties': _pa.deprecated_cc(_i_generic.get_entry(
                             $,
                             {
                                 'key': "properties",
@@ -324,7 +324,7 @@ export const Lines: _i_signatures._T_Lines = ($, $p) => _i_generic.process_uncon
             $,
             {
                 'properties': ($) => ({
-                    'indentation': _pa.cc(_i_generic.get_entry(
+                    'indentation': _pa.deprecated_cc(_i_generic.get_entry(
                         $,
                         {
                             'key': "indentation",
@@ -335,7 +335,7 @@ export const Lines: _i_signatures._T_Lines = ($, $p) => _i_generic.process_uncon
                             'deserializer': $p['value deserializers']['default number'],
                         }
                     )),
-                    'text': _pa.cc(_i_generic.get_entry(
+                    'text': _pa.deprecated_cc(_i_generic.get_entry(
                         $,
                         {
                             'key': "text",
@@ -360,7 +360,7 @@ export const Statements: _i_signatures._T_Statements = ($, $p) => _i_generic.pro
                         $,
                         {
                             'properties': ($) => ({
-                                'from': _pa.cc(_i_generic.get_entry(
+                                'from': _pa.deprecated_cc(_i_generic.get_entry(
                                     $,
                                     {
                                         'key': "from",
@@ -369,7 +369,7 @@ export const Statements: _i_signatures._T_Statements = ($, $p) => _i_generic.pro
                                     $,
                                     null
                                 )),
-                                'type': _pa.cc(_i_generic.get_entry(
+                                'type': _pa.deprecated_cc(_i_generic.get_entry(
                                     $,
                                     {
                                         'key': "type",
@@ -382,7 +382,7 @@ export const Statements: _i_signatures._T_Statements = ($, $p) => _i_generic.pro
                                                 $,
                                                 {
                                                     'properties': ($) => ({
-                                                        'specifiers': _pa.cc(_i_generic.get_entry(
+                                                        'specifiers': _pa.deprecated_cc(_i_generic.get_entry(
                                                             $,
                                                             {
                                                                 'key': "specifiers",
@@ -413,7 +413,7 @@ export const Statements: _i_signatures._T_Statements = ($, $p) => _i_generic.pro
                         $,
                         {
                             'properties': ($) => ({
-                                'block': _pa.cc(_i_generic.get_entry(
+                                'block': _pa.deprecated_cc(_i_generic.get_entry(
                                     $,
                                     {
                                         'key': "block",
@@ -424,7 +424,7 @@ export const Statements: _i_signatures._T_Statements = ($, $p) => _i_generic.pro
                                         'value deserializers': $p['value deserializers'],
                                     }
                                 )),
-                                'export': _pa.cc(_i_generic.get_entry(
+                                'export': _pa.deprecated_cc(_i_generic.get_entry(
                                     $,
                                     {
                                         'key': "export",
@@ -435,7 +435,7 @@ export const Statements: _i_signatures._T_Statements = ($, $p) => _i_generic.pro
                                         'deserializer': $p['value deserializers']['boolean'],
                                     }
                                 )),
-                                'name': _pa.cc(_i_generic.get_entry(
+                                'name': _pa.deprecated_cc(_i_generic.get_entry(
                                     $,
                                     {
                                         'key': "name",
@@ -451,7 +451,7 @@ export const Statements: _i_signatures._T_Statements = ($, $p) => _i_generic.pro
                         $,
                         {
                             'properties': ($) => ({
-                                'export': _pa.cc(_i_generic.get_entry(
+                                'export': _pa.deprecated_cc(_i_generic.get_entry(
                                     $,
                                     {
                                         'key': "export",
@@ -462,7 +462,7 @@ export const Statements: _i_signatures._T_Statements = ($, $p) => _i_generic.pro
                                         'deserializer': $p['value deserializers']['boolean'],
                                     }
                                 )),
-                                'name': _pa.cc(_i_generic.get_entry(
+                                'name': _pa.deprecated_cc(_i_generic.get_entry(
                                     $,
                                     {
                                         'key': "name",
@@ -471,7 +471,7 @@ export const Statements: _i_signatures._T_Statements = ($, $p) => _i_generic.pro
                                     $,
                                     null
                                 )),
-                                'parameters': _pa.cc(_i_generic.get_entry(
+                                'parameters': _pa.deprecated_cc(_i_generic.get_entry(
                                     $,
                                     {
                                         'key': "parameters",
@@ -485,7 +485,7 @@ export const Statements: _i_signatures._T_Statements = ($, $p) => _i_generic.pro
                                         ),
                                     }
                                 )),
-                                'type': _pa.cc(_i_generic.get_entry(
+                                'type': _pa.deprecated_cc(_i_generic.get_entry(
                                     $,
                                     {
                                         'key': "type",
@@ -503,7 +503,7 @@ export const Statements: _i_signatures._T_Statements = ($, $p) => _i_generic.pro
                         $,
                         {
                             'properties': ($) => ({
-                                'const': _pa.cc(_i_generic.get_entry(
+                                'const': _pa.deprecated_cc(_i_generic.get_entry(
                                     $,
                                     {
                                         'key': "const",
@@ -514,7 +514,7 @@ export const Statements: _i_signatures._T_Statements = ($, $p) => _i_generic.pro
                                         'deserializer': $p['value deserializers']['boolean'],
                                     }
                                 )),
-                                'export': _pa.cc(_i_generic.get_entry(
+                                'export': _pa.deprecated_cc(_i_generic.get_entry(
                                     $,
                                     {
                                         'key': "export",
@@ -525,7 +525,7 @@ export const Statements: _i_signatures._T_Statements = ($, $p) => _i_generic.pro
                                         'deserializer': $p['value deserializers']['boolean'],
                                     }
                                 )),
-                                'expression': _pa.cc(_i_generic.get_entry(
+                                'expression': _pa.deprecated_cc(_i_generic.get_entry(
                                     $,
                                     {
                                         'key': "expression",
@@ -541,7 +541,7 @@ export const Statements: _i_signatures._T_Statements = ($, $p) => _i_generic.pro
                                         ),
                                     }
                                 )),
-                                'name': _pa.cc(_i_generic.get_entry(
+                                'name': _pa.deprecated_cc(_i_generic.get_entry(
                                     $,
                                     {
                                         'key': "name",
@@ -550,7 +550,7 @@ export const Statements: _i_signatures._T_Statements = ($, $p) => _i_generic.pro
                                     $,
                                     null
                                 )),
-                                'type': _pa.cc(_i_generic.get_entry(
+                                'type': _pa.deprecated_cc(_i_generic.get_entry(
                                     $,
                                     {
                                         'key': "type",
@@ -578,7 +578,7 @@ export const String_Literal: _i_signatures._T_String_Literal = ($, $p) => _i_gen
     $,
     {
         'properties': ($) => ({
-            'delimiter': _pa.cc(_i_generic.get_entry(
+            'delimiter': _pa.deprecated_cc(_i_generic.get_entry(
                 $,
                 {
                     'key': "delimiter",
@@ -598,7 +598,7 @@ export const String_Literal: _i_signatures._T_String_Literal = ($, $p) => _i_gen
                     }),
                 }
             )),
-            'value': _pa.cc(_i_generic.get_entry(
+            'value': _pa.deprecated_cc(_i_generic.get_entry(
                 $,
                 {
                     'key': "value",
@@ -622,7 +622,7 @@ export const Type: _i_signatures._T_Type = ($, $p) => _i_generic.process_unconst
                 $,
                 {
                     'properties': ($) => ({
-                        'parameters': _pa.cc(_i_generic.get_entry(
+                        'parameters': _pa.deprecated_cc(_i_generic.get_entry(
                             $,
                             {
                                 'key': "parameters",
@@ -634,7 +634,7 @@ export const Type: _i_signatures._T_Type = ($, $p) => _i_generic.process_unconst
                                     $,
                                     {
                                         'properties': ($) => ({
-                                            'name': _pa.cc(_i_generic.get_entry(
+                                            'name': _pa.deprecated_cc(_i_generic.get_entry(
                                                 $,
                                                 {
                                                     'key': "name",
@@ -643,7 +643,7 @@ export const Type: _i_signatures._T_Type = ($, $p) => _i_generic.process_unconst
                                                 $,
                                                 null
                                             )),
-                                            'type': _pa.cc(_i_generic.get_entry(
+                                            'type': _pa.deprecated_cc(_i_generic.get_entry(
                                                 $,
                                                 {
                                                     'key': "type",
@@ -664,7 +664,7 @@ export const Type: _i_signatures._T_Type = ($, $p) => _i_generic.process_unconst
                                 ),
                             }
                         )),
-                        'return': _pa.cc(_i_generic.get_entry(
+                        'return': _pa.deprecated_cc(_i_generic.get_entry(
                             $,
                             {
                                 'key': "return",
@@ -675,7 +675,7 @@ export const Type: _i_signatures._T_Type = ($, $p) => _i_generic.process_unconst
                                 'value deserializers': $p['value deserializers'],
                             }
                         )),
-                        'type parameters': _pa.cc(_i_generic.get_entry(
+                        'type parameters': _pa.deprecated_cc(_i_generic.get_entry(
                             $,
                             {
                                 'key': "type parameters",
@@ -714,7 +714,7 @@ export const Type: _i_signatures._T_Type = ($, $p) => _i_generic.process_unconst
                 $,
                 {
                     'properties': ($) => ({
-                        'elements': _pa.cc(_i_generic.get_entry(
+                        'elements': _pa.deprecated_cc(_i_generic.get_entry(
                             $,
                             {
                                 'key': "elements",
@@ -730,7 +730,7 @@ export const Type: _i_signatures._T_Type = ($, $p) => _i_generic.process_unconst
                                 ),
                             }
                         )),
-                        'readonly': _pa.cc(_i_generic.get_entry(
+                        'readonly': _pa.deprecated_cc(_i_generic.get_entry(
                             $,
                             {
                                 'key': "readonly",
@@ -748,7 +748,7 @@ export const Type: _i_signatures._T_Type = ($, $p) => _i_generic.process_unconst
                 $,
                 {
                     'properties': ($) => ({
-                        'properties': _pa.cc(_i_generic.get_entry(
+                        'properties': _pa.deprecated_cc(_i_generic.get_entry(
                             $,
                             {
                                 'key': "properties",
@@ -760,7 +760,7 @@ export const Type: _i_signatures._T_Type = ($, $p) => _i_generic.process_unconst
                                     $,
                                     {
                                         'properties': ($) => ({
-                                            'readonly': _pa.cc(_i_generic.get_entry(
+                                            'readonly': _pa.deprecated_cc(_i_generic.get_entry(
                                                 $,
                                                 {
                                                     'key': "readonly",
@@ -771,7 +771,7 @@ export const Type: _i_signatures._T_Type = ($, $p) => _i_generic.process_unconst
                                                     'deserializer': $p['value deserializers']['boolean'],
                                                 }
                                             )),
-                                            'type': _pa.cc(_i_generic.get_entry(
+                                            'type': _pa.deprecated_cc(_i_generic.get_entry(
                                                 $,
                                                 {
                                                     'key': "type",
@@ -794,7 +794,7 @@ export const Type: _i_signatures._T_Type = ($, $p) => _i_generic.process_unconst
                 $,
                 {
                     'properties': ($) => ({
-                        'start': _pa.cc(_i_generic.get_entry(
+                        'start': _pa.deprecated_cc(_i_generic.get_entry(
                             $,
                             {
                                 'key': "start",
@@ -803,7 +803,7 @@ export const Type: _i_signatures._T_Type = ($, $p) => _i_generic.process_unconst
                             $,
                             null
                         )),
-                        'tail': _pa.cc(_i_generic.get_entry(
+                        'tail': _pa.deprecated_cc(_i_generic.get_entry(
                             $,
                             {
                                 'key': "tail",
@@ -817,7 +817,7 @@ export const Type: _i_signatures._T_Type = ($, $p) => _i_generic.process_unconst
                                 ),
                             }
                         )),
-                        'type arguments': _pa.cc(_i_generic.get_entry(
+                        'type arguments': _pa.deprecated_cc(_i_generic.get_entry(
                             $,
                             {
                                 'key': "type arguments",

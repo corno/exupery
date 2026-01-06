@@ -1,20 +1,20 @@
 import * as _pa from 'pareto-core-refiner'
 import * as _pd from 'pareto-core-dev'
 
-import * as _i_generic from 'pareto-core-refiner/dist/resolve'
+import * as _i_generic from 'pareto-core-internals/dist/algorithm_types/refiner/resolve'
 import * as _i_out from "../../../../../interface/generated/pareto/schemas/implementation/data_types/source"
 import * as _i_r_interface from "../interface/resolve"
 import * as _i_signatures from "../../../../../interface/generated/pareto/schemas/implementation/data_types/resolve"
 
 
-export const r_Initialization: _i_signatures._T_Initialization = ($, $p) => _pa.block(() => {
+export const r_Initialization: _i_signatures._T_Initialization = ($, $p) => _pa.deprecated_block(() => {
     const l2s = $p['location 2 string']
     const params = $p['parameters']
-    return _pa.cc($['state group'], ($): _i_out._T_Initialization => {
+    return _pa.deprecated_cc($['state group'], ($): _i_out._T_Initialization => {
         switch ($[0]) {
-            case 'block': return _pa.ss($, ($) => ['block', _pa.block(() => {
-                return _pa.block(() => {
-                    const p_variables: _i_out._T_Initialization.SG.block.variables = _pa.cc($['variables'], ($) => r_Variables(
+            case 'block': return _pa.ss($, ($) => ['block', _pa.deprecated_block(() => {
+                return _pa.deprecated_block(() => {
+                    const p_variables: _i_out._T_Initialization.SG.block.variables = _pa.deprecated_cc($['variables'], ($) => r_Variables(
                         $,
                         {
                             'location 2 string': l2s,
@@ -24,9 +24,9 @@ export const r_Initialization: _i_signatures._T_Initialization = ($, $p) => _pa.
                             }),
                         }
                     ))
-                    const p_temp_ordered_variables: _i_out._T_Initialization.SG.block.temp_ordered_variables = _pa.cc($['temp ordered variables'], ($) => $['list'].map(($) => _pa.cc($['element'], ($) => _pa.block(() => {
-                        const p_name: _i_out._T_Initialization.SG.block.temp_ordered_variables.L.name = _pa.cc($['name'], ($) => $)
-                        const p_type: _i_out._T_Initialization.SG.block.temp_ordered_variables.L._type = _pa.cc($['type'], ($) => $.map(($) => _pa.block(() => {
+                    const p_temp_ordered_variables: _i_out._T_Initialization.SG.block.temp_ordered_variables = _pa.deprecated_cc($['temp ordered variables'], ($) => $['list'].map(($) => _pa.deprecated_cc($['element'], ($) => _pa.deprecated_block(() => {
+                        const p_name: _i_out._T_Initialization.SG.block.temp_ordered_variables.L.name = _pa.deprecated_cc($['name'], ($) => $)
+                        const p_type: _i_out._T_Initialization.SG.block.temp_ordered_variables.L._type = _pa.deprecated_cc($['type'], ($) => $.map(($) => _pa.deprecated_block(() => {
                             return _i_r_interface.r_Type(
                                 $,
                                 {
@@ -38,7 +38,7 @@ export const r_Initialization: _i_signatures._T_Initialization = ($, $p) => _pa.
                                 }
                             )
                         })))
-                        const p_initialization: _i_out._T_Initialization.SG.block.temp_ordered_variables.L.initialization = _pa.cc($['initialization'], ($) => r_Initialization(
+                        const p_initialization: _i_out._T_Initialization.SG.block.temp_ordered_variables.L.initialization = _pa.deprecated_cc($['initialization'], ($) => r_Initialization(
                             $,
                             {
                                 'location 2 string': l2s,
@@ -54,7 +54,7 @@ export const r_Initialization: _i_signatures._T_Initialization = ($, $p) => _pa.
                             'type': p_type,
                         })
                     }))))
-                    const p_initialization: _i_out._T_Initialization.SG.block.initialization = _pa.cc($['initialization'], ($) => r_Initialization(
+                    const p_initialization: _i_out._T_Initialization.SG.block.initialization = _pa.deprecated_cc($['initialization'], ($) => r_Initialization(
                         $,
                         {
                             'location 2 string': l2s,
@@ -71,9 +71,9 @@ export const r_Initialization: _i_signatures._T_Initialization = ($, $p) => _pa.
                     })
                 })
             })])
-            case 'change context': return _pa.ss($, ($) => ['change context', _pa.block(() => {
-                return _pa.block(() => {
-                    const p_new_context: _i_out._T_Initialization.SG.change_context.new_context = _pa.cc($['new context'], ($) => r_Selection(
+            case 'change context': return _pa.ss($, ($) => ['change context', _pa.deprecated_block(() => {
+                return _pa.deprecated_block(() => {
+                    const p_new_context: _i_out._T_Initialization.SG.change_context.new_context = _pa.deprecated_cc($['new context'], ($) => r_Selection(
                         $,
                         {
                             'location 2 string': l2s,
@@ -83,7 +83,7 @@ export const r_Initialization: _i_signatures._T_Initialization = ($, $p) => _pa.
                             }),
                         }
                     ))
-                    const p_initialization: _i_out._T_Initialization.SG.change_context.initialization = _pa.cc($['initialization'], ($) => r_Initialization(
+                    const p_initialization: _i_out._T_Initialization.SG.change_context.initialization = _pa.deprecated_cc($['initialization'], ($) => r_Initialization(
                         $,
                         {
                             'location 2 string': l2s,
@@ -99,9 +99,9 @@ export const r_Initialization: _i_signatures._T_Initialization = ($, $p) => _pa.
                     })
                 })
             })])
-            case 'literal': return _pa.ss($, ($) => ['literal', _pa.block(() => {
-                return _pa.block(() => {
-                    const p_value: _i_out._T_Initialization.SG.literal.value = _pa.cc($['value'], ($) => r_Literal(
+            case 'literal': return _pa.ss($, ($) => ['literal', _pa.deprecated_block(() => {
+                return _pa.deprecated_block(() => {
+                    const p_value: _i_out._T_Initialization.SG.literal.value = _pa.deprecated_cc($['value'], ($) => r_Literal(
                         $,
                         {
                             'location 2 string': l2s,
@@ -116,7 +116,7 @@ export const r_Initialization: _i_signatures._T_Initialization = ($, $p) => _pa.
                     })
                 })
             })])
-            case 'selection': return _pa.ss($, ($) => ['selection', _pa.block(() => {
+            case 'selection': return _pa.ss($, ($) => ['selection', _pa.deprecated_block(() => {
                 return r_Selection(
                     $,
                     {
@@ -128,9 +128,9 @@ export const r_Initialization: _i_signatures._T_Initialization = ($, $p) => _pa.
                     }
                 )
             })])
-            case 'transformation': return _pa.ss($, ($) => ['transformation', _pa.block(() => {
-                return _pa.block(() => {
-                    const p_source: _i_out._T_Initialization.SG.transformation.source = _pa.cc($['source'], ($) => r_Selection(
+            case 'transformation': return _pa.ss($, ($) => ['transformation', _pa.deprecated_block(() => {
+                return _pa.deprecated_block(() => {
+                    const p_source: _i_out._T_Initialization.SG.transformation.source = _pa.deprecated_cc($['source'], ($) => r_Selection(
                         $,
                         {
                             'location 2 string': l2s,
@@ -140,12 +140,12 @@ export const r_Initialization: _i_signatures._T_Initialization = ($, $p) => _pa.
                             }),
                         }
                     ))
-                    const p_type: _i_out._T_Initialization.SG.transformation._type = _pa.cc($['type'], ($) => _pa.cc($['state group'], ($): _i_out._T_Initialization.SG.transformation._type => {
+                    const p_type: _i_out._T_Initialization.SG.transformation._type = _pa.deprecated_cc($['type'], ($) => _pa.deprecated_cc($['state group'], ($): _i_out._T_Initialization.SG.transformation._type => {
                         switch ($[0]) {
-                            case 'array': return _pa.ss($, ($) => ['array', _pa.block(() => {
-                                return _pa.cc($['state group'], ($): _i_out._T_Initialization.SG.transformation._type.SG.array => {
+                            case 'array': return _pa.ss($, ($) => ['array', _pa.deprecated_block(() => {
+                                return _pa.deprecated_cc($['state group'], ($): _i_out._T_Initialization.SG.transformation._type.SG.array => {
                                     switch ($[0]) {
-                                        case 'map': return _pa.ss($, ($) => ['map', _pa.block(() => {
+                                        case 'map': return _pa.ss($, ($) => ['map', _pa.deprecated_block(() => {
                                             return r_Initialization(
                                                 $,
                                                 {
@@ -161,15 +161,15 @@ export const r_Initialization: _i_signatures._T_Initialization = ($, $p) => _pa.
                                     }
                                 })
                             })])
-                            case 'boolean': return _pa.ss($, ($) => ['boolean', _pa.block(() => {
-                                return _pa.cc($['state group'], ($): _i_out._T_Initialization.SG.transformation._type.SG._boolean => {
+                            case 'boolean': return _pa.ss($, ($) => ['boolean', _pa.deprecated_block(() => {
+                                return _pa.deprecated_cc($['state group'], ($): _i_out._T_Initialization.SG.transformation._type.SG._boolean => {
                                     switch ($[0]) {
-                                        case 'not': return _pa.ss($, ($) => ['not', _pa.block(() => {
+                                        case 'not': return _pa.ss($, ($) => ['not', _pa.deprecated_block(() => {
                                             return null
                                         })])
-                                        case 'transform': return _pa.ss($, ($) => ['transform', _pa.block(() => {
-                                            return _pa.block(() => {
-                                                const p_if_false: _i_out._T_Initialization.SG.transformation._type.SG._boolean.SG.transform.if_false = _pa.cc($['if false'], ($) => r_Initialization(
+                                        case 'transform': return _pa.ss($, ($) => ['transform', _pa.deprecated_block(() => {
+                                            return _pa.deprecated_block(() => {
+                                                const p_if_false: _i_out._T_Initialization.SG.transformation._type.SG._boolean.SG.transform.if_false = _pa.deprecated_cc($['if false'], ($) => r_Initialization(
                                                     $,
                                                     {
                                                         'location 2 string': l2s,
@@ -179,7 +179,7 @@ export const r_Initialization: _i_signatures._T_Initialization = ($, $p) => _pa.
                                                         }),
                                                     }
                                                 ))
-                                                const p_if_true: _i_out._T_Initialization.SG.transformation._type.SG._boolean.SG.transform.if_true = _pa.cc($['if true'], ($) => r_Initialization(
+                                                const p_if_true: _i_out._T_Initialization.SG.transformation._type.SG._boolean.SG.transform.if_true = _pa.deprecated_cc($['if true'], ($) => r_Initialization(
                                                     $,
                                                     {
                                                         'location 2 string': l2s,
@@ -199,10 +199,10 @@ export const r_Initialization: _i_signatures._T_Initialization = ($, $p) => _pa.
                                     }
                                 })
                             })])
-                            case 'dictionary': return _pa.ss($, ($) => ['dictionary', _pa.block(() => {
-                                return _pa.cc($['state group'], ($): _i_out._T_Initialization.SG.transformation._type.SG.dictionary => {
+                            case 'dictionary': return _pa.ss($, ($) => ['dictionary', _pa.deprecated_block(() => {
+                                return _pa.deprecated_cc($['state group'], ($): _i_out._T_Initialization.SG.transformation._type.SG.dictionary => {
                                     switch ($[0]) {
-                                        case 'map': return _pa.ss($, ($) => ['map', _pa.block(() => {
+                                        case 'map': return _pa.ss($, ($) => ['map', _pa.deprecated_block(() => {
                                             return r_Initialization(
                                                 $,
                                                 {
@@ -218,12 +218,12 @@ export const r_Initialization: _i_signatures._T_Initialization = ($, $p) => _pa.
                                     }
                                 })
                             })])
-                            case 'function': return _pa.ss($, ($) => ['function', _pa.block(() => {
-                                return _pa.cc($['state group'], ($): _i_out._T_Initialization.SG.transformation._type.SG._function => {
+                            case 'function': return _pa.ss($, ($) => ['function', _pa.deprecated_block(() => {
+                                return _pa.deprecated_cc($['state group'], ($): _i_out._T_Initialization.SG.transformation._type.SG._function => {
                                     switch ($[0]) {
-                                        case 'call': return _pa.ss($, ($) => ['call', _pa.block(() => {
-                                            return _pa.block(() => {
-                                                const p_context: _i_out._T_Initialization.SG.transformation._type.SG._function.SG.call.context = _pa.cc($['context'], ($) => r_Initialization(
+                                        case 'call': return _pa.ss($, ($) => ['call', _pa.deprecated_block(() => {
+                                            return _pa.deprecated_block(() => {
+                                                const p_context: _i_out._T_Initialization.SG.transformation._type.SG._function.SG.call.context = _pa.deprecated_cc($['context'], ($) => r_Initialization(
                                                     $,
                                                     {
                                                         'location 2 string': l2s,
@@ -233,14 +233,14 @@ export const r_Initialization: _i_signatures._T_Initialization = ($, $p) => _pa.
                                                         }),
                                                     }
                                                 ))
-                                                const p_arguments: _i_out._T_Initialization.SG.transformation._type.SG._function.SG.call._arguments = _pa.cc($['arguments'], ($) => $.map(($) => _pa.block(() => {
-                                                    return _pa.block(() => {
+                                                const p_arguments: _i_out._T_Initialization.SG.transformation._type.SG._function.SG.call._arguments = _pa.deprecated_cc($['arguments'], ($) => $.map(($) => _pa.deprecated_block(() => {
+                                                    return _pa.deprecated_block(() => {
                                                         return _i_generic.resolve_dictionary(
                                                             $,
                                                             {
                                                                 'location 2 string': l2s,
-                                                                'map': ($, $p) => _pa.block(() => {
-                                                                    return _pa.cc($['value'], ($) => r_Initialization(
+                                                                'map': ($, $p) => _pa.deprecated_block(() => {
+                                                                    return _pa.deprecated_cc($['value'], ($) => r_Initialization(
                                                                         $,
                                                                         {
                                                                             'location 2 string': l2s,
@@ -265,10 +265,10 @@ export const r_Initialization: _i_signatures._T_Initialization = ($, $p) => _pa.
                                     }
                                 })
                             })])
-                            case 'optional': return _pa.ss($, ($) => ['optional', _pa.block(() => {
-                                return _pa.cc($['state group'], ($): _i_out._T_Initialization.SG.transformation._type.SG.optional => {
+                            case 'optional': return _pa.ss($, ($) => ['optional', _pa.deprecated_block(() => {
+                                return _pa.deprecated_cc($['state group'], ($): _i_out._T_Initialization.SG.transformation._type.SG.optional => {
                                     switch ($[0]) {
-                                        case 'map': return _pa.ss($, ($) => ['map', _pa.block(() => {
+                                        case 'map': return _pa.ss($, ($) => ['map', _pa.deprecated_block(() => {
                                             return r_Initialization(
                                                 $,
                                                 {
@@ -280,9 +280,9 @@ export const r_Initialization: _i_signatures._T_Initialization = ($, $p) => _pa.
                                                 }
                                             )
                                         })])
-                                        case 'transform': return _pa.ss($, ($) => ['transform', _pa.block(() => {
-                                            return _pa.block(() => {
-                                                const p_if_not_set: _i_out._T_Initialization.SG.transformation._type.SG.optional.SG.transform.if_not_set = _pa.cc($['if not set'], ($) => r_Initialization(
+                                        case 'transform': return _pa.ss($, ($) => ['transform', _pa.deprecated_block(() => {
+                                            return _pa.deprecated_block(() => {
+                                                const p_if_not_set: _i_out._T_Initialization.SG.transformation._type.SG.optional.SG.transform.if_not_set = _pa.deprecated_cc($['if not set'], ($) => r_Initialization(
                                                     $,
                                                     {
                                                         'location 2 string': l2s,
@@ -292,7 +292,7 @@ export const r_Initialization: _i_signatures._T_Initialization = ($, $p) => _pa.
                                                         }),
                                                     }
                                                 ))
-                                                const p_if_set: _i_out._T_Initialization.SG.transformation._type.SG.optional.SG.transform.if_set = _pa.cc($['if set'], ($) => r_Initialization(
+                                                const p_if_set: _i_out._T_Initialization.SG.transformation._type.SG.optional.SG.transform.if_set = _pa.deprecated_cc($['if set'], ($) => r_Initialization(
                                                     $,
                                                     {
                                                         'location 2 string': l2s,
@@ -302,7 +302,7 @@ export const r_Initialization: _i_signatures._T_Initialization = ($, $p) => _pa.
                                                         }),
                                                     }
                                                 ))
-                                                const p_temp_resulting_node: _i_out._T_Initialization.SG.transformation._type.SG.optional.SG.transform.temp_resulting_node = _pa.cc($['temp resulting node'], ($) => $.map(($) => _pa.block(() => {
+                                                const p_temp_resulting_node: _i_out._T_Initialization.SG.transformation._type.SG.optional.SG.transform.temp_resulting_node = _pa.deprecated_cc($['temp resulting node'], ($) => $.map(($) => _pa.deprecated_block(() => {
                                                     return _i_r_interface.r_Type(
                                                         $,
                                                         {
@@ -325,12 +325,12 @@ export const r_Initialization: _i_signatures._T_Initialization = ($, $p) => _pa.
                                     }
                                 })
                             })])
-                            case 'tagged union': return _pa.ss($, ($) => ['tagged union', _pa.block(() => {
-                                return _pa.cc($['state group'], ($): _i_out._T_Initialization.SG.transformation._type.SG.tagged_union => {
+                            case 'tagged union': return _pa.ss($, ($) => ['tagged union', _pa.deprecated_block(() => {
+                                return _pa.deprecated_cc($['state group'], ($): _i_out._T_Initialization.SG.transformation._type.SG.tagged_union => {
                                     switch ($[0]) {
-                                        case 'switch': return _pa.ss($, ($) => ['switch', _pa.block(() => {
-                                            return _pa.block(() => {
-                                                const p_temp_resulting_node: _i_out._T_Initialization.SG.transformation._type.SG.tagged_union.SG._switch.temp_resulting_node = _pa.cc($['temp resulting node'], ($) => $.map(($) => _pa.block(() => {
+                                        case 'switch': return _pa.ss($, ($) => ['switch', _pa.deprecated_block(() => {
+                                            return _pa.deprecated_block(() => {
+                                                const p_temp_resulting_node: _i_out._T_Initialization.SG.transformation._type.SG.tagged_union.SG._switch.temp_resulting_node = _pa.deprecated_cc($['temp resulting node'], ($) => $.map(($) => _pa.deprecated_block(() => {
                                                     return _i_r_interface.r_Type(
                                                         $,
                                                         {
@@ -342,17 +342,17 @@ export const r_Initialization: _i_signatures._T_Initialization = ($, $p) => _pa.
                                                         }
                                                     )
                                                 })))
-                                                const p_type: _i_out._T_Initialization.SG.transformation._type.SG.tagged_union.SG._switch._type = _pa.cc($['type'], ($) => _pa.cc($['state group'], ($): _i_out._T_Initialization.SG.transformation._type.SG.tagged_union.SG._switch._type => {
+                                                const p_type: _i_out._T_Initialization.SG.transformation._type.SG.tagged_union.SG._switch._type = _pa.deprecated_cc($['type'], ($) => _pa.deprecated_cc($['state group'], ($): _i_out._T_Initialization.SG.transformation._type.SG.tagged_union.SG._switch._type => {
                                                     switch ($[0]) {
-                                                        case 'full': return _pa.ss($, ($) => ['full', _pa.block(() => {
-                                                            return _pa.block(() => {
-                                                                const p_cases: _i_out._T_Initialization.SG.transformation._type.SG.tagged_union.SG._switch._type.SG.full.cases = _pa.cc($['cases'], ($) => _pa.block(() => {
+                                                        case 'full': return _pa.ss($, ($) => ['full', _pa.deprecated_block(() => {
+                                                            return _pa.deprecated_block(() => {
+                                                                const p_cases: _i_out._T_Initialization.SG.transformation._type.SG.tagged_union.SG._switch._type.SG.full.cases = _pa.deprecated_cc($['cases'], ($) => _pa.deprecated_block(() => {
                                                                     return _i_generic.resolve_dictionary(
                                                                         $,
                                                                         {
                                                                             'location 2 string': l2s,
-                                                                            'map': ($, $p) => _pa.block(() => {
-                                                                                return _pa.cc($['value'], ($) => r_Initialization(
+                                                                            'map': ($, $p) => _pa.deprecated_block(() => {
+                                                                                return _pa.deprecated_cc($['value'], ($) => r_Initialization(
                                                                                     $,
                                                                                     {
                                                                                         'location 2 string': l2s,
@@ -371,15 +371,15 @@ export const r_Initialization: _i_signatures._T_Initialization = ($, $p) => _pa.
                                                                 })
                                                             })
                                                         })])
-                                                        case 'partial': return _pa.ss($, ($) => ['partial', _pa.block(() => {
-                                                            return _pa.block(() => {
-                                                                const p_cases: _i_out._T_Initialization.SG.transformation._type.SG.tagged_union.SG._switch._type.SG.partial.cases = _pa.cc($['cases'], ($) => _pa.block(() => {
+                                                        case 'partial': return _pa.ss($, ($) => ['partial', _pa.deprecated_block(() => {
+                                                            return _pa.deprecated_block(() => {
+                                                                const p_cases: _i_out._T_Initialization.SG.transformation._type.SG.tagged_union.SG._switch._type.SG.partial.cases = _pa.deprecated_cc($['cases'], ($) => _pa.deprecated_block(() => {
                                                                     return _i_generic.resolve_dictionary(
                                                                         $,
                                                                         {
                                                                             'location 2 string': l2s,
-                                                                            'map': ($, $p) => _pa.block(() => {
-                                                                                return _pa.cc($['value'], ($) => r_Initialization(
+                                                                            'map': ($, $p) => _pa.deprecated_block(() => {
+                                                                                return _pa.deprecated_cc($['value'], ($) => r_Initialization(
                                                                                     $,
                                                                                     {
                                                                                         'location 2 string': l2s,
@@ -393,7 +393,7 @@ export const r_Initialization: _i_signatures._T_Initialization = ($, $p) => _pa.
                                                                         }
                                                                     )
                                                                 }))
-                                                                const p_default: _i_out._T_Initialization.SG.transformation._type.SG.tagged_union.SG._switch._type.SG.partial._default = _pa.cc($['default'], ($) => r_Initialization(
+                                                                const p_default: _i_out._T_Initialization.SG.transformation._type.SG.tagged_union.SG._switch._type.SG.partial._default = _pa.deprecated_cc($['default'], ($) => r_Initialization(
                                                                     $,
                                                                     {
                                                                         'location 2 string': l2s,
@@ -435,13 +435,13 @@ export const r_Initialization: _i_signatures._T_Initialization = ($, $p) => _pa.
         }
     })
 })
-export const r_Literal: _i_signatures._T_Literal = ($, $p) => _pa.block(() => {
+export const r_Literal: _i_signatures._T_Literal = ($, $p) => _pa.deprecated_block(() => {
     const l2s = $p['location 2 string']
     const params = $p['parameters']
-    return _pa.cc($['state group'], ($): _i_out._T_Literal => {
+    return _pa.deprecated_cc($['state group'], ($): _i_out._T_Literal => {
         switch ($[0]) {
-            case 'array': return _pa.ss($, ($) => ['array', _pa.block(() => {
-                return $['list'].map(($) => _pa.cc($['element'], ($) => r_Initialization(
+            case 'array': return _pa.ss($, ($) => ['array', _pa.deprecated_block(() => {
+                return $['list'].map(($) => _pa.deprecated_cc($['element'], ($) => r_Initialization(
                     $,
                     {
                         'location 2 string': l2s,
@@ -452,27 +452,27 @@ export const r_Literal: _i_signatures._T_Literal = ($, $p) => _pa.block(() => {
                     }
                 )))
             })])
-            case 'boolean': return _pa.ss($, ($) => ['boolean', _pa.block(() => {
-                return _pa.cc($['state group'], ($): _i_out._T_Literal.SG._boolean => {
+            case 'boolean': return _pa.ss($, ($) => ['boolean', _pa.deprecated_block(() => {
+                return _pa.deprecated_cc($['state group'], ($): _i_out._T_Literal.SG._boolean => {
                     switch ($[0]) {
-                        case 'false': return _pa.ss($, ($) => ['false', _pa.block(() => {
+                        case 'false': return _pa.ss($, ($) => ['false', _pa.deprecated_block(() => {
                             return null
                         })])
-                        case 'true': return _pa.ss($, ($) => ['true', _pa.block(() => {
+                        case 'true': return _pa.ss($, ($) => ['true', _pa.deprecated_block(() => {
                             return null
                         })])
                         default: return _pa.au($[0])
                     }
                 })
             })])
-            case 'dictionary': return _pa.ss($, ($) => ['dictionary', _pa.block(() => {
-                return _pa.block(() => {
+            case 'dictionary': return _pa.ss($, ($) => ['dictionary', _pa.deprecated_block(() => {
+                return _pa.deprecated_block(() => {
                     return _i_generic.resolve_dictionary(
                         $,
                         {
                             'location 2 string': l2s,
-                            'map': ($, $p) => _pa.block(() => {
-                                return _pa.cc($['value'], ($) => r_Initialization(
+                            'map': ($, $p) => _pa.deprecated_block(() => {
+                                return _pa.deprecated_cc($['value'], ($) => r_Initialization(
                                     $,
                                     {
                                         'location 2 string': l2s,
@@ -487,9 +487,9 @@ export const r_Literal: _i_signatures._T_Literal = ($, $p) => _pa.block(() => {
                     )
                 })
             })])
-            case 'function': return _pa.ss($, ($) => ['function', _pa.block(() => {
-                return _pa.block(() => {
-                    const p_initialization: _i_out._T_Literal.SG._function.initialization = _pa.cc($['initialization'], ($) => r_Initialization(
+            case 'function': return _pa.ss($, ($) => ['function', _pa.deprecated_block(() => {
+                return _pa.deprecated_block(() => {
+                    const p_initialization: _i_out._T_Literal.SG._function.initialization = _pa.deprecated_cc($['initialization'], ($) => r_Initialization(
                         $,
                         {
                             'location 2 string': l2s,
@@ -499,8 +499,8 @@ export const r_Literal: _i_signatures._T_Literal = ($, $p) => _pa.block(() => {
                             }),
                         }
                     ))
-                    const p_temp_has_parameters: _i_out._T_Literal.SG._function.temp_has_parameters = _pa.cc($['temp has parameters'], ($) => $)
-                    const p_temp_resulting_node: _i_out._T_Literal.SG._function.temp_resulting_node = _pa.cc($['temp resulting node'], ($) => $.map(($) => _pa.block(() => {
+                    const p_temp_has_parameters: _i_out._T_Literal.SG._function.temp_has_parameters = _pa.deprecated_cc($['temp has parameters'], ($) => $)
+                    const p_temp_resulting_node: _i_out._T_Literal.SG._function.temp_resulting_node = _pa.deprecated_cc($['temp resulting node'], ($) => $.map(($) => _pa.deprecated_block(() => {
                         return _i_r_interface.r_Type(
                             $,
                             {
@@ -519,14 +519,14 @@ export const r_Literal: _i_signatures._T_Literal = ($, $p) => _pa.block(() => {
                     })
                 })
             })])
-            case 'group': return _pa.ss($, ($) => ['group', _pa.block(() => {
-                return _pa.block(() => {
+            case 'group': return _pa.ss($, ($) => ['group', _pa.deprecated_block(() => {
+                return _pa.deprecated_block(() => {
                     return _i_generic.resolve_dictionary(
                         $,
                         {
                             'location 2 string': l2s,
-                            'map': ($, $p) => _pa.block(() => {
-                                return _pa.cc($['value'], ($) => r_Initialization(
+                            'map': ($, $p) => _pa.deprecated_block(() => {
+                                return _pa.deprecated_cc($['value'], ($) => r_Initialization(
                                     $,
                                     {
                                         'location 2 string': l2s,
@@ -541,32 +541,32 @@ export const r_Literal: _i_signatures._T_Literal = ($, $p) => _pa.block(() => {
                     )
                 })
             })])
-            case 'null': return _pa.ss($, ($) => ['null', _pa.block(() => {
+            case 'null': return _pa.ss($, ($) => ['null', _pa.deprecated_block(() => {
                 return null
             })])
-            case 'number': return _pa.ss($, ($) => ['number', _pa.block(() => {
-                return _pa.cc($['state group'], ($): _i_out._T_Literal.SG._number => {
+            case 'number': return _pa.ss($, ($) => ['number', _pa.deprecated_block(() => {
+                return _pa.deprecated_cc($['state group'], ($): _i_out._T_Literal.SG._number => {
                     switch ($[0]) {
-                        case 'floting point': return _pa.ss($, ($) => ['floting point', _pa.block(() => {
+                        case 'floting point': return _pa.ss($, ($) => ['floting point', _pa.deprecated_block(() => {
                             return $
                         })])
-                        case 'integer': return _pa.ss($, ($) => ['integer', _pa.block(() => {
+                        case 'integer': return _pa.ss($, ($) => ['integer', _pa.deprecated_block(() => {
                             return $
                         })])
-                        case 'signed integer': return _pa.ss($, ($) => ['signed integer', _pa.block(() => {
+                        case 'signed integer': return _pa.ss($, ($) => ['signed integer', _pa.deprecated_block(() => {
                             return $
                         })])
                         default: return _pa.au($[0])
                     }
                 })
             })])
-            case 'optional': return _pa.ss($, ($) => ['optional', _pa.block(() => {
-                return _pa.cc($['state group'], ($): _i_out._T_Literal.SG.optional => {
+            case 'optional': return _pa.ss($, ($) => ['optional', _pa.deprecated_block(() => {
+                return _pa.deprecated_cc($['state group'], ($): _i_out._T_Literal.SG.optional => {
                     switch ($[0]) {
-                        case 'not set': return _pa.ss($, ($) => ['not set', _pa.block(() => {
+                        case 'not set': return _pa.ss($, ($) => ['not set', _pa.deprecated_block(() => {
                             return null
                         })])
-                        case 'set': return _pa.ss($, ($) => ['set', _pa.block(() => {
+                        case 'set': return _pa.ss($, ($) => ['set', _pa.deprecated_block(() => {
                             return r_Initialization(
                                 $,
                                 {
@@ -582,30 +582,30 @@ export const r_Literal: _i_signatures._T_Literal = ($, $p) => _pa.block(() => {
                     }
                 })
             })])
-            case 'string': return _pa.ss($, ($) => ['string', _pa.block(() => {
-                return _pa.block(() => {
-                    const p_delimiter: _i_out._T_Literal.SG._string.delimiter = _pa.cc($['delimiter'], ($) => _pa.cc($['state group'], ($): _i_out._T_Literal.SG._string.delimiter => {
+            case 'string': return _pa.ss($, ($) => ['string', _pa.deprecated_block(() => {
+                return _pa.deprecated_block(() => {
+                    const p_delimiter: _i_out._T_Literal.SG._string.delimiter = _pa.deprecated_cc($['delimiter'], ($) => _pa.deprecated_cc($['state group'], ($): _i_out._T_Literal.SG._string.delimiter => {
                         switch ($[0]) {
-                            case 'backtick': return _pa.ss($, ($) => ['backtick', _pa.block(() => {
+                            case 'backtick': return _pa.ss($, ($) => ['backtick', _pa.deprecated_block(() => {
                                 return null
                             })])
-                            case 'quote': return _pa.ss($, ($) => ['quote', _pa.block(() => {
+                            case 'quote': return _pa.ss($, ($) => ['quote', _pa.deprecated_block(() => {
                                 return null
                             })])
                             default: return _pa.au($[0])
                         }
                     }))
-                    const p_value: _i_out._T_Literal.SG._string.value = _pa.cc($['value'], ($) => $)
+                    const p_value: _i_out._T_Literal.SG._string.value = _pa.deprecated_cc($['value'], ($) => $)
                     return ({
                         'delimiter': p_delimiter,
                         'value': p_value,
                     })
                 })
             })])
-            case 'tagged union': return _pa.ss($, ($) => ['tagged union', _pa.block(() => {
-                return _pa.block(() => {
-                    const p_case: _i_out._T_Literal.SG.tagged_union._case = _pa.cc($['case'], ($) => $)
-                    const p_value: _i_out._T_Literal.SG.tagged_union.value = _pa.cc($['value'], ($) => r_Initialization(
+            case 'tagged union': return _pa.ss($, ($) => ['tagged union', _pa.deprecated_block(() => {
+                return _pa.deprecated_block(() => {
+                    const p_case: _i_out._T_Literal.SG.tagged_union._case = _pa.deprecated_cc($['case'], ($) => $)
+                    const p_value: _i_out._T_Literal.SG.tagged_union.value = _pa.deprecated_cc($['value'], ($) => r_Initialization(
                         $,
                         {
                             'location 2 string': l2s,
@@ -625,11 +625,11 @@ export const r_Literal: _i_signatures._T_Literal = ($, $p) => _pa.block(() => {
         }
     })
 })
-export const r_Module: _i_signatures._T_Module = ($, $p) => _pa.block(() => {
+export const r_Module: _i_signatures._T_Module = ($, $p) => _pa.deprecated_block(() => {
     const l2s = $p['location 2 string']
     const params = $p['parameters']
-    return _pa.block(() => {
-        const p_type_imports: _i_out._T_Module.type_imports = _pa.cc($['type imports'], ($) => _i_r_interface.r_Imports(
+    return _pa.deprecated_block(() => {
+        const p_type_imports: _i_out._T_Module.type_imports = _pa.deprecated_cc($['type imports'], ($) => _i_r_interface.r_Imports(
             $,
             {
                 'location 2 string': l2s,
@@ -639,30 +639,30 @@ export const r_Module: _i_signatures._T_Module = ($, $p) => _pa.block(() => {
                 }),
             }
         ))
-        const p_variable_imports: _i_out._T_Module.variable_imports = _pa.cc($['variable imports'], ($) => _pa.block(() => {
+        const p_variable_imports: _i_out._T_Module.variable_imports = _pa.deprecated_cc($['variable imports'], ($) => _pa.deprecated_block(() => {
             return _i_generic.resolve_dictionary(
                 $,
                 {
                     'location 2 string': l2s,
-                    'map': ($, $p) => _pa.block(() => {
-                        return _pa.cc($['value'], ($) => _pa.block(() => {
-                            const p_tail: _i_out._T_Module.variable_imports.D.tail = _pa.cc($['tail'], ($) => $['list'].map(($) => _pa.cc($['element'], ($) => $)))
-                            const p_type: _i_out._T_Module.variable_imports.D._type = _pa.cc($['type'], ($) => _pa.cc($['state group'], ($): _i_out._T_Module.variable_imports.D._type => {
+                    'map': ($, $p) => _pa.deprecated_block(() => {
+                        return _pa.deprecated_cc($['value'], ($) => _pa.deprecated_block(() => {
+                            const p_tail: _i_out._T_Module.variable_imports.D.tail = _pa.deprecated_cc($['tail'], ($) => $['list'].map(($) => _pa.deprecated_cc($['element'], ($) => $)))
+                            const p_type: _i_out._T_Module.variable_imports.D._type = _pa.deprecated_cc($['type'], ($) => _pa.deprecated_cc($['state group'], ($): _i_out._T_Module.variable_imports.D._type => {
                                 switch ($[0]) {
-                                    case 'ancestor': return _pa.ss($, ($) => ['ancestor', _pa.block(() => {
-                                        return _pa.block(() => {
-                                            const p_dependency: _i_out._T_Module.variable_imports.D._type.SG.ancestor.dependency = _pa.cc($['dependency'], ($) => $)
-                                            const p_number_of_steps: _i_out._T_Module.variable_imports.D._type.SG.ancestor.number_of_steps = _pa.cc($['number of steps'], ($) => $)
+                                    case 'ancestor': return _pa.ss($, ($) => ['ancestor', _pa.deprecated_block(() => {
+                                        return _pa.deprecated_block(() => {
+                                            const p_dependency: _i_out._T_Module.variable_imports.D._type.SG.ancestor.dependency = _pa.deprecated_cc($['dependency'], ($) => $)
+                                            const p_number_of_steps: _i_out._T_Module.variable_imports.D._type.SG.ancestor.number_of_steps = _pa.deprecated_cc($['number of steps'], ($) => $)
                                             return ({
                                                 'dependency': p_dependency,
                                                 'number of steps': p_number_of_steps,
                                             })
                                         })
                                     })])
-                                    case 'external': return _pa.ss($, ($) => ['external', _pa.block(() => {
+                                    case 'external': return _pa.ss($, ($) => ['external', _pa.deprecated_block(() => {
                                         return $
                                     })])
-                                    case 'sibling': return _pa.ss($, ($) => ['sibling', _pa.block(() => {
+                                    case 'sibling': return _pa.ss($, ($) => ['sibling', _pa.deprecated_block(() => {
                                         return $
                                     })])
                                     default: return _pa.au($[0])
@@ -677,7 +677,7 @@ export const r_Module: _i_signatures._T_Module = ($, $p) => _pa.block(() => {
                 }
             )
         }))
-        const p_variables: _i_out._T_Module.variables = _pa.cc($['variables'], ($) => r_Variables(
+        const p_variables: _i_out._T_Module.variables = _pa.deprecated_cc($['variables'], ($) => r_Variables(
             $,
             {
                 'location 2 string': l2s,
@@ -694,18 +694,18 @@ export const r_Module: _i_signatures._T_Module = ($, $p) => _pa.block(() => {
         })
     })
 })
-export const r_Module_Set: _i_signatures._T_Module_Set = ($, $p) => _pa.block(() => {
+export const r_Module_Set: _i_signatures._T_Module_Set = ($, $p) => _pa.deprecated_block(() => {
     const l2s = $p['location 2 string']
     const params = $p['parameters']
-    return _pa.block(() => {
+    return _pa.deprecated_block(() => {
         return _i_generic.resolve_dictionary(
             $,
             {
                 'location 2 string': l2s,
-                'map': ($, $p) => _pa.block(() => {
-                    return _pa.cc($['value'], ($) => _pa.cc($['state group'], ($): _i_out._T_Module_Set.D => {
+                'map': ($, $p) => _pa.deprecated_block(() => {
+                    return _pa.deprecated_cc($['value'], ($) => _pa.deprecated_cc($['state group'], ($): _i_out._T_Module_Set.D => {
                         switch ($[0]) {
-                            case 'module': return _pa.ss($, ($) => ['module', _pa.block(() => {
+                            case 'module': return _pa.ss($, ($) => ['module', _pa.deprecated_block(() => {
                                 return r_Module(
                                     $,
                                     {
@@ -717,7 +717,7 @@ export const r_Module_Set: _i_signatures._T_Module_Set = ($, $p) => _pa.block(()
                                     }
                                 )
                             })])
-                            case 'set': return _pa.ss($, ($) => ['set', _pa.block(() => {
+                            case 'set': return _pa.ss($, ($) => ['set', _pa.deprecated_block(() => {
                                 return r_Module_Set(
                                     $,
                                     {
@@ -737,21 +737,21 @@ export const r_Module_Set: _i_signatures._T_Module_Set = ($, $p) => _pa.block(()
         )
     })
 })
-export const r_Selection: _i_signatures._T_Selection = ($, $p) => _pa.block(() => {
+export const r_Selection: _i_signatures._T_Selection = ($, $p) => _pa.deprecated_block(() => {
     const l2s = $p['location 2 string']
     const params = $p['parameters']
-    return _pa.block(() => {
-        const p_start: _i_out._T_Selection.start = _pa.cc($['start'], ($) => _pa.cc($['state group'], ($): _i_out._T_Selection.start => {
+    return _pa.deprecated_block(() => {
+        const p_start: _i_out._T_Selection.start = _pa.deprecated_cc($['start'], ($) => _pa.deprecated_cc($['state group'], ($): _i_out._T_Selection.start => {
             switch ($[0]) {
-                case 'abort': return _pa.ss($, ($) => ['abort', _pa.block(() => {
+                case 'abort': return _pa.ss($, ($) => ['abort', _pa.deprecated_block(() => {
                     return null
                 })])
-                case 'argument': return _pa.ss($, ($) => ['argument', _pa.block(() => {
+                case 'argument': return _pa.ss($, ($) => ['argument', _pa.deprecated_block(() => {
                     return $
                 })])
-                case 'call': return _pa.ss($, ($) => ['call', _pa.block(() => {
-                    return _pa.block(() => {
-                        const p_source: _i_out._T_Selection.start.SG.call.source = _pa.cc($['source'], ($) => r_Selection(
+                case 'call': return _pa.ss($, ($) => ['call', _pa.deprecated_block(() => {
+                    return _pa.deprecated_block(() => {
+                        const p_source: _i_out._T_Selection.start.SG.call.source = _pa.deprecated_cc($['source'], ($) => r_Selection(
                             $,
                             {
                                 'location 2 string': l2s,
@@ -761,7 +761,7 @@ export const r_Selection: _i_signatures._T_Selection = ($, $p) => _pa.block(() =
                                 }),
                             }
                         ))
-                        const p_context: _i_out._T_Selection.start.SG.call.context = _pa.cc($['context'], ($) => r_Selection(
+                        const p_context: _i_out._T_Selection.start.SG.call.context = _pa.deprecated_cc($['context'], ($) => r_Selection(
                             $,
                             {
                                 'location 2 string': l2s,
@@ -771,14 +771,14 @@ export const r_Selection: _i_signatures._T_Selection = ($, $p) => _pa.block(() =
                                 }),
                             }
                         ))
-                        const p_arguments: _i_out._T_Selection.start.SG.call._arguments = _pa.cc($['arguments'], ($) => $.map(($) => _pa.block(() => {
-                            return _pa.block(() => {
+                        const p_arguments: _i_out._T_Selection.start.SG.call._arguments = _pa.deprecated_cc($['arguments'], ($) => $.map(($) => _pa.deprecated_block(() => {
+                            return _pa.deprecated_block(() => {
                                 return _i_generic.resolve_dictionary(
                                     $,
                                     {
                                         'location 2 string': l2s,
-                                        'map': ($, $p) => _pa.block(() => {
-                                            return _pa.cc($['value'], ($) => r_Initialization(
+                                        'map': ($, $p) => _pa.deprecated_block(() => {
+                                            return _pa.deprecated_cc($['value'], ($) => r_Initialization(
                                                 $,
                                                 {
                                                     'location 2 string': l2s,
@@ -800,28 +800,28 @@ export const r_Selection: _i_signatures._T_Selection = ($, $p) => _pa.block(() =
                         })
                     })
                 })])
-                case 'context': return _pa.ss($, ($) => ['context', _pa.block(() => {
+                case 'context': return _pa.ss($, ($) => ['context', _pa.deprecated_block(() => {
                     return null
                 })])
-                case 'implement me': return _pa.ss($, ($) => ['implement me', _pa.block(() => {
+                case 'implement me': return _pa.ss($, ($) => ['implement me', _pa.deprecated_block(() => {
                     return null
                 })])
-                case 'imported variable': return _pa.ss($, ($) => ['imported variable', _pa.block(() => {
-                    return _pa.block(() => {
-                        const p_import: _i_out._T_Selection.start.SG.imported_variable._import = _pa.cc($['import'], ($) => $)
-                        const p_variable: _i_out._T_Selection.start.SG.imported_variable.variable = _pa.cc($['variable'], ($) => $)
+                case 'imported variable': return _pa.ss($, ($) => ['imported variable', _pa.deprecated_block(() => {
+                    return _pa.deprecated_block(() => {
+                        const p_import: _i_out._T_Selection.start.SG.imported_variable._import = _pa.deprecated_cc($['import'], ($) => $)
+                        const p_variable: _i_out._T_Selection.start.SG.imported_variable.variable = _pa.deprecated_cc($['variable'], ($) => $)
                         return ({
                             'import': p_import,
                             'variable': p_variable,
                         })
                     })
                 })])
-                case 'parameter': return _pa.ss($, ($) => ['parameter', _pa.block(() => {
+                case 'parameter': return _pa.ss($, ($) => ['parameter', _pa.deprecated_block(() => {
                     return $
                 })])
-                case 'transform optional value': return _pa.ss($, ($) => ['transform optional value', _pa.block(() => {
-                    return _pa.block(() => {
-                        const p_source: _i_out._T_Selection.start.SG.transform_optional_value.source = _pa.cc($['source'], ($) => r_Selection(
+                case 'transform optional value': return _pa.ss($, ($) => ['transform optional value', _pa.deprecated_block(() => {
+                    return _pa.deprecated_block(() => {
+                        const p_source: _i_out._T_Selection.start.SG.transform_optional_value.source = _pa.deprecated_cc($['source'], ($) => r_Selection(
                             $,
                             {
                                 'location 2 string': l2s,
@@ -831,7 +831,7 @@ export const r_Selection: _i_signatures._T_Selection = ($, $p) => _pa.block(() =
                                 }),
                             }
                         ))
-                        const p_if_not_set: _i_out._T_Selection.start.SG.transform_optional_value.if_not_set = _pa.cc($['if not set'], ($) => r_Selection(
+                        const p_if_not_set: _i_out._T_Selection.start.SG.transform_optional_value.if_not_set = _pa.deprecated_cc($['if not set'], ($) => r_Selection(
                             $,
                             {
                                 'location 2 string': l2s,
@@ -841,7 +841,7 @@ export const r_Selection: _i_signatures._T_Selection = ($, $p) => _pa.block(() =
                                 }),
                             }
                         ))
-                        const p_if_set: _i_out._T_Selection.start.SG.transform_optional_value.if_set = _pa.cc($['if set'], ($) => r_Selection(
+                        const p_if_set: _i_out._T_Selection.start.SG.transform_optional_value.if_set = _pa.deprecated_cc($['if set'], ($) => r_Selection(
                             $,
                             {
                                 'location 2 string': l2s,
@@ -858,45 +858,45 @@ export const r_Selection: _i_signatures._T_Selection = ($, $p) => _pa.block(() =
                         })
                     })
                 })])
-                case 'variable': return _pa.ss($, ($) => ['variable', _pa.block(() => {
+                case 'variable': return _pa.ss($, ($) => ['variable', _pa.deprecated_block(() => {
                     return $
                 })])
                 default: return _pa.au($[0])
             }
         }))
-        const p_tail: _i_out._T_Selection.tail = _pa.cc($['tail'], ($) => $['list'].map(($) => _pa.cc($['element'], ($) => $)))
+        const p_tail: _i_out._T_Selection.tail = _pa.deprecated_cc($['tail'], ($) => $['list'].map(($) => _pa.deprecated_cc($['element'], ($) => $)))
         return ({
             'start': p_start,
             'tail': p_tail,
         })
     })
 })
-export const r_Type_Parameters: _i_signatures._T_Type_Parameters = ($, $p) => _pa.block(() => {
+export const r_Type_Parameters: _i_signatures._T_Type_Parameters = ($, $p) => _pa.deprecated_block(() => {
     const l2s = $p['location 2 string']
     const params = $p['parameters']
-    return _pa.block(() => {
+    return _pa.deprecated_block(() => {
         return _i_generic.resolve_dictionary(
             $,
             {
                 'location 2 string': l2s,
-                'map': ($, $p) => _pa.block(() => {
-                    return _pa.cc($['value'], ($) => null)
+                'map': ($, $p) => _pa.deprecated_block(() => {
+                    return _pa.deprecated_cc($['value'], ($) => null)
                 }),
             }
         )
     })
 })
-export const r_Variables: _i_signatures._T_Variables = ($, $p) => _pa.block(() => {
+export const r_Variables: _i_signatures._T_Variables = ($, $p) => _pa.deprecated_block(() => {
     const l2s = $p['location 2 string']
     const params = $p['parameters']
-    return _pa.block(() => {
+    return _pa.deprecated_block(() => {
         return _i_generic.resolve_dictionary(
             $,
             {
                 'location 2 string': l2s,
-                'map': ($, $p) => _pa.block(() => {
-                    return _pa.cc($['value'], ($) => _pa.block(() => {
-                        const p_type: _i_out._T_Variables.D._type = _pa.cc($['type'], ($) => $.map(($) => _pa.block(() => {
+                'map': ($, $p) => _pa.deprecated_block(() => {
+                    return _pa.deprecated_cc($['value'], ($) => _pa.deprecated_block(() => {
+                        const p_type: _i_out._T_Variables.D._type = _pa.deprecated_cc($['type'], ($) => $.map(($) => _pa.deprecated_block(() => {
                             return _i_r_interface.r_Type(
                                 $,
                                 {
@@ -908,7 +908,7 @@ export const r_Variables: _i_signatures._T_Variables = ($, $p) => _pa.block(() =
                                 }
                             )
                         })))
-                        const p_initialization: _i_out._T_Variables.D.initialization = _pa.cc($['initialization'], ($) => r_Initialization(
+                        const p_initialization: _i_out._T_Variables.D.initialization = _pa.deprecated_cc($['initialization'], ($) => r_Initialization(
                             $,
                             {
                                 'location 2 string': l2s,

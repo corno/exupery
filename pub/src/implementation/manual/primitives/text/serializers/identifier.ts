@@ -1,5 +1,7 @@
 import * as _p from 'pareto-core-serializer'
-import * as _pinternals from 'pareto-core-internals'
+
+import * as _p_temp_literal from 'pareto-core-internals/dist/literal'
+import * as _pdev from 'pareto-core-dev'
 
 
 import { $$ as s_list_of_texts } from "pareto-standard-operations/dist/implementation/temp_serializers/schemas/list_of_texts"
@@ -7,11 +9,11 @@ import { $$ as s_decimal } from "pareto-standard-operations/dist/implementation/
 
 
 export const $$ = ($: string[]): string => {
-    const the_string = s_list_of_texts(_pinternals.list_literal($))
+    const the_string = s_list_of_texts(_p_temp_literal.list.literal($))
     if (the_string === "") {
         return "_empty"
     }
-    const reserved_keywords = _pinternals.dictionary_literal({
+    const reserved_keywords = _p_temp_literal.dictionary.literal({
         //Reserved Words
         "arguments": null,
         "break": null,
@@ -81,19 +83,19 @@ export const $$ = ($: string[]): string => {
         "object": null,
         "never": null,
     })
-    if (reserved_keywords.get_possible_entry(the_string).transform(
+    if (reserved_keywords.__get_possible_entry(the_string).transform(
         () => true,
         () => false,
     )) {
-        return _p.text.build(($i) => {
+        return _p.text.deprecated_build(($i) => {
             $i['add snippet']("_")
             $i['add snippet'](the_string)
         })
     }
 
-    return _p.text.build(($i) => {
-        const characters = _pinternals.list_from_text(the_string, ($) => $)
-        const length = characters.get_number_of_elements()
+    return _p.text.deprecated_build(($i) => {
+        const characters = _p.list.from_text(the_string, ($) => $)
+        const length = characters.__get_number_of_elements()
 
         let position = 0
 
@@ -173,7 +175,7 @@ export const $$ = ($: string[]): string => {
                     case 124: consume_and_add("$vb_"); break; // Vertical Bar (|)
                     case 125: consume_and_add("$cc_"); break; // Close Curly Brace (})
                     case 126: consume_and_add("$ti_"); break; // Tilde (~)
-                    default: _pinternals.panic("unhandled character: \"", s_decimal(current_character), "\"");
+                    default: _pdev.implement_me(`unhandled character: \"${s_decimal(current_character)}\"`);
                 }
             }
         }

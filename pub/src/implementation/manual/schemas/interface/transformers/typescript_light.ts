@@ -1,6 +1,6 @@
 import * as _p from 'pareto-core-transformer'
 import * as _pi from 'pareto-core-interface'
-import * as _pinternals from 'pareto-core-internals'
+import * as _pdev from 'pareto-core-dev'
 
 import * as d_in from "../../../../../interface/generated/pareto/schemas/interface/data_types/source"
 import * as d_out from "../../../../../interface/generated/pareto/schemas/typescript_light/data_types/target"
@@ -35,7 +35,7 @@ export const line_dictionary = (
         let is_first = true
         return sh.b.sub([
             prefix,
-            sh.b.sub($.to_list(($): d_out.Block_Part => {
+            sh.b.sub(_p.list.from_dictionary($, ($): d_out.Block_Part => {
                 const out = sh.b.sub([
                     is_first ?
                         sh.b.nothing()
@@ -55,7 +55,7 @@ export const line_dictionary = (
 }
 
 export const Module_Set = ($: d_in.Module_Set): d_out.Directory => {
-    return $.map(($, key) => _p.cc($, ($) => {
+    return $.map(($, key) => _p.sg($, ($) => {
         switch ($[0]) {
             case 'module': return _p.ss($, ($) => {
                 const x_imports = $.imports
@@ -68,13 +68,13 @@ export const Module_Set = ($: d_in.Module_Set): d_out.Directory => {
                     sh.g.simple_line("import * as _pi from 'pareto-core-interface'"),
 
                     sh.g.simple_line(""),
-                    sh.g.sub($.imports.to_list(($, key) => sh.g.sub([
+                    sh.g.sub(_p.list.from_dictionary($.imports, ($, key) => sh.g.sub([
                         sh.g.nested_block([
                             sh.b.snippet("import * as "),
                             sh.b.snippet(s_identifier([" i ", key])),
                             sh.b.snippet(" from "),
                             t_tl_2_fp.String_Literal(
-                                _p.cc($.type, ($): string => {
+                                _p.sg($.type, ($): string => {
                                     switch ($[0]) {
                                         case 'external': return _p.ss($, ($) => valid_file_name($))
                                         case 'ancestor': return _p.ss($, ($) => `${s_repeated("../", { 'count': $['number of steps'] })}${valid_file_name($.dependency)}`)
@@ -106,7 +106,7 @@ export const Module_Set = ($: d_in.Module_Set): d_out.Directory => {
                      */
                     sh.g.simple_line(""),
                     sh.g.simple_line("// **** TYPES"),
-                    sh.g.sub($.types.to_list(($, key) => sh.g.sub([
+                    sh.g.sub(_p.list.from_dictionary($.types, ($, key) => sh.g.sub([
                         sh.g.simple_line(""),
                         Type_Declaration(
                             null,
@@ -135,7 +135,7 @@ export const Module_Set = ($: d_in.Module_Set): d_out.Directory => {
 
                     sh.g.simple_line(""),
                     sh.g.simple_line("// **** FRIENDLY NAMES FOR THE GLOBAL TYPES"),
-                    sh.g.sub($.types.to_list(($, key) => sh.g.sub([
+                    sh.g.sub(_p.list.from_dictionary($.types, ($, key) => sh.g.sub([
                         sh.g.simple_line(""),
                         Type_Declaration(
                             null,
@@ -171,7 +171,7 @@ export const Module_Set = ($: d_in.Module_Set): d_out.Directory => {
 
                     sh.g.simple_line(""),
                     sh.g.simple_line("// **** ALIASES FOR NESTED TYPE WITH PREFIXED ROOT NAMES"),
-                    sh.g.sub($.types.to_list(($, key) => sh.g.sub([
+                    sh.g.sub(_p.list.from_dictionary($.types, ($, key) => sh.g.sub([
                         Type_to_Aliases(
                             $.type,
                             {
@@ -186,7 +186,7 @@ export const Module_Set = ($: d_in.Module_Set): d_out.Directory => {
 
                     sh.g.simple_line(""),
                     sh.g.simple_line("// *** ALIASES FOR NESTED TYPES"),
-                    sh.g.sub($.types.to_list(($, key) => sh.g.sub([
+                    sh.g.sub(_p.list.from_dictionary($.types, ($, key) => sh.g.sub([
                         Type_to_Aliases(
                             $.type,
                             {
@@ -200,7 +200,7 @@ export const Module_Set = ($: d_in.Module_Set): d_out.Directory => {
                     ]))),
                     // b.array(op['to list, sorted by code point'](
                     //     op.filter(
-                    //         $.types.map(($): _pi.Optional_Value<null> => pa.cc($.type, ($) => {
+                    //         $.types.map(($): _pi.Optional_Value<null> => pa.sg($.type, ($) => {
                     //             switch ($[0]) {
                     //                 case 'number': return pa.ss($, ($) => pa.not_set())
                     //                 case 'boolean': return pa.ss($, ($) => pa.not_set())
@@ -312,14 +312,14 @@ export const Type_to_Aliases = (
             )
         ])
     }
-    return _p.cc($, ($): d_out.Group_Part => {
+    return _p.sg($, ($): d_out.Group_Part => {
         switch ($[0]) {
             case 'boolean': return _p.ss($, ($) => sh.g.nothing())
             case 'component': return _p.ss($, ($) => Namespace(
                 $p.key,
                 {
                     'callback': () => sh.g.sub([
-                        sh.g.sub($['type arguments'].to_list(($, key) => {
+                        sh.g.sub(_p.list.from_dictionary($['type arguments'], ($, key) => {
                             return Type_to_Aliases_2(
                                 $,
                                 {
@@ -381,7 +381,7 @@ export const Type_to_Aliases = (
                         Namespace("PARAMS", {
                             "callback": () => {
                                 const ftp = $['type parameters']
-                                return sh.g.sub($.parameters.to_list(($, key) => {
+                                return sh.g.sub(_p.list.from_dictionary($.parameters, ($, key) => {
                                     return Type_to_Aliases_2(
                                         $,
                                         {
@@ -412,7 +412,7 @@ export const Type_to_Aliases = (
                 $p.key,
                 {
                     'callback': () => sh.g.sub([
-                        sh.g.sub($.to_list(($, key) => {
+                        sh.g.sub(_p.list.from_dictionary($, ($, key) => {
                             return Type_to_Aliases_2(
                                 $,
                                 {
@@ -464,7 +464,7 @@ export const Type_to_Aliases = (
                 $p.key,
                 {
                     'callback': () => sh.g.sub([
-                        sh.g.sub($.to_list(($, key) => {
+                        sh.g.sub(_p.list.from_dictionary($, ($, key) => {
                             return Type_to_Aliases_2(
                                 $,
                                 {
@@ -499,12 +499,12 @@ export const Type_to_Type = (
     }
 ): s_out_ts.Type => {
 
-    return _p.cc($, ($): s_out_ts.Type => {
+    return _p.sg($, ($): s_out_ts.Type => {
         switch ($[0]) {
             case 'boolean': return _p.ss($, ($) => sh2.t.boolean())
             case 'component': return _p.ss($, ($) => sh2.t.type_reference(
                 //start
-                _p.cc($.location, ($): string => {
+                _p.sg($.location, ($): string => {
                     switch ($[0]) {
                         case 'import': return _p.ss($, ($) => Identifier(_p.list.literal([" i ", $.import])))
                         case 'sibling': return _p.ss($, ($) => Identifier(_p.list.literal([" T ", $])))
@@ -512,8 +512,8 @@ export const Type_to_Type = (
                     }
                 }),
                 //tail
-                _p.list.literal([
-                    _p.cc($.location, ($): _pi.List<string> => {
+                _p.list.nested_literal<string>([
+                    _p.sg($.location, ($) => {
                         switch ($[0]) {
                             case 'import': return _p.ss($, ($) => _p.list.literal([
                                 Identifier(_p.list.literal([" T ", $.type]))
@@ -522,33 +522,36 @@ export const Type_to_Type = (
                             default: return _p.au($[0])
                         }
                     }),
-                    $['sub selection'].map(($): _pi.List<string> => _p.cc($, ($) => {
-                        switch ($[0]) {
-                            case 'dictionary': return _p.ss($, ($) => _p.list.literal(["D"]))
-                            case 'group': return _p.ss($, ($) => _p.list.literal([$]))
-                            case 'list': return _p.ss($, ($) => _p.list.literal(["L"]))
-                            case 'optional': return _p.ss($, ($) => _p.list.literal(["O"]))
-                            case 'state group': return _p.ss($, ($) => _p.list.literal([
-                                "SG",
-                                $,
-                            ]))
-                            default: return _p.au($[0])
-                        }
-                    })).flatten(($) => $)
-                ]).flatten(($) => $),
-                //type arguments
-                op_flatten_dictionary(
-                    _p.dictionary.literal<_pi.Dictionary<s_out_ts.Type>>({
-                        "M": _p.cc($.location, ($): _pi.Dictionary<s_out_ts.Type> => {
+                    _p.list.flatten(
+                        $['sub selection'],
+                        ($) => _p.sg($, ($): _pi.List<string> => {
                             switch ($[0]) {
-                                case 'import': return _p.ss($, ($) => $p['temp imports'].transform(($) => $, () => _pinternals.panic("DSFSDFSD")).get_possible_entry($.import).transform(($) => $, () => {
+                                case 'dictionary': return _p.ss($, ($) => _p.list.literal(["D"]))
+                                case 'group': return _p.ss($, ($) => _p.list.literal([$]))
+                                case 'list': return _p.ss($, ($) => _p.list.literal(["L"]))
+                                case 'optional': return _p.ss($, ($) => _p.list.literal(["O"]))
+                                case 'state group': return _p.ss($, ($) => _p.list.literal([
+                                    "SG",
+                                    $,
+                                ]))
+                                default: return _p.au($[0])
+                            }
+                        }),
+                    ),
+                ]),
+                //type arguments
+                _p.list.from_dictionary(op_flatten_dictionary(
+                    _p.dictionary.literal<_pi.Dictionary<s_out_ts.Type>>({
+                        "M": _p.sg($.location, ($): _pi.Dictionary<s_out_ts.Type> => {
+                            switch ($[0]) {
+                                case 'import': return _p.ss($, ($) => $p['temp imports'].transform(($) => $, () => _pdev.implement_me("DSFSDFSD")).__get_possible_entry($.import).transform(($) => $, () => {
                                     let keys = ""
                                     $p['temp imports'].map(($) => {
                                         $.map(($, key) => {
                                             keys += `, '${key}'`
                                         })
                                     })
-                                    return _pinternals.panic(`no such import: ${$.import} @ ${keys}`)
+                                    return _pdev.implement_me(`no such import: ${$.import} @ ${keys}`)
                                 })['type arguments'].map(($): s_out_ts.Type => Type_to_Type(
                                     $,
                                     {
@@ -556,7 +559,7 @@ export const Type_to_Type = (
                                         'temp imports': $p['temp imports'],
                                     }
                                 )))
-                                case 'sibling': return _p.ss($, ($): _pi.Dictionary<s_out_ts.Type> => $p['module parameters'].transform(($) => $, () => _pinternals.panic("DSFSDFSD")).map(($, key): s_out_ts.Type => sh2.t.type_reference(
+                                case 'sibling': return _p.ss($, ($): _pi.Dictionary<s_out_ts.Type> => $p['module parameters'].transform(($) => $, () => _pdev.implement_me("DSFSDFSD")).map(($, key): s_out_ts.Type => sh2.t.type_reference(
                                     `M ${key}`,
                                     [],
                                     [],
@@ -576,7 +579,7 @@ export const Type_to_Type = (
                         'separator': " "
                     },
                     () => _p.unreachable_code_path()
-                ).to_list(($): s_out_ts.Type => $)
+                ), ($): s_out_ts.Type => $)
             ))
             case 'computed': return _p.ss($, ($) => sh2.t.type_reference(
                 " et",
@@ -605,7 +608,7 @@ export const Type_to_Type = (
                 ]
             ))
             case 'function': return _p.ss($, ($) => sh2.t.function_(
-                $['type parameters'].to_list(($, key) => `F ${key}`),
+                _p.list.from_dictionary($['type parameters'], ($, key) => `F ${key}`),
                 [
                     sh2.parameter(
                         "$",
@@ -681,7 +684,7 @@ export const Type_to_Type = (
                 ]
             ))
             case 'parameter': return _p.ss($, ($) => sh2.t.type_reference(
-                _p.cc($.location, ($): string => {
+                _p.sg($.location, ($): string => {
                     switch ($[0]) {
                         case 'module': return _p.ss($, ($) => "M")
                         case 'type': return _p.ss($, ($) => "T")
@@ -695,7 +698,7 @@ export const Type_to_Type = (
                 []
             ))
             case 'tagged union': return _p.ss($, ($) => sh2.t.union(
-                $.to_list(($, key) => sh2.t.tuple('readonly', [
+                _p.list.from_dictionary($, ($, key) => sh2.t.tuple('readonly', [
                     sh2.t.literal_type(key, 'apostrophe'),
                     Type_to_Type(
                         $,
