@@ -42,7 +42,15 @@ export const Module_Set = (
                     return s_file_name($)
                 }
                 const x: d_out.Group = sh.group([
-                    sh.g.simple_line("import * as _p from 'pareto-core-internals'"),
+                    sh.g.simple_line(`import * as _p from 'pareto-core-${_p.sg($.type, ($) => {
+                        switch ($[0]) {
+                            case 'serializer': return _p.ss($, ($) => `serializer`)
+                            case 'deserializer': return _p.ss($, ($) => `deserializer`)
+                            case 'transformer': return _p.ss($, ($) => `transformer`)
+                            case 'refiner': return _p.ss($, ($) => `refiner`)
+                            default: return _p.au($[0])
+                        }
+                    })}'`),
                     $p.phase === 'development' ? sh.g.simple_line("import * as _pdev from 'pareto-core-dev'") : sh.g.nothing(),
 
                     sh.g.simple_line(""),
