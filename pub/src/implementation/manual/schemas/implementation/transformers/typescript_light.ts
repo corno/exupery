@@ -177,7 +177,7 @@ export const Selection = (
     return sh.b.sub([
         _p.sg($.start, ($) => {
             switch ($[0]) {
-                case 'abort': return _p.ss($, ($) => sh.b.snippet("_p.panic('ABORT SELECTION')"))
+                case 'abort': return _p.ss($, ($) => sh.b.snippet("_p.fixme_abort('ABORT SELECTION')"))
                 case 'transform optional value': return _p.ss($, ($) => sh.b.sub([
                     Selection($.source, $p),
                     sh.b.snippet(".transform("),
