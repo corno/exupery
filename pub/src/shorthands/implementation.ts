@@ -378,10 +378,17 @@ export namespace m {
     ): unresolved.Module_Set.D<_pi.Deprecated_Source_Location> => _p.wrap_state_group(['set', _p.wrap_dictionary(entries)])
 
     export const module = (
+        type: 'serialzer' | 'deserializer' | 'transformer' | 'refiner',
         type_imports: _p.Raw_Or_Normal_Dictionary<unresolved_interface.Imports.D<_pi.Deprecated_Source_Location>>,
         variable_imports: _p.Raw_Or_Normal_Dictionary<unresolved.Module.variable_imports.D<_pi.Deprecated_Source_Location>>,
         variables: _p.Raw_Or_Normal_Dictionary<unresolved.Variables.D<_pi.Deprecated_Source_Location>>,
     ): unresolved.Module_Set.D<_pi.Deprecated_Source_Location> => _p.wrap_state_group(['module', {
+        'type': _p.wrap_state_group(
+            type === 'serialzer' ? ['serializer', null] :
+            type === 'deserializer' ? ['deserializer', null] :
+            type === 'transformer' ? ['transformer', null] :
+            ['refiner', null]
+        ),
         'type imports': _p.wrap_dictionary(type_imports),
         'variable imports': _p.wrap_dictionary(variable_imports),
         'variables': _p.wrap_dictionary(variables),

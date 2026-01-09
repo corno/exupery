@@ -15,22 +15,6 @@ export const Variables: _i_signatures._T_Variables = ($, $p) => _i_serialize.Doc
         }
     )
 )
-export const Literal: _i_signatures._T_Literal = ($, $p) => _i_serialize.Document(
-    _i_marshall.Literal(
-        $,
-        {
-            'value serializers': $p['value serializers'],
-        }
-    )
-)
-export const Initialization: _i_signatures._T_Initialization = ($, $p) => _i_serialize.Document(
-    _i_marshall.Initialization(
-        $,
-        {
-            'value serializers': $p['value serializers'],
-        }
-    )
-)
 export const Module: _i_signatures._T_Module = ($, $p) => _i_serialize.Document(
     _i_marshall.Module(
         $,
@@ -47,16 +31,24 @@ export const Module_Set: _i_signatures._T_Module_Set = ($, $p) => _i_serialize.D
         }
     )
 )
-export const Selection: _i_signatures._T_Selection = ($, $p) => _i_serialize.Document(
-    _i_marshall.Selection(
+export const Literal: _i_signatures._T_Literal = ($, $p) => _i_serialize.Document(
+    _i_marshall.Literal(
         $,
         {
             'value serializers': $p['value serializers'],
         }
     )
 )
-export const Type_Parameters: _i_signatures._T_Type_Parameters = ($, $p) => _i_serialize.Document(
-    _i_marshall.Type_Parameters(
+export const Initialization: _i_signatures._T_Initialization = ($, $p) => _i_serialize.Document(
+    _i_marshall.Initialization(
+        $,
+        {
+            'value serializers': $p['value serializers'],
+        }
+    )
+)
+export const Selection: _i_signatures._T_Selection = ($, $p) => _i_serialize.Document(
+    _i_marshall.Selection(
         $,
         {
             'value serializers': $p['value serializers'],

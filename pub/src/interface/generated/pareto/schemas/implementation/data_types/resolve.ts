@@ -61,17 +61,6 @@ export type _T_Selection = <F_Source>(
     },
 ) => _i_resolved._T_Selection
 
-export type _T_Type_Parameters = <F_Source>(
-    $$_: _i_unresolved._T_Type_Parameters<F_Source>,
-    $$_p: {
-        readonly 'parameters': {
-            readonly 'values': null
-            readonly 'lookups': null
-        }
-        readonly 'location 2 string': _i_resolve._T_Location_2_String<F_Source>
-    },
-) => _i_resolved._T_Type_Parameters
-
 export type _T_Variables = <F_Source>(
     $$_: _i_unresolved._T_Variables<F_Source>,
     $$_p: {
@@ -94,8 +83,6 @@ export type Module = _T_Module
 export type Module_Set = _T_Module_Set
 
 export type Selection = _T_Selection
-
-export type Type_Parameters = _T_Type_Parameters
 
 export type Variables = _T_Variables
 
@@ -274,41 +261,6 @@ export namespace _T_Selection {
     export namespace RESULT {
     }
     export type RESULT<F_Source> = _i_resolved._T_Selection
-}
-
-export namespace _T_Type_Parameters {
-    
-    export namespace CONTEXT {
-        export type Source<F_Source> = F_Source
-    }
-    export type CONTEXT<F_Source> = _i_unresolved._T_Type_Parameters<F_Source>
-    
-    export namespace PARAMS {
-        
-        export namespace parameters {
-            
-            export namespace values {
-            }
-            export type values<F_Source> = null
-            
-            export namespace lookups {
-            }
-            export type lookups<F_Source> = null
-        }
-        export type parameters<F_Source> = {
-            readonly 'values': null
-            readonly 'lookups': null
-        }
-        
-        export namespace location_2_string {
-            export type Source<F_Source> = F_Source
-        }
-        export type location_2_string<F_Source> = _i_resolve._T_Location_2_String<F_Source>
-    }
-    
-    export namespace RESULT {
-    }
-    export type RESULT<F_Source> = _i_resolved._T_Type_Parameters
 }
 
 export namespace _T_Variables {
@@ -521,41 +473,6 @@ export namespace Selection {
     export namespace RESULT {
     }
     export type RESULT<F_Source> = _i_resolved._T_Selection
-}
-
-export namespace Type_Parameters {
-    
-    export namespace CONTEXT {
-        export type Source<F_Source> = F_Source
-    }
-    export type CONTEXT<F_Source> = _i_unresolved._T_Type_Parameters<F_Source>
-    
-    export namespace PARAMS {
-        
-        export namespace parameters {
-            
-            export namespace values {
-            }
-            export type values<F_Source> = null
-            
-            export namespace lookups {
-            }
-            export type lookups<F_Source> = null
-        }
-        export type parameters<F_Source> = {
-            readonly 'values': null
-            readonly 'lookups': null
-        }
-        
-        export namespace location_2_string {
-            export type Source<F_Source> = F_Source
-        }
-        export type location_2_string<F_Source> = _i_resolve._T_Location_2_String<F_Source>
-    }
-    
-    export namespace RESULT {
-    }
-    export type RESULT<F_Source> = _i_resolved._T_Type_Parameters
 }
 
 export namespace Variables {

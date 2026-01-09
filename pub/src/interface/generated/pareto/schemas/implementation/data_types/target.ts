@@ -10,6 +10,33 @@ export type _T_Variables<M_Source> = _i_core._T_Dictionary<M_Source, {
     readonly 'initialization': _T_Initialization<M_Source>
 }>
 
+export type _T_Module<M_Source> = {
+    readonly 'type': _i_core._T_State_Group<M_Source, 
+        | readonly ['serializer', null]
+        | readonly ['deserializer', null]
+        | readonly ['transformer', null]
+        | readonly ['refiner', null]
+    >
+    readonly 'type imports': _i_imports_interface._T_Imports<M_Source>
+    readonly 'variable imports': _i_core._T_Dictionary<M_Source, {
+        readonly 'tail': _i_core._T_List<M_Source, string>
+        readonly 'type': _i_core._T_State_Group<M_Source, 
+            | readonly ['ancestor', {
+                readonly 'dependency': string
+                readonly 'number of steps': number
+            }]
+            | readonly ['external', string]
+            | readonly ['sibling', string]
+        >
+    }>
+    readonly 'variables': _T_Variables<M_Source>
+}
+
+export type _T_Module_Set<M_Source> = _i_core._T_Dictionary<M_Source, _i_core._T_State_Group<M_Source, 
+    | readonly ['module', _T_Module<M_Source>]
+    | readonly ['set', _T_Module_Set<M_Source>]
+>>
+
 export type _T_Literal<M_Source> = _i_core._T_State_Group<M_Source, 
     | readonly ['array', _i_core._T_List<M_Source, _T_Initialization<M_Source>>]
     | readonly ['boolean', _i_core._T_State_Group<M_Source, 
@@ -112,27 +139,6 @@ export type _T_Initialization<M_Source> = _i_core._T_State_Group<M_Source,
     }]
 >
 
-export type _T_Module<M_Source> = {
-    readonly 'type imports': _i_imports_interface._T_Imports<M_Source>
-    readonly 'variable imports': _i_core._T_Dictionary<M_Source, {
-        readonly 'tail': _i_core._T_List<M_Source, string>
-        readonly 'type': _i_core._T_State_Group<M_Source, 
-            | readonly ['ancestor', {
-                readonly 'dependency': string
-                readonly 'number of steps': number
-            }]
-            | readonly ['external', string]
-            | readonly ['sibling', string]
-        >
-    }>
-    readonly 'variables': _T_Variables<M_Source>
-}
-
-export type _T_Module_Set<M_Source> = _i_core._T_Dictionary<M_Source, _i_core._T_State_Group<M_Source, 
-    | readonly ['module', _T_Module<M_Source>]
-    | readonly ['set', _T_Module_Set<M_Source>]
->>
-
 export type _T_Selection<M_Source> = {
     readonly 'start': _i_core._T_State_Group<M_Source, 
         | readonly ['abort', null]
@@ -159,23 +165,19 @@ export type _T_Selection<M_Source> = {
     readonly 'tail': _i_core._T_List<M_Source, string>
 }
 
-export type _T_Type_Parameters<M_Source> = _i_core._T_Dictionary<M_Source, null>
-
 // **** FRIENDLY NAMES FOR THE GLOBAL TYPES
 
 export type Variables<M_Source> = _T_Variables<M_Source>
-
-export type Literal<M_Source> = _T_Literal<M_Source>
-
-export type Initialization<M_Source> = _T_Initialization<M_Source>
 
 export type Module<M_Source> = _T_Module<M_Source>
 
 export type Module_Set<M_Source> = _T_Module_Set<M_Source>
 
-export type Selection<M_Source> = _T_Selection<M_Source>
+export type Literal<M_Source> = _T_Literal<M_Source>
 
-export type Type_Parameters<M_Source> = _T_Type_Parameters<M_Source>
+export type Initialization<M_Source> = _T_Initialization<M_Source>
+
+export type Selection<M_Source> = _T_Selection<M_Source>
 
 // **** ALIASES FOR NESTED TYPE WITH PREFIXED ROOT NAMES
 
@@ -199,6 +201,127 @@ export namespace _T_Variables {
         readonly 'type': _pi.Optional_Value<_i_imports_interface._T_Type<M_Source>>
         readonly 'initialization': _T_Initialization<M_Source>
     }
+}
+
+export namespace _T_Module {
+    
+    export namespace _type {
+        
+        export namespace SG {
+            export type serializer<M_Source> = null
+            export type deserializer<M_Source> = null
+            export type transformer<M_Source> = null
+            export type refiner<M_Source> = null
+        }
+        export type SG<M_Source> = 
+            | readonly ['serializer', null]
+            | readonly ['deserializer', null]
+            | readonly ['transformer', null]
+            | readonly ['refiner', null]
+    }
+    export type _type<M_Source> = _i_core._T_State_Group<M_Source, 
+        | readonly ['serializer', null]
+        | readonly ['deserializer', null]
+        | readonly ['transformer', null]
+        | readonly ['refiner', null]
+    >
+    
+    export namespace type_imports {
+    }
+    export type type_imports<M_Source> = _i_imports_interface._T_Imports<M_Source>
+    
+    export namespace variable_imports {
+        
+        export namespace D {
+            
+            export namespace tail {
+                export type L<M_Source> = string
+            }
+            export type tail<M_Source> = _i_core._T_List<M_Source, string>
+            
+            export namespace _type {
+                
+                export namespace SG {
+                    
+                    export namespace ancestor {
+                        export type dependency<M_Source> = string
+                        export type number_of_steps<M_Source> = number
+                    }
+                    export type ancestor<M_Source> = {
+                        readonly 'dependency': string
+                        readonly 'number of steps': number
+                    }
+                    export type external<M_Source> = string
+                    export type sibling<M_Source> = string
+                }
+                export type SG<M_Source> = 
+                    | readonly ['ancestor', {
+                        readonly 'dependency': string
+                        readonly 'number of steps': number
+                    }]
+                    | readonly ['external', string]
+                    | readonly ['sibling', string]
+            }
+            export type _type<M_Source> = _i_core._T_State_Group<M_Source, 
+                | readonly ['ancestor', {
+                    readonly 'dependency': string
+                    readonly 'number of steps': number
+                }]
+                | readonly ['external', string]
+                | readonly ['sibling', string]
+            >
+        }
+        export type D<M_Source> = {
+            readonly 'tail': _i_core._T_List<M_Source, string>
+            readonly 'type': _i_core._T_State_Group<M_Source, 
+                | readonly ['ancestor', {
+                    readonly 'dependency': string
+                    readonly 'number of steps': number
+                }]
+                | readonly ['external', string]
+                | readonly ['sibling', string]
+            >
+        }
+    }
+    export type variable_imports<M_Source> = _i_core._T_Dictionary<M_Source, {
+        readonly 'tail': _i_core._T_List<M_Source, string>
+        readonly 'type': _i_core._T_State_Group<M_Source, 
+            | readonly ['ancestor', {
+                readonly 'dependency': string
+                readonly 'number of steps': number
+            }]
+            | readonly ['external', string]
+            | readonly ['sibling', string]
+        >
+    }>
+    
+    export namespace variables {
+    }
+    export type variables<M_Source> = _T_Variables<M_Source>
+}
+
+export namespace _T_Module_Set {
+    
+    export namespace D {
+        
+        export namespace SG {
+            
+            export namespace _module {
+            }
+            export type _module<M_Source> = _T_Module<M_Source>
+            
+            export namespace _set {
+            }
+            export type _set<M_Source> = _T_Module_Set<M_Source>
+        }
+        export type SG<M_Source> = 
+            | readonly ['module', _T_Module<M_Source>]
+            | readonly ['set', _T_Module_Set<M_Source>]
+    }
+    export type D<M_Source> = _i_core._T_State_Group<M_Source, 
+        | readonly ['module', _T_Module<M_Source>]
+        | readonly ['set', _T_Module_Set<M_Source>]
+    >
 }
 
 export namespace _T_Literal {
@@ -934,106 +1057,6 @@ export namespace _T_Initialization {
         }]
 }
 
-export namespace _T_Module {
-    
-    export namespace type_imports {
-    }
-    export type type_imports<M_Source> = _i_imports_interface._T_Imports<M_Source>
-    
-    export namespace variable_imports {
-        
-        export namespace D {
-            
-            export namespace tail {
-                export type L<M_Source> = string
-            }
-            export type tail<M_Source> = _i_core._T_List<M_Source, string>
-            
-            export namespace _type {
-                
-                export namespace SG {
-                    
-                    export namespace ancestor {
-                        export type dependency<M_Source> = string
-                        export type number_of_steps<M_Source> = number
-                    }
-                    export type ancestor<M_Source> = {
-                        readonly 'dependency': string
-                        readonly 'number of steps': number
-                    }
-                    export type external<M_Source> = string
-                    export type sibling<M_Source> = string
-                }
-                export type SG<M_Source> = 
-                    | readonly ['ancestor', {
-                        readonly 'dependency': string
-                        readonly 'number of steps': number
-                    }]
-                    | readonly ['external', string]
-                    | readonly ['sibling', string]
-            }
-            export type _type<M_Source> = _i_core._T_State_Group<M_Source, 
-                | readonly ['ancestor', {
-                    readonly 'dependency': string
-                    readonly 'number of steps': number
-                }]
-                | readonly ['external', string]
-                | readonly ['sibling', string]
-            >
-        }
-        export type D<M_Source> = {
-            readonly 'tail': _i_core._T_List<M_Source, string>
-            readonly 'type': _i_core._T_State_Group<M_Source, 
-                | readonly ['ancestor', {
-                    readonly 'dependency': string
-                    readonly 'number of steps': number
-                }]
-                | readonly ['external', string]
-                | readonly ['sibling', string]
-            >
-        }
-    }
-    export type variable_imports<M_Source> = _i_core._T_Dictionary<M_Source, {
-        readonly 'tail': _i_core._T_List<M_Source, string>
-        readonly 'type': _i_core._T_State_Group<M_Source, 
-            | readonly ['ancestor', {
-                readonly 'dependency': string
-                readonly 'number of steps': number
-            }]
-            | readonly ['external', string]
-            | readonly ['sibling', string]
-        >
-    }>
-    
-    export namespace variables {
-    }
-    export type variables<M_Source> = _T_Variables<M_Source>
-}
-
-export namespace _T_Module_Set {
-    
-    export namespace D {
-        
-        export namespace SG {
-            
-            export namespace _module {
-            }
-            export type _module<M_Source> = _T_Module<M_Source>
-            
-            export namespace _set {
-            }
-            export type _set<M_Source> = _T_Module_Set<M_Source>
-        }
-        export type SG<M_Source> = 
-            | readonly ['module', _T_Module<M_Source>]
-            | readonly ['set', _T_Module_Set<M_Source>]
-    }
-    export type D<M_Source> = _i_core._T_State_Group<M_Source, 
-        | readonly ['module', _T_Module<M_Source>]
-        | readonly ['set', _T_Module_Set<M_Source>]
-    >
-}
-
 export namespace _T_Selection {
     
     export namespace start {
@@ -1154,10 +1177,6 @@ export namespace _T_Selection {
     export type tail<M_Source> = _i_core._T_List<M_Source, string>
 }
 
-export namespace _T_Type_Parameters {
-    export type D<M_Source> = null
-}
-
 // *** ALIASES FOR NESTED TYPES
 
 export namespace Variables {
@@ -1180,6 +1199,127 @@ export namespace Variables {
         readonly 'type': _pi.Optional_Value<_i_imports_interface._T_Type<M_Source>>
         readonly 'initialization': _T_Initialization<M_Source>
     }
+}
+
+export namespace Module {
+    
+    export namespace _type {
+        
+        export namespace SG {
+            export type serializer<M_Source> = null
+            export type deserializer<M_Source> = null
+            export type transformer<M_Source> = null
+            export type refiner<M_Source> = null
+        }
+        export type SG<M_Source> = 
+            | readonly ['serializer', null]
+            | readonly ['deserializer', null]
+            | readonly ['transformer', null]
+            | readonly ['refiner', null]
+    }
+    export type _type<M_Source> = _i_core._T_State_Group<M_Source, 
+        | readonly ['serializer', null]
+        | readonly ['deserializer', null]
+        | readonly ['transformer', null]
+        | readonly ['refiner', null]
+    >
+    
+    export namespace type_imports {
+    }
+    export type type_imports<M_Source> = _i_imports_interface._T_Imports<M_Source>
+    
+    export namespace variable_imports {
+        
+        export namespace D {
+            
+            export namespace tail {
+                export type L<M_Source> = string
+            }
+            export type tail<M_Source> = _i_core._T_List<M_Source, string>
+            
+            export namespace _type {
+                
+                export namespace SG {
+                    
+                    export namespace ancestor {
+                        export type dependency<M_Source> = string
+                        export type number_of_steps<M_Source> = number
+                    }
+                    export type ancestor<M_Source> = {
+                        readonly 'dependency': string
+                        readonly 'number of steps': number
+                    }
+                    export type external<M_Source> = string
+                    export type sibling<M_Source> = string
+                }
+                export type SG<M_Source> = 
+                    | readonly ['ancestor', {
+                        readonly 'dependency': string
+                        readonly 'number of steps': number
+                    }]
+                    | readonly ['external', string]
+                    | readonly ['sibling', string]
+            }
+            export type _type<M_Source> = _i_core._T_State_Group<M_Source, 
+                | readonly ['ancestor', {
+                    readonly 'dependency': string
+                    readonly 'number of steps': number
+                }]
+                | readonly ['external', string]
+                | readonly ['sibling', string]
+            >
+        }
+        export type D<M_Source> = {
+            readonly 'tail': _i_core._T_List<M_Source, string>
+            readonly 'type': _i_core._T_State_Group<M_Source, 
+                | readonly ['ancestor', {
+                    readonly 'dependency': string
+                    readonly 'number of steps': number
+                }]
+                | readonly ['external', string]
+                | readonly ['sibling', string]
+            >
+        }
+    }
+    export type variable_imports<M_Source> = _i_core._T_Dictionary<M_Source, {
+        readonly 'tail': _i_core._T_List<M_Source, string>
+        readonly 'type': _i_core._T_State_Group<M_Source, 
+            | readonly ['ancestor', {
+                readonly 'dependency': string
+                readonly 'number of steps': number
+            }]
+            | readonly ['external', string]
+            | readonly ['sibling', string]
+        >
+    }>
+    
+    export namespace variables {
+    }
+    export type variables<M_Source> = _T_Variables<M_Source>
+}
+
+export namespace Module_Set {
+    
+    export namespace D {
+        
+        export namespace SG {
+            
+            export namespace _module {
+            }
+            export type _module<M_Source> = _T_Module<M_Source>
+            
+            export namespace _set {
+            }
+            export type _set<M_Source> = _T_Module_Set<M_Source>
+        }
+        export type SG<M_Source> = 
+            | readonly ['module', _T_Module<M_Source>]
+            | readonly ['set', _T_Module_Set<M_Source>]
+    }
+    export type D<M_Source> = _i_core._T_State_Group<M_Source, 
+        | readonly ['module', _T_Module<M_Source>]
+        | readonly ['set', _T_Module_Set<M_Source>]
+    >
 }
 
 export namespace Literal {
@@ -1915,106 +2055,6 @@ export namespace Initialization {
         }]
 }
 
-export namespace Module {
-    
-    export namespace type_imports {
-    }
-    export type type_imports<M_Source> = _i_imports_interface._T_Imports<M_Source>
-    
-    export namespace variable_imports {
-        
-        export namespace D {
-            
-            export namespace tail {
-                export type L<M_Source> = string
-            }
-            export type tail<M_Source> = _i_core._T_List<M_Source, string>
-            
-            export namespace _type {
-                
-                export namespace SG {
-                    
-                    export namespace ancestor {
-                        export type dependency<M_Source> = string
-                        export type number_of_steps<M_Source> = number
-                    }
-                    export type ancestor<M_Source> = {
-                        readonly 'dependency': string
-                        readonly 'number of steps': number
-                    }
-                    export type external<M_Source> = string
-                    export type sibling<M_Source> = string
-                }
-                export type SG<M_Source> = 
-                    | readonly ['ancestor', {
-                        readonly 'dependency': string
-                        readonly 'number of steps': number
-                    }]
-                    | readonly ['external', string]
-                    | readonly ['sibling', string]
-            }
-            export type _type<M_Source> = _i_core._T_State_Group<M_Source, 
-                | readonly ['ancestor', {
-                    readonly 'dependency': string
-                    readonly 'number of steps': number
-                }]
-                | readonly ['external', string]
-                | readonly ['sibling', string]
-            >
-        }
-        export type D<M_Source> = {
-            readonly 'tail': _i_core._T_List<M_Source, string>
-            readonly 'type': _i_core._T_State_Group<M_Source, 
-                | readonly ['ancestor', {
-                    readonly 'dependency': string
-                    readonly 'number of steps': number
-                }]
-                | readonly ['external', string]
-                | readonly ['sibling', string]
-            >
-        }
-    }
-    export type variable_imports<M_Source> = _i_core._T_Dictionary<M_Source, {
-        readonly 'tail': _i_core._T_List<M_Source, string>
-        readonly 'type': _i_core._T_State_Group<M_Source, 
-            | readonly ['ancestor', {
-                readonly 'dependency': string
-                readonly 'number of steps': number
-            }]
-            | readonly ['external', string]
-            | readonly ['sibling', string]
-        >
-    }>
-    
-    export namespace variables {
-    }
-    export type variables<M_Source> = _T_Variables<M_Source>
-}
-
-export namespace Module_Set {
-    
-    export namespace D {
-        
-        export namespace SG {
-            
-            export namespace _module {
-            }
-            export type _module<M_Source> = _T_Module<M_Source>
-            
-            export namespace _set {
-            }
-            export type _set<M_Source> = _T_Module_Set<M_Source>
-        }
-        export type SG<M_Source> = 
-            | readonly ['module', _T_Module<M_Source>]
-            | readonly ['set', _T_Module_Set<M_Source>]
-    }
-    export type D<M_Source> = _i_core._T_State_Group<M_Source, 
-        | readonly ['module', _T_Module<M_Source>]
-        | readonly ['set', _T_Module_Set<M_Source>]
-    >
-}
-
 export namespace Selection {
     
     export namespace start {
@@ -2133,8 +2173,4 @@ export namespace Selection {
         export type L<M_Source> = string
     }
     export type tail<M_Source> = _i_core._T_List<M_Source, string>
-}
-
-export namespace Type_Parameters {
-    export type D<M_Source> = null
 }

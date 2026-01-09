@@ -12,20 +12,6 @@ export type _T_Variables = (
     },
 ) => string
 
-export type _T_Literal = (
-    $$_: _i_in._T_Literal,
-    $$_p: {
-        readonly 'value serializers': _i_vs._T_Value_Serializers
-    },
-) => string
-
-export type _T_Initialization = (
-    $$_: _i_in._T_Initialization,
-    $$_p: {
-        readonly 'value serializers': _i_vs._T_Value_Serializers
-    },
-) => string
-
 export type _T_Module = (
     $$_: _i_in._T_Module,
     $$_p: {
@@ -40,15 +26,22 @@ export type _T_Module_Set = (
     },
 ) => string
 
-export type _T_Selection = (
-    $$_: _i_in._T_Selection,
+export type _T_Literal = (
+    $$_: _i_in._T_Literal,
     $$_p: {
         readonly 'value serializers': _i_vs._T_Value_Serializers
     },
 ) => string
 
-export type _T_Type_Parameters = (
-    $$_: _i_in._T_Type_Parameters,
+export type _T_Initialization = (
+    $$_: _i_in._T_Initialization,
+    $$_p: {
+        readonly 'value serializers': _i_vs._T_Value_Serializers
+    },
+) => string
+
+export type _T_Selection = (
+    $$_: _i_in._T_Selection,
     $$_p: {
         readonly 'value serializers': _i_vs._T_Value_Serializers
     },
@@ -58,17 +51,15 @@ export type _T_Type_Parameters = (
 
 export type Variables = _T_Variables
 
-export type Literal = _T_Literal
-
-export type Initialization = _T_Initialization
-
 export type Module = _T_Module
 
 export type Module_Set = _T_Module_Set
 
-export type Selection = _T_Selection
+export type Literal = _T_Literal
 
-export type Type_Parameters = _T_Type_Parameters
+export type Initialization = _T_Initialization
+
+export type Selection = _T_Selection
 
 // **** ALIASES FOR NESTED TYPE WITH PREFIXED ROOT NAMES
 
@@ -77,36 +68,6 @@ export namespace _T_Variables {
     export namespace CONTEXT {
     }
     export type CONTEXT = _i_in._T_Variables
-    
-    export namespace PARAMS {
-        
-        export namespace value_serializers {
-        }
-        export type value_serializers = _i_vs._T_Value_Serializers
-    }
-    export type RESULT = string
-}
-
-export namespace _T_Literal {
-    
-    export namespace CONTEXT {
-    }
-    export type CONTEXT = _i_in._T_Literal
-    
-    export namespace PARAMS {
-        
-        export namespace value_serializers {
-        }
-        export type value_serializers = _i_vs._T_Value_Serializers
-    }
-    export type RESULT = string
-}
-
-export namespace _T_Initialization {
-    
-    export namespace CONTEXT {
-    }
-    export type CONTEXT = _i_in._T_Initialization
     
     export namespace PARAMS {
         
@@ -147,11 +108,11 @@ export namespace _T_Module_Set {
     export type RESULT = string
 }
 
-export namespace _T_Selection {
+export namespace _T_Literal {
     
     export namespace CONTEXT {
     }
-    export type CONTEXT = _i_in._T_Selection
+    export type CONTEXT = _i_in._T_Literal
     
     export namespace PARAMS {
         
@@ -162,11 +123,26 @@ export namespace _T_Selection {
     export type RESULT = string
 }
 
-export namespace _T_Type_Parameters {
+export namespace _T_Initialization {
     
     export namespace CONTEXT {
     }
-    export type CONTEXT = _i_in._T_Type_Parameters
+    export type CONTEXT = _i_in._T_Initialization
+    
+    export namespace PARAMS {
+        
+        export namespace value_serializers {
+        }
+        export type value_serializers = _i_vs._T_Value_Serializers
+    }
+    export type RESULT = string
+}
+
+export namespace _T_Selection {
+    
+    export namespace CONTEXT {
+    }
+    export type CONTEXT = _i_in._T_Selection
     
     export namespace PARAMS {
         
@@ -184,36 +160,6 @@ export namespace Variables {
     export namespace CONTEXT {
     }
     export type CONTEXT = _i_in._T_Variables
-    
-    export namespace PARAMS {
-        
-        export namespace value_serializers {
-        }
-        export type value_serializers = _i_vs._T_Value_Serializers
-    }
-    export type RESULT = string
-}
-
-export namespace Literal {
-    
-    export namespace CONTEXT {
-    }
-    export type CONTEXT = _i_in._T_Literal
-    
-    export namespace PARAMS {
-        
-        export namespace value_serializers {
-        }
-        export type value_serializers = _i_vs._T_Value_Serializers
-    }
-    export type RESULT = string
-}
-
-export namespace Initialization {
-    
-    export namespace CONTEXT {
-    }
-    export type CONTEXT = _i_in._T_Initialization
     
     export namespace PARAMS {
         
@@ -254,11 +200,11 @@ export namespace Module_Set {
     export type RESULT = string
 }
 
-export namespace Selection {
+export namespace Literal {
     
     export namespace CONTEXT {
     }
-    export type CONTEXT = _i_in._T_Selection
+    export type CONTEXT = _i_in._T_Literal
     
     export namespace PARAMS {
         
@@ -269,11 +215,26 @@ export namespace Selection {
     export type RESULT = string
 }
 
-export namespace Type_Parameters {
+export namespace Initialization {
     
     export namespace CONTEXT {
     }
-    export type CONTEXT = _i_in._T_Type_Parameters
+    export type CONTEXT = _i_in._T_Initialization
+    
+    export namespace PARAMS {
+        
+        export namespace value_serializers {
+        }
+        export type value_serializers = _i_vs._T_Value_Serializers
+    }
+    export type RESULT = string
+}
+
+export namespace Selection {
+    
+    export namespace CONTEXT {
+    }
+    export type CONTEXT = _i_in._T_Selection
     
     export namespace PARAMS {
         

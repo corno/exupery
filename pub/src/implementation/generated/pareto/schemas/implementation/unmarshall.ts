@@ -15,7 +15,7 @@ export const Variables: _i_signatures._T_Variables = ($, $p) => _i_generic.proce
             $,
             {
                 'properties': ($) => ({
-                    'type': _p.sg(_i_generic.get_entry(
+                    'type': _p.deprecated_cc(_i_generic.get_entry(
                         $,
                         {
                             'key': "type",
@@ -31,7 +31,7 @@ export const Variables: _i_signatures._T_Variables = ($, $p) => _i_generic.proce
                             ),
                         }
                     )),
-                    'initialization': _p.sg(_i_generic.get_entry(
+                    'initialization': _p.deprecated_cc(_i_generic.get_entry(
                         $,
                         {
                             'key': "initialization",
@@ -42,6 +42,165 @@ export const Variables: _i_signatures._T_Variables = ($, $p) => _i_generic.proce
                             'value deserializers': $p['value deserializers'],
                         }
                     )),
+                }),
+            }
+        ),
+    }
+)
+export const Module: _i_signatures._T_Module = ($, $p) => _i_generic.process_group(
+    $,
+    {
+        'properties': ($) => ({
+            'type': _p.deprecated_cc(_i_generic.get_entry(
+                $,
+                {
+                    'key': "type",
+                }
+            ), ($) => _i_generic.process_unresolved_state_group(
+                $,
+                {
+                    'states': _p.dictionary.literal({
+                        'serializer': ($): _i_out._T_Module._type.SG<_i_in._T_Range> => ['serializer', _i_generic.process_nothing(
+                            $,
+                            null
+                        )],
+                        'deserializer': ($): _i_out._T_Module._type.SG<_i_in._T_Range> => ['deserializer', _i_generic.process_nothing(
+                            $,
+                            null
+                        )],
+                        'transformer': ($): _i_out._T_Module._type.SG<_i_in._T_Range> => ['transformer', _i_generic.process_nothing(
+                            $,
+                            null
+                        )],
+                        'refiner': ($): _i_out._T_Module._type.SG<_i_in._T_Range> => ['refiner', _i_generic.process_nothing(
+                            $,
+                            null
+                        )],
+                    }),
+                }
+            )),
+            'type imports': _p.deprecated_cc(_i_generic.get_entry(
+                $,
+                {
+                    'key': "type imports",
+                }
+            ), ($) => _i_r_interface.Imports(
+                $,
+                {
+                    'value deserializers': $p['value deserializers'],
+                }
+            )),
+            'variable imports': _p.deprecated_cc(_i_generic.get_entry(
+                $,
+                {
+                    'key': "variable imports",
+                }
+            ), ($) => _i_generic.process_unresolved_dictionary(
+                $,
+                {
+                    'value': ($) => _i_generic.process_group(
+                        $,
+                        {
+                            'properties': ($) => ({
+                                'tail': _p.deprecated_cc(_i_generic.get_entry(
+                                    $,
+                                    {
+                                        'key': "tail",
+                                    }
+                                ), ($) => _i_generic.process_unresolved_list(
+                                    $,
+                                    {
+                                        'value': ($) => _i_generic.process_text(
+                                            $,
+                                            null
+                                        ),
+                                    }
+                                )),
+                                'type': _p.deprecated_cc(_i_generic.get_entry(
+                                    $,
+                                    {
+                                        'key': "type",
+                                    }
+                                ), ($) => _i_generic.process_unresolved_state_group(
+                                    $,
+                                    {
+                                        'states': _p.dictionary.literal({
+                                            'ancestor': ($): _i_out._T_Module.variable_imports.D._type.SG<_i_in._T_Range> => ['ancestor', _i_generic.process_group(
+                                                $,
+                                                {
+                                                    'properties': ($) => ({
+                                                        'dependency': _p.deprecated_cc(_i_generic.get_entry(
+                                                            $,
+                                                            {
+                                                                'key': "dependency",
+                                                            }
+                                                        ), ($) => _i_generic.process_text(
+                                                            $,
+                                                            null
+                                                        )),
+                                                        'number of steps': _p.deprecated_cc(_i_generic.get_entry(
+                                                            $,
+                                                            {
+                                                                'key': "number of steps",
+                                                            }
+                                                        ), ($) => _i_generic.process_number(
+                                                            $,
+                                                            {
+                                                                'deserializer': $p['value deserializers']['default number'],
+                                                            }
+                                                        )),
+                                                    }),
+                                                }
+                                            )],
+                                            'external': ($): _i_out._T_Module.variable_imports.D._type.SG<_i_in._T_Range> => ['external', _i_generic.process_text(
+                                                $,
+                                                null
+                                            )],
+                                            'sibling': ($): _i_out._T_Module.variable_imports.D._type.SG<_i_in._T_Range> => ['sibling', _i_generic.process_text(
+                                                $,
+                                                null
+                                            )],
+                                        }),
+                                    }
+                                )),
+                            }),
+                        }
+                    ),
+                }
+            )),
+            'variables': _p.deprecated_cc(_i_generic.get_entry(
+                $,
+                {
+                    'key': "variables",
+                }
+            ), ($) => Variables(
+                $,
+                {
+                    'value deserializers': $p['value deserializers'],
+                }
+            )),
+        }),
+    }
+)
+export const Module_Set: _i_signatures._T_Module_Set = ($, $p) => _i_generic.process_unresolved_dictionary(
+    $,
+    {
+        'value': ($) => _i_generic.process_unresolved_state_group(
+            $,
+            {
+                'states': _p.dictionary.literal({
+                    'module': ($): _i_out._T_Module_Set.D.SG<_i_in._T_Range> => ['module', Module(
+                        $,
+                        {
+                            'value deserializers': $p['value deserializers'],
+                        }
+                    )],
+                    'set': ($): _i_out._T_Module_Set.D.SG<_i_in._T_Range> => ['set', Module_Set(
+                        $,
+                        {
+                            'value deserializers': $p['value deserializers'],
+                        }
+                    )],
                 }),
             }
         ),
@@ -92,7 +251,7 @@ export const Literal: _i_signatures._T_Literal = ($, $p) => _i_generic.process_u
                 $,
                 {
                     'properties': ($) => ({
-                        'initialization': _p.sg(_i_generic.get_entry(
+                        'initialization': _p.deprecated_cc(_i_generic.get_entry(
                             $,
                             {
                                 'key': "initialization",
@@ -103,7 +262,7 @@ export const Literal: _i_signatures._T_Literal = ($, $p) => _i_generic.process_u
                                 'value deserializers': $p['value deserializers'],
                             }
                         )),
-                        'temp has parameters': _p.sg(_i_generic.get_entry(
+                        'temp has parameters': _p.deprecated_cc(_i_generic.get_entry(
                             $,
                             {
                                 'key': "temp has parameters",
@@ -114,7 +273,7 @@ export const Literal: _i_signatures._T_Literal = ($, $p) => _i_generic.process_u
                                 'deserializer': $p['value deserializers']['boolean'],
                             }
                         )),
-                        'temp resulting node': _p.sg(_i_generic.get_entry(
+                        'temp resulting node': _p.deprecated_cc(_i_generic.get_entry(
                             $,
                             {
                                 'key': "temp resulting node",
@@ -194,7 +353,7 @@ export const Literal: _i_signatures._T_Literal = ($, $p) => _i_generic.process_u
                 $,
                 {
                     'properties': ($) => ({
-                        'delimiter': _p.sg(_i_generic.get_entry(
+                        'delimiter': _p.deprecated_cc(_i_generic.get_entry(
                             $,
                             {
                                 'key': "delimiter",
@@ -214,7 +373,7 @@ export const Literal: _i_signatures._T_Literal = ($, $p) => _i_generic.process_u
                                 }),
                             }
                         )),
-                        'value': _p.sg(_i_generic.get_entry(
+                        'value': _p.deprecated_cc(_i_generic.get_entry(
                             $,
                             {
                                 'key': "value",
@@ -230,7 +389,7 @@ export const Literal: _i_signatures._T_Literal = ($, $p) => _i_generic.process_u
                 $,
                 {
                     'properties': ($) => ({
-                        'case': _p.sg(_i_generic.get_entry(
+                        'case': _p.deprecated_cc(_i_generic.get_entry(
                             $,
                             {
                                 'key': "case",
@@ -239,7 +398,7 @@ export const Literal: _i_signatures._T_Literal = ($, $p) => _i_generic.process_u
                             $,
                             null
                         )),
-                        'value': _p.sg(_i_generic.get_entry(
+                        'value': _p.deprecated_cc(_i_generic.get_entry(
                             $,
                             {
                                 'key': "value",
@@ -264,7 +423,7 @@ export const Initialization: _i_signatures._T_Initialization = ($, $p) => _i_gen
                 $,
                 {
                     'properties': ($) => ({
-                        'variables': _p.sg(_i_generic.get_entry(
+                        'variables': _p.deprecated_cc(_i_generic.get_entry(
                             $,
                             {
                                 'key': "variables",
@@ -275,7 +434,7 @@ export const Initialization: _i_signatures._T_Initialization = ($, $p) => _i_gen
                                 'value deserializers': $p['value deserializers'],
                             }
                         )),
-                        'temp ordered variables': _p.sg(_i_generic.get_entry(
+                        'temp ordered variables': _p.deprecated_cc(_i_generic.get_entry(
                             $,
                             {
                                 'key': "temp ordered variables",
@@ -287,7 +446,7 @@ export const Initialization: _i_signatures._T_Initialization = ($, $p) => _i_gen
                                     $,
                                     {
                                         'properties': ($) => ({
-                                            'name': _p.sg(_i_generic.get_entry(
+                                            'name': _p.deprecated_cc(_i_generic.get_entry(
                                                 $,
                                                 {
                                                     'key': "name",
@@ -296,7 +455,7 @@ export const Initialization: _i_signatures._T_Initialization = ($, $p) => _i_gen
                                                 $,
                                                 null
                                             )),
-                                            'type': _p.sg(_i_generic.get_entry(
+                                            'type': _p.deprecated_cc(_i_generic.get_entry(
                                                 $,
                                                 {
                                                     'key': "type",
@@ -312,7 +471,7 @@ export const Initialization: _i_signatures._T_Initialization = ($, $p) => _i_gen
                                                     ),
                                                 }
                                             )),
-                                            'initialization': _p.sg(_i_generic.get_entry(
+                                            'initialization': _p.deprecated_cc(_i_generic.get_entry(
                                                 $,
                                                 {
                                                     'key': "initialization",
@@ -328,7 +487,7 @@ export const Initialization: _i_signatures._T_Initialization = ($, $p) => _i_gen
                                 ),
                             }
                         )),
-                        'initialization': _p.sg(_i_generic.get_entry(
+                        'initialization': _p.deprecated_cc(_i_generic.get_entry(
                             $,
                             {
                                 'key': "initialization",
@@ -346,7 +505,7 @@ export const Initialization: _i_signatures._T_Initialization = ($, $p) => _i_gen
                 $,
                 {
                     'properties': ($) => ({
-                        'new context': _p.sg(_i_generic.get_entry(
+                        'new context': _p.deprecated_cc(_i_generic.get_entry(
                             $,
                             {
                                 'key': "new context",
@@ -357,7 +516,7 @@ export const Initialization: _i_signatures._T_Initialization = ($, $p) => _i_gen
                                 'value deserializers': $p['value deserializers'],
                             }
                         )),
-                        'initialization': _p.sg(_i_generic.get_entry(
+                        'initialization': _p.deprecated_cc(_i_generic.get_entry(
                             $,
                             {
                                 'key': "initialization",
@@ -375,7 +534,7 @@ export const Initialization: _i_signatures._T_Initialization = ($, $p) => _i_gen
                 $,
                 {
                     'properties': ($) => ({
-                        'value': _p.sg(_i_generic.get_entry(
+                        'value': _p.deprecated_cc(_i_generic.get_entry(
                             $,
                             {
                                 'key': "value",
@@ -399,7 +558,7 @@ export const Initialization: _i_signatures._T_Initialization = ($, $p) => _i_gen
                 $,
                 {
                     'properties': ($) => ({
-                        'source': _p.sg(_i_generic.get_entry(
+                        'source': _p.deprecated_cc(_i_generic.get_entry(
                             $,
                             {
                                 'key': "source",
@@ -410,7 +569,7 @@ export const Initialization: _i_signatures._T_Initialization = ($, $p) => _i_gen
                                 'value deserializers': $p['value deserializers'],
                             }
                         )),
-                        'type': _p.sg(_i_generic.get_entry(
+                        'type': _p.deprecated_cc(_i_generic.get_entry(
                             $,
                             {
                                 'key': "type",
@@ -444,7 +603,7 @@ export const Initialization: _i_signatures._T_Initialization = ($, $p) => _i_gen
                                                     $,
                                                     {
                                                         'properties': ($) => ({
-                                                            'if false': _p.sg(_i_generic.get_entry(
+                                                            'if false': _p.deprecated_cc(_i_generic.get_entry(
                                                                 $,
                                                                 {
                                                                     'key': "if false",
@@ -455,7 +614,7 @@ export const Initialization: _i_signatures._T_Initialization = ($, $p) => _i_gen
                                                                     'value deserializers': $p['value deserializers'],
                                                                 }
                                                             )),
-                                                            'if true': _p.sg(_i_generic.get_entry(
+                                                            'if true': _p.deprecated_cc(_i_generic.get_entry(
                                                                 $,
                                                                 {
                                                                     'key': "if true",
@@ -493,7 +652,7 @@ export const Initialization: _i_signatures._T_Initialization = ($, $p) => _i_gen
                                                     $,
                                                     {
                                                         'properties': ($) => ({
-                                                            'context': _p.sg(_i_generic.get_entry(
+                                                            'context': _p.deprecated_cc(_i_generic.get_entry(
                                                                 $,
                                                                 {
                                                                     'key': "context",
@@ -504,7 +663,7 @@ export const Initialization: _i_signatures._T_Initialization = ($, $p) => _i_gen
                                                                     'value deserializers': $p['value deserializers'],
                                                                 }
                                                             )),
-                                                            'arguments': _p.sg(_i_generic.get_entry(
+                                                            'arguments': _p.deprecated_cc(_i_generic.get_entry(
                                                                 $,
                                                                 {
                                                                     'key': "arguments",
@@ -545,7 +704,7 @@ export const Initialization: _i_signatures._T_Initialization = ($, $p) => _i_gen
                                                     $,
                                                     {
                                                         'properties': ($) => ({
-                                                            'if not set': _p.sg(_i_generic.get_entry(
+                                                            'if not set': _p.deprecated_cc(_i_generic.get_entry(
                                                                 $,
                                                                 {
                                                                     'key': "if not set",
@@ -556,7 +715,7 @@ export const Initialization: _i_signatures._T_Initialization = ($, $p) => _i_gen
                                                                     'value deserializers': $p['value deserializers'],
                                                                 }
                                                             )),
-                                                            'if set': _p.sg(_i_generic.get_entry(
+                                                            'if set': _p.deprecated_cc(_i_generic.get_entry(
                                                                 $,
                                                                 {
                                                                     'key': "if set",
@@ -567,7 +726,7 @@ export const Initialization: _i_signatures._T_Initialization = ($, $p) => _i_gen
                                                                     'value deserializers': $p['value deserializers'],
                                                                 }
                                                             )),
-                                                            'temp resulting node': _p.sg(_i_generic.get_entry(
+                                                            'temp resulting node': _p.deprecated_cc(_i_generic.get_entry(
                                                                 $,
                                                                 {
                                                                     'key': "temp resulting node",
@@ -597,7 +756,7 @@ export const Initialization: _i_signatures._T_Initialization = ($, $p) => _i_gen
                                                     $,
                                                     {
                                                         'properties': ($) => ({
-                                                            'temp resulting node': _p.sg(_i_generic.get_entry(
+                                                            'temp resulting node': _p.deprecated_cc(_i_generic.get_entry(
                                                                 $,
                                                                 {
                                                                     'key': "temp resulting node",
@@ -613,7 +772,7 @@ export const Initialization: _i_signatures._T_Initialization = ($, $p) => _i_gen
                                                                     ),
                                                                 }
                                                             )),
-                                                            'type': _p.sg(_i_generic.get_entry(
+                                                            'type': _p.deprecated_cc(_i_generic.get_entry(
                                                                 $,
                                                                 {
                                                                     'key': "type",
@@ -626,7 +785,7 @@ export const Initialization: _i_signatures._T_Initialization = ($, $p) => _i_gen
                                                                             $,
                                                                             {
                                                                                 'properties': ($) => ({
-                                                                                    'cases': _p.sg(_i_generic.get_entry(
+                                                                                    'cases': _p.deprecated_cc(_i_generic.get_entry(
                                                                                         $,
                                                                                         {
                                                                                             'key': "cases",
@@ -642,7 +801,7 @@ export const Initialization: _i_signatures._T_Initialization = ($, $p) => _i_gen
                                                                                             ),
                                                                                         }
                                                                                     )),
-                                                                                    'default': _p.sg(_i_generic.get_entry(
+                                                                                    'default': _p.deprecated_cc(_i_generic.get_entry(
                                                                                         $,
                                                                                         {
                                                                                             'key': "default",
@@ -660,7 +819,7 @@ export const Initialization: _i_signatures._T_Initialization = ($, $p) => _i_gen
                                                                             $,
                                                                             {
                                                                                 'properties': ($) => ({
-                                                                                    'cases': _p.sg(_i_generic.get_entry(
+                                                                                    'cases': _p.deprecated_cc(_i_generic.get_entry(
                                                                                         $,
                                                                                         {
                                                                                             'key': "cases",
@@ -697,142 +856,11 @@ export const Initialization: _i_signatures._T_Initialization = ($, $p) => _i_gen
         }),
     }
 )
-export const Module: _i_signatures._T_Module = ($, $p) => _i_generic.process_group(
-    $,
-    {
-        'properties': ($) => ({
-            'type imports': _p.sg(_i_generic.get_entry(
-                $,
-                {
-                    'key': "type imports",
-                }
-            ), ($) => _i_r_interface.Imports(
-                $,
-                {
-                    'value deserializers': $p['value deserializers'],
-                }
-            )),
-            'variable imports': _p.sg(_i_generic.get_entry(
-                $,
-                {
-                    'key': "variable imports",
-                }
-            ), ($) => _i_generic.process_unresolved_dictionary(
-                $,
-                {
-                    'value': ($) => _i_generic.process_group(
-                        $,
-                        {
-                            'properties': ($) => ({
-                                'tail': _p.sg(_i_generic.get_entry(
-                                    $,
-                                    {
-                                        'key': "tail",
-                                    }
-                                ), ($) => _i_generic.process_unresolved_list(
-                                    $,
-                                    {
-                                        'value': ($) => _i_generic.process_text(
-                                            $,
-                                            null
-                                        ),
-                                    }
-                                )),
-                                'type': _p.sg(_i_generic.get_entry(
-                                    $,
-                                    {
-                                        'key': "type",
-                                    }
-                                ), ($) => _i_generic.process_unresolved_state_group(
-                                    $,
-                                    {
-                                        'states': _p.dictionary.literal({
-                                            'ancestor': ($): _i_out._T_Module.variable_imports.D._type.SG<_i_in._T_Range> => ['ancestor', _i_generic.process_group(
-                                                $,
-                                                {
-                                                    'properties': ($) => ({
-                                                        'dependency': _p.sg(_i_generic.get_entry(
-                                                            $,
-                                                            {
-                                                                'key': "dependency",
-                                                            }
-                                                        ), ($) => _i_generic.process_text(
-                                                            $,
-                                                            null
-                                                        )),
-                                                        'number of steps': _p.sg(_i_generic.get_entry(
-                                                            $,
-                                                            {
-                                                                'key': "number of steps",
-                                                            }
-                                                        ), ($) => _i_generic.process_number(
-                                                            $,
-                                                            {
-                                                                'deserializer': $p['value deserializers']['default number'],
-                                                            }
-                                                        )),
-                                                    }),
-                                                }
-                                            )],
-                                            'external': ($): _i_out._T_Module.variable_imports.D._type.SG<_i_in._T_Range> => ['external', _i_generic.process_text(
-                                                $,
-                                                null
-                                            )],
-                                            'sibling': ($): _i_out._T_Module.variable_imports.D._type.SG<_i_in._T_Range> => ['sibling', _i_generic.process_text(
-                                                $,
-                                                null
-                                            )],
-                                        }),
-                                    }
-                                )),
-                            }),
-                        }
-                    ),
-                }
-            )),
-            'variables': _p.sg(_i_generic.get_entry(
-                $,
-                {
-                    'key': "variables",
-                }
-            ), ($) => Variables(
-                $,
-                {
-                    'value deserializers': $p['value deserializers'],
-                }
-            )),
-        }),
-    }
-)
-export const Module_Set: _i_signatures._T_Module_Set = ($, $p) => _i_generic.process_unresolved_dictionary(
-    $,
-    {
-        'value': ($) => _i_generic.process_unresolved_state_group(
-            $,
-            {
-                'states': _p.dictionary.literal({
-                    'module': ($): _i_out._T_Module_Set.D.SG<_i_in._T_Range> => ['module', Module(
-                        $,
-                        {
-                            'value deserializers': $p['value deserializers'],
-                        }
-                    )],
-                    'set': ($): _i_out._T_Module_Set.D.SG<_i_in._T_Range> => ['set', Module_Set(
-                        $,
-                        {
-                            'value deserializers': $p['value deserializers'],
-                        }
-                    )],
-                }),
-            }
-        ),
-    }
-)
 export const Selection: _i_signatures._T_Selection = ($, $p) => _i_generic.process_group(
     $,
     {
         'properties': ($) => ({
-            'start': _p.sg(_i_generic.get_entry(
+            'start': _p.deprecated_cc(_i_generic.get_entry(
                 $,
                 {
                     'key': "start",
@@ -849,7 +877,7 @@ export const Selection: _i_signatures._T_Selection = ($, $p) => _i_generic.proce
                             $,
                             {
                                 'properties': ($) => ({
-                                    'source': _p.sg(_i_generic.get_entry(
+                                    'source': _p.deprecated_cc(_i_generic.get_entry(
                                         $,
                                         {
                                             'key': "source",
@@ -860,7 +888,7 @@ export const Selection: _i_signatures._T_Selection = ($, $p) => _i_generic.proce
                                             'value deserializers': $p['value deserializers'],
                                         }
                                     )),
-                                    'if not set': _p.sg(_i_generic.get_entry(
+                                    'if not set': _p.deprecated_cc(_i_generic.get_entry(
                                         $,
                                         {
                                             'key': "if not set",
@@ -871,7 +899,7 @@ export const Selection: _i_signatures._T_Selection = ($, $p) => _i_generic.proce
                                             'value deserializers': $p['value deserializers'],
                                         }
                                     )),
-                                    'if set': _p.sg(_i_generic.get_entry(
+                                    'if set': _p.deprecated_cc(_i_generic.get_entry(
                                         $,
                                         {
                                             'key': "if set",
@@ -889,7 +917,7 @@ export const Selection: _i_signatures._T_Selection = ($, $p) => _i_generic.proce
                             $,
                             {
                                 'properties': ($) => ({
-                                    'source': _p.sg(_i_generic.get_entry(
+                                    'source': _p.deprecated_cc(_i_generic.get_entry(
                                         $,
                                         {
                                             'key': "source",
@@ -900,7 +928,7 @@ export const Selection: _i_signatures._T_Selection = ($, $p) => _i_generic.proce
                                             'value deserializers': $p['value deserializers'],
                                         }
                                     )),
-                                    'context': _p.sg(_i_generic.get_entry(
+                                    'context': _p.deprecated_cc(_i_generic.get_entry(
                                         $,
                                         {
                                             'key': "context",
@@ -911,7 +939,7 @@ export const Selection: _i_signatures._T_Selection = ($, $p) => _i_generic.proce
                                             'value deserializers': $p['value deserializers'],
                                         }
                                     )),
-                                    'arguments': _p.sg(_i_generic.get_entry(
+                                    'arguments': _p.deprecated_cc(_i_generic.get_entry(
                                         $,
                                         {
                                             'key': "arguments",
@@ -959,7 +987,7 @@ export const Selection: _i_signatures._T_Selection = ($, $p) => _i_generic.proce
                             $,
                             {
                                 'properties': ($) => ({
-                                    'import': _p.sg(_i_generic.get_entry(
+                                    'import': _p.deprecated_cc(_i_generic.get_entry(
                                         $,
                                         {
                                             'key': "import",
@@ -968,7 +996,7 @@ export const Selection: _i_signatures._T_Selection = ($, $p) => _i_generic.proce
                                         $,
                                         null
                                     )),
-                                    'variable': _p.sg(_i_generic.get_entry(
+                                    'variable': _p.deprecated_cc(_i_generic.get_entry(
                                         $,
                                         {
                                             'key': "variable",
@@ -983,7 +1011,7 @@ export const Selection: _i_signatures._T_Selection = ($, $p) => _i_generic.proce
                     }),
                 }
             )),
-            'tail': _p.sg(_i_generic.get_entry(
+            'tail': _p.deprecated_cc(_i_generic.get_entry(
                 $,
                 {
                     'key': "tail",
@@ -998,14 +1026,5 @@ export const Selection: _i_signatures._T_Selection = ($, $p) => _i_generic.proce
                 }
             )),
         }),
-    }
-)
-export const Type_Parameters: _i_signatures._T_Type_Parameters = ($, $p) => _i_generic.process_unresolved_dictionary(
-    $,
-    {
-        'value': ($) => _i_generic.process_nothing(
-            $,
-            null
-        ),
     }
 )

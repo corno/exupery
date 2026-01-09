@@ -7,6 +7,178 @@ import * as _i_signatures from "../../../../../interface/generated/pareto/schema
 import * as _i_r_interface from "../interface/resolve"
 
 
+export const r_Module_Set: _i_signatures._T_Module_Set = ($, $p) => _p.deprecated_block(() => {
+    const l2s = $p['location 2 string']
+    const params = $p['parameters']
+    return _p.deprecated_block(() => {
+        return _i_generic.resolve_dictionary(
+            $,
+            {
+                'map': ($, $p) => _p.deprecated_block(() => {
+                    return _p.deprecated_cc($['value'], ($) => _p.deprecated_cc($['state group'], ($): _i_out._T_Module_Set.D => {
+                        switch ($[0]) {
+                            case 'module': return _p.ss($, ($) => ['module', _p.deprecated_block(() => {
+                                return r_Module(
+                                    $,
+                                    {
+                                        'location 2 string': l2s,
+                                        'parameters': ({
+                                            'values': null,
+                                            'lookups': null,
+                                        }),
+                                    }
+                                )
+                            })])
+                            case 'set': return _p.ss($, ($) => ['set', _p.deprecated_block(() => {
+                                return r_Module_Set(
+                                    $,
+                                    {
+                                        'location 2 string': l2s,
+                                        'parameters': ({
+                                            'values': null,
+                                            'lookups': null,
+                                        }),
+                                    }
+                                )
+                            })])
+                            default: return _p.au($[0])
+                        }
+                    }))
+                }),
+                'location 2 string': l2s,
+            }
+        )
+    })
+})
+export const r_Module: _i_signatures._T_Module = ($, $p) => _p.deprecated_block(() => {
+    const l2s = $p['location 2 string']
+    const params = $p['parameters']
+    return _p.deprecated_block(() => {
+        const p_type: _i_out._T_Module._type = _p.deprecated_cc($['type'], ($) => _p.deprecated_cc($['state group'], ($): _i_out._T_Module._type => {
+            switch ($[0]) {
+                case 'serializer': return _p.ss($, ($) => ['serializer', _p.deprecated_block(() => {
+                    return null
+                })])
+                case 'deserializer': return _p.ss($, ($) => ['deserializer', _p.deprecated_block(() => {
+                    return null
+                })])
+                case 'transformer': return _p.ss($, ($) => ['transformer', _p.deprecated_block(() => {
+                    return null
+                })])
+                case 'refiner': return _p.ss($, ($) => ['refiner', _p.deprecated_block(() => {
+                    return null
+                })])
+                default: return _p.au($[0])
+            }
+        }))
+        const p_type_imports: _i_out._T_Module.type_imports = _p.deprecated_cc($['type imports'], ($) => _i_r_interface.r_Imports(
+            $,
+            {
+                'location 2 string': l2s,
+                'parameters': ({
+                    'values': null,
+                    'lookups': null,
+                }),
+            }
+        ))
+        const p_variable_imports: _i_out._T_Module.variable_imports = _p.deprecated_cc($['variable imports'], ($) => _p.deprecated_block(() => {
+            return _i_generic.resolve_dictionary(
+                $,
+                {
+                    'map': ($, $p) => _p.deprecated_block(() => {
+                        return _p.deprecated_cc($['value'], ($) => _p.deprecated_block(() => {
+                            const p_tail: _i_out._T_Module.variable_imports.D.tail = _p.deprecated_cc($['tail'], ($) => $['list'].map(($) => _p.deprecated_cc($['element'], ($) => $)))
+                            const p_type: _i_out._T_Module.variable_imports.D._type = _p.deprecated_cc($['type'], ($) => _p.deprecated_cc($['state group'], ($): _i_out._T_Module.variable_imports.D._type => {
+                                switch ($[0]) {
+                                    case 'ancestor': return _p.ss($, ($) => ['ancestor', _p.deprecated_block(() => {
+                                        return _p.deprecated_block(() => {
+                                            const p_dependency: _i_out._T_Module.variable_imports.D._type.SG.ancestor.dependency = _p.deprecated_cc($['dependency'], ($) => $)
+                                            const p_number_of_steps: _i_out._T_Module.variable_imports.D._type.SG.ancestor.number_of_steps = _p.deprecated_cc($['number of steps'], ($) => $)
+                                            return ({
+                                                'dependency': p_dependency,
+                                                'number of steps': p_number_of_steps,
+                                            })
+                                        })
+                                    })])
+                                    case 'external': return _p.ss($, ($) => ['external', _p.deprecated_block(() => {
+                                        return $
+                                    })])
+                                    case 'sibling': return _p.ss($, ($) => ['sibling', _p.deprecated_block(() => {
+                                        return $
+                                    })])
+                                    default: return _p.au($[0])
+                                }
+                            }))
+                            return ({
+                                'tail': p_tail,
+                                'type': p_type,
+                            })
+                        }))
+                    }),
+                    'location 2 string': l2s,
+                }
+            )
+        }))
+        const p_variables: _i_out._T_Module.variables = _p.deprecated_cc($['variables'], ($) => r_Variables(
+            $,
+            {
+                'location 2 string': l2s,
+                'parameters': ({
+                    'values': null,
+                    'lookups': null,
+                }),
+            }
+        ))
+        return ({
+            'type': p_type,
+            'type imports': p_type_imports,
+            'variable imports': p_variable_imports,
+            'variables': p_variables,
+        })
+    })
+})
+export const r_Variables: _i_signatures._T_Variables = ($, $p) => _p.deprecated_block(() => {
+    const l2s = $p['location 2 string']
+    const params = $p['parameters']
+    return _p.deprecated_block(() => {
+        return _i_generic.resolve_dictionary(
+            $,
+            {
+                'map': ($, $p) => _p.deprecated_block(() => {
+                    return _p.deprecated_cc($['value'], ($) => _p.deprecated_block(() => {
+                        const p_type: _i_out._T_Variables.D._type = _p.deprecated_cc($['type'], ($) => $.map(($) => _p.deprecated_block(() => {
+                            return _i_r_interface.r_Type(
+                                $,
+                                {
+                                    'location 2 string': l2s,
+                                    'parameters': ({
+                                        'values': null,
+                                        'lookups': null,
+                                    }),
+                                }
+                            )
+                        })))
+                        const p_initialization: _i_out._T_Variables.D.initialization = _p.deprecated_cc($['initialization'], ($) => r_Initialization(
+                            $,
+                            {
+                                'location 2 string': l2s,
+                                'parameters': ({
+                                    'values': null,
+                                    'lookups': null,
+                                }),
+                            }
+                        ))
+                        return ({
+                            'type': p_type,
+                            'initialization': p_initialization,
+                        })
+                    }))
+                }),
+                'location 2 string': l2s,
+            }
+        )
+    })
+})
 export const r_Initialization: _i_signatures._T_Initialization = ($, $p) => _p.deprecated_block(() => {
     const l2s = $p['location 2 string']
     const params = $p['parameters']
@@ -625,118 +797,6 @@ export const r_Literal: _i_signatures._T_Literal = ($, $p) => _p.deprecated_bloc
         }
     })
 })
-export const r_Module: _i_signatures._T_Module = ($, $p) => _p.deprecated_block(() => {
-    const l2s = $p['location 2 string']
-    const params = $p['parameters']
-    return _p.deprecated_block(() => {
-        const p_type_imports: _i_out._T_Module.type_imports = _p.deprecated_cc($['type imports'], ($) => _i_r_interface.r_Imports(
-            $,
-            {
-                'location 2 string': l2s,
-                'parameters': ({
-                    'values': null,
-                    'lookups': null,
-                }),
-            }
-        ))
-        const p_variable_imports: _i_out._T_Module.variable_imports = _p.deprecated_cc($['variable imports'], ($) => _p.deprecated_block(() => {
-            return _i_generic.resolve_dictionary(
-                $,
-                {
-                    'map': ($, $p) => _p.deprecated_block(() => {
-                        return _p.deprecated_cc($['value'], ($) => _p.deprecated_block(() => {
-                            const p_tail: _i_out._T_Module.variable_imports.D.tail = _p.deprecated_cc($['tail'], ($) => $['list'].map(($) => _p.deprecated_cc($['element'], ($) => $)))
-                            const p_type: _i_out._T_Module.variable_imports.D._type = _p.deprecated_cc($['type'], ($) => _p.deprecated_cc($['state group'], ($): _i_out._T_Module.variable_imports.D._type => {
-                                switch ($[0]) {
-                                    case 'ancestor': return _p.ss($, ($) => ['ancestor', _p.deprecated_block(() => {
-                                        return _p.deprecated_block(() => {
-                                            const p_dependency: _i_out._T_Module.variable_imports.D._type.SG.ancestor.dependency = _p.deprecated_cc($['dependency'], ($) => $)
-                                            const p_number_of_steps: _i_out._T_Module.variable_imports.D._type.SG.ancestor.number_of_steps = _p.deprecated_cc($['number of steps'], ($) => $)
-                                            return ({
-                                                'dependency': p_dependency,
-                                                'number of steps': p_number_of_steps,
-                                            })
-                                        })
-                                    })])
-                                    case 'external': return _p.ss($, ($) => ['external', _p.deprecated_block(() => {
-                                        return $
-                                    })])
-                                    case 'sibling': return _p.ss($, ($) => ['sibling', _p.deprecated_block(() => {
-                                        return $
-                                    })])
-                                    default: return _p.au($[0])
-                                }
-                            }))
-                            return ({
-                                'tail': p_tail,
-                                'type': p_type,
-                            })
-                        }))
-                    }),
-                    'location 2 string': l2s,
-                }
-            )
-        }))
-        const p_variables: _i_out._T_Module.variables = _p.deprecated_cc($['variables'], ($) => r_Variables(
-            $,
-            {
-                'location 2 string': l2s,
-                'parameters': ({
-                    'values': null,
-                    'lookups': null,
-                }),
-            }
-        ))
-        return ({
-            'type imports': p_type_imports,
-            'variable imports': p_variable_imports,
-            'variables': p_variables,
-        })
-    })
-})
-export const r_Module_Set: _i_signatures._T_Module_Set = ($, $p) => _p.deprecated_block(() => {
-    const l2s = $p['location 2 string']
-    const params = $p['parameters']
-    return _p.deprecated_block(() => {
-        return _i_generic.resolve_dictionary(
-            $,
-            {
-                'map': ($, $p) => _p.deprecated_block(() => {
-                    return _p.deprecated_cc($['value'], ($) => _p.deprecated_cc($['state group'], ($): _i_out._T_Module_Set.D => {
-                        switch ($[0]) {
-                            case 'module': return _p.ss($, ($) => ['module', _p.deprecated_block(() => {
-                                return r_Module(
-                                    $,
-                                    {
-                                        'location 2 string': l2s,
-                                        'parameters': ({
-                                            'values': null,
-                                            'lookups': null,
-                                        }),
-                                    }
-                                )
-                            })])
-                            case 'set': return _p.ss($, ($) => ['set', _p.deprecated_block(() => {
-                                return r_Module_Set(
-                                    $,
-                                    {
-                                        'location 2 string': l2s,
-                                        'parameters': ({
-                                            'values': null,
-                                            'lookups': null,
-                                        }),
-                                    }
-                                )
-                            })])
-                            default: return _p.au($[0])
-                        }
-                    }))
-                }),
-                'location 2 string': l2s,
-            }
-        )
-    })
-})
 export const r_Selection: _i_signatures._T_Selection = ($, $p) => _p.deprecated_block(() => {
     const l2s = $p['location 2 string']
     const params = $p['parameters']
@@ -869,62 +929,5 @@ export const r_Selection: _i_signatures._T_Selection = ($, $p) => _p.deprecated_
             'start': p_start,
             'tail': p_tail,
         })
-    })
-})
-export const r_Type_Parameters: _i_signatures._T_Type_Parameters = ($, $p) => _p.deprecated_block(() => {
-    const l2s = $p['location 2 string']
-    const params = $p['parameters']
-    return _p.deprecated_block(() => {
-        return _i_generic.resolve_dictionary(
-            $,
-            {
-                'map': ($, $p) => _p.deprecated_block(() => {
-                    return _p.deprecated_cc($['value'], ($) => null)
-                }),
-                'location 2 string': l2s,
-            }
-        )
-    })
-})
-export const r_Variables: _i_signatures._T_Variables = ($, $p) => _p.deprecated_block(() => {
-    const l2s = $p['location 2 string']
-    const params = $p['parameters']
-    return _p.deprecated_block(() => {
-        return _i_generic.resolve_dictionary(
-            $,
-            {
-                'map': ($, $p) => _p.deprecated_block(() => {
-                    return _p.deprecated_cc($['value'], ($) => _p.deprecated_block(() => {
-                        const p_type: _i_out._T_Variables.D._type = _p.deprecated_cc($['type'], ($) => $.map(($) => _p.deprecated_block(() => {
-                            return _i_r_interface.r_Type(
-                                $,
-                                {
-                                    'location 2 string': l2s,
-                                    'parameters': ({
-                                        'values': null,
-                                        'lookups': null,
-                                    }),
-                                }
-                            )
-                        })))
-                        const p_initialization: _i_out._T_Variables.D.initialization = _p.deprecated_cc($['initialization'], ($) => r_Initialization(
-                            $,
-                            {
-                                'location 2 string': l2s,
-                                'parameters': ({
-                                    'values': null,
-                                    'lookups': null,
-                                }),
-                            }
-                        ))
-                        return ({
-                            'type': p_type,
-                            'initialization': p_initialization,
-                        })
-                    }))
-                }),
-                'location 2 string': l2s,
-            }
-        )
     })
 })
