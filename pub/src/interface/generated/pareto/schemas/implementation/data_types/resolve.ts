@@ -1,4 +1,4 @@
-import * as _et from 'pareto-core-interface'
+import * as _pi from 'pareto-core-interface'
 
 import * as _i_resolve from 'pareto-core-internals/dist/algorithm_types/refiner/resolve'
 import * as _i_resolved from "./source"

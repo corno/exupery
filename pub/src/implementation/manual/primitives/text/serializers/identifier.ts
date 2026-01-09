@@ -88,7 +88,7 @@ export const $$ = ($: string[]): string => {
         () => false,
     )) {
         return _p.text.deprecated_build(($i) => {
-            $i['add snippet']("_")
+            $i['add character'](95) //_
             $i['add snippet'](the_string)
         })
     }
@@ -124,7 +124,7 @@ export const $$ = ($: string[]): string => {
                 if (current_character >= 48 && current_character <= 57) {
                     //begins with 0-9
 
-                    $i['add snippet']("_")
+                    $i['add character'](95) //_
                     $i['add character'](current_character)
                 }
             }

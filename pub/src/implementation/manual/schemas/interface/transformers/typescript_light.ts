@@ -190,7 +190,7 @@ export const Module_Set = ($: d_in.Module_Set): d_out.Directory => {
                         Type_to_Aliases(
                             $.type,
                             {
-                                'key': ` T ${key}`,
+                                'key': key,
                                 'type parameters': $.parameters,
                                 'module parameters': x_module_parameters,
                                 'function type parameters': _p.optional.not_set(),
