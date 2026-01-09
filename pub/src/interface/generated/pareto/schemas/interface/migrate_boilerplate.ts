@@ -1,14 +1,24 @@
 import * as _pi from 'pareto-core-interface'
 
-import * as _i_in from "./data_types/source"
 import * as _i_out from "./data_types/target"
+import * as _i_in from "./data_types/source"
 
 // **** TYPES
+
+export type _T_Type_Arguments = (
+    $$_: _i_in._T_Type_Arguments,
+    $$_p: null,
+) => _i_out._T_Type_Arguments<null>
 
 export type _T_Imports = (
     $$_: _i_in._T_Imports,
     $$_p: null,
 ) => _i_out._T_Imports<null>
+
+export type _T_Type_Parameters = (
+    $$_: _i_in._T_Type_Parameters,
+    $$_p: null,
+) => _i_out._T_Type_Parameters<null>
 
 export type _T_Module = (
     $$_: _i_in._T_Module,
@@ -20,43 +30,48 @@ export type _T_Module_Set = (
     $$_p: null,
 ) => _i_out._T_Module_Set<null>
 
-export type _T_Type = (
-    $$_: _i_in._T_Type,
-    $$_p: null,
-) => _i_out._T_Type<null>
-
-export type _T_Type_Arguments = (
-    $$_: _i_in._T_Type_Arguments,
-    $$_p: null,
-) => _i_out._T_Type_Arguments<null>
-
 export type _T_Type_Parameter_Selection = (
     $$_: _i_in._T_Type_Parameter_Selection,
     $$_p: null,
 ) => _i_out._T_Type_Parameter_Selection<null>
 
-export type _T_Type_Parameters = (
-    $$_: _i_in._T_Type_Parameters,
+export type _T_Type = (
+    $$_: _i_in._T_Type,
     $$_p: null,
-) => _i_out._T_Type_Parameters<null>
+) => _i_out._T_Type<null>
 
 // **** FRIENDLY NAMES FOR THE GLOBAL TYPES
 
+export type Type_Arguments = _T_Type_Arguments
+
 export type Imports = _T_Imports
+
+export type Type_Parameters = _T_Type_Parameters
 
 export type Module = _T_Module
 
 export type Module_Set = _T_Module_Set
 
-export type Type = _T_Type
-
-export type Type_Arguments = _T_Type_Arguments
-
 export type Type_Parameter_Selection = _T_Type_Parameter_Selection
 
-export type Type_Parameters = _T_Type_Parameters
+export type Type = _T_Type
 
 // **** ALIASES FOR NESTED TYPE WITH PREFIXED ROOT NAMES
+
+export namespace _T_Type_Arguments {
+    
+    export namespace CONTEXT {
+    }
+    export type CONTEXT = _i_in._T_Type_Arguments
+    
+    export namespace PARAMS {
+    }
+    
+    export namespace RESULT {
+        export type annotation = null
+    }
+    export type RESULT = _i_out._T_Type_Arguments<null>
+}
 
 export namespace _T_Imports {
     
@@ -71,6 +86,21 @@ export namespace _T_Imports {
         export type annotation = null
     }
     export type RESULT = _i_out._T_Imports<null>
+}
+
+export namespace _T_Type_Parameters {
+    
+    export namespace CONTEXT {
+    }
+    export type CONTEXT = _i_in._T_Type_Parameters
+    
+    export namespace PARAMS {
+    }
+    
+    export namespace RESULT {
+        export type annotation = null
+    }
+    export type RESULT = _i_out._T_Type_Parameters<null>
 }
 
 export namespace _T_Module {
@@ -103,36 +133,6 @@ export namespace _T_Module_Set {
     export type RESULT = _i_out._T_Module_Set<null>
 }
 
-export namespace _T_Type {
-    
-    export namespace CONTEXT {
-    }
-    export type CONTEXT = _i_in._T_Type
-    
-    export namespace PARAMS {
-    }
-    
-    export namespace RESULT {
-        export type annotation = null
-    }
-    export type RESULT = _i_out._T_Type<null>
-}
-
-export namespace _T_Type_Arguments {
-    
-    export namespace CONTEXT {
-    }
-    export type CONTEXT = _i_in._T_Type_Arguments
-    
-    export namespace PARAMS {
-    }
-    
-    export namespace RESULT {
-        export type annotation = null
-    }
-    export type RESULT = _i_out._T_Type_Arguments<null>
-}
-
 export namespace _T_Type_Parameter_Selection {
     
     export namespace CONTEXT {
@@ -148,11 +148,11 @@ export namespace _T_Type_Parameter_Selection {
     export type RESULT = _i_out._T_Type_Parameter_Selection<null>
 }
 
-export namespace _T_Type_Parameters {
+export namespace _T_Type {
     
     export namespace CONTEXT {
     }
-    export type CONTEXT = _i_in._T_Type_Parameters
+    export type CONTEXT = _i_in._T_Type
     
     export namespace PARAMS {
     }
@@ -160,10 +160,25 @@ export namespace _T_Type_Parameters {
     export namespace RESULT {
         export type annotation = null
     }
-    export type RESULT = _i_out._T_Type_Parameters<null>
+    export type RESULT = _i_out._T_Type<null>
 }
 
 // *** ALIASES FOR NESTED TYPES
+
+export namespace Type_Arguments {
+    
+    export namespace CONTEXT {
+    }
+    export type CONTEXT = _i_in._T_Type_Arguments
+    
+    export namespace PARAMS {
+    }
+    
+    export namespace RESULT {
+        export type annotation = null
+    }
+    export type RESULT = _i_out._T_Type_Arguments<null>
+}
 
 export namespace Imports {
     
@@ -178,6 +193,21 @@ export namespace Imports {
         export type annotation = null
     }
     export type RESULT = _i_out._T_Imports<null>
+}
+
+export namespace Type_Parameters {
+    
+    export namespace CONTEXT {
+    }
+    export type CONTEXT = _i_in._T_Type_Parameters
+    
+    export namespace PARAMS {
+    }
+    
+    export namespace RESULT {
+        export type annotation = null
+    }
+    export type RESULT = _i_out._T_Type_Parameters<null>
 }
 
 export namespace Module {
@@ -210,36 +240,6 @@ export namespace Module_Set {
     export type RESULT = _i_out._T_Module_Set<null>
 }
 
-export namespace Type {
-    
-    export namespace CONTEXT {
-    }
-    export type CONTEXT = _i_in._T_Type
-    
-    export namespace PARAMS {
-    }
-    
-    export namespace RESULT {
-        export type annotation = null
-    }
-    export type RESULT = _i_out._T_Type<null>
-}
-
-export namespace Type_Arguments {
-    
-    export namespace CONTEXT {
-    }
-    export type CONTEXT = _i_in._T_Type_Arguments
-    
-    export namespace PARAMS {
-    }
-    
-    export namespace RESULT {
-        export type annotation = null
-    }
-    export type RESULT = _i_out._T_Type_Arguments<null>
-}
-
 export namespace Type_Parameter_Selection {
     
     export namespace CONTEXT {
@@ -255,11 +255,11 @@ export namespace Type_Parameter_Selection {
     export type RESULT = _i_out._T_Type_Parameter_Selection<null>
 }
 
-export namespace Type_Parameters {
+export namespace Type {
     
     export namespace CONTEXT {
     }
-    export type CONTEXT = _i_in._T_Type_Parameters
+    export type CONTEXT = _i_in._T_Type
     
     export namespace PARAMS {
     }
@@ -267,5 +267,5 @@ export namespace Type_Parameters {
     export namespace RESULT {
         export type annotation = null
     }
-    export type RESULT = _i_out._T_Type_Parameters<null>
+    export type RESULT = _i_out._T_Type<null>
 }

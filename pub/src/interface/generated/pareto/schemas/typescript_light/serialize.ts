@@ -1,59 +1,79 @@
 import * as _pi from 'pareto-core-interface'
 
-import * as _i_out from "./data_types/target"
 import * as _i_in from "./data_types/source"
+import * as _i_vs from "./value_serializers"
 
 // **** TYPES
 
 export type _T_String_Literal = (
     $$_: _i_in._T_String_Literal,
-    $$_p: null,
-) => _i_out._T_String_Literal
+    $$_p: {
+        readonly 'value serializers': _i_vs._T_Value_Serializers
+    },
+) => string
 
 export type _T_Statements = (
     $$_: _i_in._T_Statements,
-    $$_p: null,
-) => _i_out._T_Statements
+    $$_p: {
+        readonly 'value serializers': _i_vs._T_Value_Serializers
+    },
+) => string
 
 export type _T_Expression = (
     $$_: _i_in._T_Expression,
-    $$_p: null,
-) => _i_out._T_Expression
+    $$_p: {
+        readonly 'value serializers': _i_vs._T_Value_Serializers
+    },
+) => string
 
 export type _T_Type = (
     $$_: _i_in._T_Type,
-    $$_p: null,
-) => _i_out._T_Type
+    $$_p: {
+        readonly 'value serializers': _i_vs._T_Value_Serializers
+    },
+) => string
 
 export type _T_Group = (
     $$_: _i_in._T_Group,
-    $$_p: null,
-) => _i_out._T_Group
+    $$_p: {
+        readonly 'value serializers': _i_vs._T_Value_Serializers
+    },
+) => string
 
 export type _T_Block = (
     $$_: _i_in._T_Block,
-    $$_p: null,
-) => _i_out._T_Block
+    $$_p: {
+        readonly 'value serializers': _i_vs._T_Value_Serializers
+    },
+) => string
 
 export type _T_Group_Part = (
     $$_: _i_in._T_Group_Part,
-    $$_p: null,
-) => _i_out._T_Group_Part
+    $$_p: {
+        readonly 'value serializers': _i_vs._T_Value_Serializers
+    },
+) => string
 
 export type _T_Block_Part = (
     $$_: _i_in._T_Block_Part,
-    $$_p: null,
-) => _i_out._T_Block_Part
+    $$_p: {
+        readonly 'value serializers': _i_vs._T_Value_Serializers
+    },
+) => string
 
 export type _T_Lines = (
     $$_: _i_in._T_Lines,
-    $$_p: null,
-) => _i_out._T_Lines
+    $$_p: {
+        readonly 'value serializers': _i_vs._T_Value_Serializers
+    },
+) => string
 
 export type _T_Directory = (
     $$_: _i_in._T_Directory,
-    $$_p: null,
-) => _i_out._T_Directory
+    $$_p: {
+        readonly 'value serializers': _i_vs._T_Value_Serializers
+    },
+) => string
 
 // **** FRIENDLY NAMES FOR THE GLOBAL TYPES
 
@@ -86,11 +106,12 @@ export namespace _T_String_Literal {
     export type CONTEXT = _i_in._T_String_Literal
     
     export namespace PARAMS {
+        
+        export namespace value_serializers {
+        }
+        export type value_serializers = _i_vs._T_Value_Serializers
     }
-    
-    export namespace RESULT {
-    }
-    export type RESULT = _i_out._T_String_Literal
+    export type RESULT = string
 }
 
 export namespace _T_Statements {
@@ -100,11 +121,12 @@ export namespace _T_Statements {
     export type CONTEXT = _i_in._T_Statements
     
     export namespace PARAMS {
+        
+        export namespace value_serializers {
+        }
+        export type value_serializers = _i_vs._T_Value_Serializers
     }
-    
-    export namespace RESULT {
-    }
-    export type RESULT = _i_out._T_Statements
+    export type RESULT = string
 }
 
 export namespace _T_Expression {
@@ -114,11 +136,12 @@ export namespace _T_Expression {
     export type CONTEXT = _i_in._T_Expression
     
     export namespace PARAMS {
+        
+        export namespace value_serializers {
+        }
+        export type value_serializers = _i_vs._T_Value_Serializers
     }
-    
-    export namespace RESULT {
-    }
-    export type RESULT = _i_out._T_Expression
+    export type RESULT = string
 }
 
 export namespace _T_Type {
@@ -128,11 +151,12 @@ export namespace _T_Type {
     export type CONTEXT = _i_in._T_Type
     
     export namespace PARAMS {
+        
+        export namespace value_serializers {
+        }
+        export type value_serializers = _i_vs._T_Value_Serializers
     }
-    
-    export namespace RESULT {
-    }
-    export type RESULT = _i_out._T_Type
+    export type RESULT = string
 }
 
 export namespace _T_Group {
@@ -142,11 +166,12 @@ export namespace _T_Group {
     export type CONTEXT = _i_in._T_Group
     
     export namespace PARAMS {
+        
+        export namespace value_serializers {
+        }
+        export type value_serializers = _i_vs._T_Value_Serializers
     }
-    
-    export namespace RESULT {
-    }
-    export type RESULT = _i_out._T_Group
+    export type RESULT = string
 }
 
 export namespace _T_Block {
@@ -156,11 +181,12 @@ export namespace _T_Block {
     export type CONTEXT = _i_in._T_Block
     
     export namespace PARAMS {
+        
+        export namespace value_serializers {
+        }
+        export type value_serializers = _i_vs._T_Value_Serializers
     }
-    
-    export namespace RESULT {
-    }
-    export type RESULT = _i_out._T_Block
+    export type RESULT = string
 }
 
 export namespace _T_Group_Part {
@@ -170,11 +196,12 @@ export namespace _T_Group_Part {
     export type CONTEXT = _i_in._T_Group_Part
     
     export namespace PARAMS {
+        
+        export namespace value_serializers {
+        }
+        export type value_serializers = _i_vs._T_Value_Serializers
     }
-    
-    export namespace RESULT {
-    }
-    export type RESULT = _i_out._T_Group_Part
+    export type RESULT = string
 }
 
 export namespace _T_Block_Part {
@@ -184,11 +211,12 @@ export namespace _T_Block_Part {
     export type CONTEXT = _i_in._T_Block_Part
     
     export namespace PARAMS {
+        
+        export namespace value_serializers {
+        }
+        export type value_serializers = _i_vs._T_Value_Serializers
     }
-    
-    export namespace RESULT {
-    }
-    export type RESULT = _i_out._T_Block_Part
+    export type RESULT = string
 }
 
 export namespace _T_Lines {
@@ -198,11 +226,12 @@ export namespace _T_Lines {
     export type CONTEXT = _i_in._T_Lines
     
     export namespace PARAMS {
+        
+        export namespace value_serializers {
+        }
+        export type value_serializers = _i_vs._T_Value_Serializers
     }
-    
-    export namespace RESULT {
-    }
-    export type RESULT = _i_out._T_Lines
+    export type RESULT = string
 }
 
 export namespace _T_Directory {
@@ -212,11 +241,12 @@ export namespace _T_Directory {
     export type CONTEXT = _i_in._T_Directory
     
     export namespace PARAMS {
+        
+        export namespace value_serializers {
+        }
+        export type value_serializers = _i_vs._T_Value_Serializers
     }
-    
-    export namespace RESULT {
-    }
-    export type RESULT = _i_out._T_Directory
+    export type RESULT = string
 }
 
 // *** ALIASES FOR NESTED TYPES
@@ -228,11 +258,12 @@ export namespace String_Literal {
     export type CONTEXT = _i_in._T_String_Literal
     
     export namespace PARAMS {
+        
+        export namespace value_serializers {
+        }
+        export type value_serializers = _i_vs._T_Value_Serializers
     }
-    
-    export namespace RESULT {
-    }
-    export type RESULT = _i_out._T_String_Literal
+    export type RESULT = string
 }
 
 export namespace Statements {
@@ -242,11 +273,12 @@ export namespace Statements {
     export type CONTEXT = _i_in._T_Statements
     
     export namespace PARAMS {
+        
+        export namespace value_serializers {
+        }
+        export type value_serializers = _i_vs._T_Value_Serializers
     }
-    
-    export namespace RESULT {
-    }
-    export type RESULT = _i_out._T_Statements
+    export type RESULT = string
 }
 
 export namespace Expression {
@@ -256,11 +288,12 @@ export namespace Expression {
     export type CONTEXT = _i_in._T_Expression
     
     export namespace PARAMS {
+        
+        export namespace value_serializers {
+        }
+        export type value_serializers = _i_vs._T_Value_Serializers
     }
-    
-    export namespace RESULT {
-    }
-    export type RESULT = _i_out._T_Expression
+    export type RESULT = string
 }
 
 export namespace Type {
@@ -270,11 +303,12 @@ export namespace Type {
     export type CONTEXT = _i_in._T_Type
     
     export namespace PARAMS {
+        
+        export namespace value_serializers {
+        }
+        export type value_serializers = _i_vs._T_Value_Serializers
     }
-    
-    export namespace RESULT {
-    }
-    export type RESULT = _i_out._T_Type
+    export type RESULT = string
 }
 
 export namespace Group {
@@ -284,11 +318,12 @@ export namespace Group {
     export type CONTEXT = _i_in._T_Group
     
     export namespace PARAMS {
+        
+        export namespace value_serializers {
+        }
+        export type value_serializers = _i_vs._T_Value_Serializers
     }
-    
-    export namespace RESULT {
-    }
-    export type RESULT = _i_out._T_Group
+    export type RESULT = string
 }
 
 export namespace Block {
@@ -298,11 +333,12 @@ export namespace Block {
     export type CONTEXT = _i_in._T_Block
     
     export namespace PARAMS {
+        
+        export namespace value_serializers {
+        }
+        export type value_serializers = _i_vs._T_Value_Serializers
     }
-    
-    export namespace RESULT {
-    }
-    export type RESULT = _i_out._T_Block
+    export type RESULT = string
 }
 
 export namespace Group_Part {
@@ -312,11 +348,12 @@ export namespace Group_Part {
     export type CONTEXT = _i_in._T_Group_Part
     
     export namespace PARAMS {
+        
+        export namespace value_serializers {
+        }
+        export type value_serializers = _i_vs._T_Value_Serializers
     }
-    
-    export namespace RESULT {
-    }
-    export type RESULT = _i_out._T_Group_Part
+    export type RESULT = string
 }
 
 export namespace Block_Part {
@@ -326,11 +363,12 @@ export namespace Block_Part {
     export type CONTEXT = _i_in._T_Block_Part
     
     export namespace PARAMS {
+        
+        export namespace value_serializers {
+        }
+        export type value_serializers = _i_vs._T_Value_Serializers
     }
-    
-    export namespace RESULT {
-    }
-    export type RESULT = _i_out._T_Block_Part
+    export type RESULT = string
 }
 
 export namespace Lines {
@@ -340,11 +378,12 @@ export namespace Lines {
     export type CONTEXT = _i_in._T_Lines
     
     export namespace PARAMS {
+        
+        export namespace value_serializers {
+        }
+        export type value_serializers = _i_vs._T_Value_Serializers
     }
-    
-    export namespace RESULT {
-    }
-    export type RESULT = _i_out._T_Lines
+    export type RESULT = string
 }
 
 export namespace Directory {
@@ -354,9 +393,10 @@ export namespace Directory {
     export type CONTEXT = _i_in._T_Directory
     
     export namespace PARAMS {
+        
+        export namespace value_serializers {
+        }
+        export type value_serializers = _i_vs._T_Value_Serializers
     }
-    
-    export namespace RESULT {
-    }
-    export type RESULT = _i_out._T_Directory
+    export type RESULT = string
 }

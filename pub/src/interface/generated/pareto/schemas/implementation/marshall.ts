@@ -1,13 +1,13 @@
 import * as _pi from 'pareto-core-interface'
 
-import * as _i_in from "./data_types/source"
 import * as _i_out from "../../core/astn_target"
+import * as _i_in from "./data_types/source"
 import * as _i_vs from "./value_serializers"
 
 // **** TYPES
 
-export type _T_Initialization = (
-    $$_: _i_in._T_Initialization,
+export type _T_Variables = (
+    $$_: _i_in._T_Variables,
     $$_p: {
         readonly 'value serializers': _i_vs._T_Value_Serializers
     },
@@ -15,6 +15,13 @@ export type _T_Initialization = (
 
 export type _T_Literal = (
     $$_: _i_in._T_Literal,
+    $$_p: {
+        readonly 'value serializers': _i_vs._T_Value_Serializers
+    },
+) => _i_out._T_Value
+
+export type _T_Initialization = (
+    $$_: _i_in._T_Initialization,
     $$_p: {
         readonly 'value serializers': _i_vs._T_Value_Serializers
     },
@@ -48,18 +55,13 @@ export type _T_Type_Parameters = (
     },
 ) => _i_out._T_Value
 
-export type _T_Variables = (
-    $$_: _i_in._T_Variables,
-    $$_p: {
-        readonly 'value serializers': _i_vs._T_Value_Serializers
-    },
-) => _i_out._T_Value
-
 // **** FRIENDLY NAMES FOR THE GLOBAL TYPES
 
-export type Initialization = _T_Initialization
+export type Variables = _T_Variables
 
 export type Literal = _T_Literal
+
+export type Initialization = _T_Initialization
 
 export type Module = _T_Module
 
@@ -69,15 +71,13 @@ export type Selection = _T_Selection
 
 export type Type_Parameters = _T_Type_Parameters
 
-export type Variables = _T_Variables
-
 // **** ALIASES FOR NESTED TYPE WITH PREFIXED ROOT NAMES
 
-export namespace _T_Initialization {
+export namespace _T_Variables {
     
     export namespace CONTEXT {
     }
-    export type CONTEXT = _i_in._T_Initialization
+    export type CONTEXT = _i_in._T_Variables
     
     export namespace PARAMS {
         
@@ -96,6 +96,24 @@ export namespace _T_Literal {
     export namespace CONTEXT {
     }
     export type CONTEXT = _i_in._T_Literal
+    
+    export namespace PARAMS {
+        
+        export namespace value_serializers {
+        }
+        export type value_serializers = _i_vs._T_Value_Serializers
+    }
+    
+    export namespace RESULT {
+    }
+    export type RESULT = _i_out._T_Value
+}
+
+export namespace _T_Initialization {
+    
+    export namespace CONTEXT {
+    }
+    export type CONTEXT = _i_in._T_Initialization
     
     export namespace PARAMS {
         
@@ -181,31 +199,13 @@ export namespace _T_Type_Parameters {
     export type RESULT = _i_out._T_Value
 }
 
-export namespace _T_Variables {
+// *** ALIASES FOR NESTED TYPES
+
+export namespace Variables {
     
     export namespace CONTEXT {
     }
     export type CONTEXT = _i_in._T_Variables
-    
-    export namespace PARAMS {
-        
-        export namespace value_serializers {
-        }
-        export type value_serializers = _i_vs._T_Value_Serializers
-    }
-    
-    export namespace RESULT {
-    }
-    export type RESULT = _i_out._T_Value
-}
-
-// *** ALIASES FOR NESTED TYPES
-
-export namespace Initialization {
-    
-    export namespace CONTEXT {
-    }
-    export type CONTEXT = _i_in._T_Initialization
     
     export namespace PARAMS {
         
@@ -224,6 +224,24 @@ export namespace Literal {
     export namespace CONTEXT {
     }
     export type CONTEXT = _i_in._T_Literal
+    
+    export namespace PARAMS {
+        
+        export namespace value_serializers {
+        }
+        export type value_serializers = _i_vs._T_Value_Serializers
+    }
+    
+    export namespace RESULT {
+    }
+    export type RESULT = _i_out._T_Value
+}
+
+export namespace Initialization {
+    
+    export namespace CONTEXT {
+    }
+    export type CONTEXT = _i_in._T_Initialization
     
     export namespace PARAMS {
         
@@ -296,24 +314,6 @@ export namespace Type_Parameters {
     export namespace CONTEXT {
     }
     export type CONTEXT = _i_in._T_Type_Parameters
-    
-    export namespace PARAMS {
-        
-        export namespace value_serializers {
-        }
-        export type value_serializers = _i_vs._T_Value_Serializers
-    }
-    
-    export namespace RESULT {
-    }
-    export type RESULT = _i_out._T_Value
-}
-
-export namespace Variables {
-    
-    export namespace CONTEXT {
-    }
-    export type CONTEXT = _i_in._T_Variables
     
     export namespace PARAMS {
         

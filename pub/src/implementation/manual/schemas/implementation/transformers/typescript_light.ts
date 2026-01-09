@@ -255,7 +255,7 @@ export const Initialization = (
     return _p.sg($, ($) => {
         switch ($[0]) {
             case 'block': return _p.ss($, ($) => sh.b.sub([
-                sh.b.snippet("_p.block("),
+                sh.b.snippet("_p.deprecated_block("),
                 sh.b.snippet("() => {"),
                 sh.b.indent([
                     //temp variables
@@ -443,7 +443,7 @@ export const Initialization = (
                                 switch ($[0]) {
 
                                     case 'switch': return _p.ss($, ($) => sh.b.sub([
-                                        sh.b.snippet("_p.sg("),
+                                        sh.b.snippet("_p.deprecated_cc("),
                                         Selection(p_source, $p),
                                         sh.b.snippet(", ($)"),
                                         $['temp resulting node'].transform(

@@ -1,12 +1,23 @@
-import * as _pa from 'pareto-core-refiner'
-import * as _pd from 'pareto-core-dev'
+import * as _p from 'pareto-core-refiner'
+import * as _pdev from 'pareto-core-dev'
 
 import * as _i_generic from "../../generic/unmarshall"
+import * as _i_signatures from "../../../../../interface/generated/pareto/schemas/interface/unmarshall"
 import * as _i_in from "../../../../../interface/generated/pareto/core/astn_source"
 import * as _i_out from "../../../../../interface/generated/pareto/schemas/interface/data_types/target"
-import * as _i_signatures from "../../../../../interface/generated/pareto/schemas/interface/unmarshall"
 
 
+export const Type_Arguments: _i_signatures._T_Type_Arguments = ($, $p) => _i_generic.process_unresolved_dictionary(
+    $,
+    {
+        'value': ($) => Type(
+            $,
+            {
+                'value deserializers': $p['value deserializers'],
+            }
+        ),
+    }
+)
 export const Imports: _i_signatures._T_Imports = ($, $p) => _i_generic.process_unresolved_dictionary(
     $,
     {
@@ -14,7 +25,54 @@ export const Imports: _i_signatures._T_Imports = ($, $p) => _i_generic.process_u
             $,
             {
                 'properties': ($) => ({
-                    'tail': _pa.deprecated_cc(_i_generic.get_entry(
+                    'type': _p.sg(_i_generic.get_entry(
+                        $,
+                        {
+                            'key': "type",
+                        }
+                    ), ($) => _i_generic.process_unresolved_state_group(
+                        $,
+                        {
+                            'states': _p.dictionary.literal({
+                                'external': ($): _i_out._T_Imports.D._type.SG<_i_in._T_Range> => ['external', _i_generic.process_text(
+                                    $,
+                                    null
+                                )],
+                                'ancestor': ($): _i_out._T_Imports.D._type.SG<_i_in._T_Range> => ['ancestor', _i_generic.process_group(
+                                    $,
+                                    {
+                                        'properties': ($) => ({
+                                            'number of steps': _p.sg(_i_generic.get_entry(
+                                                $,
+                                                {
+                                                    'key': "number of steps",
+                                                }
+                                            ), ($) => _i_generic.process_number(
+                                                $,
+                                                {
+                                                    'deserializer': $p['value deserializers']['default number'],
+                                                }
+                                            )),
+                                            'dependency': _p.sg(_i_generic.get_entry(
+                                                $,
+                                                {
+                                                    'key': "dependency",
+                                                }
+                                            ), ($) => _i_generic.process_text(
+                                                $,
+                                                null
+                                            )),
+                                        }),
+                                    }
+                                )],
+                                'sibling': ($): _i_out._T_Imports.D._type.SG<_i_in._T_Range> => ['sibling', _i_generic.process_text(
+                                    $,
+                                    null
+                                )],
+                            }),
+                        }
+                    )),
+                    'tail': _p.sg(_i_generic.get_entry(
                         $,
                         {
                             'key': "tail",
@@ -28,54 +86,7 @@ export const Imports: _i_signatures._T_Imports = ($, $p) => _i_generic.process_u
                             ),
                         }
                     )),
-                    'type': _pa.deprecated_cc(_i_generic.get_entry(
-                        $,
-                        {
-                            'key': "type",
-                        }
-                    ), ($) => _i_generic.process_unresolved_state_group(
-                        $,
-                        {
-                            'states': _pa.dictionary.literal({
-                                'ancestor': ($): _i_out._T_Imports.D._type.SG<_i_in._T_Range> => ['ancestor', _i_generic.process_group(
-                                    $,
-                                    {
-                                        'properties': ($) => ({
-                                            'dependency': _pa.deprecated_cc(_i_generic.get_entry(
-                                                $,
-                                                {
-                                                    'key': "dependency",
-                                                }
-                                            ), ($) => _i_generic.process_text(
-                                                $,
-                                                null
-                                            )),
-                                            'number of steps': _pa.deprecated_cc(_i_generic.get_entry(
-                                                $,
-                                                {
-                                                    'key': "number of steps",
-                                                }
-                                            ), ($) => _i_generic.process_number(
-                                                $,
-                                                {
-                                                    'deserializer': $p['value deserializers']['default number'],
-                                                }
-                                            )),
-                                        }),
-                                    }
-                                )],
-                                'external': ($): _i_out._T_Imports.D._type.SG<_i_in._T_Range> => ['external', _i_generic.process_text(
-                                    $,
-                                    null
-                                )],
-                                'sibling': ($): _i_out._T_Imports.D._type.SG<_i_in._T_Range> => ['sibling', _i_generic.process_text(
-                                    $,
-                                    null
-                                )],
-                            }),
-                        }
-                    )),
-                    'type arguments': _pa.deprecated_cc(_i_generic.get_entry(
+                    'type arguments': _p.sg(_i_generic.get_entry(
                         $,
                         {
                             'key': "type arguments",
@@ -91,11 +102,20 @@ export const Imports: _i_signatures._T_Imports = ($, $p) => _i_generic.process_u
         ),
     }
 )
+export const Type_Parameters: _i_signatures._T_Type_Parameters = ($, $p) => _i_generic.process_unresolved_dictionary(
+    $,
+    {
+        'value': ($) => _i_generic.process_nothing(
+            $,
+            null
+        ),
+    }
+)
 export const Module: _i_signatures._T_Module = ($, $p) => _i_generic.process_group(
     $,
     {
         'properties': ($) => ({
-            'imports': _pa.deprecated_cc(_i_generic.get_entry(
+            'imports': _p.sg(_i_generic.get_entry(
                 $,
                 {
                     'key': "imports",
@@ -106,7 +126,7 @@ export const Module: _i_signatures._T_Module = ($, $p) => _i_generic.process_gro
                     'value deserializers': $p['value deserializers'],
                 }
             )),
-            'type parameters': _pa.deprecated_cc(_i_generic.get_entry(
+            'type parameters': _p.sg(_i_generic.get_entry(
                 $,
                 {
                     'key': "type parameters",
@@ -117,7 +137,7 @@ export const Module: _i_signatures._T_Module = ($, $p) => _i_generic.process_gro
                     'value deserializers': $p['value deserializers'],
                 }
             )),
-            'types': _pa.deprecated_cc(_i_generic.get_entry(
+            'types': _p.sg(_i_generic.get_entry(
                 $,
                 {
                     'key': "types",
@@ -129,7 +149,7 @@ export const Module: _i_signatures._T_Module = ($, $p) => _i_generic.process_gro
                         $,
                         {
                             'properties': ($) => ({
-                                'parameters': _pa.deprecated_cc(_i_generic.get_entry(
+                                'parameters': _p.sg(_i_generic.get_entry(
                                     $,
                                     {
                                         'key': "parameters",
@@ -140,7 +160,7 @@ export const Module: _i_signatures._T_Module = ($, $p) => _i_generic.process_gro
                                         'value deserializers': $p['value deserializers'],
                                     }
                                 )),
-                                'type': _pa.deprecated_cc(_i_generic.get_entry(
+                                'type': _p.sg(_i_generic.get_entry(
                                     $,
                                     {
                                         'key': "type",
@@ -165,7 +185,7 @@ export const Module_Set: _i_signatures._T_Module_Set = ($, $p) => _i_generic.pro
         'value': ($) => _i_generic.process_unresolved_state_group(
             $,
             {
-                'states': _pa.dictionary.literal({
+                'states': _p.dictionary.literal({
                     'module': ($): _i_out._T_Module_Set.D.SG<_i_in._T_Range> => ['module', Module(
                         $,
                         {
@@ -183,16 +203,50 @@ export const Module_Set: _i_signatures._T_Module_Set = ($, $p) => _i_generic.pro
         ),
     }
 )
+export const Type_Parameter_Selection: _i_signatures._T_Type_Parameter_Selection = ($, $p) => _i_generic.process_group(
+    $,
+    {
+        'properties': ($) => ({
+            'location': _p.sg(_i_generic.get_entry(
+                $,
+                {
+                    'key': "location",
+                }
+            ), ($) => _i_generic.process_unresolved_state_group(
+                $,
+                {
+                    'states': _p.dictionary.literal({
+                        'module': ($): _i_out._T_Type_Parameter_Selection.location.SG<_i_in._T_Range> => ['module', _i_generic.process_nothing(
+                            $,
+                            null
+                        )],
+                        'type': ($): _i_out._T_Type_Parameter_Selection.location.SG<_i_in._T_Range> => ['type', _i_generic.process_nothing(
+                            $,
+                            null
+                        )],
+                        'function': ($): _i_out._T_Type_Parameter_Selection.location.SG<_i_in._T_Range> => ['function', _i_generic.process_nothing(
+                            $,
+                            null
+                        )],
+                    }),
+                }
+            )),
+            'parameter': _p.sg(_i_generic.get_entry(
+                $,
+                {
+                    'key': "parameter",
+                }
+            ), ($) => _i_generic.process_text(
+                $,
+                null
+            )),
+        }),
+    }
+)
 export const Type: _i_signatures._T_Type = ($, $p) => _i_generic.process_unresolved_state_group(
     $,
     {
-        'states': _pa.dictionary.literal({
-            'array': ($): _i_out._T_Type.SG<_i_in._T_Range> => ['array', Type(
-                $,
-                {
-                    'value deserializers': $p['value deserializers'],
-                }
-            )],
+        'states': _p.dictionary.literal({
             'boolean': ($): _i_out._T_Type.SG<_i_in._T_Range> => ['boolean', _i_generic.process_nothing(
                 $,
                 null
@@ -201,7 +255,7 @@ export const Type: _i_signatures._T_Type = ($, $p) => _i_generic.process_unresol
                 $,
                 {
                     'properties': ($) => ({
-                        'location': _pa.deprecated_cc(_i_generic.get_entry(
+                        'location': _p.sg(_i_generic.get_entry(
                             $,
                             {
                                 'key': "location",
@@ -209,12 +263,12 @@ export const Type: _i_signatures._T_Type = ($, $p) => _i_generic.process_unresol
                         ), ($) => _i_generic.process_unresolved_state_group(
                             $,
                             {
-                                'states': _pa.dictionary.literal({
+                                'states': _p.dictionary.literal({
                                     'import': ($): _i_out._T_Type.SG.component.location.SG<_i_in._T_Range> => ['import', _i_generic.process_group(
                                         $,
                                         {
                                             'properties': ($) => ({
-                                                'import': _pa.deprecated_cc(_i_generic.get_entry(
+                                                'import': _p.sg(_i_generic.get_entry(
                                                     $,
                                                     {
                                                         'key': "import",
@@ -223,7 +277,7 @@ export const Type: _i_signatures._T_Type = ($, $p) => _i_generic.process_unresol
                                                     $,
                                                     null
                                                 )),
-                                                'type': _pa.deprecated_cc(_i_generic.get_entry(
+                                                'type': _p.sg(_i_generic.get_entry(
                                                     $,
                                                     {
                                                         'key': "type",
@@ -242,7 +296,18 @@ export const Type: _i_signatures._T_Type = ($, $p) => _i_generic.process_unresol
                                 }),
                             }
                         )),
-                        'sub selection': _pa.deprecated_cc(_i_generic.get_entry(
+                        'type arguments': _p.sg(_i_generic.get_entry(
+                            $,
+                            {
+                                'key': "type arguments",
+                            }
+                        ), ($) => Type_Arguments(
+                            $,
+                            {
+                                'value deserializers': $p['value deserializers'],
+                            }
+                        )),
+                        'sub selection': _p.sg(_i_generic.get_entry(
                             $,
                             {
                                 'key': "sub selection",
@@ -253,7 +318,7 @@ export const Type: _i_signatures._T_Type = ($, $p) => _i_generic.process_unresol
                                 'value': ($) => _i_generic.process_unresolved_state_group(
                                     $,
                                     {
-                                        'states': _pa.dictionary.literal({
+                                        'states': _p.dictionary.literal({
                                             'dictionary': ($): _i_out._T_Type.SG.component.sub_selection.L.SG<_i_in._T_Range> => ['dictionary', _i_generic.process_nothing(
                                                 $,
                                                 null
@@ -279,17 +344,6 @@ export const Type: _i_signatures._T_Type = ($, $p) => _i_generic.process_unresol
                                 ),
                             }
                         )),
-                        'type arguments': _pa.deprecated_cc(_i_generic.get_entry(
-                            $,
-                            {
-                                'key': "type arguments",
-                            }
-                        ), ($) => Type_Arguments(
-                            $,
-                            {
-                                'value deserializers': $p['value deserializers'],
-                            }
-                        )),
                     }),
                 }
             )],
@@ -309,7 +363,18 @@ export const Type: _i_signatures._T_Type = ($, $p) => _i_generic.process_unresol
                 $,
                 {
                     'properties': ($) => ({
-                        'context': _pa.deprecated_cc(_i_generic.get_entry(
+                        'type parameters': _p.sg(_i_generic.get_entry(
+                            $,
+                            {
+                                'key': "type parameters",
+                            }
+                        ), ($) => Type_Parameters(
+                            $,
+                            {
+                                'value deserializers': $p['value deserializers'],
+                            }
+                        )),
+                        'context': _p.sg(_i_generic.get_entry(
                             $,
                             {
                                 'key': "context",
@@ -320,7 +385,7 @@ export const Type: _i_signatures._T_Type = ($, $p) => _i_generic.process_unresol
                                 'value deserializers': $p['value deserializers'],
                             }
                         )),
-                        'parameters': _pa.deprecated_cc(_i_generic.get_entry(
+                        'parameters': _p.sg(_i_generic.get_entry(
                             $,
                             {
                                 'key': "parameters",
@@ -336,23 +401,12 @@ export const Type: _i_signatures._T_Type = ($, $p) => _i_generic.process_unresol
                                 ),
                             }
                         )),
-                        'return': _pa.deprecated_cc(_i_generic.get_entry(
+                        'return': _p.sg(_i_generic.get_entry(
                             $,
                             {
                                 'key': "return",
                             }
                         ), ($) => Type(
-                            $,
-                            {
-                                'value deserializers': $p['value deserializers'],
-                            }
-                        )),
-                        'type parameters': _pa.deprecated_cc(_i_generic.get_entry(
-                            $,
-                            {
-                                'key': "type parameters",
-                            }
-                        ), ($) => Type_Parameters(
                             $,
                             {
                                 'value deserializers': $p['value deserializers'],
@@ -372,6 +426,12 @@ export const Type: _i_signatures._T_Type = ($, $p) => _i_generic.process_unresol
                     ),
                 }
             )],
+            'array': ($): _i_out._T_Type.SG<_i_in._T_Range> => ['array', Type(
+                $,
+                {
+                    'value deserializers': $p['value deserializers'],
+                }
+            )],
             'null': ($): _i_out._T_Type.SG<_i_in._T_Range> => ['null', _i_generic.process_nothing(
                 $,
                 null
@@ -379,16 +439,12 @@ export const Type: _i_signatures._T_Type = ($, $p) => _i_generic.process_unresol
             'number': ($): _i_out._T_Type.SG<_i_in._T_Range> => ['number', _i_generic.process_unresolved_state_group(
                 $,
                 {
-                    'states': _pa.dictionary.literal({
-                        'float': ($): _i_out._T_Type.SG._number.SG<_i_in._T_Range> => ['float', _i_generic.process_nothing(
-                            $,
-                            null
-                        )],
+                    'states': _p.dictionary.literal({
                         'integer': ($): _i_out._T_Type.SG._number.SG<_i_in._T_Range> => ['integer', _i_generic.process_group(
                             $,
                             {
                                 'properties': ($) => ({
-                                    'signed': _pa.deprecated_cc(_i_generic.get_entry(
+                                    'signed': _p.sg(_i_generic.get_entry(
                                         $,
                                         {
                                             'key': "signed",
@@ -401,6 +457,10 @@ export const Type: _i_signatures._T_Type = ($, $p) => _i_generic.process_unresol
                                     )),
                                 }),
                             }
+                        )],
+                        'float': ($): _i_out._T_Type.SG._number.SG<_i_in._T_Range> => ['float', _i_generic.process_nothing(
+                            $,
+                            null
                         )],
                     }),
                 }
@@ -417,10 +477,6 @@ export const Type: _i_signatures._T_Type = ($, $p) => _i_generic.process_unresol
                     'value deserializers': $p['value deserializers'],
                 }
             )],
-            'string': ($): _i_out._T_Type.SG<_i_in._T_Range> => ['string', _i_generic.process_nothing(
-                $,
-                null
-            )],
             'tagged union': ($): _i_out._T_Type.SG<_i_in._T_Range> => ['tagged union', _i_generic.process_unresolved_dictionary(
                 $,
                 {
@@ -432,66 +488,10 @@ export const Type: _i_signatures._T_Type = ($, $p) => _i_generic.process_unresol
                     ),
                 }
             )],
-        }),
-    }
-)
-export const Type_Arguments: _i_signatures._T_Type_Arguments = ($, $p) => _i_generic.process_unresolved_dictionary(
-    $,
-    {
-        'value': ($) => Type(
-            $,
-            {
-                'value deserializers': $p['value deserializers'],
-            }
-        ),
-    }
-)
-export const Type_Parameter_Selection: _i_signatures._T_Type_Parameter_Selection = ($, $p) => _i_generic.process_group(
-    $,
-    {
-        'properties': ($) => ({
-            'location': _pa.deprecated_cc(_i_generic.get_entry(
-                $,
-                {
-                    'key': "location",
-                }
-            ), ($) => _i_generic.process_unresolved_state_group(
-                $,
-                {
-                    'states': _pa.dictionary.literal({
-                        'function': ($): _i_out._T_Type_Parameter_Selection.location.SG<_i_in._T_Range> => ['function', _i_generic.process_nothing(
-                            $,
-                            null
-                        )],
-                        'module': ($): _i_out._T_Type_Parameter_Selection.location.SG<_i_in._T_Range> => ['module', _i_generic.process_nothing(
-                            $,
-                            null
-                        )],
-                        'type': ($): _i_out._T_Type_Parameter_Selection.location.SG<_i_in._T_Range> => ['type', _i_generic.process_nothing(
-                            $,
-                            null
-                        )],
-                    }),
-                }
-            )),
-            'parameter': _pa.deprecated_cc(_i_generic.get_entry(
-                $,
-                {
-                    'key': "parameter",
-                }
-            ), ($) => _i_generic.process_text(
+            'string': ($): _i_out._T_Type.SG<_i_in._T_Range> => ['string', _i_generic.process_nothing(
                 $,
                 null
-            )),
+            )],
         }),
-    }
-)
-export const Type_Parameters: _i_signatures._T_Type_Parameters = ($, $p) => _i_generic.process_unresolved_dictionary(
-    $,
-    {
-        'value': ($) => _i_generic.process_nothing(
-            $,
-            null
-        ),
     }
 )

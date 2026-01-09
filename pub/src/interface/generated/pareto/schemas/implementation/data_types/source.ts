@@ -5,71 +5,10 @@ import * as _i_imports_interface from "../../interface/data_types/source"
 
 // **** TYPES
 
-export type _T_Initialization = _i_core._T_State_Group<null, 
-    | readonly ['block', {
-        readonly 'initialization': _T_Initialization
-        readonly 'temp ordered variables': _i_core._T_List<null, {
-            readonly 'initialization': _T_Initialization
-            readonly 'name': string
-            readonly 'type': _pi.Optional_Value<_i_imports_interface._T_Type>
-        }>
-        readonly 'variables': _T_Variables
-    }]
-    | readonly ['change context', {
-        readonly 'initialization': _T_Initialization
-        readonly 'new context': _T_Selection
-    }]
-    | readonly ['literal', {
-        readonly 'value': _T_Literal
-    }]
-    | readonly ['selection', _T_Selection]
-    | readonly ['transformation', {
-        readonly 'source': _T_Selection
-        readonly 'type': _i_core._T_State_Group<null, 
-            | readonly ['array', _i_core._T_State_Group<null, 
-                | readonly ['map', _T_Initialization]
-            >]
-            | readonly ['boolean', _i_core._T_State_Group<null, 
-                | readonly ['not', null]
-                | readonly ['transform', {
-                    readonly 'if false': _T_Initialization
-                    readonly 'if true': _T_Initialization
-                }]
-            >]
-            | readonly ['dictionary', _i_core._T_State_Group<null, 
-                | readonly ['map', _T_Initialization]
-            >]
-            | readonly ['function', _i_core._T_State_Group<null, 
-                | readonly ['call', {
-                    readonly 'arguments': _pi.Optional_Value<_i_core._T_Dictionary<null, _T_Initialization>>
-                    readonly 'context': _T_Initialization
-                }]
-            >]
-            | readonly ['optional', _i_core._T_State_Group<null, 
-                | readonly ['map', _T_Initialization]
-                | readonly ['transform', {
-                    readonly 'if not set': _T_Initialization
-                    readonly 'if set': _T_Initialization
-                    readonly 'temp resulting node': _pi.Optional_Value<_i_imports_interface._T_Type>
-                }]
-            >]
-            | readonly ['tagged union', _i_core._T_State_Group<null, 
-                | readonly ['switch', {
-                    readonly 'temp resulting node': _pi.Optional_Value<_i_imports_interface._T_Type>
-                    readonly 'type': _i_core._T_State_Group<null, 
-                        | readonly ['full', {
-                            readonly 'cases': _i_core._T_Dictionary<null, _T_Initialization>
-                        }]
-                        | readonly ['partial', {
-                            readonly 'cases': _i_core._T_Dictionary<null, _T_Initialization>
-                            readonly 'default': _T_Initialization
-                        }]
-                    >
-                }]
-            >]
-        >
-    }]
->
+export type _T_Variables = _i_core._T_Dictionary<null, {
+    readonly 'type': _pi.Optional_Value<_i_imports_interface._T_Type>
+    readonly 'initialization': _T_Initialization
+}>
 
 export type _T_Literal = _i_core._T_State_Group<null, 
     | readonly ['array', _i_core._T_List<null, _T_Initialization>]
@@ -107,6 +46,72 @@ export type _T_Literal = _i_core._T_State_Group<null,
     }]
 >
 
+export type _T_Initialization = _i_core._T_State_Group<null, 
+    | readonly ['block', {
+        readonly 'variables': _T_Variables
+        readonly 'temp ordered variables': _i_core._T_List<null, {
+            readonly 'name': string
+            readonly 'type': _pi.Optional_Value<_i_imports_interface._T_Type>
+            readonly 'initialization': _T_Initialization
+        }>
+        readonly 'initialization': _T_Initialization
+    }]
+    | readonly ['change context', {
+        readonly 'new context': _T_Selection
+        readonly 'initialization': _T_Initialization
+    }]
+    | readonly ['literal', {
+        readonly 'value': _T_Literal
+    }]
+    | readonly ['selection', _T_Selection]
+    | readonly ['transformation', {
+        readonly 'source': _T_Selection
+        readonly 'type': _i_core._T_State_Group<null, 
+            | readonly ['array', _i_core._T_State_Group<null, 
+                | readonly ['map', _T_Initialization]
+            >]
+            | readonly ['boolean', _i_core._T_State_Group<null, 
+                | readonly ['not', null]
+                | readonly ['transform', {
+                    readonly 'if false': _T_Initialization
+                    readonly 'if true': _T_Initialization
+                }]
+            >]
+            | readonly ['dictionary', _i_core._T_State_Group<null, 
+                | readonly ['map', _T_Initialization]
+            >]
+            | readonly ['function', _i_core._T_State_Group<null, 
+                | readonly ['call', {
+                    readonly 'context': _T_Initialization
+                    readonly 'arguments': _pi.Optional_Value<_i_core._T_Dictionary<null, _T_Initialization>>
+                }]
+            >]
+            | readonly ['optional', _i_core._T_State_Group<null, 
+                | readonly ['map', _T_Initialization]
+                | readonly ['transform', {
+                    readonly 'if not set': _T_Initialization
+                    readonly 'if set': _T_Initialization
+                    readonly 'temp resulting node': _pi.Optional_Value<_i_imports_interface._T_Type>
+                }]
+            >]
+            | readonly ['tagged union', _i_core._T_State_Group<null, 
+                | readonly ['switch', {
+                    readonly 'temp resulting node': _pi.Optional_Value<_i_imports_interface._T_Type>
+                    readonly 'type': _i_core._T_State_Group<null, 
+                        | readonly ['partial', {
+                            readonly 'cases': _i_core._T_Dictionary<null, _T_Initialization>
+                            readonly 'default': _T_Initialization
+                        }]
+                        | readonly ['full', {
+                            readonly 'cases': _i_core._T_Dictionary<null, _T_Initialization>
+                        }]
+                    >
+                }]
+            >]
+        >
+    }]
+>
+
 export type _T_Module = {
     readonly 'type imports': _i_imports_interface._T_Imports
     readonly 'variable imports': _i_core._T_Dictionary<null, {
@@ -131,41 +136,38 @@ export type _T_Module_Set = _i_core._T_Dictionary<null, _i_core._T_State_Group<n
 export type _T_Selection = {
     readonly 'start': _i_core._T_State_Group<null, 
         | readonly ['abort', null]
-        | readonly ['argument', string]
-        | readonly ['call', {
-            readonly 'arguments': _pi.Optional_Value<_i_core._T_Dictionary<null, _T_Initialization>>
-            readonly 'context': _T_Selection
+        | readonly ['transform optional value', {
             readonly 'source': _T_Selection
+            readonly 'if not set': _T_Selection
+            readonly 'if set': _T_Selection
         }]
-        | readonly ['context', null]
+        | readonly ['call', {
+            readonly 'source': _T_Selection
+            readonly 'context': _T_Selection
+            readonly 'arguments': _pi.Optional_Value<_i_core._T_Dictionary<null, _T_Initialization>>
+        }]
         | readonly ['implement me', null]
+        | readonly ['argument', string]
+        | readonly ['context', null]
+        | readonly ['variable', string]
+        | readonly ['parameter', string]
         | readonly ['imported variable', {
             readonly 'import': string
             readonly 'variable': string
         }]
-        | readonly ['parameter', string]
-        | readonly ['transform optional value', {
-            readonly 'if not set': _T_Selection
-            readonly 'if set': _T_Selection
-            readonly 'source': _T_Selection
-        }]
-        | readonly ['variable', string]
     >
     readonly 'tail': _i_core._T_List<null, string>
 }
 
 export type _T_Type_Parameters = _i_core._T_Dictionary<null, null>
 
-export type _T_Variables = _i_core._T_Dictionary<null, {
-    readonly 'initialization': _T_Initialization
-    readonly 'type': _pi.Optional_Value<_i_imports_interface._T_Type>
-}>
-
 // **** FRIENDLY NAMES FOR THE GLOBAL TYPES
 
-export type Initialization = _T_Initialization
+export type Variables = _T_Variables
 
 export type Literal = _T_Literal
+
+export type Initialization = _T_Initialization
 
 export type Module = _T_Module
 
@@ -175,566 +177,28 @@ export type Selection = _T_Selection
 
 export type Type_Parameters = _T_Type_Parameters
 
-export type Variables = _T_Variables
-
 // **** ALIASES FOR NESTED TYPE WITH PREFIXED ROOT NAMES
 
-export namespace _T_Initialization {
+export namespace _T_Variables {
     
-    export namespace SG {
+    export namespace D {
         
-        export namespace block {
+        export namespace _type {
             
-            export namespace initialization {
+            export namespace O {
             }
-            export type initialization = _T_Initialization
-            
-            export namespace temp_ordered_variables {
-                
-                export namespace L {
-                    
-                    export namespace initialization {
-                    }
-                    export type initialization = _T_Initialization
-                    export type name = string
-                    
-                    export namespace _type {
-                        
-                        export namespace O {
-                        }
-                        export type O = _i_imports_interface._T_Type
-                    }
-                    export type _type = _pi.Optional_Value<_i_imports_interface._T_Type>
-                }
-                export type L = {
-                    readonly 'initialization': _T_Initialization
-                    readonly 'name': string
-                    readonly 'type': _pi.Optional_Value<_i_imports_interface._T_Type>
-                }
-            }
-            export type temp_ordered_variables = _i_core._T_List<null, {
-                readonly 'initialization': _T_Initialization
-                readonly 'name': string
-                readonly 'type': _pi.Optional_Value<_i_imports_interface._T_Type>
-            }>
-            
-            export namespace variables {
-            }
-            export type variables = _T_Variables
+            export type O = _i_imports_interface._T_Type
         }
-        export type block = {
-            readonly 'initialization': _T_Initialization
-            readonly 'temp ordered variables': _i_core._T_List<null, {
-                readonly 'initialization': _T_Initialization
-                readonly 'name': string
-                readonly 'type': _pi.Optional_Value<_i_imports_interface._T_Type>
-            }>
-            readonly 'variables': _T_Variables
-        }
+        export type _type = _pi.Optional_Value<_i_imports_interface._T_Type>
         
-        export namespace change_context {
-            
-            export namespace initialization {
-            }
-            export type initialization = _T_Initialization
-            
-            export namespace new_context {
-            }
-            export type new_context = _T_Selection
+        export namespace initialization {
         }
-        export type change_context = {
-            readonly 'initialization': _T_Initialization
-            readonly 'new context': _T_Selection
-        }
-        
-        export namespace literal {
-            
-            export namespace value {
-            }
-            export type value = _T_Literal
-        }
-        export type literal = {
-            readonly 'value': _T_Literal
-        }
-        
-        export namespace selection {
-        }
-        export type selection = _T_Selection
-        
-        export namespace transformation {
-            
-            export namespace source {
-            }
-            export type source = _T_Selection
-            
-            export namespace _type {
-                
-                export namespace SG {
-                    
-                    export namespace array {
-                        
-                        export namespace SG {
-                            
-                            export namespace map {
-                            }
-                            export type map = _T_Initialization
-                        }
-                        export type SG = 
-                            | readonly ['map', _T_Initialization]
-                    }
-                    export type array = _i_core._T_State_Group<null, 
-                        | readonly ['map', _T_Initialization]
-                    >
-                    
-                    export namespace _boolean {
-                        
-                        export namespace SG {
-                            export type not = null
-                            
-                            export namespace transform {
-                                
-                                export namespace if_false {
-                                }
-                                export type if_false = _T_Initialization
-                                
-                                export namespace if_true {
-                                }
-                                export type if_true = _T_Initialization
-                            }
-                            export type transform = {
-                                readonly 'if false': _T_Initialization
-                                readonly 'if true': _T_Initialization
-                            }
-                        }
-                        export type SG = 
-                            | readonly ['not', null]
-                            | readonly ['transform', {
-                                readonly 'if false': _T_Initialization
-                                readonly 'if true': _T_Initialization
-                            }]
-                    }
-                    export type _boolean = _i_core._T_State_Group<null, 
-                        | readonly ['not', null]
-                        | readonly ['transform', {
-                            readonly 'if false': _T_Initialization
-                            readonly 'if true': _T_Initialization
-                        }]
-                    >
-                    
-                    export namespace dictionary {
-                        
-                        export namespace SG {
-                            
-                            export namespace map {
-                            }
-                            export type map = _T_Initialization
-                        }
-                        export type SG = 
-                            | readonly ['map', _T_Initialization]
-                    }
-                    export type dictionary = _i_core._T_State_Group<null, 
-                        | readonly ['map', _T_Initialization]
-                    >
-                    
-                    export namespace _function {
-                        
-                        export namespace SG {
-                            
-                            export namespace call {
-                                
-                                export namespace _arguments {
-                                    
-                                    export namespace O {
-                                        
-                                        export namespace D {
-                                        }
-                                        export type D = _T_Initialization
-                                    }
-                                    export type O = _i_core._T_Dictionary<null, _T_Initialization>
-                                }
-                                export type _arguments = _pi.Optional_Value<_i_core._T_Dictionary<null, _T_Initialization>>
-                                
-                                export namespace context {
-                                }
-                                export type context = _T_Initialization
-                            }
-                            export type call = {
-                                readonly 'arguments': _pi.Optional_Value<_i_core._T_Dictionary<null, _T_Initialization>>
-                                readonly 'context': _T_Initialization
-                            }
-                        }
-                        export type SG = 
-                            | readonly ['call', {
-                                readonly 'arguments': _pi.Optional_Value<_i_core._T_Dictionary<null, _T_Initialization>>
-                                readonly 'context': _T_Initialization
-                            }]
-                    }
-                    export type _function = _i_core._T_State_Group<null, 
-                        | readonly ['call', {
-                            readonly 'arguments': _pi.Optional_Value<_i_core._T_Dictionary<null, _T_Initialization>>
-                            readonly 'context': _T_Initialization
-                        }]
-                    >
-                    
-                    export namespace optional {
-                        
-                        export namespace SG {
-                            
-                            export namespace map {
-                            }
-                            export type map = _T_Initialization
-                            
-                            export namespace transform {
-                                
-                                export namespace if_not_set {
-                                }
-                                export type if_not_set = _T_Initialization
-                                
-                                export namespace if_set {
-                                }
-                                export type if_set = _T_Initialization
-                                
-                                export namespace temp_resulting_node {
-                                    
-                                    export namespace O {
-                                    }
-                                    export type O = _i_imports_interface._T_Type
-                                }
-                                export type temp_resulting_node = _pi.Optional_Value<_i_imports_interface._T_Type>
-                            }
-                            export type transform = {
-                                readonly 'if not set': _T_Initialization
-                                readonly 'if set': _T_Initialization
-                                readonly 'temp resulting node': _pi.Optional_Value<_i_imports_interface._T_Type>
-                            }
-                        }
-                        export type SG = 
-                            | readonly ['map', _T_Initialization]
-                            | readonly ['transform', {
-                                readonly 'if not set': _T_Initialization
-                                readonly 'if set': _T_Initialization
-                                readonly 'temp resulting node': _pi.Optional_Value<_i_imports_interface._T_Type>
-                            }]
-                    }
-                    export type optional = _i_core._T_State_Group<null, 
-                        | readonly ['map', _T_Initialization]
-                        | readonly ['transform', {
-                            readonly 'if not set': _T_Initialization
-                            readonly 'if set': _T_Initialization
-                            readonly 'temp resulting node': _pi.Optional_Value<_i_imports_interface._T_Type>
-                        }]
-                    >
-                    
-                    export namespace tagged_union {
-                        
-                        export namespace SG {
-                            
-                            export namespace _switch {
-                                
-                                export namespace temp_resulting_node {
-                                    
-                                    export namespace O {
-                                    }
-                                    export type O = _i_imports_interface._T_Type
-                                }
-                                export type temp_resulting_node = _pi.Optional_Value<_i_imports_interface._T_Type>
-                                
-                                export namespace _type {
-                                    
-                                    export namespace SG {
-                                        
-                                        export namespace full {
-                                            
-                                            export namespace cases {
-                                                
-                                                export namespace D {
-                                                }
-                                                export type D = _T_Initialization
-                                            }
-                                            export type cases = _i_core._T_Dictionary<null, _T_Initialization>
-                                        }
-                                        export type full = {
-                                            readonly 'cases': _i_core._T_Dictionary<null, _T_Initialization>
-                                        }
-                                        
-                                        export namespace partial {
-                                            
-                                            export namespace cases {
-                                                
-                                                export namespace D {
-                                                }
-                                                export type D = _T_Initialization
-                                            }
-                                            export type cases = _i_core._T_Dictionary<null, _T_Initialization>
-                                            
-                                            export namespace _default {
-                                            }
-                                            export type _default = _T_Initialization
-                                        }
-                                        export type partial = {
-                                            readonly 'cases': _i_core._T_Dictionary<null, _T_Initialization>
-                                            readonly 'default': _T_Initialization
-                                        }
-                                    }
-                                    export type SG = 
-                                        | readonly ['full', {
-                                            readonly 'cases': _i_core._T_Dictionary<null, _T_Initialization>
-                                        }]
-                                        | readonly ['partial', {
-                                            readonly 'cases': _i_core._T_Dictionary<null, _T_Initialization>
-                                            readonly 'default': _T_Initialization
-                                        }]
-                                }
-                                export type _type = _i_core._T_State_Group<null, 
-                                    | readonly ['full', {
-                                        readonly 'cases': _i_core._T_Dictionary<null, _T_Initialization>
-                                    }]
-                                    | readonly ['partial', {
-                                        readonly 'cases': _i_core._T_Dictionary<null, _T_Initialization>
-                                        readonly 'default': _T_Initialization
-                                    }]
-                                >
-                            }
-                            export type _switch = {
-                                readonly 'temp resulting node': _pi.Optional_Value<_i_imports_interface._T_Type>
-                                readonly 'type': _i_core._T_State_Group<null, 
-                                    | readonly ['full', {
-                                        readonly 'cases': _i_core._T_Dictionary<null, _T_Initialization>
-                                    }]
-                                    | readonly ['partial', {
-                                        readonly 'cases': _i_core._T_Dictionary<null, _T_Initialization>
-                                        readonly 'default': _T_Initialization
-                                    }]
-                                >
-                            }
-                        }
-                        export type SG = 
-                            | readonly ['switch', {
-                                readonly 'temp resulting node': _pi.Optional_Value<_i_imports_interface._T_Type>
-                                readonly 'type': _i_core._T_State_Group<null, 
-                                    | readonly ['full', {
-                                        readonly 'cases': _i_core._T_Dictionary<null, _T_Initialization>
-                                    }]
-                                    | readonly ['partial', {
-                                        readonly 'cases': _i_core._T_Dictionary<null, _T_Initialization>
-                                        readonly 'default': _T_Initialization
-                                    }]
-                                >
-                            }]
-                    }
-                    export type tagged_union = _i_core._T_State_Group<null, 
-                        | readonly ['switch', {
-                            readonly 'temp resulting node': _pi.Optional_Value<_i_imports_interface._T_Type>
-                            readonly 'type': _i_core._T_State_Group<null, 
-                                | readonly ['full', {
-                                    readonly 'cases': _i_core._T_Dictionary<null, _T_Initialization>
-                                }]
-                                | readonly ['partial', {
-                                    readonly 'cases': _i_core._T_Dictionary<null, _T_Initialization>
-                                    readonly 'default': _T_Initialization
-                                }]
-                            >
-                        }]
-                    >
-                }
-                export type SG = 
-                    | readonly ['array', _i_core._T_State_Group<null, 
-                        | readonly ['map', _T_Initialization]
-                    >]
-                    | readonly ['boolean', _i_core._T_State_Group<null, 
-                        | readonly ['not', null]
-                        | readonly ['transform', {
-                            readonly 'if false': _T_Initialization
-                            readonly 'if true': _T_Initialization
-                        }]
-                    >]
-                    | readonly ['dictionary', _i_core._T_State_Group<null, 
-                        | readonly ['map', _T_Initialization]
-                    >]
-                    | readonly ['function', _i_core._T_State_Group<null, 
-                        | readonly ['call', {
-                            readonly 'arguments': _pi.Optional_Value<_i_core._T_Dictionary<null, _T_Initialization>>
-                            readonly 'context': _T_Initialization
-                        }]
-                    >]
-                    | readonly ['optional', _i_core._T_State_Group<null, 
-                        | readonly ['map', _T_Initialization]
-                        | readonly ['transform', {
-                            readonly 'if not set': _T_Initialization
-                            readonly 'if set': _T_Initialization
-                            readonly 'temp resulting node': _pi.Optional_Value<_i_imports_interface._T_Type>
-                        }]
-                    >]
-                    | readonly ['tagged union', _i_core._T_State_Group<null, 
-                        | readonly ['switch', {
-                            readonly 'temp resulting node': _pi.Optional_Value<_i_imports_interface._T_Type>
-                            readonly 'type': _i_core._T_State_Group<null, 
-                                | readonly ['full', {
-                                    readonly 'cases': _i_core._T_Dictionary<null, _T_Initialization>
-                                }]
-                                | readonly ['partial', {
-                                    readonly 'cases': _i_core._T_Dictionary<null, _T_Initialization>
-                                    readonly 'default': _T_Initialization
-                                }]
-                            >
-                        }]
-                    >]
-            }
-            export type _type = _i_core._T_State_Group<null, 
-                | readonly ['array', _i_core._T_State_Group<null, 
-                    | readonly ['map', _T_Initialization]
-                >]
-                | readonly ['boolean', _i_core._T_State_Group<null, 
-                    | readonly ['not', null]
-                    | readonly ['transform', {
-                        readonly 'if false': _T_Initialization
-                        readonly 'if true': _T_Initialization
-                    }]
-                >]
-                | readonly ['dictionary', _i_core._T_State_Group<null, 
-                    | readonly ['map', _T_Initialization]
-                >]
-                | readonly ['function', _i_core._T_State_Group<null, 
-                    | readonly ['call', {
-                        readonly 'arguments': _pi.Optional_Value<_i_core._T_Dictionary<null, _T_Initialization>>
-                        readonly 'context': _T_Initialization
-                    }]
-                >]
-                | readonly ['optional', _i_core._T_State_Group<null, 
-                    | readonly ['map', _T_Initialization]
-                    | readonly ['transform', {
-                        readonly 'if not set': _T_Initialization
-                        readonly 'if set': _T_Initialization
-                        readonly 'temp resulting node': _pi.Optional_Value<_i_imports_interface._T_Type>
-                    }]
-                >]
-                | readonly ['tagged union', _i_core._T_State_Group<null, 
-                    | readonly ['switch', {
-                        readonly 'temp resulting node': _pi.Optional_Value<_i_imports_interface._T_Type>
-                        readonly 'type': _i_core._T_State_Group<null, 
-                            | readonly ['full', {
-                                readonly 'cases': _i_core._T_Dictionary<null, _T_Initialization>
-                            }]
-                            | readonly ['partial', {
-                                readonly 'cases': _i_core._T_Dictionary<null, _T_Initialization>
-                                readonly 'default': _T_Initialization
-                            }]
-                        >
-                    }]
-                >]
-            >
-        }
-        export type transformation = {
-            readonly 'source': _T_Selection
-            readonly 'type': _i_core._T_State_Group<null, 
-                | readonly ['array', _i_core._T_State_Group<null, 
-                    | readonly ['map', _T_Initialization]
-                >]
-                | readonly ['boolean', _i_core._T_State_Group<null, 
-                    | readonly ['not', null]
-                    | readonly ['transform', {
-                        readonly 'if false': _T_Initialization
-                        readonly 'if true': _T_Initialization
-                    }]
-                >]
-                | readonly ['dictionary', _i_core._T_State_Group<null, 
-                    | readonly ['map', _T_Initialization]
-                >]
-                | readonly ['function', _i_core._T_State_Group<null, 
-                    | readonly ['call', {
-                        readonly 'arguments': _pi.Optional_Value<_i_core._T_Dictionary<null, _T_Initialization>>
-                        readonly 'context': _T_Initialization
-                    }]
-                >]
-                | readonly ['optional', _i_core._T_State_Group<null, 
-                    | readonly ['map', _T_Initialization]
-                    | readonly ['transform', {
-                        readonly 'if not set': _T_Initialization
-                        readonly 'if set': _T_Initialization
-                        readonly 'temp resulting node': _pi.Optional_Value<_i_imports_interface._T_Type>
-                    }]
-                >]
-                | readonly ['tagged union', _i_core._T_State_Group<null, 
-                    | readonly ['switch', {
-                        readonly 'temp resulting node': _pi.Optional_Value<_i_imports_interface._T_Type>
-                        readonly 'type': _i_core._T_State_Group<null, 
-                            | readonly ['full', {
-                                readonly 'cases': _i_core._T_Dictionary<null, _T_Initialization>
-                            }]
-                            | readonly ['partial', {
-                                readonly 'cases': _i_core._T_Dictionary<null, _T_Initialization>
-                                readonly 'default': _T_Initialization
-                            }]
-                        >
-                    }]
-                >]
-            >
-        }
+        export type initialization = _T_Initialization
     }
-    export type SG = 
-        | readonly ['block', {
-            readonly 'initialization': _T_Initialization
-            readonly 'temp ordered variables': _i_core._T_List<null, {
-                readonly 'initialization': _T_Initialization
-                readonly 'name': string
-                readonly 'type': _pi.Optional_Value<_i_imports_interface._T_Type>
-            }>
-            readonly 'variables': _T_Variables
-        }]
-        | readonly ['change context', {
-            readonly 'initialization': _T_Initialization
-            readonly 'new context': _T_Selection
-        }]
-        | readonly ['literal', {
-            readonly 'value': _T_Literal
-        }]
-        | readonly ['selection', _T_Selection]
-        | readonly ['transformation', {
-            readonly 'source': _T_Selection
-            readonly 'type': _i_core._T_State_Group<null, 
-                | readonly ['array', _i_core._T_State_Group<null, 
-                    | readonly ['map', _T_Initialization]
-                >]
-                | readonly ['boolean', _i_core._T_State_Group<null, 
-                    | readonly ['not', null]
-                    | readonly ['transform', {
-                        readonly 'if false': _T_Initialization
-                        readonly 'if true': _T_Initialization
-                    }]
-                >]
-                | readonly ['dictionary', _i_core._T_State_Group<null, 
-                    | readonly ['map', _T_Initialization]
-                >]
-                | readonly ['function', _i_core._T_State_Group<null, 
-                    | readonly ['call', {
-                        readonly 'arguments': _pi.Optional_Value<_i_core._T_Dictionary<null, _T_Initialization>>
-                        readonly 'context': _T_Initialization
-                    }]
-                >]
-                | readonly ['optional', _i_core._T_State_Group<null, 
-                    | readonly ['map', _T_Initialization]
-                    | readonly ['transform', {
-                        readonly 'if not set': _T_Initialization
-                        readonly 'if set': _T_Initialization
-                        readonly 'temp resulting node': _pi.Optional_Value<_i_imports_interface._T_Type>
-                    }]
-                >]
-                | readonly ['tagged union', _i_core._T_State_Group<null, 
-                    | readonly ['switch', {
-                        readonly 'temp resulting node': _pi.Optional_Value<_i_imports_interface._T_Type>
-                        readonly 'type': _i_core._T_State_Group<null, 
-                            | readonly ['full', {
-                                readonly 'cases': _i_core._T_Dictionary<null, _T_Initialization>
-                            }]
-                            | readonly ['partial', {
-                                readonly 'cases': _i_core._T_Dictionary<null, _T_Initialization>
-                                readonly 'default': _T_Initialization
-                            }]
-                        >
-                    }]
-                >]
-            >
-        }]
+    export type D = {
+        readonly 'type': _pi.Optional_Value<_i_imports_interface._T_Type>
+        readonly 'initialization': _T_Initialization
+    }
 }
 
 export namespace _T_Literal {
@@ -912,6 +376,564 @@ export namespace _T_Literal {
         }]
 }
 
+export namespace _T_Initialization {
+    
+    export namespace SG {
+        
+        export namespace block {
+            
+            export namespace variables {
+            }
+            export type variables = _T_Variables
+            
+            export namespace temp_ordered_variables {
+                
+                export namespace L {
+                    export type name = string
+                    
+                    export namespace _type {
+                        
+                        export namespace O {
+                        }
+                        export type O = _i_imports_interface._T_Type
+                    }
+                    export type _type = _pi.Optional_Value<_i_imports_interface._T_Type>
+                    
+                    export namespace initialization {
+                    }
+                    export type initialization = _T_Initialization
+                }
+                export type L = {
+                    readonly 'name': string
+                    readonly 'type': _pi.Optional_Value<_i_imports_interface._T_Type>
+                    readonly 'initialization': _T_Initialization
+                }
+            }
+            export type temp_ordered_variables = _i_core._T_List<null, {
+                readonly 'name': string
+                readonly 'type': _pi.Optional_Value<_i_imports_interface._T_Type>
+                readonly 'initialization': _T_Initialization
+            }>
+            
+            export namespace initialization {
+            }
+            export type initialization = _T_Initialization
+        }
+        export type block = {
+            readonly 'variables': _T_Variables
+            readonly 'temp ordered variables': _i_core._T_List<null, {
+                readonly 'name': string
+                readonly 'type': _pi.Optional_Value<_i_imports_interface._T_Type>
+                readonly 'initialization': _T_Initialization
+            }>
+            readonly 'initialization': _T_Initialization
+        }
+        
+        export namespace change_context {
+            
+            export namespace new_context {
+            }
+            export type new_context = _T_Selection
+            
+            export namespace initialization {
+            }
+            export type initialization = _T_Initialization
+        }
+        export type change_context = {
+            readonly 'new context': _T_Selection
+            readonly 'initialization': _T_Initialization
+        }
+        
+        export namespace literal {
+            
+            export namespace value {
+            }
+            export type value = _T_Literal
+        }
+        export type literal = {
+            readonly 'value': _T_Literal
+        }
+        
+        export namespace selection {
+        }
+        export type selection = _T_Selection
+        
+        export namespace transformation {
+            
+            export namespace source {
+            }
+            export type source = _T_Selection
+            
+            export namespace _type {
+                
+                export namespace SG {
+                    
+                    export namespace array {
+                        
+                        export namespace SG {
+                            
+                            export namespace map {
+                            }
+                            export type map = _T_Initialization
+                        }
+                        export type SG = 
+                            | readonly ['map', _T_Initialization]
+                    }
+                    export type array = _i_core._T_State_Group<null, 
+                        | readonly ['map', _T_Initialization]
+                    >
+                    
+                    export namespace _boolean {
+                        
+                        export namespace SG {
+                            export type not = null
+                            
+                            export namespace transform {
+                                
+                                export namespace if_false {
+                                }
+                                export type if_false = _T_Initialization
+                                
+                                export namespace if_true {
+                                }
+                                export type if_true = _T_Initialization
+                            }
+                            export type transform = {
+                                readonly 'if false': _T_Initialization
+                                readonly 'if true': _T_Initialization
+                            }
+                        }
+                        export type SG = 
+                            | readonly ['not', null]
+                            | readonly ['transform', {
+                                readonly 'if false': _T_Initialization
+                                readonly 'if true': _T_Initialization
+                            }]
+                    }
+                    export type _boolean = _i_core._T_State_Group<null, 
+                        | readonly ['not', null]
+                        | readonly ['transform', {
+                            readonly 'if false': _T_Initialization
+                            readonly 'if true': _T_Initialization
+                        }]
+                    >
+                    
+                    export namespace dictionary {
+                        
+                        export namespace SG {
+                            
+                            export namespace map {
+                            }
+                            export type map = _T_Initialization
+                        }
+                        export type SG = 
+                            | readonly ['map', _T_Initialization]
+                    }
+                    export type dictionary = _i_core._T_State_Group<null, 
+                        | readonly ['map', _T_Initialization]
+                    >
+                    
+                    export namespace _function {
+                        
+                        export namespace SG {
+                            
+                            export namespace call {
+                                
+                                export namespace context {
+                                }
+                                export type context = _T_Initialization
+                                
+                                export namespace _arguments {
+                                    
+                                    export namespace O {
+                                        
+                                        export namespace D {
+                                        }
+                                        export type D = _T_Initialization
+                                    }
+                                    export type O = _i_core._T_Dictionary<null, _T_Initialization>
+                                }
+                                export type _arguments = _pi.Optional_Value<_i_core._T_Dictionary<null, _T_Initialization>>
+                            }
+                            export type call = {
+                                readonly 'context': _T_Initialization
+                                readonly 'arguments': _pi.Optional_Value<_i_core._T_Dictionary<null, _T_Initialization>>
+                            }
+                        }
+                        export type SG = 
+                            | readonly ['call', {
+                                readonly 'context': _T_Initialization
+                                readonly 'arguments': _pi.Optional_Value<_i_core._T_Dictionary<null, _T_Initialization>>
+                            }]
+                    }
+                    export type _function = _i_core._T_State_Group<null, 
+                        | readonly ['call', {
+                            readonly 'context': _T_Initialization
+                            readonly 'arguments': _pi.Optional_Value<_i_core._T_Dictionary<null, _T_Initialization>>
+                        }]
+                    >
+                    
+                    export namespace optional {
+                        
+                        export namespace SG {
+                            
+                            export namespace map {
+                            }
+                            export type map = _T_Initialization
+                            
+                            export namespace transform {
+                                
+                                export namespace if_not_set {
+                                }
+                                export type if_not_set = _T_Initialization
+                                
+                                export namespace if_set {
+                                }
+                                export type if_set = _T_Initialization
+                                
+                                export namespace temp_resulting_node {
+                                    
+                                    export namespace O {
+                                    }
+                                    export type O = _i_imports_interface._T_Type
+                                }
+                                export type temp_resulting_node = _pi.Optional_Value<_i_imports_interface._T_Type>
+                            }
+                            export type transform = {
+                                readonly 'if not set': _T_Initialization
+                                readonly 'if set': _T_Initialization
+                                readonly 'temp resulting node': _pi.Optional_Value<_i_imports_interface._T_Type>
+                            }
+                        }
+                        export type SG = 
+                            | readonly ['map', _T_Initialization]
+                            | readonly ['transform', {
+                                readonly 'if not set': _T_Initialization
+                                readonly 'if set': _T_Initialization
+                                readonly 'temp resulting node': _pi.Optional_Value<_i_imports_interface._T_Type>
+                            }]
+                    }
+                    export type optional = _i_core._T_State_Group<null, 
+                        | readonly ['map', _T_Initialization]
+                        | readonly ['transform', {
+                            readonly 'if not set': _T_Initialization
+                            readonly 'if set': _T_Initialization
+                            readonly 'temp resulting node': _pi.Optional_Value<_i_imports_interface._T_Type>
+                        }]
+                    >
+                    
+                    export namespace tagged_union {
+                        
+                        export namespace SG {
+                            
+                            export namespace _switch {
+                                
+                                export namespace temp_resulting_node {
+                                    
+                                    export namespace O {
+                                    }
+                                    export type O = _i_imports_interface._T_Type
+                                }
+                                export type temp_resulting_node = _pi.Optional_Value<_i_imports_interface._T_Type>
+                                
+                                export namespace _type {
+                                    
+                                    export namespace SG {
+                                        
+                                        export namespace partial {
+                                            
+                                            export namespace cases {
+                                                
+                                                export namespace D {
+                                                }
+                                                export type D = _T_Initialization
+                                            }
+                                            export type cases = _i_core._T_Dictionary<null, _T_Initialization>
+                                            
+                                            export namespace _default {
+                                            }
+                                            export type _default = _T_Initialization
+                                        }
+                                        export type partial = {
+                                            readonly 'cases': _i_core._T_Dictionary<null, _T_Initialization>
+                                            readonly 'default': _T_Initialization
+                                        }
+                                        
+                                        export namespace full {
+                                            
+                                            export namespace cases {
+                                                
+                                                export namespace D {
+                                                }
+                                                export type D = _T_Initialization
+                                            }
+                                            export type cases = _i_core._T_Dictionary<null, _T_Initialization>
+                                        }
+                                        export type full = {
+                                            readonly 'cases': _i_core._T_Dictionary<null, _T_Initialization>
+                                        }
+                                    }
+                                    export type SG = 
+                                        | readonly ['partial', {
+                                            readonly 'cases': _i_core._T_Dictionary<null, _T_Initialization>
+                                            readonly 'default': _T_Initialization
+                                        }]
+                                        | readonly ['full', {
+                                            readonly 'cases': _i_core._T_Dictionary<null, _T_Initialization>
+                                        }]
+                                }
+                                export type _type = _i_core._T_State_Group<null, 
+                                    | readonly ['partial', {
+                                        readonly 'cases': _i_core._T_Dictionary<null, _T_Initialization>
+                                        readonly 'default': _T_Initialization
+                                    }]
+                                    | readonly ['full', {
+                                        readonly 'cases': _i_core._T_Dictionary<null, _T_Initialization>
+                                    }]
+                                >
+                            }
+                            export type _switch = {
+                                readonly 'temp resulting node': _pi.Optional_Value<_i_imports_interface._T_Type>
+                                readonly 'type': _i_core._T_State_Group<null, 
+                                    | readonly ['partial', {
+                                        readonly 'cases': _i_core._T_Dictionary<null, _T_Initialization>
+                                        readonly 'default': _T_Initialization
+                                    }]
+                                    | readonly ['full', {
+                                        readonly 'cases': _i_core._T_Dictionary<null, _T_Initialization>
+                                    }]
+                                >
+                            }
+                        }
+                        export type SG = 
+                            | readonly ['switch', {
+                                readonly 'temp resulting node': _pi.Optional_Value<_i_imports_interface._T_Type>
+                                readonly 'type': _i_core._T_State_Group<null, 
+                                    | readonly ['partial', {
+                                        readonly 'cases': _i_core._T_Dictionary<null, _T_Initialization>
+                                        readonly 'default': _T_Initialization
+                                    }]
+                                    | readonly ['full', {
+                                        readonly 'cases': _i_core._T_Dictionary<null, _T_Initialization>
+                                    }]
+                                >
+                            }]
+                    }
+                    export type tagged_union = _i_core._T_State_Group<null, 
+                        | readonly ['switch', {
+                            readonly 'temp resulting node': _pi.Optional_Value<_i_imports_interface._T_Type>
+                            readonly 'type': _i_core._T_State_Group<null, 
+                                | readonly ['partial', {
+                                    readonly 'cases': _i_core._T_Dictionary<null, _T_Initialization>
+                                    readonly 'default': _T_Initialization
+                                }]
+                                | readonly ['full', {
+                                    readonly 'cases': _i_core._T_Dictionary<null, _T_Initialization>
+                                }]
+                            >
+                        }]
+                    >
+                }
+                export type SG = 
+                    | readonly ['array', _i_core._T_State_Group<null, 
+                        | readonly ['map', _T_Initialization]
+                    >]
+                    | readonly ['boolean', _i_core._T_State_Group<null, 
+                        | readonly ['not', null]
+                        | readonly ['transform', {
+                            readonly 'if false': _T_Initialization
+                            readonly 'if true': _T_Initialization
+                        }]
+                    >]
+                    | readonly ['dictionary', _i_core._T_State_Group<null, 
+                        | readonly ['map', _T_Initialization]
+                    >]
+                    | readonly ['function', _i_core._T_State_Group<null, 
+                        | readonly ['call', {
+                            readonly 'context': _T_Initialization
+                            readonly 'arguments': _pi.Optional_Value<_i_core._T_Dictionary<null, _T_Initialization>>
+                        }]
+                    >]
+                    | readonly ['optional', _i_core._T_State_Group<null, 
+                        | readonly ['map', _T_Initialization]
+                        | readonly ['transform', {
+                            readonly 'if not set': _T_Initialization
+                            readonly 'if set': _T_Initialization
+                            readonly 'temp resulting node': _pi.Optional_Value<_i_imports_interface._T_Type>
+                        }]
+                    >]
+                    | readonly ['tagged union', _i_core._T_State_Group<null, 
+                        | readonly ['switch', {
+                            readonly 'temp resulting node': _pi.Optional_Value<_i_imports_interface._T_Type>
+                            readonly 'type': _i_core._T_State_Group<null, 
+                                | readonly ['partial', {
+                                    readonly 'cases': _i_core._T_Dictionary<null, _T_Initialization>
+                                    readonly 'default': _T_Initialization
+                                }]
+                                | readonly ['full', {
+                                    readonly 'cases': _i_core._T_Dictionary<null, _T_Initialization>
+                                }]
+                            >
+                        }]
+                    >]
+            }
+            export type _type = _i_core._T_State_Group<null, 
+                | readonly ['array', _i_core._T_State_Group<null, 
+                    | readonly ['map', _T_Initialization]
+                >]
+                | readonly ['boolean', _i_core._T_State_Group<null, 
+                    | readonly ['not', null]
+                    | readonly ['transform', {
+                        readonly 'if false': _T_Initialization
+                        readonly 'if true': _T_Initialization
+                    }]
+                >]
+                | readonly ['dictionary', _i_core._T_State_Group<null, 
+                    | readonly ['map', _T_Initialization]
+                >]
+                | readonly ['function', _i_core._T_State_Group<null, 
+                    | readonly ['call', {
+                        readonly 'context': _T_Initialization
+                        readonly 'arguments': _pi.Optional_Value<_i_core._T_Dictionary<null, _T_Initialization>>
+                    }]
+                >]
+                | readonly ['optional', _i_core._T_State_Group<null, 
+                    | readonly ['map', _T_Initialization]
+                    | readonly ['transform', {
+                        readonly 'if not set': _T_Initialization
+                        readonly 'if set': _T_Initialization
+                        readonly 'temp resulting node': _pi.Optional_Value<_i_imports_interface._T_Type>
+                    }]
+                >]
+                | readonly ['tagged union', _i_core._T_State_Group<null, 
+                    | readonly ['switch', {
+                        readonly 'temp resulting node': _pi.Optional_Value<_i_imports_interface._T_Type>
+                        readonly 'type': _i_core._T_State_Group<null, 
+                            | readonly ['partial', {
+                                readonly 'cases': _i_core._T_Dictionary<null, _T_Initialization>
+                                readonly 'default': _T_Initialization
+                            }]
+                            | readonly ['full', {
+                                readonly 'cases': _i_core._T_Dictionary<null, _T_Initialization>
+                            }]
+                        >
+                    }]
+                >]
+            >
+        }
+        export type transformation = {
+            readonly 'source': _T_Selection
+            readonly 'type': _i_core._T_State_Group<null, 
+                | readonly ['array', _i_core._T_State_Group<null, 
+                    | readonly ['map', _T_Initialization]
+                >]
+                | readonly ['boolean', _i_core._T_State_Group<null, 
+                    | readonly ['not', null]
+                    | readonly ['transform', {
+                        readonly 'if false': _T_Initialization
+                        readonly 'if true': _T_Initialization
+                    }]
+                >]
+                | readonly ['dictionary', _i_core._T_State_Group<null, 
+                    | readonly ['map', _T_Initialization]
+                >]
+                | readonly ['function', _i_core._T_State_Group<null, 
+                    | readonly ['call', {
+                        readonly 'context': _T_Initialization
+                        readonly 'arguments': _pi.Optional_Value<_i_core._T_Dictionary<null, _T_Initialization>>
+                    }]
+                >]
+                | readonly ['optional', _i_core._T_State_Group<null, 
+                    | readonly ['map', _T_Initialization]
+                    | readonly ['transform', {
+                        readonly 'if not set': _T_Initialization
+                        readonly 'if set': _T_Initialization
+                        readonly 'temp resulting node': _pi.Optional_Value<_i_imports_interface._T_Type>
+                    }]
+                >]
+                | readonly ['tagged union', _i_core._T_State_Group<null, 
+                    | readonly ['switch', {
+                        readonly 'temp resulting node': _pi.Optional_Value<_i_imports_interface._T_Type>
+                        readonly 'type': _i_core._T_State_Group<null, 
+                            | readonly ['partial', {
+                                readonly 'cases': _i_core._T_Dictionary<null, _T_Initialization>
+                                readonly 'default': _T_Initialization
+                            }]
+                            | readonly ['full', {
+                                readonly 'cases': _i_core._T_Dictionary<null, _T_Initialization>
+                            }]
+                        >
+                    }]
+                >]
+            >
+        }
+    }
+    export type SG = 
+        | readonly ['block', {
+            readonly 'variables': _T_Variables
+            readonly 'temp ordered variables': _i_core._T_List<null, {
+                readonly 'name': string
+                readonly 'type': _pi.Optional_Value<_i_imports_interface._T_Type>
+                readonly 'initialization': _T_Initialization
+            }>
+            readonly 'initialization': _T_Initialization
+        }]
+        | readonly ['change context', {
+            readonly 'new context': _T_Selection
+            readonly 'initialization': _T_Initialization
+        }]
+        | readonly ['literal', {
+            readonly 'value': _T_Literal
+        }]
+        | readonly ['selection', _T_Selection]
+        | readonly ['transformation', {
+            readonly 'source': _T_Selection
+            readonly 'type': _i_core._T_State_Group<null, 
+                | readonly ['array', _i_core._T_State_Group<null, 
+                    | readonly ['map', _T_Initialization]
+                >]
+                | readonly ['boolean', _i_core._T_State_Group<null, 
+                    | readonly ['not', null]
+                    | readonly ['transform', {
+                        readonly 'if false': _T_Initialization
+                        readonly 'if true': _T_Initialization
+                    }]
+                >]
+                | readonly ['dictionary', _i_core._T_State_Group<null, 
+                    | readonly ['map', _T_Initialization]
+                >]
+                | readonly ['function', _i_core._T_State_Group<null, 
+                    | readonly ['call', {
+                        readonly 'context': _T_Initialization
+                        readonly 'arguments': _pi.Optional_Value<_i_core._T_Dictionary<null, _T_Initialization>>
+                    }]
+                >]
+                | readonly ['optional', _i_core._T_State_Group<null, 
+                    | readonly ['map', _T_Initialization]
+                    | readonly ['transform', {
+                        readonly 'if not set': _T_Initialization
+                        readonly 'if set': _T_Initialization
+                        readonly 'temp resulting node': _pi.Optional_Value<_i_imports_interface._T_Type>
+                    }]
+                >]
+                | readonly ['tagged union', _i_core._T_State_Group<null, 
+                    | readonly ['switch', {
+                        readonly 'temp resulting node': _pi.Optional_Value<_i_imports_interface._T_Type>
+                        readonly 'type': _i_core._T_State_Group<null, 
+                            | readonly ['partial', {
+                                readonly 'cases': _i_core._T_Dictionary<null, _T_Initialization>
+                                readonly 'default': _T_Initialization
+                            }]
+                            | readonly ['full', {
+                                readonly 'cases': _i_core._T_Dictionary<null, _T_Initialization>
+                            }]
+                        >
+                    }]
+                >]
+            >
+        }]
+}
+
 export namespace _T_Module {
     
     export namespace type_imports {
@@ -1018,9 +1040,36 @@ export namespace _T_Selection {
         
         export namespace SG {
             export type abort = null
-            export type argument = string
+            
+            export namespace transform_optional_value {
+                
+                export namespace source {
+                }
+                export type source = _T_Selection
+                
+                export namespace if_not_set {
+                }
+                export type if_not_set = _T_Selection
+                
+                export namespace if_set {
+                }
+                export type if_set = _T_Selection
+            }
+            export type transform_optional_value = {
+                readonly 'source': _T_Selection
+                readonly 'if not set': _T_Selection
+                readonly 'if set': _T_Selection
+            }
             
             export namespace call {
+                
+                export namespace source {
+                }
+                export type source = _T_Selection
+                
+                export namespace context {
+                }
+                export type context = _T_Selection
                 
                 export namespace _arguments {
                     
@@ -1033,22 +1082,17 @@ export namespace _T_Selection {
                     export type O = _i_core._T_Dictionary<null, _T_Initialization>
                 }
                 export type _arguments = _pi.Optional_Value<_i_core._T_Dictionary<null, _T_Initialization>>
-                
-                export namespace context {
-                }
-                export type context = _T_Selection
-                
-                export namespace source {
-                }
-                export type source = _T_Selection
             }
             export type call = {
-                readonly 'arguments': _pi.Optional_Value<_i_core._T_Dictionary<null, _T_Initialization>>
-                readonly 'context': _T_Selection
                 readonly 'source': _T_Selection
+                readonly 'context': _T_Selection
+                readonly 'arguments': _pi.Optional_Value<_i_core._T_Dictionary<null, _T_Initialization>>
             }
-            export type context = null
             export type implement_me = null
+            export type argument = string
+            export type context = null
+            export type variable = string
+            export type parameter = string
             
             export namespace imported_variable {
                 export type _import = string
@@ -1058,72 +1102,50 @@ export namespace _T_Selection {
                 readonly 'import': string
                 readonly 'variable': string
             }
-            export type parameter = string
-            
-            export namespace transform_optional_value {
-                
-                export namespace if_not_set {
-                }
-                export type if_not_set = _T_Selection
-                
-                export namespace if_set {
-                }
-                export type if_set = _T_Selection
-                
-                export namespace source {
-                }
-                export type source = _T_Selection
-            }
-            export type transform_optional_value = {
-                readonly 'if not set': _T_Selection
-                readonly 'if set': _T_Selection
-                readonly 'source': _T_Selection
-            }
-            export type variable = string
         }
         export type SG = 
             | readonly ['abort', null]
-            | readonly ['argument', string]
-            | readonly ['call', {
-                readonly 'arguments': _pi.Optional_Value<_i_core._T_Dictionary<null, _T_Initialization>>
-                readonly 'context': _T_Selection
+            | readonly ['transform optional value', {
                 readonly 'source': _T_Selection
+                readonly 'if not set': _T_Selection
+                readonly 'if set': _T_Selection
             }]
-            | readonly ['context', null]
+            | readonly ['call', {
+                readonly 'source': _T_Selection
+                readonly 'context': _T_Selection
+                readonly 'arguments': _pi.Optional_Value<_i_core._T_Dictionary<null, _T_Initialization>>
+            }]
             | readonly ['implement me', null]
+            | readonly ['argument', string]
+            | readonly ['context', null]
+            | readonly ['variable', string]
+            | readonly ['parameter', string]
             | readonly ['imported variable', {
                 readonly 'import': string
                 readonly 'variable': string
             }]
-            | readonly ['parameter', string]
-            | readonly ['transform optional value', {
-                readonly 'if not set': _T_Selection
-                readonly 'if set': _T_Selection
-                readonly 'source': _T_Selection
-            }]
-            | readonly ['variable', string]
     }
     export type start = _i_core._T_State_Group<null, 
         | readonly ['abort', null]
-        | readonly ['argument', string]
-        | readonly ['call', {
-            readonly 'arguments': _pi.Optional_Value<_i_core._T_Dictionary<null, _T_Initialization>>
-            readonly 'context': _T_Selection
+        | readonly ['transform optional value', {
             readonly 'source': _T_Selection
+            readonly 'if not set': _T_Selection
+            readonly 'if set': _T_Selection
         }]
-        | readonly ['context', null]
+        | readonly ['call', {
+            readonly 'source': _T_Selection
+            readonly 'context': _T_Selection
+            readonly 'arguments': _pi.Optional_Value<_i_core._T_Dictionary<null, _T_Initialization>>
+        }]
         | readonly ['implement me', null]
+        | readonly ['argument', string]
+        | readonly ['context', null]
+        | readonly ['variable', string]
+        | readonly ['parameter', string]
         | readonly ['imported variable', {
             readonly 'import': string
             readonly 'variable': string
         }]
-        | readonly ['parameter', string]
-        | readonly ['transform optional value', {
-            readonly 'if not set': _T_Selection
-            readonly 'if set': _T_Selection
-            readonly 'source': _T_Selection
-        }]
-        | readonly ['variable', string]
     >
     
     export namespace tail {
@@ -1136,13 +1158,11 @@ export namespace _T_Type_Parameters {
     export type D = null
 }
 
-export namespace _T_Variables {
+// *** ALIASES FOR NESTED TYPES
+
+export namespace Variables {
     
     export namespace D {
-        
-        export namespace initialization {
-        }
-        export type initialization = _T_Initialization
         
         export namespace _type {
             
@@ -1151,571 +1171,15 @@ export namespace _T_Variables {
             export type O = _i_imports_interface._T_Type
         }
         export type _type = _pi.Optional_Value<_i_imports_interface._T_Type>
+        
+        export namespace initialization {
+        }
+        export type initialization = _T_Initialization
     }
     export type D = {
-        readonly 'initialization': _T_Initialization
         readonly 'type': _pi.Optional_Value<_i_imports_interface._T_Type>
+        readonly 'initialization': _T_Initialization
     }
-}
-
-// *** ALIASES FOR NESTED TYPES
-
-export namespace Initialization {
-    
-    export namespace SG {
-        
-        export namespace block {
-            
-            export namespace initialization {
-            }
-            export type initialization = _T_Initialization
-            
-            export namespace temp_ordered_variables {
-                
-                export namespace L {
-                    
-                    export namespace initialization {
-                    }
-                    export type initialization = _T_Initialization
-                    export type name = string
-                    
-                    export namespace _type {
-                        
-                        export namespace O {
-                        }
-                        export type O = _i_imports_interface._T_Type
-                    }
-                    export type _type = _pi.Optional_Value<_i_imports_interface._T_Type>
-                }
-                export type L = {
-                    readonly 'initialization': _T_Initialization
-                    readonly 'name': string
-                    readonly 'type': _pi.Optional_Value<_i_imports_interface._T_Type>
-                }
-            }
-            export type temp_ordered_variables = _i_core._T_List<null, {
-                readonly 'initialization': _T_Initialization
-                readonly 'name': string
-                readonly 'type': _pi.Optional_Value<_i_imports_interface._T_Type>
-            }>
-            
-            export namespace variables {
-            }
-            export type variables = _T_Variables
-        }
-        export type block = {
-            readonly 'initialization': _T_Initialization
-            readonly 'temp ordered variables': _i_core._T_List<null, {
-                readonly 'initialization': _T_Initialization
-                readonly 'name': string
-                readonly 'type': _pi.Optional_Value<_i_imports_interface._T_Type>
-            }>
-            readonly 'variables': _T_Variables
-        }
-        
-        export namespace change_context {
-            
-            export namespace initialization {
-            }
-            export type initialization = _T_Initialization
-            
-            export namespace new_context {
-            }
-            export type new_context = _T_Selection
-        }
-        export type change_context = {
-            readonly 'initialization': _T_Initialization
-            readonly 'new context': _T_Selection
-        }
-        
-        export namespace literal {
-            
-            export namespace value {
-            }
-            export type value = _T_Literal
-        }
-        export type literal = {
-            readonly 'value': _T_Literal
-        }
-        
-        export namespace selection {
-        }
-        export type selection = _T_Selection
-        
-        export namespace transformation {
-            
-            export namespace source {
-            }
-            export type source = _T_Selection
-            
-            export namespace _type {
-                
-                export namespace SG {
-                    
-                    export namespace array {
-                        
-                        export namespace SG {
-                            
-                            export namespace map {
-                            }
-                            export type map = _T_Initialization
-                        }
-                        export type SG = 
-                            | readonly ['map', _T_Initialization]
-                    }
-                    export type array = _i_core._T_State_Group<null, 
-                        | readonly ['map', _T_Initialization]
-                    >
-                    
-                    export namespace _boolean {
-                        
-                        export namespace SG {
-                            export type not = null
-                            
-                            export namespace transform {
-                                
-                                export namespace if_false {
-                                }
-                                export type if_false = _T_Initialization
-                                
-                                export namespace if_true {
-                                }
-                                export type if_true = _T_Initialization
-                            }
-                            export type transform = {
-                                readonly 'if false': _T_Initialization
-                                readonly 'if true': _T_Initialization
-                            }
-                        }
-                        export type SG = 
-                            | readonly ['not', null]
-                            | readonly ['transform', {
-                                readonly 'if false': _T_Initialization
-                                readonly 'if true': _T_Initialization
-                            }]
-                    }
-                    export type _boolean = _i_core._T_State_Group<null, 
-                        | readonly ['not', null]
-                        | readonly ['transform', {
-                            readonly 'if false': _T_Initialization
-                            readonly 'if true': _T_Initialization
-                        }]
-                    >
-                    
-                    export namespace dictionary {
-                        
-                        export namespace SG {
-                            
-                            export namespace map {
-                            }
-                            export type map = _T_Initialization
-                        }
-                        export type SG = 
-                            | readonly ['map', _T_Initialization]
-                    }
-                    export type dictionary = _i_core._T_State_Group<null, 
-                        | readonly ['map', _T_Initialization]
-                    >
-                    
-                    export namespace _function {
-                        
-                        export namespace SG {
-                            
-                            export namespace call {
-                                
-                                export namespace _arguments {
-                                    
-                                    export namespace O {
-                                        
-                                        export namespace D {
-                                        }
-                                        export type D = _T_Initialization
-                                    }
-                                    export type O = _i_core._T_Dictionary<null, _T_Initialization>
-                                }
-                                export type _arguments = _pi.Optional_Value<_i_core._T_Dictionary<null, _T_Initialization>>
-                                
-                                export namespace context {
-                                }
-                                export type context = _T_Initialization
-                            }
-                            export type call = {
-                                readonly 'arguments': _pi.Optional_Value<_i_core._T_Dictionary<null, _T_Initialization>>
-                                readonly 'context': _T_Initialization
-                            }
-                        }
-                        export type SG = 
-                            | readonly ['call', {
-                                readonly 'arguments': _pi.Optional_Value<_i_core._T_Dictionary<null, _T_Initialization>>
-                                readonly 'context': _T_Initialization
-                            }]
-                    }
-                    export type _function = _i_core._T_State_Group<null, 
-                        | readonly ['call', {
-                            readonly 'arguments': _pi.Optional_Value<_i_core._T_Dictionary<null, _T_Initialization>>
-                            readonly 'context': _T_Initialization
-                        }]
-                    >
-                    
-                    export namespace optional {
-                        
-                        export namespace SG {
-                            
-                            export namespace map {
-                            }
-                            export type map = _T_Initialization
-                            
-                            export namespace transform {
-                                
-                                export namespace if_not_set {
-                                }
-                                export type if_not_set = _T_Initialization
-                                
-                                export namespace if_set {
-                                }
-                                export type if_set = _T_Initialization
-                                
-                                export namespace temp_resulting_node {
-                                    
-                                    export namespace O {
-                                    }
-                                    export type O = _i_imports_interface._T_Type
-                                }
-                                export type temp_resulting_node = _pi.Optional_Value<_i_imports_interface._T_Type>
-                            }
-                            export type transform = {
-                                readonly 'if not set': _T_Initialization
-                                readonly 'if set': _T_Initialization
-                                readonly 'temp resulting node': _pi.Optional_Value<_i_imports_interface._T_Type>
-                            }
-                        }
-                        export type SG = 
-                            | readonly ['map', _T_Initialization]
-                            | readonly ['transform', {
-                                readonly 'if not set': _T_Initialization
-                                readonly 'if set': _T_Initialization
-                                readonly 'temp resulting node': _pi.Optional_Value<_i_imports_interface._T_Type>
-                            }]
-                    }
-                    export type optional = _i_core._T_State_Group<null, 
-                        | readonly ['map', _T_Initialization]
-                        | readonly ['transform', {
-                            readonly 'if not set': _T_Initialization
-                            readonly 'if set': _T_Initialization
-                            readonly 'temp resulting node': _pi.Optional_Value<_i_imports_interface._T_Type>
-                        }]
-                    >
-                    
-                    export namespace tagged_union {
-                        
-                        export namespace SG {
-                            
-                            export namespace _switch {
-                                
-                                export namespace temp_resulting_node {
-                                    
-                                    export namespace O {
-                                    }
-                                    export type O = _i_imports_interface._T_Type
-                                }
-                                export type temp_resulting_node = _pi.Optional_Value<_i_imports_interface._T_Type>
-                                
-                                export namespace _type {
-                                    
-                                    export namespace SG {
-                                        
-                                        export namespace full {
-                                            
-                                            export namespace cases {
-                                                
-                                                export namespace D {
-                                                }
-                                                export type D = _T_Initialization
-                                            }
-                                            export type cases = _i_core._T_Dictionary<null, _T_Initialization>
-                                        }
-                                        export type full = {
-                                            readonly 'cases': _i_core._T_Dictionary<null, _T_Initialization>
-                                        }
-                                        
-                                        export namespace partial {
-                                            
-                                            export namespace cases {
-                                                
-                                                export namespace D {
-                                                }
-                                                export type D = _T_Initialization
-                                            }
-                                            export type cases = _i_core._T_Dictionary<null, _T_Initialization>
-                                            
-                                            export namespace _default {
-                                            }
-                                            export type _default = _T_Initialization
-                                        }
-                                        export type partial = {
-                                            readonly 'cases': _i_core._T_Dictionary<null, _T_Initialization>
-                                            readonly 'default': _T_Initialization
-                                        }
-                                    }
-                                    export type SG = 
-                                        | readonly ['full', {
-                                            readonly 'cases': _i_core._T_Dictionary<null, _T_Initialization>
-                                        }]
-                                        | readonly ['partial', {
-                                            readonly 'cases': _i_core._T_Dictionary<null, _T_Initialization>
-                                            readonly 'default': _T_Initialization
-                                        }]
-                                }
-                                export type _type = _i_core._T_State_Group<null, 
-                                    | readonly ['full', {
-                                        readonly 'cases': _i_core._T_Dictionary<null, _T_Initialization>
-                                    }]
-                                    | readonly ['partial', {
-                                        readonly 'cases': _i_core._T_Dictionary<null, _T_Initialization>
-                                        readonly 'default': _T_Initialization
-                                    }]
-                                >
-                            }
-                            export type _switch = {
-                                readonly 'temp resulting node': _pi.Optional_Value<_i_imports_interface._T_Type>
-                                readonly 'type': _i_core._T_State_Group<null, 
-                                    | readonly ['full', {
-                                        readonly 'cases': _i_core._T_Dictionary<null, _T_Initialization>
-                                    }]
-                                    | readonly ['partial', {
-                                        readonly 'cases': _i_core._T_Dictionary<null, _T_Initialization>
-                                        readonly 'default': _T_Initialization
-                                    }]
-                                >
-                            }
-                        }
-                        export type SG = 
-                            | readonly ['switch', {
-                                readonly 'temp resulting node': _pi.Optional_Value<_i_imports_interface._T_Type>
-                                readonly 'type': _i_core._T_State_Group<null, 
-                                    | readonly ['full', {
-                                        readonly 'cases': _i_core._T_Dictionary<null, _T_Initialization>
-                                    }]
-                                    | readonly ['partial', {
-                                        readonly 'cases': _i_core._T_Dictionary<null, _T_Initialization>
-                                        readonly 'default': _T_Initialization
-                                    }]
-                                >
-                            }]
-                    }
-                    export type tagged_union = _i_core._T_State_Group<null, 
-                        | readonly ['switch', {
-                            readonly 'temp resulting node': _pi.Optional_Value<_i_imports_interface._T_Type>
-                            readonly 'type': _i_core._T_State_Group<null, 
-                                | readonly ['full', {
-                                    readonly 'cases': _i_core._T_Dictionary<null, _T_Initialization>
-                                }]
-                                | readonly ['partial', {
-                                    readonly 'cases': _i_core._T_Dictionary<null, _T_Initialization>
-                                    readonly 'default': _T_Initialization
-                                }]
-                            >
-                        }]
-                    >
-                }
-                export type SG = 
-                    | readonly ['array', _i_core._T_State_Group<null, 
-                        | readonly ['map', _T_Initialization]
-                    >]
-                    | readonly ['boolean', _i_core._T_State_Group<null, 
-                        | readonly ['not', null]
-                        | readonly ['transform', {
-                            readonly 'if false': _T_Initialization
-                            readonly 'if true': _T_Initialization
-                        }]
-                    >]
-                    | readonly ['dictionary', _i_core._T_State_Group<null, 
-                        | readonly ['map', _T_Initialization]
-                    >]
-                    | readonly ['function', _i_core._T_State_Group<null, 
-                        | readonly ['call', {
-                            readonly 'arguments': _pi.Optional_Value<_i_core._T_Dictionary<null, _T_Initialization>>
-                            readonly 'context': _T_Initialization
-                        }]
-                    >]
-                    | readonly ['optional', _i_core._T_State_Group<null, 
-                        | readonly ['map', _T_Initialization]
-                        | readonly ['transform', {
-                            readonly 'if not set': _T_Initialization
-                            readonly 'if set': _T_Initialization
-                            readonly 'temp resulting node': _pi.Optional_Value<_i_imports_interface._T_Type>
-                        }]
-                    >]
-                    | readonly ['tagged union', _i_core._T_State_Group<null, 
-                        | readonly ['switch', {
-                            readonly 'temp resulting node': _pi.Optional_Value<_i_imports_interface._T_Type>
-                            readonly 'type': _i_core._T_State_Group<null, 
-                                | readonly ['full', {
-                                    readonly 'cases': _i_core._T_Dictionary<null, _T_Initialization>
-                                }]
-                                | readonly ['partial', {
-                                    readonly 'cases': _i_core._T_Dictionary<null, _T_Initialization>
-                                    readonly 'default': _T_Initialization
-                                }]
-                            >
-                        }]
-                    >]
-            }
-            export type _type = _i_core._T_State_Group<null, 
-                | readonly ['array', _i_core._T_State_Group<null, 
-                    | readonly ['map', _T_Initialization]
-                >]
-                | readonly ['boolean', _i_core._T_State_Group<null, 
-                    | readonly ['not', null]
-                    | readonly ['transform', {
-                        readonly 'if false': _T_Initialization
-                        readonly 'if true': _T_Initialization
-                    }]
-                >]
-                | readonly ['dictionary', _i_core._T_State_Group<null, 
-                    | readonly ['map', _T_Initialization]
-                >]
-                | readonly ['function', _i_core._T_State_Group<null, 
-                    | readonly ['call', {
-                        readonly 'arguments': _pi.Optional_Value<_i_core._T_Dictionary<null, _T_Initialization>>
-                        readonly 'context': _T_Initialization
-                    }]
-                >]
-                | readonly ['optional', _i_core._T_State_Group<null, 
-                    | readonly ['map', _T_Initialization]
-                    | readonly ['transform', {
-                        readonly 'if not set': _T_Initialization
-                        readonly 'if set': _T_Initialization
-                        readonly 'temp resulting node': _pi.Optional_Value<_i_imports_interface._T_Type>
-                    }]
-                >]
-                | readonly ['tagged union', _i_core._T_State_Group<null, 
-                    | readonly ['switch', {
-                        readonly 'temp resulting node': _pi.Optional_Value<_i_imports_interface._T_Type>
-                        readonly 'type': _i_core._T_State_Group<null, 
-                            | readonly ['full', {
-                                readonly 'cases': _i_core._T_Dictionary<null, _T_Initialization>
-                            }]
-                            | readonly ['partial', {
-                                readonly 'cases': _i_core._T_Dictionary<null, _T_Initialization>
-                                readonly 'default': _T_Initialization
-                            }]
-                        >
-                    }]
-                >]
-            >
-        }
-        export type transformation = {
-            readonly 'source': _T_Selection
-            readonly 'type': _i_core._T_State_Group<null, 
-                | readonly ['array', _i_core._T_State_Group<null, 
-                    | readonly ['map', _T_Initialization]
-                >]
-                | readonly ['boolean', _i_core._T_State_Group<null, 
-                    | readonly ['not', null]
-                    | readonly ['transform', {
-                        readonly 'if false': _T_Initialization
-                        readonly 'if true': _T_Initialization
-                    }]
-                >]
-                | readonly ['dictionary', _i_core._T_State_Group<null, 
-                    | readonly ['map', _T_Initialization]
-                >]
-                | readonly ['function', _i_core._T_State_Group<null, 
-                    | readonly ['call', {
-                        readonly 'arguments': _pi.Optional_Value<_i_core._T_Dictionary<null, _T_Initialization>>
-                        readonly 'context': _T_Initialization
-                    }]
-                >]
-                | readonly ['optional', _i_core._T_State_Group<null, 
-                    | readonly ['map', _T_Initialization]
-                    | readonly ['transform', {
-                        readonly 'if not set': _T_Initialization
-                        readonly 'if set': _T_Initialization
-                        readonly 'temp resulting node': _pi.Optional_Value<_i_imports_interface._T_Type>
-                    }]
-                >]
-                | readonly ['tagged union', _i_core._T_State_Group<null, 
-                    | readonly ['switch', {
-                        readonly 'temp resulting node': _pi.Optional_Value<_i_imports_interface._T_Type>
-                        readonly 'type': _i_core._T_State_Group<null, 
-                            | readonly ['full', {
-                                readonly 'cases': _i_core._T_Dictionary<null, _T_Initialization>
-                            }]
-                            | readonly ['partial', {
-                                readonly 'cases': _i_core._T_Dictionary<null, _T_Initialization>
-                                readonly 'default': _T_Initialization
-                            }]
-                        >
-                    }]
-                >]
-            >
-        }
-    }
-    export type SG = 
-        | readonly ['block', {
-            readonly 'initialization': _T_Initialization
-            readonly 'temp ordered variables': _i_core._T_List<null, {
-                readonly 'initialization': _T_Initialization
-                readonly 'name': string
-                readonly 'type': _pi.Optional_Value<_i_imports_interface._T_Type>
-            }>
-            readonly 'variables': _T_Variables
-        }]
-        | readonly ['change context', {
-            readonly 'initialization': _T_Initialization
-            readonly 'new context': _T_Selection
-        }]
-        | readonly ['literal', {
-            readonly 'value': _T_Literal
-        }]
-        | readonly ['selection', _T_Selection]
-        | readonly ['transformation', {
-            readonly 'source': _T_Selection
-            readonly 'type': _i_core._T_State_Group<null, 
-                | readonly ['array', _i_core._T_State_Group<null, 
-                    | readonly ['map', _T_Initialization]
-                >]
-                | readonly ['boolean', _i_core._T_State_Group<null, 
-                    | readonly ['not', null]
-                    | readonly ['transform', {
-                        readonly 'if false': _T_Initialization
-                        readonly 'if true': _T_Initialization
-                    }]
-                >]
-                | readonly ['dictionary', _i_core._T_State_Group<null, 
-                    | readonly ['map', _T_Initialization]
-                >]
-                | readonly ['function', _i_core._T_State_Group<null, 
-                    | readonly ['call', {
-                        readonly 'arguments': _pi.Optional_Value<_i_core._T_Dictionary<null, _T_Initialization>>
-                        readonly 'context': _T_Initialization
-                    }]
-                >]
-                | readonly ['optional', _i_core._T_State_Group<null, 
-                    | readonly ['map', _T_Initialization]
-                    | readonly ['transform', {
-                        readonly 'if not set': _T_Initialization
-                        readonly 'if set': _T_Initialization
-                        readonly 'temp resulting node': _pi.Optional_Value<_i_imports_interface._T_Type>
-                    }]
-                >]
-                | readonly ['tagged union', _i_core._T_State_Group<null, 
-                    | readonly ['switch', {
-                        readonly 'temp resulting node': _pi.Optional_Value<_i_imports_interface._T_Type>
-                        readonly 'type': _i_core._T_State_Group<null, 
-                            | readonly ['full', {
-                                readonly 'cases': _i_core._T_Dictionary<null, _T_Initialization>
-                            }]
-                            | readonly ['partial', {
-                                readonly 'cases': _i_core._T_Dictionary<null, _T_Initialization>
-                                readonly 'default': _T_Initialization
-                            }]
-                        >
-                    }]
-                >]
-            >
-        }]
 }
 
 export namespace Literal {
@@ -1893,6 +1357,564 @@ export namespace Literal {
         }]
 }
 
+export namespace Initialization {
+    
+    export namespace SG {
+        
+        export namespace block {
+            
+            export namespace variables {
+            }
+            export type variables = _T_Variables
+            
+            export namespace temp_ordered_variables {
+                
+                export namespace L {
+                    export type name = string
+                    
+                    export namespace _type {
+                        
+                        export namespace O {
+                        }
+                        export type O = _i_imports_interface._T_Type
+                    }
+                    export type _type = _pi.Optional_Value<_i_imports_interface._T_Type>
+                    
+                    export namespace initialization {
+                    }
+                    export type initialization = _T_Initialization
+                }
+                export type L = {
+                    readonly 'name': string
+                    readonly 'type': _pi.Optional_Value<_i_imports_interface._T_Type>
+                    readonly 'initialization': _T_Initialization
+                }
+            }
+            export type temp_ordered_variables = _i_core._T_List<null, {
+                readonly 'name': string
+                readonly 'type': _pi.Optional_Value<_i_imports_interface._T_Type>
+                readonly 'initialization': _T_Initialization
+            }>
+            
+            export namespace initialization {
+            }
+            export type initialization = _T_Initialization
+        }
+        export type block = {
+            readonly 'variables': _T_Variables
+            readonly 'temp ordered variables': _i_core._T_List<null, {
+                readonly 'name': string
+                readonly 'type': _pi.Optional_Value<_i_imports_interface._T_Type>
+                readonly 'initialization': _T_Initialization
+            }>
+            readonly 'initialization': _T_Initialization
+        }
+        
+        export namespace change_context {
+            
+            export namespace new_context {
+            }
+            export type new_context = _T_Selection
+            
+            export namespace initialization {
+            }
+            export type initialization = _T_Initialization
+        }
+        export type change_context = {
+            readonly 'new context': _T_Selection
+            readonly 'initialization': _T_Initialization
+        }
+        
+        export namespace literal {
+            
+            export namespace value {
+            }
+            export type value = _T_Literal
+        }
+        export type literal = {
+            readonly 'value': _T_Literal
+        }
+        
+        export namespace selection {
+        }
+        export type selection = _T_Selection
+        
+        export namespace transformation {
+            
+            export namespace source {
+            }
+            export type source = _T_Selection
+            
+            export namespace _type {
+                
+                export namespace SG {
+                    
+                    export namespace array {
+                        
+                        export namespace SG {
+                            
+                            export namespace map {
+                            }
+                            export type map = _T_Initialization
+                        }
+                        export type SG = 
+                            | readonly ['map', _T_Initialization]
+                    }
+                    export type array = _i_core._T_State_Group<null, 
+                        | readonly ['map', _T_Initialization]
+                    >
+                    
+                    export namespace _boolean {
+                        
+                        export namespace SG {
+                            export type not = null
+                            
+                            export namespace transform {
+                                
+                                export namespace if_false {
+                                }
+                                export type if_false = _T_Initialization
+                                
+                                export namespace if_true {
+                                }
+                                export type if_true = _T_Initialization
+                            }
+                            export type transform = {
+                                readonly 'if false': _T_Initialization
+                                readonly 'if true': _T_Initialization
+                            }
+                        }
+                        export type SG = 
+                            | readonly ['not', null]
+                            | readonly ['transform', {
+                                readonly 'if false': _T_Initialization
+                                readonly 'if true': _T_Initialization
+                            }]
+                    }
+                    export type _boolean = _i_core._T_State_Group<null, 
+                        | readonly ['not', null]
+                        | readonly ['transform', {
+                            readonly 'if false': _T_Initialization
+                            readonly 'if true': _T_Initialization
+                        }]
+                    >
+                    
+                    export namespace dictionary {
+                        
+                        export namespace SG {
+                            
+                            export namespace map {
+                            }
+                            export type map = _T_Initialization
+                        }
+                        export type SG = 
+                            | readonly ['map', _T_Initialization]
+                    }
+                    export type dictionary = _i_core._T_State_Group<null, 
+                        | readonly ['map', _T_Initialization]
+                    >
+                    
+                    export namespace _function {
+                        
+                        export namespace SG {
+                            
+                            export namespace call {
+                                
+                                export namespace context {
+                                }
+                                export type context = _T_Initialization
+                                
+                                export namespace _arguments {
+                                    
+                                    export namespace O {
+                                        
+                                        export namespace D {
+                                        }
+                                        export type D = _T_Initialization
+                                    }
+                                    export type O = _i_core._T_Dictionary<null, _T_Initialization>
+                                }
+                                export type _arguments = _pi.Optional_Value<_i_core._T_Dictionary<null, _T_Initialization>>
+                            }
+                            export type call = {
+                                readonly 'context': _T_Initialization
+                                readonly 'arguments': _pi.Optional_Value<_i_core._T_Dictionary<null, _T_Initialization>>
+                            }
+                        }
+                        export type SG = 
+                            | readonly ['call', {
+                                readonly 'context': _T_Initialization
+                                readonly 'arguments': _pi.Optional_Value<_i_core._T_Dictionary<null, _T_Initialization>>
+                            }]
+                    }
+                    export type _function = _i_core._T_State_Group<null, 
+                        | readonly ['call', {
+                            readonly 'context': _T_Initialization
+                            readonly 'arguments': _pi.Optional_Value<_i_core._T_Dictionary<null, _T_Initialization>>
+                        }]
+                    >
+                    
+                    export namespace optional {
+                        
+                        export namespace SG {
+                            
+                            export namespace map {
+                            }
+                            export type map = _T_Initialization
+                            
+                            export namespace transform {
+                                
+                                export namespace if_not_set {
+                                }
+                                export type if_not_set = _T_Initialization
+                                
+                                export namespace if_set {
+                                }
+                                export type if_set = _T_Initialization
+                                
+                                export namespace temp_resulting_node {
+                                    
+                                    export namespace O {
+                                    }
+                                    export type O = _i_imports_interface._T_Type
+                                }
+                                export type temp_resulting_node = _pi.Optional_Value<_i_imports_interface._T_Type>
+                            }
+                            export type transform = {
+                                readonly 'if not set': _T_Initialization
+                                readonly 'if set': _T_Initialization
+                                readonly 'temp resulting node': _pi.Optional_Value<_i_imports_interface._T_Type>
+                            }
+                        }
+                        export type SG = 
+                            | readonly ['map', _T_Initialization]
+                            | readonly ['transform', {
+                                readonly 'if not set': _T_Initialization
+                                readonly 'if set': _T_Initialization
+                                readonly 'temp resulting node': _pi.Optional_Value<_i_imports_interface._T_Type>
+                            }]
+                    }
+                    export type optional = _i_core._T_State_Group<null, 
+                        | readonly ['map', _T_Initialization]
+                        | readonly ['transform', {
+                            readonly 'if not set': _T_Initialization
+                            readonly 'if set': _T_Initialization
+                            readonly 'temp resulting node': _pi.Optional_Value<_i_imports_interface._T_Type>
+                        }]
+                    >
+                    
+                    export namespace tagged_union {
+                        
+                        export namespace SG {
+                            
+                            export namespace _switch {
+                                
+                                export namespace temp_resulting_node {
+                                    
+                                    export namespace O {
+                                    }
+                                    export type O = _i_imports_interface._T_Type
+                                }
+                                export type temp_resulting_node = _pi.Optional_Value<_i_imports_interface._T_Type>
+                                
+                                export namespace _type {
+                                    
+                                    export namespace SG {
+                                        
+                                        export namespace partial {
+                                            
+                                            export namespace cases {
+                                                
+                                                export namespace D {
+                                                }
+                                                export type D = _T_Initialization
+                                            }
+                                            export type cases = _i_core._T_Dictionary<null, _T_Initialization>
+                                            
+                                            export namespace _default {
+                                            }
+                                            export type _default = _T_Initialization
+                                        }
+                                        export type partial = {
+                                            readonly 'cases': _i_core._T_Dictionary<null, _T_Initialization>
+                                            readonly 'default': _T_Initialization
+                                        }
+                                        
+                                        export namespace full {
+                                            
+                                            export namespace cases {
+                                                
+                                                export namespace D {
+                                                }
+                                                export type D = _T_Initialization
+                                            }
+                                            export type cases = _i_core._T_Dictionary<null, _T_Initialization>
+                                        }
+                                        export type full = {
+                                            readonly 'cases': _i_core._T_Dictionary<null, _T_Initialization>
+                                        }
+                                    }
+                                    export type SG = 
+                                        | readonly ['partial', {
+                                            readonly 'cases': _i_core._T_Dictionary<null, _T_Initialization>
+                                            readonly 'default': _T_Initialization
+                                        }]
+                                        | readonly ['full', {
+                                            readonly 'cases': _i_core._T_Dictionary<null, _T_Initialization>
+                                        }]
+                                }
+                                export type _type = _i_core._T_State_Group<null, 
+                                    | readonly ['partial', {
+                                        readonly 'cases': _i_core._T_Dictionary<null, _T_Initialization>
+                                        readonly 'default': _T_Initialization
+                                    }]
+                                    | readonly ['full', {
+                                        readonly 'cases': _i_core._T_Dictionary<null, _T_Initialization>
+                                    }]
+                                >
+                            }
+                            export type _switch = {
+                                readonly 'temp resulting node': _pi.Optional_Value<_i_imports_interface._T_Type>
+                                readonly 'type': _i_core._T_State_Group<null, 
+                                    | readonly ['partial', {
+                                        readonly 'cases': _i_core._T_Dictionary<null, _T_Initialization>
+                                        readonly 'default': _T_Initialization
+                                    }]
+                                    | readonly ['full', {
+                                        readonly 'cases': _i_core._T_Dictionary<null, _T_Initialization>
+                                    }]
+                                >
+                            }
+                        }
+                        export type SG = 
+                            | readonly ['switch', {
+                                readonly 'temp resulting node': _pi.Optional_Value<_i_imports_interface._T_Type>
+                                readonly 'type': _i_core._T_State_Group<null, 
+                                    | readonly ['partial', {
+                                        readonly 'cases': _i_core._T_Dictionary<null, _T_Initialization>
+                                        readonly 'default': _T_Initialization
+                                    }]
+                                    | readonly ['full', {
+                                        readonly 'cases': _i_core._T_Dictionary<null, _T_Initialization>
+                                    }]
+                                >
+                            }]
+                    }
+                    export type tagged_union = _i_core._T_State_Group<null, 
+                        | readonly ['switch', {
+                            readonly 'temp resulting node': _pi.Optional_Value<_i_imports_interface._T_Type>
+                            readonly 'type': _i_core._T_State_Group<null, 
+                                | readonly ['partial', {
+                                    readonly 'cases': _i_core._T_Dictionary<null, _T_Initialization>
+                                    readonly 'default': _T_Initialization
+                                }]
+                                | readonly ['full', {
+                                    readonly 'cases': _i_core._T_Dictionary<null, _T_Initialization>
+                                }]
+                            >
+                        }]
+                    >
+                }
+                export type SG = 
+                    | readonly ['array', _i_core._T_State_Group<null, 
+                        | readonly ['map', _T_Initialization]
+                    >]
+                    | readonly ['boolean', _i_core._T_State_Group<null, 
+                        | readonly ['not', null]
+                        | readonly ['transform', {
+                            readonly 'if false': _T_Initialization
+                            readonly 'if true': _T_Initialization
+                        }]
+                    >]
+                    | readonly ['dictionary', _i_core._T_State_Group<null, 
+                        | readonly ['map', _T_Initialization]
+                    >]
+                    | readonly ['function', _i_core._T_State_Group<null, 
+                        | readonly ['call', {
+                            readonly 'context': _T_Initialization
+                            readonly 'arguments': _pi.Optional_Value<_i_core._T_Dictionary<null, _T_Initialization>>
+                        }]
+                    >]
+                    | readonly ['optional', _i_core._T_State_Group<null, 
+                        | readonly ['map', _T_Initialization]
+                        | readonly ['transform', {
+                            readonly 'if not set': _T_Initialization
+                            readonly 'if set': _T_Initialization
+                            readonly 'temp resulting node': _pi.Optional_Value<_i_imports_interface._T_Type>
+                        }]
+                    >]
+                    | readonly ['tagged union', _i_core._T_State_Group<null, 
+                        | readonly ['switch', {
+                            readonly 'temp resulting node': _pi.Optional_Value<_i_imports_interface._T_Type>
+                            readonly 'type': _i_core._T_State_Group<null, 
+                                | readonly ['partial', {
+                                    readonly 'cases': _i_core._T_Dictionary<null, _T_Initialization>
+                                    readonly 'default': _T_Initialization
+                                }]
+                                | readonly ['full', {
+                                    readonly 'cases': _i_core._T_Dictionary<null, _T_Initialization>
+                                }]
+                            >
+                        }]
+                    >]
+            }
+            export type _type = _i_core._T_State_Group<null, 
+                | readonly ['array', _i_core._T_State_Group<null, 
+                    | readonly ['map', _T_Initialization]
+                >]
+                | readonly ['boolean', _i_core._T_State_Group<null, 
+                    | readonly ['not', null]
+                    | readonly ['transform', {
+                        readonly 'if false': _T_Initialization
+                        readonly 'if true': _T_Initialization
+                    }]
+                >]
+                | readonly ['dictionary', _i_core._T_State_Group<null, 
+                    | readonly ['map', _T_Initialization]
+                >]
+                | readonly ['function', _i_core._T_State_Group<null, 
+                    | readonly ['call', {
+                        readonly 'context': _T_Initialization
+                        readonly 'arguments': _pi.Optional_Value<_i_core._T_Dictionary<null, _T_Initialization>>
+                    }]
+                >]
+                | readonly ['optional', _i_core._T_State_Group<null, 
+                    | readonly ['map', _T_Initialization]
+                    | readonly ['transform', {
+                        readonly 'if not set': _T_Initialization
+                        readonly 'if set': _T_Initialization
+                        readonly 'temp resulting node': _pi.Optional_Value<_i_imports_interface._T_Type>
+                    }]
+                >]
+                | readonly ['tagged union', _i_core._T_State_Group<null, 
+                    | readonly ['switch', {
+                        readonly 'temp resulting node': _pi.Optional_Value<_i_imports_interface._T_Type>
+                        readonly 'type': _i_core._T_State_Group<null, 
+                            | readonly ['partial', {
+                                readonly 'cases': _i_core._T_Dictionary<null, _T_Initialization>
+                                readonly 'default': _T_Initialization
+                            }]
+                            | readonly ['full', {
+                                readonly 'cases': _i_core._T_Dictionary<null, _T_Initialization>
+                            }]
+                        >
+                    }]
+                >]
+            >
+        }
+        export type transformation = {
+            readonly 'source': _T_Selection
+            readonly 'type': _i_core._T_State_Group<null, 
+                | readonly ['array', _i_core._T_State_Group<null, 
+                    | readonly ['map', _T_Initialization]
+                >]
+                | readonly ['boolean', _i_core._T_State_Group<null, 
+                    | readonly ['not', null]
+                    | readonly ['transform', {
+                        readonly 'if false': _T_Initialization
+                        readonly 'if true': _T_Initialization
+                    }]
+                >]
+                | readonly ['dictionary', _i_core._T_State_Group<null, 
+                    | readonly ['map', _T_Initialization]
+                >]
+                | readonly ['function', _i_core._T_State_Group<null, 
+                    | readonly ['call', {
+                        readonly 'context': _T_Initialization
+                        readonly 'arguments': _pi.Optional_Value<_i_core._T_Dictionary<null, _T_Initialization>>
+                    }]
+                >]
+                | readonly ['optional', _i_core._T_State_Group<null, 
+                    | readonly ['map', _T_Initialization]
+                    | readonly ['transform', {
+                        readonly 'if not set': _T_Initialization
+                        readonly 'if set': _T_Initialization
+                        readonly 'temp resulting node': _pi.Optional_Value<_i_imports_interface._T_Type>
+                    }]
+                >]
+                | readonly ['tagged union', _i_core._T_State_Group<null, 
+                    | readonly ['switch', {
+                        readonly 'temp resulting node': _pi.Optional_Value<_i_imports_interface._T_Type>
+                        readonly 'type': _i_core._T_State_Group<null, 
+                            | readonly ['partial', {
+                                readonly 'cases': _i_core._T_Dictionary<null, _T_Initialization>
+                                readonly 'default': _T_Initialization
+                            }]
+                            | readonly ['full', {
+                                readonly 'cases': _i_core._T_Dictionary<null, _T_Initialization>
+                            }]
+                        >
+                    }]
+                >]
+            >
+        }
+    }
+    export type SG = 
+        | readonly ['block', {
+            readonly 'variables': _T_Variables
+            readonly 'temp ordered variables': _i_core._T_List<null, {
+                readonly 'name': string
+                readonly 'type': _pi.Optional_Value<_i_imports_interface._T_Type>
+                readonly 'initialization': _T_Initialization
+            }>
+            readonly 'initialization': _T_Initialization
+        }]
+        | readonly ['change context', {
+            readonly 'new context': _T_Selection
+            readonly 'initialization': _T_Initialization
+        }]
+        | readonly ['literal', {
+            readonly 'value': _T_Literal
+        }]
+        | readonly ['selection', _T_Selection]
+        | readonly ['transformation', {
+            readonly 'source': _T_Selection
+            readonly 'type': _i_core._T_State_Group<null, 
+                | readonly ['array', _i_core._T_State_Group<null, 
+                    | readonly ['map', _T_Initialization]
+                >]
+                | readonly ['boolean', _i_core._T_State_Group<null, 
+                    | readonly ['not', null]
+                    | readonly ['transform', {
+                        readonly 'if false': _T_Initialization
+                        readonly 'if true': _T_Initialization
+                    }]
+                >]
+                | readonly ['dictionary', _i_core._T_State_Group<null, 
+                    | readonly ['map', _T_Initialization]
+                >]
+                | readonly ['function', _i_core._T_State_Group<null, 
+                    | readonly ['call', {
+                        readonly 'context': _T_Initialization
+                        readonly 'arguments': _pi.Optional_Value<_i_core._T_Dictionary<null, _T_Initialization>>
+                    }]
+                >]
+                | readonly ['optional', _i_core._T_State_Group<null, 
+                    | readonly ['map', _T_Initialization]
+                    | readonly ['transform', {
+                        readonly 'if not set': _T_Initialization
+                        readonly 'if set': _T_Initialization
+                        readonly 'temp resulting node': _pi.Optional_Value<_i_imports_interface._T_Type>
+                    }]
+                >]
+                | readonly ['tagged union', _i_core._T_State_Group<null, 
+                    | readonly ['switch', {
+                        readonly 'temp resulting node': _pi.Optional_Value<_i_imports_interface._T_Type>
+                        readonly 'type': _i_core._T_State_Group<null, 
+                            | readonly ['partial', {
+                                readonly 'cases': _i_core._T_Dictionary<null, _T_Initialization>
+                                readonly 'default': _T_Initialization
+                            }]
+                            | readonly ['full', {
+                                readonly 'cases': _i_core._T_Dictionary<null, _T_Initialization>
+                            }]
+                        >
+                    }]
+                >]
+            >
+        }]
+}
+
 export namespace Module {
     
     export namespace type_imports {
@@ -1999,9 +2021,36 @@ export namespace Selection {
         
         export namespace SG {
             export type abort = null
-            export type argument = string
+            
+            export namespace transform_optional_value {
+                
+                export namespace source {
+                }
+                export type source = _T_Selection
+                
+                export namespace if_not_set {
+                }
+                export type if_not_set = _T_Selection
+                
+                export namespace if_set {
+                }
+                export type if_set = _T_Selection
+            }
+            export type transform_optional_value = {
+                readonly 'source': _T_Selection
+                readonly 'if not set': _T_Selection
+                readonly 'if set': _T_Selection
+            }
             
             export namespace call {
+                
+                export namespace source {
+                }
+                export type source = _T_Selection
+                
+                export namespace context {
+                }
+                export type context = _T_Selection
                 
                 export namespace _arguments {
                     
@@ -2014,22 +2063,17 @@ export namespace Selection {
                     export type O = _i_core._T_Dictionary<null, _T_Initialization>
                 }
                 export type _arguments = _pi.Optional_Value<_i_core._T_Dictionary<null, _T_Initialization>>
-                
-                export namespace context {
-                }
-                export type context = _T_Selection
-                
-                export namespace source {
-                }
-                export type source = _T_Selection
             }
             export type call = {
-                readonly 'arguments': _pi.Optional_Value<_i_core._T_Dictionary<null, _T_Initialization>>
-                readonly 'context': _T_Selection
                 readonly 'source': _T_Selection
+                readonly 'context': _T_Selection
+                readonly 'arguments': _pi.Optional_Value<_i_core._T_Dictionary<null, _T_Initialization>>
             }
-            export type context = null
             export type implement_me = null
+            export type argument = string
+            export type context = null
+            export type variable = string
+            export type parameter = string
             
             export namespace imported_variable {
                 export type _import = string
@@ -2039,72 +2083,50 @@ export namespace Selection {
                 readonly 'import': string
                 readonly 'variable': string
             }
-            export type parameter = string
-            
-            export namespace transform_optional_value {
-                
-                export namespace if_not_set {
-                }
-                export type if_not_set = _T_Selection
-                
-                export namespace if_set {
-                }
-                export type if_set = _T_Selection
-                
-                export namespace source {
-                }
-                export type source = _T_Selection
-            }
-            export type transform_optional_value = {
-                readonly 'if not set': _T_Selection
-                readonly 'if set': _T_Selection
-                readonly 'source': _T_Selection
-            }
-            export type variable = string
         }
         export type SG = 
             | readonly ['abort', null]
-            | readonly ['argument', string]
-            | readonly ['call', {
-                readonly 'arguments': _pi.Optional_Value<_i_core._T_Dictionary<null, _T_Initialization>>
-                readonly 'context': _T_Selection
+            | readonly ['transform optional value', {
                 readonly 'source': _T_Selection
+                readonly 'if not set': _T_Selection
+                readonly 'if set': _T_Selection
             }]
-            | readonly ['context', null]
+            | readonly ['call', {
+                readonly 'source': _T_Selection
+                readonly 'context': _T_Selection
+                readonly 'arguments': _pi.Optional_Value<_i_core._T_Dictionary<null, _T_Initialization>>
+            }]
             | readonly ['implement me', null]
+            | readonly ['argument', string]
+            | readonly ['context', null]
+            | readonly ['variable', string]
+            | readonly ['parameter', string]
             | readonly ['imported variable', {
                 readonly 'import': string
                 readonly 'variable': string
             }]
-            | readonly ['parameter', string]
-            | readonly ['transform optional value', {
-                readonly 'if not set': _T_Selection
-                readonly 'if set': _T_Selection
-                readonly 'source': _T_Selection
-            }]
-            | readonly ['variable', string]
     }
     export type start = _i_core._T_State_Group<null, 
         | readonly ['abort', null]
-        | readonly ['argument', string]
-        | readonly ['call', {
-            readonly 'arguments': _pi.Optional_Value<_i_core._T_Dictionary<null, _T_Initialization>>
-            readonly 'context': _T_Selection
+        | readonly ['transform optional value', {
             readonly 'source': _T_Selection
+            readonly 'if not set': _T_Selection
+            readonly 'if set': _T_Selection
         }]
-        | readonly ['context', null]
+        | readonly ['call', {
+            readonly 'source': _T_Selection
+            readonly 'context': _T_Selection
+            readonly 'arguments': _pi.Optional_Value<_i_core._T_Dictionary<null, _T_Initialization>>
+        }]
         | readonly ['implement me', null]
+        | readonly ['argument', string]
+        | readonly ['context', null]
+        | readonly ['variable', string]
+        | readonly ['parameter', string]
         | readonly ['imported variable', {
             readonly 'import': string
             readonly 'variable': string
         }]
-        | readonly ['parameter', string]
-        | readonly ['transform optional value', {
-            readonly 'if not set': _T_Selection
-            readonly 'if set': _T_Selection
-            readonly 'source': _T_Selection
-        }]
-        | readonly ['variable', string]
     >
     
     export namespace tail {
@@ -2115,26 +2137,4 @@ export namespace Selection {
 
 export namespace Type_Parameters {
     export type D = null
-}
-
-export namespace Variables {
-    
-    export namespace D {
-        
-        export namespace initialization {
-        }
-        export type initialization = _T_Initialization
-        
-        export namespace _type {
-            
-            export namespace O {
-            }
-            export type O = _i_imports_interface._T_Type
-        }
-        export type _type = _pi.Optional_Value<_i_imports_interface._T_Type>
-    }
-    export type D = {
-        readonly 'initialization': _T_Initialization
-        readonly 'type': _pi.Optional_Value<_i_imports_interface._T_Type>
-    }
 }

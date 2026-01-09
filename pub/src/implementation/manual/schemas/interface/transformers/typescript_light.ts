@@ -582,7 +582,7 @@ export const Type_to_Type = (
                 ), ($): s_out_ts.Type => $)
             ))
             case 'computed': return _p.ss($, ($) => sh2.t.type_reference(
-                " et",
+                " pi",
                 ["Computed Value"],
                 [
                     Type_to_Type(
@@ -595,7 +595,7 @@ export const Type_to_Type = (
                 ]
             ))
             case 'dictionary': return _p.ss($, ($) => sh2.t.type_reference(
-                " et",
+                " pi",
                 ["Dictionary"],
                 [
                     Type_to_Type(
@@ -656,7 +656,7 @@ export const Type_to_Type = (
             }))))
 
             case 'array': return _p.ss($, ($) => sh2.t.type_reference(
-                " et",
+                " pi",
                 ["List"],
                 [
                     Type_to_Type(
@@ -671,7 +671,7 @@ export const Type_to_Type = (
             case 'null': return _p.ss($, ($) => sh2.t.null_())
             case 'number': return _p.ss($, ($) => sh2.t.number())
             case 'optional': return _p.ss($, ($) => sh2.t.type_reference(
-                " et",
+                " pi",
                 ["Optional Value"],
                 [
                     Type_to_Type(
