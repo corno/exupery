@@ -297,7 +297,7 @@ export const Initialization = (
                 sh.b.snippet("})"),
             ]))
             case 'change context': return _p.ss($, ($) => sh.b.sub([
-                sh.b.snippet("_p.sg("),
+                sh.b.snippet("_p.deprecated_cc("),
                 Selection($['new context'], $p),
                 sh.b.snippet(", ($) => "),
                 Initialization($.initialization, $p),
